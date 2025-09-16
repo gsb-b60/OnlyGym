@@ -16,6 +16,7 @@ namespace GymManagerment_MVP
         {
             InitializeComponent();
             this.MinimumSize = new Size(1280, 800);
+            // Test Form
         }
 
         private void button1_Click(object sender, EventArgs e)
