@@ -61,5 +61,10 @@ namespace GymManagerment_MVP
         {
 
         }
+
+        private void lvThongTinPT_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -61,6 +61,8 @@
             this.chThoigian = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chKQ = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chGhiChú = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.xoaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnChonHinh = new System.Windows.Forms.Button();
             this.tbDuongDan = new System.Windows.Forms.TextBox();
             this.lblHinhHocVien = new System.Windows.Forms.Label();
@@ -130,18 +132,16 @@
             this.dtpHDNgay2 = new System.Windows.Forms.DateTimePicker();
             this.lblHoaDonNgay1 = new System.Windows.Forms.Label();
             this.lblHoaDonNgay2 = new System.Windows.Forms.Label();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.xoaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pnThongTin.SuspendLayout();
             this.gbSex.SuspendLayout();
             this.gbLichSuTap.SuspendLayout();
+            this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbAvartar)).BeginInit();
             this.gbThongTinPT.SuspendLayout();
             this.gbThongTinGoiTap.SuspendLayout();
             this.gbHoaDonThongTin.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudTongTien2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudTongTien1)).BeginInit();
-            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnThongTin
@@ -178,14 +178,14 @@
             this.pnThongTin.Controls.Add(this.cbPFTrangThai);
             this.pnThongTin.Controls.Add(this.lblPFTrangThai);
             this.pnThongTin.Controls.Add(this.tbPFSDT);
-            this.pnThongTin.Controls.Add(this.lblPFSDT);
             this.pnThongTin.Controls.Add(this.tbPFTen);
+            this.pnThongTin.Controls.Add(this.lblPFSDT);
             this.pnThongTin.Controls.Add(this.lblPFTen);
             this.pnThongTin.Controls.Add(this.pbAvartar);
             this.pnThongTin.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnThongTin.Location = new System.Drawing.Point(0, 0);
             this.pnThongTin.Name = "pnThongTin";
-            this.pnThongTin.Size = new System.Drawing.Size(1196, 461);
+            this.pnThongTin.Size = new System.Drawing.Size(1162, 461);
             this.pnThongTin.TabIndex = 1;
             // 
             // textBox3
@@ -224,7 +224,7 @@
             // 
             // btnRestore
             // 
-            this.btnRestore.Location = new System.Drawing.Point(716, 316);
+            this.btnRestore.Location = new System.Drawing.Point(662, 316);
             this.btnRestore.Name = "btnRestore";
             this.btnRestore.Size = new System.Drawing.Size(75, 23);
             this.btnRestore.TabIndex = 51;
@@ -233,7 +233,7 @@
             // 
             // btnXoa
             // 
-            this.btnXoa.Location = new System.Drawing.Point(716, 259);
+            this.btnXoa.Location = new System.Drawing.Point(662, 259);
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Size = new System.Drawing.Size(75, 23);
             this.btnXoa.TabIndex = 50;
@@ -300,7 +300,7 @@
             this.gbSex.Controls.Add(this.rdNam);
             this.gbSex.Location = new System.Drawing.Point(466, 33);
             this.gbSex.Name = "gbSex";
-            this.gbSex.Size = new System.Drawing.Size(325, 50);
+            this.gbSex.Size = new System.Drawing.Size(271, 50);
             this.gbSex.TabIndex = 41;
             this.gbSex.TabStop = false;
             this.gbSex.Text = "Giới Tính";
@@ -347,7 +347,7 @@
             // 
             // btnSua
             // 
-            this.btnSua.Location = new System.Drawing.Point(716, 286);
+            this.btnSua.Location = new System.Drawing.Point(662, 286);
             this.btnSua.Name = "btnSua";
             this.btnSua.Size = new System.Drawing.Size(75, 23);
             this.btnSua.TabIndex = 38;
@@ -368,7 +368,7 @@
             this.textBox1.Location = new System.Drawing.Point(11, 345);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(780, 95);
+            this.textBox1.Size = new System.Drawing.Size(726, 95);
             this.textBox1.TabIndex = 35;
             // 
             // gbLichSuTap
@@ -376,9 +376,9 @@
             this.gbLichSuTap.Controls.Add(this.btnChiTietLS);
             this.gbLichSuTap.Controls.Add(this.lvLichSuTap);
             this.gbLichSuTap.Dock = System.Windows.Forms.DockStyle.Right;
-            this.gbLichSuTap.Location = new System.Drawing.Point(806, 0);
+            this.gbLichSuTap.Location = new System.Drawing.Point(743, 0);
             this.gbLichSuTap.Name = "gbLichSuTap";
-            this.gbLichSuTap.Size = new System.Drawing.Size(388, 459);
+            this.gbLichSuTap.Size = new System.Drawing.Size(417, 459);
             this.gbLichSuTap.TabIndex = 34;
             this.gbLichSuTap.TabStop = false;
             this.gbLichSuTap.Text = "Lich Su Tap";
@@ -407,7 +407,7 @@
             this.lvLichSuTap.Location = new System.Drawing.Point(3, 16);
             this.lvLichSuTap.Margin = new System.Windows.Forms.Padding(0);
             this.lvLichSuTap.Name = "lvLichSuTap";
-            this.lvLichSuTap.Size = new System.Drawing.Size(382, 408);
+            this.lvLichSuTap.Size = new System.Drawing.Size(411, 408);
             this.lvLichSuTap.TabIndex = 0;
             this.lvLichSuTap.UseCompatibleStateImageBehavior = false;
             this.lvLichSuTap.View = System.Windows.Forms.View.Details;
@@ -427,6 +427,20 @@
             // 
             this.chGhiChú.Text = "Ghi Chú";
             this.chGhiChú.Width = 173;
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.xoaToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(93, 26);
+            this.contextMenuStrip1.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip1_Opening);
+            // 
+            // xoaToolStripMenuItem
+            // 
+            this.xoaToolStripMenuItem.Name = "xoaToolStripMenuItem";
+            this.xoaToolStripMenuItem.Size = new System.Drawing.Size(92, 22);
+            this.xoaToolStripMenuItem.Text = "xoa";
             // 
             // btnChonHinh
             // 
@@ -581,14 +595,14 @@
             this.gbThongTinPT.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.gbThongTinPT.Location = new System.Drawing.Point(0, 1025);
             this.gbThongTinPT.Name = "gbThongTinPT";
-            this.gbThongTinPT.Size = new System.Drawing.Size(1196, 209);
+            this.gbThongTinPT.Size = new System.Drawing.Size(1162, 209);
             this.gbThongTinPT.TabIndex = 2;
             this.gbThongTinPT.TabStop = false;
             this.gbThongTinPT.Text = "Thông tin đăng ký PT";
             // 
             // btnMacDinhPT
             // 
-            this.btnMacDinhPT.Location = new System.Drawing.Point(395, 81);
+            this.btnMacDinhPT.Location = new System.Drawing.Point(349, 80);
             this.btnMacDinhPT.Name = "btnMacDinhPT";
             this.btnMacDinhPT.Size = new System.Drawing.Size(75, 23);
             this.btnMacDinhPT.TabIndex = 11;
@@ -597,7 +611,7 @@
             // 
             // btnLocPT
             // 
-            this.btnLocPT.Location = new System.Drawing.Point(395, 38);
+            this.btnLocPT.Location = new System.Drawing.Point(349, 35);
             this.btnLocPT.Name = "btnLocPT";
             this.btnLocPT.Size = new System.Drawing.Size(75, 23);
             this.btnLocPT.TabIndex = 10;
@@ -685,12 +699,13 @@
             this.lvThongTinPT.Dock = System.Windows.Forms.DockStyle.Right;
             this.lvThongTinPT.GridLines = true;
             this.lvThongTinPT.HideSelection = false;
-            this.lvThongTinPT.Location = new System.Drawing.Point(476, 16);
+            this.lvThongTinPT.Location = new System.Drawing.Point(442, 16);
             this.lvThongTinPT.Name = "lvThongTinPT";
             this.lvThongTinPT.Size = new System.Drawing.Size(717, 190);
             this.lvThongTinPT.TabIndex = 0;
             this.lvThongTinPT.UseCompatibleStateImageBehavior = false;
             this.lvThongTinPT.View = System.Windows.Forms.View.Details;
+            this.lvThongTinPT.SelectedIndexChanged += new System.EventHandler(this.lvThongTinPT_SelectedIndexChanged);
             // 
             // chTenPT
             // 
@@ -732,7 +747,7 @@
             this.gbThongTinGoiTap.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.gbThongTinGoiTap.Location = new System.Drawing.Point(0, 781);
             this.gbThongTinGoiTap.Name = "gbThongTinGoiTap";
-            this.gbThongTinGoiTap.Size = new System.Drawing.Size(1196, 244);
+            this.gbThongTinGoiTap.Size = new System.Drawing.Size(1162, 244);
             this.gbThongTinGoiTap.TabIndex = 3;
             this.gbThongTinGoiTap.TabStop = false;
             this.gbThongTinGoiTap.Text = "Thông tin gói tập";
@@ -740,7 +755,7 @@
             // 
             // btnMD
             // 
-            this.btnMD.Location = new System.Drawing.Point(395, 76);
+            this.btnMD.Location = new System.Drawing.Point(311, 76);
             this.btnMD.Name = "btnMD";
             this.btnMD.Size = new System.Drawing.Size(75, 23);
             this.btnMD.TabIndex = 9;
@@ -749,7 +764,7 @@
             // 
             // btnLoc
             // 
-            this.btnLoc.Location = new System.Drawing.Point(395, 33);
+            this.btnLoc.Location = new System.Drawing.Point(311, 33);
             this.btnLoc.Name = "btnLoc";
             this.btnLoc.Size = new System.Drawing.Size(75, 23);
             this.btnLoc.TabIndex = 8;
@@ -810,7 +825,7 @@
             // 
             // btnDK
             // 
-            this.btnDK.Location = new System.Drawing.Point(373, 192);
+            this.btnDK.Location = new System.Drawing.Point(340, 192);
             this.btnDK.Name = "btnDK";
             this.btnDK.Size = new System.Drawing.Size(97, 23);
             this.btnDK.TabIndex = 1;
@@ -828,7 +843,7 @@
             this.lvTTGoiTap.Dock = System.Windows.Forms.DockStyle.Right;
             this.lvTTGoiTap.GridLines = true;
             this.lvTTGoiTap.HideSelection = false;
-            this.lvTTGoiTap.Location = new System.Drawing.Point(476, 16);
+            this.lvTTGoiTap.Location = new System.Drawing.Point(442, 16);
             this.lvTTGoiTap.Margin = new System.Windows.Forms.Padding(100);
             this.lvTTGoiTap.Name = "lvTTGoiTap";
             this.lvTTGoiTap.Size = new System.Drawing.Size(717, 225);
@@ -879,7 +894,7 @@
             this.gbHoaDonThongTin.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.gbHoaDonThongTin.Location = new System.Drawing.Point(0, 461);
             this.gbHoaDonThongTin.Name = "gbHoaDonThongTin";
-            this.gbHoaDonThongTin.Size = new System.Drawing.Size(1196, 320);
+            this.gbHoaDonThongTin.Size = new System.Drawing.Size(1162, 320);
             this.gbHoaDonThongTin.TabIndex = 4;
             this.gbHoaDonThongTin.TabStop = false;
             this.gbHoaDonThongTin.Text = "sj";
@@ -945,7 +960,7 @@
             // 
             // btnHDMD
             // 
-            this.btnHDMD.Location = new System.Drawing.Point(395, 79);
+            this.btnHDMD.Location = new System.Drawing.Point(340, 84);
             this.btnHDMD.Name = "btnHDMD";
             this.btnHDMD.Size = new System.Drawing.Size(75, 23);
             this.btnHDMD.TabIndex = 17;
@@ -964,7 +979,7 @@
             this.lvThongTinHoaDon.Dock = System.Windows.Forms.DockStyle.Right;
             this.lvThongTinHoaDon.GridLines = true;
             this.lvThongTinHoaDon.HideSelection = false;
-            this.lvThongTinHoaDon.Location = new System.Drawing.Point(476, 16);
+            this.lvThongTinHoaDon.Location = new System.Drawing.Point(442, 16);
             this.lvThongTinHoaDon.Name = "lvThongTinHoaDon";
             this.lvThongTinHoaDon.Size = new System.Drawing.Size(717, 301);
             this.lvThongTinHoaDon.TabIndex = 0;
@@ -1003,7 +1018,7 @@
             // 
             // btnHDLoc
             // 
-            this.btnHDLoc.Location = new System.Drawing.Point(395, 36);
+            this.btnHDLoc.Location = new System.Drawing.Point(340, 41);
             this.btnHDLoc.Name = "btnHDLoc";
             this.btnHDLoc.Size = new System.Drawing.Size(75, 23);
             this.btnHDLoc.TabIndex = 16;
@@ -1046,20 +1061,6 @@
             this.lblHoaDonNgay2.TabIndex = 14;
             this.lblHoaDonNgay2.Text = "Đến Ngày";
             // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.xoaToolStripMenuItem});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(93, 26);
-            this.contextMenuStrip1.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip1_Opening);
-            // 
-            // xoaToolStripMenuItem
-            // 
-            this.xoaToolStripMenuItem.Name = "xoaToolStripMenuItem";
-            this.xoaToolStripMenuItem.Size = new System.Drawing.Size(92, 22);
-            this.xoaToolStripMenuItem.Text = "xoa";
-            // 
             // ThongTinHocVien
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1070,12 +1071,13 @@
             this.Controls.Add(this.gbThongTinPT);
             this.Controls.Add(this.pnThongTin);
             this.Name = "ThongTinHocVien";
-            this.Size = new System.Drawing.Size(1196, 636);
+            this.Size = new System.Drawing.Size(1162, 636);
             this.pnThongTin.ResumeLayout(false);
             this.pnThongTin.PerformLayout();
             this.gbSex.ResumeLayout(false);
             this.gbSex.PerformLayout();
             this.gbLichSuTap.ResumeLayout(false);
+            this.contextMenuStrip1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbAvartar)).EndInit();
             this.gbThongTinPT.ResumeLayout(false);
             this.gbThongTinPT.PerformLayout();
@@ -1085,7 +1087,6 @@
             this.gbHoaDonThongTin.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudTongTien2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudTongTien1)).EndInit();
-            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

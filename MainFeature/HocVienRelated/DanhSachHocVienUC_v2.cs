@@ -35,17 +35,12 @@ namespace GymManagerment_MVP
 
         private void lvDanhSachHV_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (lvDanhSachHV.SelectedItems.Count > 0)
-            {
-                var selectedItem = lvDanhSachHV.SelectedItems[0];
-                string memberId = selectedItem.SubItems[0].Text; // ví dụ cột 0 là ID
-                pnlProfile.Visible = true;
-            }
+
         }
 
         private void btnThoat_Click(object sender, EventArgs e)
         {
-            pnlProfile.Visible = false;
+
         }
 
         private void pnlProfile_Paint(object sender, PaintEventArgs e)
@@ -56,6 +51,47 @@ namespace GymManagerment_MVP
         private void btnPFDangKyPT_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void DanhSachHocVienUC_v2_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pnlDanhSach_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void btnXoa_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkBox5_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnThem_Click(object sender, EventArgs e)
+        {
+            Form frm=new ThemHocVienfrm();
+            frm.ShowDialog();
         }
     }
 }
