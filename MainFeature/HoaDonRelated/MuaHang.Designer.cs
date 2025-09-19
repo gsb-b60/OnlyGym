@@ -31,17 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MuaHang));
             this.pnlDanhSach = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.btnTim = new System.Windows.Forms.Button();
-            this.cbFindB = new System.Windows.Forms.ComboBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.chGTen = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.chgTrangThai = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.chgGoi = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.chgHetHan = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.chLastck = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.chThe = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.chCN = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.lblTuoi = new System.Windows.Forms.Label();
@@ -80,9 +69,12 @@
             this.dtpTuCheckin = new System.Windows.Forms.DateTimePicker();
             this.lblThe = new System.Windows.Forms.Label();
             this.lblTrangThai = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.cbFindB = new System.Windows.Forms.ComboBox();
+            this.btnTim = new System.Windows.Forms.Button();
+            this.flpMain = new System.Windows.Forms.FlowLayoutPanel();
             this.pnlDanhSach.SuspendLayout();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -104,94 +96,17 @@
             // 
             // panel3
             // 
-            this.panel3.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.panel3.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.panel3.Controls.Add(this.flpMain);
             this.panel3.Controls.Add(this.btnTim);
             this.panel3.Controls.Add(this.cbFindB);
             this.panel3.Controls.Add(this.textBox1);
-            this.panel3.Controls.Add(this.dataGridView1);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(207, 0);
             this.panel3.Name = "panel3";
             this.panel3.Padding = new System.Windows.Forms.Padding(20);
             this.panel3.Size = new System.Drawing.Size(770, 701);
             this.panel3.TabIndex = 30;
-            // 
-            // btnTim
-            // 
-            this.btnTim.Location = new System.Drawing.Point(576, 18);
-            this.btnTim.Name = "btnTim";
-            this.btnTim.Size = new System.Drawing.Size(75, 23);
-            this.btnTim.TabIndex = 2;
-            this.btnTim.Text = "Tìm";
-            this.btnTim.UseVisualStyleBackColor = true;
-            // 
-            // cbFindB
-            // 
-            this.cbFindB.FormattingEnabled = true;
-            this.cbFindB.Location = new System.Drawing.Point(20, 18);
-            this.cbFindB.Name = "cbFindB";
-            this.cbFindB.Size = new System.Drawing.Size(121, 21);
-            this.cbFindB.TabIndex = 3;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(161, 18);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(357, 20);
-            this.textBox1.TabIndex = 1;
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.AllowUserToOrderColumns = true;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.chGTen,
-            this.chgTrangThai,
-            this.chgGoi,
-            this.chgHetHan,
-            this.chLastck,
-            this.chThe,
-            this.chCN});
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dataGridView1.Location = new System.Drawing.Point(20, 98);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(730, 583);
-            this.dataGridView1.TabIndex = 0;
-            // 
-            // chGTen
-            // 
-            this.chGTen.HeaderText = "SĐT";
-            this.chGTen.Name = "chGTen";
-            // 
-            // chgTrangThai
-            // 
-            this.chgTrangThai.HeaderText = "Trạng Thái";
-            this.chgTrangThai.Name = "chgTrangThai";
-            // 
-            // chgGoi
-            // 
-            this.chgGoi.HeaderText = "Gói Hiện Tại";
-            this.chgGoi.Name = "chgGoi";
-            // 
-            // chgHetHan
-            // 
-            this.chgHetHan.HeaderText = "Hết Hạn";
-            this.chgHetHan.Name = "chgHetHan";
-            // 
-            // chLastck
-            // 
-            this.chLastck.HeaderText = "Last check in";
-            this.chLastck.Name = "chLastck";
-            // 
-            // chThe
-            // 
-            this.chThe.HeaderText = "Thẻ";
-            this.chThe.Name = "chThe";
-            // 
-            // chCN
-            // 
-            this.chCN.HeaderText = "Công Nợ";
-            this.chCN.Name = "chCN";
             // 
             // panel2
             // 
@@ -587,6 +502,40 @@
             this.lblTrangThai.TabIndex = 21;
             this.lblTrangThai.Text = "Trạng Thái";
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(161, 18);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(483, 20);
+            this.textBox1.TabIndex = 1;
+            // 
+            // cbFindB
+            // 
+            this.cbFindB.FormattingEnabled = true;
+            this.cbFindB.Location = new System.Drawing.Point(20, 18);
+            this.cbFindB.Name = "cbFindB";
+            this.cbFindB.Size = new System.Drawing.Size(121, 21);
+            this.cbFindB.TabIndex = 3;
+            // 
+            // btnTim
+            // 
+            this.btnTim.Location = new System.Drawing.Point(672, 16);
+            this.btnTim.Name = "btnTim";
+            this.btnTim.Size = new System.Drawing.Size(75, 23);
+            this.btnTim.TabIndex = 2;
+            this.btnTim.Text = "Tìm";
+            this.btnTim.UseVisualStyleBackColor = true;
+            // 
+            // flpMain
+            // 
+            this.flpMain.AutoScroll = true;
+            this.flpMain.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.flpMain.Location = new System.Drawing.Point(20, 50);
+            this.flpMain.Name = "flpMain";
+            this.flpMain.Size = new System.Drawing.Size(730, 631);
+            this.flpMain.TabIndex = 4;
+            this.flpMain.Paint += new System.Windows.Forms.PaintEventHandler(this.flpMain_Paint);
+            // 
             // MuaHang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -594,10 +543,10 @@
             this.Controls.Add(this.pnlDanhSach);
             this.Name = "MuaHang";
             this.Size = new System.Drawing.Size(1264, 703);
+            this.Load += new System.EventHandler(this.MuaHang_Load);
             this.pnlDanhSach.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
@@ -614,17 +563,6 @@
 
         private System.Windows.Forms.Panel pnlDanhSach;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Button btnTim;
-        private System.Windows.Forms.ComboBox cbFindB;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn chGTen;
-        private System.Windows.Forms.DataGridViewTextBoxColumn chgTrangThai;
-        private System.Windows.Forms.DataGridViewTextBoxColumn chgGoi;
-        private System.Windows.Forms.DataGridViewTextBoxColumn chgHetHan;
-        private System.Windows.Forms.DataGridViewTextBoxColumn chLastck;
-        private System.Windows.Forms.DataGridViewTextBoxColumn chThe;
-        private System.Windows.Forms.DataGridViewTextBoxColumn chCN;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label lblTuoi;
@@ -663,5 +601,9 @@
         private System.Windows.Forms.DateTimePicker dtpTuCheckin;
         private System.Windows.Forms.Label lblThe;
         private System.Windows.Forms.Label lblTrangThai;
+        private System.Windows.Forms.Button btnTim;
+        private System.Windows.Forms.ComboBox cbFindB;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.FlowLayoutPanel flpMain;
     }
 }

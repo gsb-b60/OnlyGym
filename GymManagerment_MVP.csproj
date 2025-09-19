@@ -48,6 +48,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MainFeature\HoaDonRelated\GoiTapUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MainFeature\HoaDonRelated\GoiTapUC.Designer.cs">
+      <DependentUpon>GoiTapUC.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainFeature\HocVienRelated\CheckinKhachVaoUC.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -170,6 +176,9 @@
     <Compile Include="Storage\XuatHoaDonUC.Designer.cs">
       <DependentUpon>XuatHoaDonUC.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="MainFeature\HoaDonRelated\GoiTapUC.resx">
+      <DependentUpon>GoiTapUC.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainFeature\HocVienRelated\CheckinKhachVaoUC.resx">
       <DependentUpon>CheckinKhachVaoUC.cs</DependentUpon>
     </EmbeddedResource>

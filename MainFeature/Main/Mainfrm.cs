@@ -70,7 +70,7 @@ namespace GymManagerment_MVP
 
         private void btnQuanLyNhanVien_Click(object sender, EventArgs e)
         {
-            loadUserControl(new QuanLyNhanVienUC());
+            loadUserControl(new MuaHang());
         }
 
         private void btnXuatHoaDon_Click(object sender, EventArgs e)
