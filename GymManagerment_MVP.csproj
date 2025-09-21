@@ -48,17 +48,53 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MainFeature\HoaDonRelated\GoiTapUC.cs">
+    <Compile Include="MainFeature\HoaDonRelated\GoiTap\BanGoi.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="MainFeature\HoaDonRelated\GoiTapUC.Designer.cs">
+    <Compile Include="MainFeature\HoaDonRelated\GoiTap\BanGoi.Designer.cs">
+      <DependentUpon>BanGoi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainFeature\HoaDonRelated\GoiTap\ChangePackagefrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainFeature\HoaDonRelated\GoiTap\ChangePackagefrm.Designer.cs">
+      <DependentUpon>ChangePackagefrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainFeature\HoaDonRelated\GoiTap\DurationThangUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MainFeature\HoaDonRelated\GoiTap\DurationThangUC.Designer.cs">
+      <DependentUpon>DurationThangUC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainFeature\HoaDonRelated\GoiTap\GoiTapUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MainFeature\HoaDonRelated\GoiTap\GoiTapUC.Designer.cs">
       <DependentUpon>GoiTapUC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainFeature\HoaDonRelated\GoiTap\ThemGoiTapfrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainFeature\HoaDonRelated\GoiTap\ThemGoiTapfrm.Designer.cs">
+      <DependentUpon>ThemGoiTapfrm.cs</DependentUpon>
     </Compile>
     <Compile Include="MainFeature\HoaDonRelated\MuaGoiTap.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="MainFeature\HoaDonRelated\MuaGoiTap.Designer.cs">
       <DependentUpon>MuaGoiTap.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainFeature\HoaDonRelated\PT\DangKyPT.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MainFeature\HoaDonRelated\PT\DangKyPT.Designer.cs">
+      <DependentUpon>DangKyPT.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainFeature\HoaDonRelated\SanPhamUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MainFeature\HoaDonRelated\SanPhamUC.Designer.cs">
+      <DependentUpon>SanPhamUC.cs</DependentUpon>
     </Compile>
     <Compile Include="MainFeature\HocVienRelated\CheckinKhachVaoUC.cs">
       <SubType>UserControl</SubType>
@@ -72,10 +108,10 @@
     <Compile Include="MainFeature\ThanhToanRelated\DangKyGoiTap.Designer.cs">
       <DependentUpon>DangKyGoiTap.cs</DependentUpon>
     </Compile>
-    <Compile Include="MainFeature\HoaDonRelated\DanhSachHoaDonUC.cs">
+    <Compile Include="MainFeature\HoaDonRelated\HoaDon\DanhSachHoaDonUC.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="MainFeature\HoaDonRelated\DanhSachHoaDonUC.Designer.cs">
+    <Compile Include="MainFeature\HoaDonRelated\HoaDon\DanhSachHoaDonUC.Designer.cs">
       <DependentUpon>DanhSachHoaDonUC.cs</DependentUpon>
     </Compile>
     <Compile Include="Storage\DanhSachHocVienUC.cs">
@@ -182,11 +218,29 @@
     <Compile Include="Storage\XuatHoaDonUC.Designer.cs">
       <DependentUpon>XuatHoaDonUC.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="MainFeature\HoaDonRelated\GoiTapUC.resx">
+    <EmbeddedResource Include="MainFeature\HoaDonRelated\GoiTap\BanGoi.resx">
+      <DependentUpon>BanGoi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainFeature\HoaDonRelated\GoiTap\ChangePackagefrm.resx">
+      <DependentUpon>ChangePackagefrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainFeature\HoaDonRelated\GoiTap\DurationThangUC.resx">
+      <DependentUpon>DurationThangUC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainFeature\HoaDonRelated\GoiTap\GoiTapUC.resx">
       <DependentUpon>GoiTapUC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainFeature\HoaDonRelated\GoiTap\ThemGoiTapfrm.resx">
+      <DependentUpon>ThemGoiTapfrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainFeature\HoaDonRelated\MuaGoiTap.resx">
       <DependentUpon>MuaGoiTap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainFeature\HoaDonRelated\PT\DangKyPT.resx">
+      <DependentUpon>DangKyPT.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainFeature\HoaDonRelated\SanPhamUC.resx">
+      <DependentUpon>SanPhamUC.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainFeature\HocVienRelated\CheckinKhachVaoUC.resx">
       <DependentUpon>CheckinKhachVaoUC.cs</DependentUpon>
@@ -194,7 +248,7 @@
     <EmbeddedResource Include="MainFeature\ThanhToanRelated\DangKyGoiTap.resx">
       <DependentUpon>DangKyGoiTap.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainFeature\HoaDonRelated\DanhSachHoaDonUC.resx">
+    <EmbeddedResource Include="MainFeature\HoaDonRelated\HoaDon\DanhSachHoaDonUC.resx">
       <DependentUpon>DanhSachHoaDonUC.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Storage\DanhSachHocVienUC.resx">
@@ -268,6 +322,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="MainFeature\HoaDonRelated\SanPham\" />
     <Folder Include="MainFeature\PTRealated\" />
     <Folder Include="MainFeature\ThongKeRelated\" />
   </ItemGroup>

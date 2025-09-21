@@ -41,13 +41,8 @@
             this.pnlMenu = new System.Windows.Forms.Panel();
             this.btnDanhSachKH = new System.Windows.Forms.Button();
             this.btnThongTinKH = new System.Windows.Forms.Button();
-            this.btnHDPT = new System.Windows.Forms.Button();
             this.btnCheckin = new System.Windows.Forms.Button();
-            this.btnXuatHoaDon = new System.Windows.Forms.Button();
             this.btnQuanLyNhanVien = new System.Windows.Forms.Button();
-            this.btnThongKeDoanhThu = new System.Windows.Forms.Button();
-            this.btnDanhSachThietBi = new System.Windows.Forms.Button();
-            this.btnDanhSachKhachHang = new System.Windows.Forms.Button();
             this.pnlContent = new System.Windows.Forms.Panel();
             this.pnlHome.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -144,13 +139,8 @@
             this.pnlMenu.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.pnlMenu.Controls.Add(this.btnDanhSachKH);
             this.pnlMenu.Controls.Add(this.btnThongTinKH);
-            this.pnlMenu.Controls.Add(this.btnHDPT);
             this.pnlMenu.Controls.Add(this.btnCheckin);
-            this.pnlMenu.Controls.Add(this.btnXuatHoaDon);
             this.pnlMenu.Controls.Add(this.btnQuanLyNhanVien);
-            this.pnlMenu.Controls.Add(this.btnThongKeDoanhThu);
-            this.pnlMenu.Controls.Add(this.btnDanhSachThietBi);
-            this.pnlMenu.Controls.Add(this.btnDanhSachKhachHang);
             this.pnlMenu.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlMenu.Location = new System.Drawing.Point(0, 27);
             this.pnlMenu.Name = "pnlMenu";
@@ -161,7 +151,7 @@
             // btnDanhSachKH
             // 
             this.btnDanhSachKH.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnDanhSachKH.Location = new System.Drawing.Point(1039, 0);
+            this.btnDanhSachKH.Location = new System.Drawing.Point(296, 0);
             this.btnDanhSachKH.Name = "btnDanhSachKH";
             this.btnDanhSachKH.Size = new System.Drawing.Size(139, 31);
             this.btnDanhSachKH.TabIndex = 8;
@@ -172,7 +162,7 @@
             // btnThongTinKH
             // 
             this.btnThongTinKH.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnThongTinKH.Location = new System.Drawing.Point(900, 0);
+            this.btnThongTinKH.Location = new System.Drawing.Point(157, 0);
             this.btnThongTinKH.Name = "btnThongTinKH";
             this.btnThongTinKH.Size = new System.Drawing.Size(139, 31);
             this.btnThongTinKH.TabIndex = 7;
@@ -180,21 +170,10 @@
             this.btnThongTinKH.UseVisualStyleBackColor = true;
             this.btnThongTinKH.Click += new System.EventHandler(this.button1_Click_1);
             // 
-            // btnHDPT
-            // 
-            this.btnHDPT.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnHDPT.Location = new System.Drawing.Point(739, 0);
-            this.btnHDPT.Name = "btnHDPT";
-            this.btnHDPT.Size = new System.Drawing.Size(161, 31);
-            this.btnHDPT.TabIndex = 6;
-            this.btnHDPT.Text = "Quản  Lý Huấn Luyện Viên";
-            this.btnHDPT.UseVisualStyleBackColor = true;
-            this.btnHDPT.Click += new System.EventHandler(this.btnHDPT_Click);
-            // 
             // btnCheckin
             // 
             this.btnCheckin.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnCheckin.Location = new System.Drawing.Point(673, 0);
+            this.btnCheckin.Location = new System.Drawing.Point(91, 0);
             this.btnCheckin.Name = "btnCheckin";
             this.btnCheckin.Size = new System.Drawing.Size(66, 31);
             this.btnCheckin.TabIndex = 5;
@@ -202,60 +181,16 @@
             this.btnCheckin.UseVisualStyleBackColor = true;
             this.btnCheckin.Click += new System.EventHandler(this.btnCheckin_Click);
             // 
-            // btnXuatHoaDon
-            // 
-            this.btnXuatHoaDon.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnXuatHoaDon.Location = new System.Drawing.Point(525, 0);
-            this.btnXuatHoaDon.Name = "btnXuatHoaDon";
-            this.btnXuatHoaDon.Size = new System.Drawing.Size(148, 31);
-            this.btnXuatHoaDon.TabIndex = 4;
-            this.btnXuatHoaDon.Text = "Xuat Hoa Don";
-            this.btnXuatHoaDon.UseVisualStyleBackColor = true;
-            this.btnXuatHoaDon.Click += new System.EventHandler(this.btnXuatHoaDon_Click);
-            // 
             // btnQuanLyNhanVien
             // 
             this.btnQuanLyNhanVien.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnQuanLyNhanVien.Location = new System.Drawing.Point(434, 0);
+            this.btnQuanLyNhanVien.Location = new System.Drawing.Point(0, 0);
             this.btnQuanLyNhanVien.Name = "btnQuanLyNhanVien";
             this.btnQuanLyNhanVien.Size = new System.Drawing.Size(91, 31);
             this.btnQuanLyNhanVien.TabIndex = 3;
             this.btnQuanLyNhanVien.Text = "Mua Hàng";
             this.btnQuanLyNhanVien.UseVisualStyleBackColor = true;
             this.btnQuanLyNhanVien.Click += new System.EventHandler(this.btnQuanLyNhanVien_Click);
-            // 
-            // btnThongKeDoanhThu
-            // 
-            this.btnThongKeDoanhThu.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnThongKeDoanhThu.Location = new System.Drawing.Point(269, 0);
-            this.btnThongKeDoanhThu.Name = "btnThongKeDoanhThu";
-            this.btnThongKeDoanhThu.Size = new System.Drawing.Size(165, 31);
-            this.btnThongKeDoanhThu.TabIndex = 2;
-            this.btnThongKeDoanhThu.Text = "Thong Ke Doanh Thu";
-            this.btnThongKeDoanhThu.UseVisualStyleBackColor = true;
-            this.btnThongKeDoanhThu.Click += new System.EventHandler(this.btnThongKeDoanhThu_Click);
-            // 
-            // btnDanhSachThietBi
-            // 
-            this.btnDanhSachThietBi.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnDanhSachThietBi.Location = new System.Drawing.Point(139, 0);
-            this.btnDanhSachThietBi.Name = "btnDanhSachThietBi";
-            this.btnDanhSachThietBi.Size = new System.Drawing.Size(130, 31);
-            this.btnDanhSachThietBi.TabIndex = 1;
-            this.btnDanhSachThietBi.Text = "Danh Sach Thiet Bi";
-            this.btnDanhSachThietBi.UseVisualStyleBackColor = true;
-            this.btnDanhSachThietBi.Click += new System.EventHandler(this.btnDanhSachThietBi_Click);
-            // 
-            // btnDanhSachKhachHang
-            // 
-            this.btnDanhSachKhachHang.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnDanhSachKhachHang.Location = new System.Drawing.Point(0, 0);
-            this.btnDanhSachKhachHang.Name = "btnDanhSachKhachHang";
-            this.btnDanhSachKhachHang.Size = new System.Drawing.Size(139, 31);
-            this.btnDanhSachKhachHang.TabIndex = 0;
-            this.btnDanhSachKhachHang.Text = "Danh Sach Khac Hang";
-            this.btnDanhSachKhachHang.UseVisualStyleBackColor = true;
-            this.btnDanhSachKhachHang.Click += new System.EventHandler(this.btnDanhSachKhachHang_Click);
             // 
             // pnlContent
             // 
@@ -291,15 +226,10 @@
         private System.Windows.Forms.Panel pnlHome;
         private System.Windows.Forms.Panel pnlMenu;
         private System.Windows.Forms.Panel pnlContent;
-        private System.Windows.Forms.Button btnDanhSachKhachHang;
         private System.Windows.Forms.Button btnQuanLyNhanVien;
-        private System.Windows.Forms.Button btnThongKeDoanhThu;
-        private System.Windows.Forms.Button btnDanhSachThietBi;
-        private System.Windows.Forms.Button btnXuatHoaDon;
         private System.Windows.Forms.Label lblChucVu;
         private System.Windows.Forms.Label lblAccName;
         private System.Windows.Forms.Button btnCheckin;
-        private System.Windows.Forms.Button btnHDPT;
         private System.Windows.Forms.Button btnThongTinKH;
         private System.Windows.Forms.Button btnDanhSachKH;
         private System.Windows.Forms.MenuStrip menuStrip1;

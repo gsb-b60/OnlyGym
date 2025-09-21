@@ -1,4 +1,5 @@
 ﻿using GymManagerment_MVP.MainFeature.HoaDonRelated;
+using GymManagerment_MVP.MainFeature.HoaDonRelated.PT;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -27,21 +28,29 @@ namespace GymManagerment_MVP
         private void MuaHang_Load(object sender, EventArgs e)
         {
 
-            for (int i = 1; i <= 5; i++)
-            {
-                GoiTapUC goiTapUC = new GoiTapUC();
-                goiTapUC.setPacketIndor($"goi {i}", $"{i}0 Buổi", 0);
-                tb2flp.Controls.Add(goiTapUC);
-            }
-            for (int i = 1; i <= 5; i++)
-            {
-                GoiTapUC goiTapUC = new GoiTapUC();
-                goiTapUC.setPacketIndor($"goi {i}", $"{i} Tháng", 0);
-                tb1flp1.Controls.Add(goiTapUC);
-            }
+           BanGoi banGoi = new BanGoi();
+            banGoi.Dock= DockStyle.Fill;
+            pnGoiTap.Controls.Add(banGoi);
+            banGoi.BringToFront();
+
+
+            DangKyPT dangKyPT = new DangKyPT();
+            dangKyPT.Dock= DockStyle.Fill;
+            pnPT.Controls.Add(dangKyPT);
+            dangKyPT.BringToFront();
         }
 
         private void tabControl1_DrawItem(object sender, DrawItemEventArgs e)
+        {
+
+        }
+
+        private void tabPage1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pnPT_Paint(object sender, PaintEventArgs e)
         {
 
         }

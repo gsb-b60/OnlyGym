@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GymManagerment_MVP.MainFeature.HoaDonRelated.GoiTap;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -48,6 +49,22 @@ namespace GymManagerment_MVP.MainFeature.HoaDonRelated
         {
             MuaGoiTap frm = new MuaGoiTap();
             frm.ShowDialog();
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pbSetting_Click(object sender, EventArgs e)
+        {
+            ChangePackagefrm frm = new ChangePackagefrm();
+            frm.ShowDialog();
+        }
+
+        private void cmsConfig_Opening(object sender, CancelEventArgs e)
+        {
+
         }
     }
 }
