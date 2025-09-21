@@ -28,5 +28,26 @@ namespace GymManagerment_MVP.MainFeature.HoaDonRelated
         {
             InitializeComponent();
         }
+
+        private void GoiTapUC_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnMuaGoi_Click(object sender, EventArgs e)
+        {
+            MuaGoiTap frm = new MuaGoiTap();
+            frm.ShowDialog();
+        }
     }
 }

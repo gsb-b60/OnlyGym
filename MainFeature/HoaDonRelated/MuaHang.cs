@@ -26,27 +26,24 @@ namespace GymManagerment_MVP
 
         private void MuaHang_Load(object sender, EventArgs e)
         {
-            flpMain.Controls.Clear();
 
-            string duration = "Buoi";
-            int count;
-            
-            for (int i = 1; i < 20; i++)
+            for (int i = 1; i <= 5; i++)
             {
-                int status = i % 2==0 ? 1 : 0;
-                if (i > 4)
-                {
-                    duration = "Tháng";
-                    count = i - 4;
-                }
-                else
-                {
-                    count = (i+1)*10;
-                }
                 GoiTapUC goiTapUC = new GoiTapUC();
-                goiTapUC.setPacketIndor($"goi {i}", $"{count} {duration}",status );
-                flpMain.Controls.Add(goiTapUC);
+                goiTapUC.setPacketIndor($"goi {i}", $"{i}0 Buổi", 0);
+                tb2flp.Controls.Add(goiTapUC);
             }
+            for (int i = 1; i <= 5; i++)
+            {
+                GoiTapUC goiTapUC = new GoiTapUC();
+                goiTapUC.setPacketIndor($"goi {i}", $"{i} Tháng", 0);
+                tb1flp1.Controls.Add(goiTapUC);
+            }
+        }
+
+        private void tabControl1_DrawItem(object sender, DrawItemEventArgs e)
+        {
+
         }
     }
 }
