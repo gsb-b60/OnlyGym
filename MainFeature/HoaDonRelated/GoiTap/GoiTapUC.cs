@@ -13,9 +13,6 @@ namespace GymManagerment_MVP.MainFeature.HoaDonRelated
 {
     public partial class GoiTapUC : UserControl
     {
-        string name {  get; set; }
-
-        string duration { get; set; }
 
 
         public void setPacketIndor(string name,string duration,int status)

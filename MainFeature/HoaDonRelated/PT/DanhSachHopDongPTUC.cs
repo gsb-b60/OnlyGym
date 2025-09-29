@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace GymManagerment_MVP.MainFeature.HoaDonRelated.PT
 {
-    public partial class DangKyPT : UserControl
+    public partial class DanhSachHopDongPTUC : UserControl
     {
-        public DangKyPT()
+        public DanhSachHopDongPTUC()
         {
             InitializeComponent();
         }

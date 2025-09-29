@@ -40,23 +40,23 @@
             this.cbFindB = new System.Windows.Forms.ComboBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.pnlLoc = new System.Windows.Forms.Panel();
-            this.btnChinhSuaGoi = new System.Windows.Forms.Button();
-            this.btnXoa = new System.Windows.Forms.Button();
-            this.cbXoa = new System.Windows.Forms.CheckBox();
-            this.lblT = new System.Windows.Forms.Label();
-            this.lblTKTong = new System.Windows.Forms.Label();
-            this.lblTT = new System.Windows.Forms.Label();
-            this.cbActive = new System.Windows.Forms.CheckBox();
-            this.cbUnActive = new System.Windows.Forms.CheckBox();
-            this.lblDaXoa = new System.Windows.Forms.Label();
-            this.lblKHD = new System.Windows.Forms.Label();
-            this.lblDHD = new System.Windows.Forms.Label();
             this.gbLastCheck = new System.Windows.Forms.GroupBox();
             this.dtpDenCheckin = new System.Windows.Forms.DateTimePicker();
             this.btnLoc = new System.Windows.Forms.Button();
             this.lblDen = new System.Windows.Forms.Label();
             this.lblTu = new System.Windows.Forms.Label();
             this.dtpTuCheckin = new System.Windows.Forms.DateTimePicker();
+            this.lblDHD = new System.Windows.Forms.Label();
+            this.lblKHD = new System.Windows.Forms.Label();
+            this.lblDaXoa = new System.Windows.Forms.Label();
+            this.cbUnActive = new System.Windows.Forms.CheckBox();
+            this.cbActive = new System.Windows.Forms.CheckBox();
+            this.lblTT = new System.Windows.Forms.Label();
+            this.lblTKTong = new System.Windows.Forms.Label();
+            this.lblT = new System.Windows.Forms.Label();
+            this.cbXoa = new System.Windows.Forms.CheckBox();
+            this.btnChinhSuaGoi = new System.Windows.Forms.Button();
+            this.btnXoa = new System.Windows.Forms.Button();
             this.panel3.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -203,110 +203,6 @@
             this.pnlLoc.Size = new System.Drawing.Size(207, 648);
             this.pnlLoc.TabIndex = 31;
             // 
-            // btnChinhSuaGoi
-            // 
-            this.btnChinhSuaGoi.Location = new System.Drawing.Point(23, 418);
-            this.btnChinhSuaGoi.Name = "btnChinhSuaGoi";
-            this.btnChinhSuaGoi.Size = new System.Drawing.Size(167, 23);
-            this.btnChinhSuaGoi.TabIndex = 40;
-            this.btnChinhSuaGoi.Text = "Thêm Gói Tập";
-            this.btnChinhSuaGoi.UseVisualStyleBackColor = true;
-            this.btnChinhSuaGoi.Click += new System.EventHandler(this.btnChinhSuaGoi_Click);
-            // 
-            // btnXoa
-            // 
-            this.btnXoa.Location = new System.Drawing.Point(23, 378);
-            this.btnXoa.Name = "btnXoa";
-            this.btnXoa.Size = new System.Drawing.Size(167, 23);
-            this.btnXoa.TabIndex = 26;
-            this.btnXoa.Text = "Xóa tất cả";
-            this.btnXoa.UseVisualStyleBackColor = true;
-            // 
-            // cbXoa
-            // 
-            this.cbXoa.AutoSize = true;
-            this.cbXoa.Location = new System.Drawing.Point(23, 156);
-            this.cbXoa.Name = "cbXoa";
-            this.cbXoa.Size = new System.Drawing.Size(62, 17);
-            this.cbXoa.TabIndex = 41;
-            this.cbXoa.Text = "Đã Xóa";
-            this.cbXoa.UseVisualStyleBackColor = true;
-            // 
-            // lblT
-            // 
-            this.lblT.AutoSize = true;
-            this.lblT.Location = new System.Drawing.Point(23, 16);
-            this.lblT.Name = "lblT";
-            this.lblT.Size = new System.Drawing.Size(32, 13);
-            this.lblT.TabIndex = 42;
-            this.lblT.Text = "Tổng";
-            // 
-            // lblTKTong
-            // 
-            this.lblTKTong.AutoSize = true;
-            this.lblTKTong.Location = new System.Drawing.Point(165, 17);
-            this.lblTKTong.Name = "lblTKTong";
-            this.lblTKTong.Size = new System.Drawing.Size(19, 13);
-            this.lblTKTong.TabIndex = 43;
-            this.lblTKTong.Text = "12";
-            // 
-            // lblTT
-            // 
-            this.lblTT.AutoSize = true;
-            this.lblTT.Location = new System.Drawing.Point(20, 59);
-            this.lblTT.Name = "lblTT";
-            this.lblTT.Size = new System.Drawing.Size(59, 13);
-            this.lblTT.TabIndex = 44;
-            this.lblTT.Text = "Trạng Thái";
-            // 
-            // cbActive
-            // 
-            this.cbActive.AutoSize = true;
-            this.cbActive.Location = new System.Drawing.Point(23, 89);
-            this.cbActive.Name = "cbActive";
-            this.cbActive.Size = new System.Drawing.Size(107, 17);
-            this.cbActive.TabIndex = 45;
-            this.cbActive.Text = "Đang Hoạt Động";
-            this.cbActive.UseVisualStyleBackColor = true;
-            // 
-            // cbUnActive
-            // 
-            this.cbUnActive.AutoSize = true;
-            this.cbUnActive.Location = new System.Drawing.Point(23, 124);
-            this.cbUnActive.Name = "cbUnActive";
-            this.cbUnActive.Size = new System.Drawing.Size(112, 17);
-            this.cbUnActive.TabIndex = 46;
-            this.cbUnActive.Text = "Không Hoạt Động";
-            this.cbUnActive.UseVisualStyleBackColor = true;
-            // 
-            // lblDaXoa
-            // 
-            this.lblDaXoa.AutoSize = true;
-            this.lblDaXoa.Location = new System.Drawing.Point(165, 157);
-            this.lblDaXoa.Name = "lblDaXoa";
-            this.lblDaXoa.Size = new System.Drawing.Size(19, 13);
-            this.lblDaXoa.TabIndex = 47;
-            this.lblDaXoa.Text = "30";
-            this.lblDaXoa.Click += new System.EventHandler(this.lblDaXoa_Click);
-            // 
-            // lblKHD
-            // 
-            this.lblKHD.AutoSize = true;
-            this.lblKHD.Location = new System.Drawing.Point(171, 125);
-            this.lblKHD.Name = "lblKHD";
-            this.lblKHD.Size = new System.Drawing.Size(13, 13);
-            this.lblKHD.TabIndex = 48;
-            this.lblKHD.Text = "5";
-            // 
-            // lblDHD
-            // 
-            this.lblDHD.AutoSize = true;
-            this.lblDHD.Location = new System.Drawing.Point(165, 89);
-            this.lblDHD.Name = "lblDHD";
-            this.lblDHD.Size = new System.Drawing.Size(19, 13);
-            this.lblDHD.TabIndex = 49;
-            this.lblDHD.Text = "10";
-            // 
             // gbLastCheck
             // 
             this.gbLastCheck.Controls.Add(this.dtpDenCheckin);
@@ -365,6 +261,110 @@
             this.dtpTuCheckin.Name = "dtpTuCheckin";
             this.dtpTuCheckin.Size = new System.Drawing.Size(105, 20);
             this.dtpTuCheckin.TabIndex = 21;
+            // 
+            // lblDHD
+            // 
+            this.lblDHD.AutoSize = true;
+            this.lblDHD.Location = new System.Drawing.Point(165, 89);
+            this.lblDHD.Name = "lblDHD";
+            this.lblDHD.Size = new System.Drawing.Size(19, 13);
+            this.lblDHD.TabIndex = 49;
+            this.lblDHD.Text = "10";
+            // 
+            // lblKHD
+            // 
+            this.lblKHD.AutoSize = true;
+            this.lblKHD.Location = new System.Drawing.Point(171, 125);
+            this.lblKHD.Name = "lblKHD";
+            this.lblKHD.Size = new System.Drawing.Size(13, 13);
+            this.lblKHD.TabIndex = 48;
+            this.lblKHD.Text = "5";
+            // 
+            // lblDaXoa
+            // 
+            this.lblDaXoa.AutoSize = true;
+            this.lblDaXoa.Location = new System.Drawing.Point(165, 157);
+            this.lblDaXoa.Name = "lblDaXoa";
+            this.lblDaXoa.Size = new System.Drawing.Size(19, 13);
+            this.lblDaXoa.TabIndex = 47;
+            this.lblDaXoa.Text = "30";
+            this.lblDaXoa.Click += new System.EventHandler(this.lblDaXoa_Click);
+            // 
+            // cbUnActive
+            // 
+            this.cbUnActive.AutoSize = true;
+            this.cbUnActive.Location = new System.Drawing.Point(23, 124);
+            this.cbUnActive.Name = "cbUnActive";
+            this.cbUnActive.Size = new System.Drawing.Size(112, 17);
+            this.cbUnActive.TabIndex = 46;
+            this.cbUnActive.Text = "Không Hoạt Động";
+            this.cbUnActive.UseVisualStyleBackColor = true;
+            // 
+            // cbActive
+            // 
+            this.cbActive.AutoSize = true;
+            this.cbActive.Location = new System.Drawing.Point(23, 89);
+            this.cbActive.Name = "cbActive";
+            this.cbActive.Size = new System.Drawing.Size(107, 17);
+            this.cbActive.TabIndex = 45;
+            this.cbActive.Text = "Đang Hoạt Động";
+            this.cbActive.UseVisualStyleBackColor = true;
+            // 
+            // lblTT
+            // 
+            this.lblTT.AutoSize = true;
+            this.lblTT.Location = new System.Drawing.Point(20, 59);
+            this.lblTT.Name = "lblTT";
+            this.lblTT.Size = new System.Drawing.Size(59, 13);
+            this.lblTT.TabIndex = 44;
+            this.lblTT.Text = "Trạng Thái";
+            // 
+            // lblTKTong
+            // 
+            this.lblTKTong.AutoSize = true;
+            this.lblTKTong.Location = new System.Drawing.Point(165, 17);
+            this.lblTKTong.Name = "lblTKTong";
+            this.lblTKTong.Size = new System.Drawing.Size(19, 13);
+            this.lblTKTong.TabIndex = 43;
+            this.lblTKTong.Text = "12";
+            // 
+            // lblT
+            // 
+            this.lblT.AutoSize = true;
+            this.lblT.Location = new System.Drawing.Point(23, 16);
+            this.lblT.Name = "lblT";
+            this.lblT.Size = new System.Drawing.Size(32, 13);
+            this.lblT.TabIndex = 42;
+            this.lblT.Text = "Tổng";
+            // 
+            // cbXoa
+            // 
+            this.cbXoa.AutoSize = true;
+            this.cbXoa.Location = new System.Drawing.Point(23, 156);
+            this.cbXoa.Name = "cbXoa";
+            this.cbXoa.Size = new System.Drawing.Size(62, 17);
+            this.cbXoa.TabIndex = 41;
+            this.cbXoa.Text = "Đã Xóa";
+            this.cbXoa.UseVisualStyleBackColor = true;
+            // 
+            // btnChinhSuaGoi
+            // 
+            this.btnChinhSuaGoi.Location = new System.Drawing.Point(23, 418);
+            this.btnChinhSuaGoi.Name = "btnChinhSuaGoi";
+            this.btnChinhSuaGoi.Size = new System.Drawing.Size(167, 23);
+            this.btnChinhSuaGoi.TabIndex = 40;
+            this.btnChinhSuaGoi.Text = "Thêm Gói Tập";
+            this.btnChinhSuaGoi.UseVisualStyleBackColor = true;
+            this.btnChinhSuaGoi.Click += new System.EventHandler(this.btnChinhSuaGoi_Click);
+            // 
+            // btnXoa
+            // 
+            this.btnXoa.Location = new System.Drawing.Point(23, 378);
+            this.btnXoa.Name = "btnXoa";
+            this.btnXoa.Size = new System.Drawing.Size(167, 23);
+            this.btnXoa.TabIndex = 26;
+            this.btnXoa.Text = "Xóa tất cả";
+            this.btnXoa.UseVisualStyleBackColor = true;
             // 
             // BanGoi
             // 

@@ -38,12 +38,17 @@
             this.thôngTinHãngSảnXuấtToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.thôngTinChuyểnKhoảnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.hướngDẫnSửDụngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.thôngTinChuyênMônToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pnlMenu = new System.Windows.Forms.Panel();
+            this.btnThongTinPT = new System.Windows.Forms.Button();
+            this.btnDSPT = new System.Windows.Forms.Button();
             this.btnDanhSachKH = new System.Windows.Forms.Button();
             this.btnThongTinKH = new System.Windows.Forms.Button();
             this.btnCheckin = new System.Windows.Forms.Button();
             this.btnQuanLyNhanVien = new System.Windows.Forms.Button();
             this.pnlContent = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.pnlHome.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.pnlMenu.SuspendLayout();
@@ -85,7 +90,8 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.thôngTinGóiTậpToolStripMenuItem,
             this.thôngTinChuyểnKhoảnToolStripMenuItem,
-            this.hướngDẫnSửDụngToolStripMenuItem});
+            this.hướngDẫnSửDụngToolStripMenuItem,
+            this.thôngTinChuyênMônToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1264, 24);
@@ -134,9 +140,20 @@
             this.hướngDẫnSửDụngToolStripMenuItem.Text = "Hướng Dẫn Sử Dụng";
             this.hướngDẫnSửDụngToolStripMenuItem.Click += new System.EventHandler(this.hướngDẫnSửDụngToolStripMenuItem_Click);
             // 
+            // thôngTinChuyênMônToolStripMenuItem
+            // 
+            this.thôngTinChuyênMônToolStripMenuItem.Name = "thôngTinChuyênMônToolStripMenuItem";
+            this.thôngTinChuyênMônToolStripMenuItem.Size = new System.Drawing.Size(146, 20);
+            this.thôngTinChuyênMônToolStripMenuItem.Text = "Thông Tin Chuyên Môn";
+            this.thôngTinChuyênMônToolStripMenuItem.Click += new System.EventHandler(this.thôngTinChuyênMônToolStripMenuItem_Click);
+            // 
             // pnlMenu
             // 
             this.pnlMenu.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.pnlMenu.Controls.Add(this.button2);
+            this.pnlMenu.Controls.Add(this.button1);
+            this.pnlMenu.Controls.Add(this.btnThongTinPT);
+            this.pnlMenu.Controls.Add(this.btnDSPT);
             this.pnlMenu.Controls.Add(this.btnDanhSachKH);
             this.pnlMenu.Controls.Add(this.btnThongTinKH);
             this.pnlMenu.Controls.Add(this.btnCheckin);
@@ -147,6 +164,28 @@
             this.pnlMenu.Size = new System.Drawing.Size(1264, 31);
             this.pnlMenu.TabIndex = 1;
             this.pnlMenu.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlMenu_Paint);
+            // 
+            // btnThongTinPT
+            // 
+            this.btnThongTinPT.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnThongTinPT.Location = new System.Drawing.Point(574, 0);
+            this.btnThongTinPT.Name = "btnThongTinPT";
+            this.btnThongTinPT.Size = new System.Drawing.Size(139, 31);
+            this.btnThongTinPT.TabIndex = 10;
+            this.btnThongTinPT.Text = "Thông Tin PT";
+            this.btnThongTinPT.UseVisualStyleBackColor = true;
+            this.btnThongTinPT.Click += new System.EventHandler(this.btnThongTinPT_Click);
+            // 
+            // btnDSPT
+            // 
+            this.btnDSPT.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnDSPT.Location = new System.Drawing.Point(435, 0);
+            this.btnDSPT.Name = "btnDSPT";
+            this.btnDSPT.Size = new System.Drawing.Size(139, 31);
+            this.btnDSPT.TabIndex = 9;
+            this.btnDSPT.Text = "Danh Sách PT";
+            this.btnDSPT.UseVisualStyleBackColor = true;
+            this.btnDSPT.Click += new System.EventHandler(this.btnDSPT_Click);
             // 
             // btnDanhSachKH
             // 
@@ -201,6 +240,28 @@
             this.pnlContent.TabIndex = 2;
             this.pnlContent.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlContent_Paint);
             // 
+            // button1
+            // 
+            this.button1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.button1.Location = new System.Drawing.Point(713, 0);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(139, 31);
+            this.button1.TabIndex = 11;
+            this.button1.Text = "Danh Sach Hợp Đồng";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_2);
+            // 
+            // button2
+            // 
+            this.button2.Dock = System.Windows.Forms.DockStyle.Left;
+            this.button2.Location = new System.Drawing.Point(852, 0);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(139, 31);
+            this.button2.TabIndex = 12;
+            this.button2.Text = "Chi Tiết Hợp Đồng";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click_1);
+            // 
             // Mainfrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -239,5 +300,10 @@
         private System.Windows.Forms.ToolStripMenuItem thôngTinHãngSảnXuấtToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem thôngTinChuyểnKhoảnToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem hướngDẫnSửDụngToolStripMenuItem;
+        private System.Windows.Forms.Button btnDSPT;
+        private System.Windows.Forms.ToolStripMenuItem thôngTinChuyênMônToolStripMenuItem;
+        private System.Windows.Forms.Button btnThongTinPT;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button1;
     }
 }

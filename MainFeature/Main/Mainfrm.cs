@@ -1,4 +1,8 @@
-﻿using System;
+﻿using GymManagerment_MVP.MainFeature.HoaDonRelated.PT;
+using GymManagerment_MVP.MainFeature.HoaDonRelated.PT._4stepdk;
+using GymManagerment_MVP.MainFeature.HoaDonRelated.PT.HopDongPT;
+using GymManagerment_MVP.MainFeature.Main;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -106,12 +110,38 @@ namespace GymManagerment_MVP
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            loadUserControl(new DanhSachHocVienUC_v2());
+            loadUserControl(new ThongTinHocVien());
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            loadUserControl(new ThongTinHocVien());
+            
+            loadUserControl(new DanhSachHocVienUC_v2());
+        }
+
+        private void thôngTinChuyênMônToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            loadUserControl(new ThongTinChuyenMonUC());
+        }
+
+        private void btnThongTinPT_Click(object sender, EventArgs e)
+        {
+            loadUserControl(new ThongTinPT());
+        }
+
+        private void btnDSPT_Click(object sender, EventArgs e)
+        {
+            loadUserControl(new DanhSachPTUC());
+        }
+
+        private void button1_Click_2(object sender, EventArgs e)
+        {
+            loadUserControl(new DanhSachHopDongPTUC());
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            loadUserControl(new ThongTinHopDongPTUC());
         }
     }
 }
