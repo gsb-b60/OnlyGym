@@ -29,13 +29,12 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DanhSachPTUC));
             this.pnlDanhSach = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.btnTim = new System.Windows.Forms.Button();
             this.cbFindB = new System.Windows.Forms.ComboBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.tbTim = new System.Windows.Forms.TextBox();
+            this.dgvDSPT = new System.Windows.Forms.DataGridView();
             this.chGID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.chgHo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.chgTen = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -47,7 +46,7 @@
             this.xóaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.lbChuyenMon = new System.Windows.Forms.ListBox();
             this.label3 = new System.Windows.Forms.Label();
             this.lblTuoi = new System.Windows.Forms.Label();
             this.lblKyHieu = new System.Windows.Forms.Label();
@@ -61,7 +60,7 @@
             this.btnThem = new System.Windows.Forms.Button();
             this.pnlLoc = new System.Windows.Forms.Panel();
             this.checkBox15 = new System.Windows.Forms.CheckBox();
-            this.checkBox16 = new System.Windows.Forms.CheckBox();
+            this.CheckBoxNam = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
             this.cbXoa = new System.Windows.Forms.CheckBox();
             this.checkBox9 = new System.Windows.Forms.CheckBox();
@@ -71,15 +70,15 @@
             this.checkBox5 = new System.Windows.Forms.CheckBox();
             this.checkBox6 = new System.Windows.Forms.CheckBox();
             this.checkBox3 = new System.Windows.Forms.CheckBox();
-            this.checkBox4 = new System.Windows.Forms.CheckBox();
+            this.cbPhucHoiChucNang = new System.Windows.Forms.CheckBox();
             this.lblChuyenMon = new System.Windows.Forms.Label();
             this.btnXoa = new System.Windows.Forms.Button();
             this.chEND = new System.Windows.Forms.CheckBox();
-            this.cbH = new System.Windows.Forms.CheckBox();
+            this.cbNhanLich = new System.Windows.Forms.CheckBox();
             this.lblTrangThai = new System.Windows.Forms.Label();
             this.pnlDanhSach.SuspendLayout();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDSPT)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -104,8 +103,8 @@
             this.panel3.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.panel3.Controls.Add(this.btnTim);
             this.panel3.Controls.Add(this.cbFindB);
-            this.panel3.Controls.Add(this.textBox1);
-            this.panel3.Controls.Add(this.dataGridView1);
+            this.panel3.Controls.Add(this.tbTim);
+            this.panel3.Controls.Add(this.dgvDSPT);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(207, 0);
             this.panel3.Name = "panel3";
@@ -130,19 +129,19 @@
             this.cbFindB.Size = new System.Drawing.Size(121, 21);
             this.cbFindB.TabIndex = 3;
             // 
-            // textBox1
+            // tbTim
             // 
-            this.textBox1.Location = new System.Drawing.Point(161, 18);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(357, 20);
-            this.textBox1.TabIndex = 1;
+            this.tbTim.Location = new System.Drawing.Point(161, 18);
+            this.tbTim.Name = "tbTim";
+            this.tbTim.Size = new System.Drawing.Size(357, 20);
+            this.tbTim.TabIndex = 1;
             // 
-            // dataGridView1
+            // dgvDSPT
             // 
-            this.dataGridView1.AllowDrop = true;
-            this.dataGridView1.AllowUserToOrderColumns = true;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvDSPT.AllowDrop = true;
+            this.dgvDSPT.AllowUserToOrderColumns = true;
+            this.dgvDSPT.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDSPT.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.chGID,
             this.chgHo,
             this.chgTen,
@@ -150,12 +149,12 @@
             this.chgTrangThai,
             this.chgSex,
             this.chgXoa});
-            this.dataGridView1.ContextMenuStrip = this.contextMenuStrip1;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dataGridView1.Location = new System.Drawing.Point(20, 74);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(730, 583);
-            this.dataGridView1.TabIndex = 0;
+            this.dgvDSPT.ContextMenuStrip = this.contextMenuStrip1;
+            this.dgvDSPT.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.dgvDSPT.Location = new System.Drawing.Point(20, 74);
+            this.dgvDSPT.Name = "dgvDSPT";
+            this.dgvDSPT.Size = new System.Drawing.Size(730, 583);
+            this.dgvDSPT.TabIndex = 0;
             // 
             // chGID
             // 
@@ -221,7 +220,7 @@
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.Azure;
-            this.panel4.Controls.Add(this.listBox1);
+            this.panel4.Controls.Add(this.lbChuyenMon);
             this.panel4.Controls.Add(this.label3);
             this.panel4.Controls.Add(this.lblTuoi);
             this.panel4.Controls.Add(this.lblKyHieu);
@@ -238,10 +237,10 @@
             this.panel4.TabIndex = 2;
             this.panel4.Paint += new System.Windows.Forms.PaintEventHandler(this.panel4_Paint);
             // 
-            // listBox1
+            // lbChuyenMon
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Items.AddRange(new object[] {
+            this.lbChuyenMon.FormattingEnabled = true;
+            this.lbChuyenMon.Items.AddRange(new object[] {
             "Hồi Phục Chức Năng",
             "Thi Đấu Thể Hình",
             "Giảm Cân Người Lớn Tuổi",
@@ -250,10 +249,10 @@
             "Huấn Luyện Thể Lực",
             "Thi Đấu Cử tạ",
             "Tăng Cường Sức Mạnh"});
-            this.listBox1.Location = new System.Drawing.Point(14, 266);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(216, 225);
-            this.listBox1.TabIndex = 44;
+            this.lbChuyenMon.Location = new System.Drawing.Point(14, 266);
+            this.lbChuyenMon.Name = "lbChuyenMon";
+            this.lbChuyenMon.Size = new System.Drawing.Size(216, 225);
+            this.lbChuyenMon.TabIndex = 44;
             // 
             // label3
             // 
@@ -303,7 +302,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pictureBox1.Location = new System.Drawing.Point(14, 8);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Padding = new System.Windows.Forms.Padding(10);
@@ -363,7 +362,7 @@
             this.pnlLoc.AutoScroll = true;
             this.pnlLoc.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.pnlLoc.Controls.Add(this.checkBox15);
-            this.pnlLoc.Controls.Add(this.checkBox16);
+            this.pnlLoc.Controls.Add(this.CheckBoxNam);
             this.pnlLoc.Controls.Add(this.label1);
             this.pnlLoc.Controls.Add(this.cbXoa);
             this.pnlLoc.Controls.Add(this.checkBox9);
@@ -373,11 +372,11 @@
             this.pnlLoc.Controls.Add(this.checkBox5);
             this.pnlLoc.Controls.Add(this.checkBox6);
             this.pnlLoc.Controls.Add(this.checkBox3);
-            this.pnlLoc.Controls.Add(this.checkBox4);
+            this.pnlLoc.Controls.Add(this.cbPhucHoiChucNang);
             this.pnlLoc.Controls.Add(this.lblChuyenMon);
             this.pnlLoc.Controls.Add(this.btnXoa);
             this.pnlLoc.Controls.Add(this.chEND);
-            this.pnlLoc.Controls.Add(this.cbH);
+            this.pnlLoc.Controls.Add(this.cbNhanLich);
             this.pnlLoc.Controls.Add(this.lblTrangThai);
             this.pnlLoc.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnlLoc.Location = new System.Drawing.Point(0, 0);
@@ -396,15 +395,15 @@
             this.checkBox15.Text = "Nữ";
             this.checkBox15.UseVisualStyleBackColor = true;
             // 
-            // checkBox16
+            // CheckBoxNam
             // 
-            this.checkBox16.AutoSize = true;
-            this.checkBox16.Location = new System.Drawing.Point(23, 427);
-            this.checkBox16.Name = "checkBox16";
-            this.checkBox16.Size = new System.Drawing.Size(48, 17);
-            this.checkBox16.TabIndex = 43;
-            this.checkBox16.Text = "Nam";
-            this.checkBox16.UseVisualStyleBackColor = true;
+            this.CheckBoxNam.AutoSize = true;
+            this.CheckBoxNam.Location = new System.Drawing.Point(23, 427);
+            this.CheckBoxNam.Name = "CheckBoxNam";
+            this.CheckBoxNam.Size = new System.Drawing.Size(48, 17);
+            this.CheckBoxNam.TabIndex = 43;
+            this.CheckBoxNam.Text = "Nam";
+            this.CheckBoxNam.UseVisualStyleBackColor = true;
             // 
             // label1
             // 
@@ -495,15 +494,15 @@
             this.checkBox3.Text = "Thi Đấu Thể Hình";
             this.checkBox3.UseVisualStyleBackColor = true;
             // 
-            // checkBox4
+            // cbPhucHoiChucNang
             // 
-            this.checkBox4.AutoSize = true;
-            this.checkBox4.Location = new System.Drawing.Point(23, 181);
-            this.checkBox4.Name = "checkBox4";
-            this.checkBox4.Size = new System.Drawing.Size(127, 17);
-            this.checkBox4.TabIndex = 33;
-            this.checkBox4.Text = "Phục Hồi Chức Năng";
-            this.checkBox4.UseVisualStyleBackColor = true;
+            this.cbPhucHoiChucNang.AutoSize = true;
+            this.cbPhucHoiChucNang.Location = new System.Drawing.Point(23, 181);
+            this.cbPhucHoiChucNang.Name = "cbPhucHoiChucNang";
+            this.cbPhucHoiChucNang.Size = new System.Drawing.Size(127, 17);
+            this.cbPhucHoiChucNang.TabIndex = 33;
+            this.cbPhucHoiChucNang.Text = "Phục Hồi Chức Năng";
+            this.cbPhucHoiChucNang.UseVisualStyleBackColor = true;
             // 
             // lblChuyenMon
             // 
@@ -533,15 +532,15 @@
             this.chEND.Text = "Ngừng Nhận Lịch";
             this.chEND.UseVisualStyleBackColor = true;
             // 
-            // cbH
+            // cbNhanLich
             // 
-            this.cbH.AutoSize = true;
-            this.cbH.Location = new System.Drawing.Point(23, 50);
-            this.cbH.Name = "cbH";
-            this.cbH.Size = new System.Drawing.Size(75, 17);
-            this.cbH.TabIndex = 28;
-            this.cbH.Text = "Nhận Lịch";
-            this.cbH.UseVisualStyleBackColor = true;
+            this.cbNhanLich.AutoSize = true;
+            this.cbNhanLich.Location = new System.Drawing.Point(23, 50);
+            this.cbNhanLich.Name = "cbNhanLich";
+            this.cbNhanLich.Size = new System.Drawing.Size(75, 17);
+            this.cbNhanLich.TabIndex = 28;
+            this.cbNhanLich.Text = "Nhận Lịch";
+            this.cbNhanLich.UseVisualStyleBackColor = true;
             // 
             // lblTrangThai
             // 
@@ -562,7 +561,7 @@
             this.pnlDanhSach.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDSPT)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
@@ -580,8 +579,8 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button btnTim;
         private System.Windows.Forms.ComboBox cbFindB;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.TextBox tbTim;
+        private System.Windows.Forms.DataGridView dgvDSPT;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label lblTuoi;
@@ -597,7 +596,7 @@
         private System.Windows.Forms.Panel pnlLoc;
         private System.Windows.Forms.Button btnXoa;
         private System.Windows.Forms.CheckBox chEND;
-        private System.Windows.Forms.CheckBox cbH;
+        private System.Windows.Forms.CheckBox cbNhanLich;
         private System.Windows.Forms.Label lblTrangThai;
         private System.Windows.Forms.CheckBox checkBox9;
         private System.Windows.Forms.CheckBox checkBox10;
@@ -606,9 +605,9 @@
         private System.Windows.Forms.CheckBox checkBox5;
         private System.Windows.Forms.CheckBox checkBox6;
         private System.Windows.Forms.CheckBox checkBox3;
-        private System.Windows.Forms.CheckBox checkBox4;
+        private System.Windows.Forms.CheckBox cbPhucHoiChucNang;
         private System.Windows.Forms.Label lblChuyenMon;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox lbChuyenMon;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.CheckBox cbXoa;
         private System.Windows.Forms.DataGridViewTextBoxColumn chGID;
@@ -619,7 +618,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn chgSex;
         private System.Windows.Forms.DataGridViewTextBoxColumn chgXoa;
         private System.Windows.Forms.CheckBox checkBox15;
-        private System.Windows.Forms.CheckBox checkBox16;
+        private System.Windows.Forms.CheckBox CheckBoxNam;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem xóaToolStripMenuItem;
