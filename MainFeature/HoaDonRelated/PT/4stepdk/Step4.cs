@@ -25,21 +25,21 @@ namespace GymManagerment_MVP.MainFeature.HoaDonRelated.PT._4stepdk
             lichTapList.Add(new LichTap("16:00 - 17:30", false, true, true, false, false, true, false));
             lichTapList.Add(new LichTap("18:00 - 19:30", true, false, false, true, false, false, true));
             lichTapList.Add(new LichTap("20:00 - 21:30", true, false, true, false, true, false, false));
-            dataGridView4.DataSource = lichTapList;
+            dgvLichPT.DataSource = lichTapList;
 
         }
 
         private void Step4_Load(object sender, EventArgs e)
         {
-            dataGridView4.AutoGenerateColumns = true;
-            dataGridView4.AllowUserToAddRows = false;
+            dgvLichPT.AutoGenerateColumns = true;
+            dgvLichPT.AllowUserToAddRows = false;
 
             // Đặt tất cả cột bool thành CheckBoxColumn
             
 
             // Event xử lý cell vẽ màu
-            dataGridView4.CellFormatting += dataGridView4_CellFormatting;
-            dataGridView4.CellBeginEdit += dataGridView4_CellBeginEdit;
+            dgvLichPT.CellFormatting += dataGridView4_CellFormatting;
+            dgvLichPT.CellBeginEdit += dataGridView4_CellBeginEdit;
         }
 
         private void dataGridView4_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
@@ -70,8 +70,8 @@ namespace GymManagerment_MVP.MainFeature.HoaDonRelated.PT._4stepdk
             DateTime sunday = monday.AddDays(6);
 
             // Ép MonthCalendar highlight cả tuần
-            monthCalendar1.SelectionStart = monday;
-            monthCalendar1.SelectionEnd = sunday;
+            mcChonTuan.SelectionStart = monday;
+            mcChonTuan.SelectionEnd = sunday;
 
         }
 
@@ -89,7 +89,7 @@ namespace GymManagerment_MVP.MainFeature.HoaDonRelated.PT._4stepdk
         {
             if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
             {
-                var cell = dataGridView4.Rows[e.RowIndex].Cells[e.ColumnIndex];
+                var cell = dgvLichPT.Rows[e.RowIndex].Cells[e.ColumnIndex];
 
 
                 if (!cell.ReadOnly) // chỉ xử lý với ô user có thể chọn
@@ -109,7 +109,7 @@ namespace GymManagerment_MVP.MainFeature.HoaDonRelated.PT._4stepdk
 
         private void dataGridView4_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {
-            foreach (DataGridViewRow row in dataGridView4.Rows)
+            foreach (DataGridViewRow row in dgvLichPT.Rows)
             {
                 foreach (DataGridViewCell cell in row.Cells)
                 {

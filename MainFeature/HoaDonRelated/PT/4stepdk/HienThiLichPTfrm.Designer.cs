@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvLichPreview = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.chgGio = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -38,24 +38,24 @@
             this.lblKyHieu = new System.Windows.Forms.Label();
             this.lblSex = new System.Windows.Forms.Label();
             this.lblPFSDT = new System.Windows.Forms.Label();
-            this.lblPFTen = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.lblTenPT = new System.Windows.Forms.Label();
+            this.btnXuat = new System.Windows.Forms.Button();
+            this.btnHoanThanh = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLichPreview)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // dgvLichPreview
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvLichPreview.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvLichPreview.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
             this.Column2,
             this.chgGio,
             this.chgBỏ});
-            this.dataGridView1.Location = new System.Drawing.Point(12, 121);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(445, 304);
-            this.dataGridView1.TabIndex = 7;
+            this.dgvLichPreview.Location = new System.Drawing.Point(12, 121);
+            this.dgvLichPreview.Name = "dgvLichPreview";
+            this.dgvLichPreview.Size = new System.Drawing.Size(445, 304);
+            this.dgvLichPreview.TabIndex = 7;
             // 
             // Column1
             // 
@@ -122,50 +122,50 @@
             this.lblPFSDT.TabIndex = 42;
             this.lblPFSDT.Text = "SDT: 012345678";
             // 
-            // lblPFTen
+            // lblTenPT
             // 
-            this.lblPFTen.AutoSize = true;
-            this.lblPFTen.Location = new System.Drawing.Point(72, 9);
-            this.lblPFTen.Name = "lblPFTen";
-            this.lblPFTen.Size = new System.Drawing.Size(94, 13);
-            this.lblPFTen.TabIndex = 41;
-            this.lblPFTen.Text = "Nguyễn Đình Hiếu";
+            this.lblTenPT.AutoSize = true;
+            this.lblTenPT.Location = new System.Drawing.Point(72, 9);
+            this.lblTenPT.Name = "lblTenPT";
+            this.lblTenPT.Size = new System.Drawing.Size(94, 13);
+            this.lblTenPT.TabIndex = 41;
+            this.lblTenPT.Text = "Nguyễn Đình Hiếu";
             // 
-            // button1
+            // btnXuat
             // 
-            this.button1.Location = new System.Drawing.Point(15, 455);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 46;
-            this.button1.Text = "Xuất File Exel";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnXuat.Location = new System.Drawing.Point(271, 455);
+            this.btnXuat.Name = "btnXuat";
+            this.btnXuat.Size = new System.Drawing.Size(101, 23);
+            this.btnXuat.TabIndex = 46;
+            this.btnXuat.Text = "Xuất File Exel";
+            this.btnXuat.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // btnHoanThanh
             // 
-            this.button2.Location = new System.Drawing.Point(327, 455);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 47;
-            this.button2.Text = "Hoàn Thành";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnHoanThanh.Location = new System.Drawing.Point(378, 455);
+            this.btnHoanThanh.Name = "btnHoanThanh";
+            this.btnHoanThanh.Size = new System.Drawing.Size(75, 23);
+            this.btnHoanThanh.TabIndex = 47;
+            this.btnHoanThanh.Text = "Hoàn Thành";
+            this.btnHoanThanh.UseVisualStyleBackColor = true;
             // 
             // HienThiLichPTfrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(465, 509);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnHoanThanh);
+            this.Controls.Add(this.btnXuat);
             this.Controls.Add(this.lblTuoi);
             this.Controls.Add(this.lblKyHieu);
             this.Controls.Add(this.lblSex);
             this.Controls.Add(this.lblPFSDT);
-            this.Controls.Add(this.lblPFTen);
+            this.Controls.Add(this.lblTenPT);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvLichPreview);
             this.Name = "HienThiLichPTfrm";
             this.Text = "HienThiLichPTfrm";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLichPreview)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -173,7 +173,7 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvLichPreview;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn chgGio;
@@ -183,8 +183,8 @@
         private System.Windows.Forms.Label lblKyHieu;
         private System.Windows.Forms.Label lblSex;
         private System.Windows.Forms.Label lblPFSDT;
-        private System.Windows.Forms.Label lblPFTen;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label lblTenPT;
+        private System.Windows.Forms.Button btnXuat;
+        private System.Windows.Forms.Button btnHoanThanh;
     }
 }

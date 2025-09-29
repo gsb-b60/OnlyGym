@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GymManagerment_MVP.MainFeature.HoaDonRelated.PT;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -35,6 +36,12 @@ namespace GymManagerment_MVP.MainFeature.Main
         private void panel4_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void btnThem_Click(object sender, EventArgs e)
+        {
+            ThemPTfrm frm = new ThemPTfrm();
+            frm.ShowDialog();
         }
     }
 }

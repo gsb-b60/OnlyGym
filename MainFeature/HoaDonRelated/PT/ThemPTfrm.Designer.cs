@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ThemPTfrm));
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.label3 = new System.Windows.Forms.Label();
             this.gbSex = new System.Windows.Forms.GroupBox();
@@ -190,7 +189,7 @@
             // 
             // pbAvartar
             // 
-            this.pbAvartar.Image = ((System.Drawing.Image)(resources.GetObject("pbAvartar.Image")));
+            this.pbAvartar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pbAvartar.Location = new System.Drawing.Point(12, 12);
             this.pbAvartar.Name = "pbAvartar";
             this.pbAvartar.Padding = new System.Windows.Forms.Padding(10);

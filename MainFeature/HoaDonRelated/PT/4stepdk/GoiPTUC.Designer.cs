@@ -34,7 +34,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblThanhTien = new System.Windows.Forms.Label();
             this.lblState = new System.Windows.Forms.Label();
-            this.Giá = new System.Windows.Forms.Label();
+            this.lblGia = new System.Windows.Forms.Label();
             this.lblLoaiHang = new System.Windows.Forms.Label();
             this.lblTenGoi = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pbSetting)).BeginInit();
@@ -67,7 +67,7 @@
             this.panel1.BackColor = System.Drawing.Color.Teal;
             this.panel1.Controls.Add(this.lblThanhTien);
             this.panel1.Controls.Add(this.lblState);
-            this.panel1.Controls.Add(this.Giá);
+            this.panel1.Controls.Add(this.lblGia);
             this.panel1.Controls.Add(this.lblLoaiHang);
             this.panel1.Controls.Add(this.lblTenGoi);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -96,15 +96,15 @@
             this.lblState.TabIndex = 2;
             this.lblState.Text = "Tình Trạng";
             // 
-            // Giá
+            // lblGia
             // 
-            this.Giá.AutoSize = true;
-            this.Giá.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.Giá.Location = new System.Drawing.Point(122, 56);
-            this.Giá.Name = "Giá";
-            this.Giá.Size = new System.Drawing.Size(49, 13);
-            this.Giá.TabIndex = 2;
-            this.Giá.Text = "giá trị gói";
+            this.lblGia.AutoSize = true;
+            this.lblGia.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lblGia.Location = new System.Drawing.Point(122, 56);
+            this.lblGia.Name = "lblGia";
+            this.lblGia.Size = new System.Drawing.Size(49, 13);
+            this.lblGia.TabIndex = 2;
+            this.lblGia.Text = "giá trị gói";
             // 
             // lblLoaiHang
             // 
@@ -152,7 +152,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label lblThanhTien;
         private System.Windows.Forms.Label lblState;
-        private System.Windows.Forms.Label Giá;
+        private System.Windows.Forms.Label lblGia;
         private System.Windows.Forms.Label lblLoaiHang;
         private System.Windows.Forms.Label lblTenGoi;
     }

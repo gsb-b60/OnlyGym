@@ -32,11 +32,18 @@
             this.pnlDanhSach = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.btnTim = new System.Windows.Forms.Button();
-            this.cbFindB = new System.Windows.Forms.ComboBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.cbFindPT = new System.Windows.Forms.ComboBox();
+            this.tbTim = new System.Windows.Forms.TextBox();
+            this.dgvPT = new System.Windows.Forms.DataGridView();
+            this.chGID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.chgHo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.chgTen = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.chgSDT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.chgSex = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.chgSelect = new System.Windows.Forms.DataGridViewButtonColumn();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.btnChon = new System.Windows.Forms.Button();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.label3 = new System.Windows.Forms.Label();
             this.lblTuoi = new System.Windows.Forms.Label();
@@ -47,16 +54,9 @@
             this.lblPFSDT = new System.Windows.Forms.Label();
             this.lblPFTen = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.chGID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.chgHo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.chgTen = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.chgSDT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.chgSex = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.chgSelect = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.btnChon = new System.Windows.Forms.Button();
             this.pnlDanhSach.SuspendLayout();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPT)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -77,9 +77,9 @@
             // 
             this.panel3.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.panel3.Controls.Add(this.btnTim);
-            this.panel3.Controls.Add(this.cbFindB);
-            this.panel3.Controls.Add(this.textBox1);
-            this.panel3.Controls.Add(this.dataGridView1);
+            this.panel3.Controls.Add(this.cbFindPT);
+            this.panel3.Controls.Add(this.tbTim);
+            this.panel3.Controls.Add(this.dgvPT);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
@@ -96,38 +96,73 @@
             this.btnTim.Text = "Tìm";
             this.btnTim.UseVisualStyleBackColor = true;
             // 
-            // cbFindB
+            // cbFindPT
             // 
-            this.cbFindB.FormattingEnabled = true;
-            this.cbFindB.Location = new System.Drawing.Point(20, 20);
-            this.cbFindB.Name = "cbFindB";
-            this.cbFindB.Size = new System.Drawing.Size(121, 21);
-            this.cbFindB.TabIndex = 3;
+            this.cbFindPT.FormattingEnabled = true;
+            this.cbFindPT.Items.AddRange(new object[] {
+            "SDT",
+            "Ten"});
+            this.cbFindPT.Location = new System.Drawing.Point(20, 20);
+            this.cbFindPT.Name = "cbFindPT";
+            this.cbFindPT.Size = new System.Drawing.Size(121, 21);
+            this.cbFindPT.TabIndex = 3;
             // 
-            // textBox1
+            // tbTim
             // 
-            this.textBox1.Location = new System.Drawing.Point(157, 18);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(357, 20);
-            this.textBox1.TabIndex = 1;
+            this.tbTim.Location = new System.Drawing.Point(157, 18);
+            this.tbTim.Name = "tbTim";
+            this.tbTim.Size = new System.Drawing.Size(357, 20);
+            this.tbTim.TabIndex = 1;
             // 
-            // dataGridView1
+            // dgvPT
             // 
-            this.dataGridView1.AllowUserToOrderColumns = true;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvPT.AllowUserToOrderColumns = true;
+            this.dgvPT.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvPT.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.chGID,
             this.chgHo,
             this.chgTen,
             this.chgSDT,
             this.chgSex,
             this.chgSelect});
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dataGridView1.Location = new System.Drawing.Point(20, 71);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(642, 447);
-            this.dataGridView1.TabIndex = 0;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.dgvPT.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.dgvPT.Location = new System.Drawing.Point(20, 71);
+            this.dgvPT.Name = "dgvPT";
+            this.dgvPT.Size = new System.Drawing.Size(642, 447);
+            this.dgvPT.TabIndex = 0;
+            this.dgvPT.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
+            // chGID
+            // 
+            this.chGID.HeaderText = "ID";
+            this.chGID.Name = "chGID";
+            // 
+            // chgHo
+            // 
+            this.chgHo.HeaderText = "Ho";
+            this.chgHo.Name = "chgHo";
+            // 
+            // chgTen
+            // 
+            this.chgTen.HeaderText = "Tên";
+            this.chgTen.Name = "chgTen";
+            // 
+            // chgSDT
+            // 
+            this.chgSDT.HeaderText = "SDT";
+            this.chgSDT.Name = "chgSDT";
+            // 
+            // chgSex
+            // 
+            this.chgSex.HeaderText = "Sex";
+            this.chgSex.Name = "chgSex";
+            // 
+            // chgSelect
+            // 
+            this.chgSelect.HeaderText = "Chon";
+            this.chgSelect.Name = "chgSelect";
+            this.chgSelect.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.chgSelect.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // panel2
             // 
@@ -159,6 +194,15 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(247, 456);
             this.panel4.TabIndex = 2;
+            // 
+            // btnChon
+            // 
+            this.btnChon.Location = new System.Drawing.Point(150, 417);
+            this.btnChon.Name = "btnChon";
+            this.btnChon.Size = new System.Drawing.Size(75, 23);
+            this.btnChon.TabIndex = 45;
+            this.btnChon.Text = "Chọn";
+            this.btnChon.UseVisualStyleBackColor = true;
             // 
             // listBox1
             // 
@@ -259,47 +303,6 @@
             this.panel1.Size = new System.Drawing.Size(247, 44);
             this.panel1.TabIndex = 1;
             // 
-            // chGID
-            // 
-            this.chGID.HeaderText = "ID";
-            this.chGID.Name = "chGID";
-            // 
-            // chgHo
-            // 
-            this.chgHo.HeaderText = "Ho";
-            this.chgHo.Name = "chgHo";
-            // 
-            // chgTen
-            // 
-            this.chgTen.HeaderText = "Tên";
-            this.chgTen.Name = "chgTen";
-            // 
-            // chgSDT
-            // 
-            this.chgSDT.HeaderText = "SDT";
-            this.chgSDT.Name = "chgSDT";
-            // 
-            // chgSex
-            // 
-            this.chgSex.HeaderText = "Sex";
-            this.chgSex.Name = "chgSex";
-            // 
-            // chgSelect
-            // 
-            this.chgSelect.HeaderText = "Chon";
-            this.chgSelect.Name = "chgSelect";
-            this.chgSelect.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.chgSelect.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // btnChon
-            // 
-            this.btnChon.Location = new System.Drawing.Point(150, 417);
-            this.btnChon.Name = "btnChon";
-            this.btnChon.Size = new System.Drawing.Size(75, 23);
-            this.btnChon.TabIndex = 45;
-            this.btnChon.Text = "Chọn";
-            this.btnChon.UseVisualStyleBackColor = true;
-            // 
             // Step3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -310,7 +313,7 @@
             this.pnlDanhSach.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPT)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
@@ -324,9 +327,9 @@
         private System.Windows.Forms.Panel pnlDanhSach;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button btnTim;
-        private System.Windows.Forms.ComboBox cbFindB;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.ComboBox cbFindPT;
+        private System.Windows.Forms.TextBox tbTim;
+        private System.Windows.Forms.DataGridView dgvPT;
         private System.Windows.Forms.DataGridViewTextBoxColumn chGID;
         private System.Windows.Forms.DataGridViewTextBoxColumn chgHo;
         private System.Windows.Forms.DataGridViewTextBoxColumn chgTen;

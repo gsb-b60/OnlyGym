@@ -30,15 +30,15 @@
         {
             this.rdCheckTime = new System.Windows.Forms.RadioButton();
             this.gbLastCheck = new System.Windows.Forms.GroupBox();
-            this.dtpDenCheckin = new System.Windows.Forms.DateTimePicker();
+            this.dtpDen = new System.Windows.Forms.DateTimePicker();
             this.lblDen = new System.Windows.Forms.Label();
             this.lblTu = new System.Windows.Forms.Label();
-            this.dtpTuCheckin = new System.Windows.Forms.DateTimePicker();
+            this.dtpTu = new System.Windows.Forms.DateTimePicker();
             this.tbDiscount = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tbGiaTri = new System.Windows.Forms.TextBox();
             this.lblGhiChu = new System.Windows.Forms.Label();
             this.gbLoaiGoi = new System.Windows.Forms.GroupBox();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.nudThoiGianGoi = new System.Windows.Forms.NumericUpDown();
             this.rdNam = new System.Windows.Forms.RadioButton();
             this.rbBuoi = new System.Windows.Forms.RadioButton();
             this.rdThang = new System.Windows.Forms.RadioButton();
@@ -53,7 +53,7 @@
             this.btnXacNhan = new System.Windows.Forms.Button();
             this.gbLastCheck.SuspendLayout();
             this.gbLoaiGoi.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudThoiGianGoi)).BeginInit();
             this.SuspendLayout();
             // 
             // rdCheckTime
@@ -69,10 +69,10 @@
             // 
             // gbLastCheck
             // 
-            this.gbLastCheck.Controls.Add(this.dtpDenCheckin);
+            this.gbLastCheck.Controls.Add(this.dtpDen);
             this.gbLastCheck.Controls.Add(this.lblDen);
             this.gbLastCheck.Controls.Add(this.lblTu);
-            this.gbLastCheck.Controls.Add(this.dtpTuCheckin);
+            this.gbLastCheck.Controls.Add(this.dtpTu);
             this.gbLastCheck.Location = new System.Drawing.Point(17, 215);
             this.gbLastCheck.Name = "gbLastCheck";
             this.gbLastCheck.Size = new System.Drawing.Size(336, 138);
@@ -80,14 +80,14 @@
             this.gbLastCheck.TabStop = false;
             this.gbLastCheck.Text = "Thời Gian Áp Dụng";
             // 
-            // dtpDenCheckin
+            // dtpDen
             // 
-            this.dtpDenCheckin.CustomFormat = "dd/MM/yyyy";
-            this.dtpDenCheckin.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpDenCheckin.Location = new System.Drawing.Point(18, 99);
-            this.dtpDenCheckin.Name = "dtpDenCheckin";
-            this.dtpDenCheckin.Size = new System.Drawing.Size(105, 20);
-            this.dtpDenCheckin.TabIndex = 28;
+            this.dtpDen.CustomFormat = "dd/MM/yyyy";
+            this.dtpDen.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpDen.Location = new System.Drawing.Point(18, 99);
+            this.dtpDen.Name = "dtpDen";
+            this.dtpDen.Size = new System.Drawing.Size(105, 20);
+            this.dtpDen.TabIndex = 28;
             // 
             // lblDen
             // 
@@ -107,14 +107,14 @@
             this.lblTu.TabIndex = 26;
             this.lblTu.Text = "Từ";
             // 
-            // dtpTuCheckin
+            // dtpTu
             // 
-            this.dtpTuCheckin.CustomFormat = "dd/MM/yyyy";
-            this.dtpTuCheckin.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpTuCheckin.Location = new System.Drawing.Point(18, 45);
-            this.dtpTuCheckin.Name = "dtpTuCheckin";
-            this.dtpTuCheckin.Size = new System.Drawing.Size(105, 20);
-            this.dtpTuCheckin.TabIndex = 25;
+            this.dtpTu.CustomFormat = "dd/MM/yyyy";
+            this.dtpTu.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpTu.Location = new System.Drawing.Point(18, 45);
+            this.dtpTu.Name = "dtpTu";
+            this.dtpTu.Size = new System.Drawing.Size(105, 20);
+            this.dtpTu.TabIndex = 25;
             // 
             // tbDiscount
             // 
@@ -123,12 +123,12 @@
             this.tbDiscount.Size = new System.Drawing.Size(100, 20);
             this.tbDiscount.TabIndex = 67;
             // 
-            // textBox1
+            // tbGiaTri
             // 
-            this.textBox1.Location = new System.Drawing.Point(253, 494);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 66;
+            this.tbGiaTri.Location = new System.Drawing.Point(253, 494);
+            this.tbGiaTri.Name = "tbGiaTri";
+            this.tbGiaTri.Size = new System.Drawing.Size(100, 20);
+            this.tbGiaTri.TabIndex = 66;
             // 
             // lblGhiChu
             // 
@@ -141,7 +141,7 @@
             // 
             // gbLoaiGoi
             // 
-            this.gbLoaiGoi.Controls.Add(this.numericUpDown1);
+            this.gbLoaiGoi.Controls.Add(this.nudThoiGianGoi);
             this.gbLoaiGoi.Controls.Add(this.rdNam);
             this.gbLoaiGoi.Controls.Add(this.rbBuoi);
             this.gbLoaiGoi.Controls.Add(this.rdThang);
@@ -153,12 +153,12 @@
             this.gbLoaiGoi.TabStop = false;
             this.gbLoaiGoi.Text = "Loại Gói";
             // 
-            // numericUpDown1
+            // nudThoiGianGoi
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(23, 80);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(291, 20);
-            this.numericUpDown1.TabIndex = 3;
+            this.nudThoiGianGoi.Location = new System.Drawing.Point(23, 80);
+            this.nudThoiGianGoi.Name = "nudThoiGianGoi";
+            this.nudThoiGianGoi.Size = new System.Drawing.Size(291, 20);
+            this.nudThoiGianGoi.TabIndex = 3;
             // 
             // rdNam
             // 
@@ -222,9 +222,9 @@
             this.lblThanhTien.AutoSize = true;
             this.lblThanhTien.Location = new System.Drawing.Point(250, 552);
             this.lblThanhTien.Name = "lblThanhTien";
-            this.lblThanhTien.Size = new System.Drawing.Size(104, 13);
+            this.lblThanhTien.Size = new System.Drawing.Size(92, 13);
             this.lblThanhTien.TabIndex = 61;
-            this.lblThanhTien.Text = "Giá Trị Tính Toán :))";
+            this.lblThanhTien.Text = "Giá Trị Tính Toán";
             // 
             // lbl3
             // 
@@ -279,7 +279,7 @@
             this.Controls.Add(this.rdCheckTime);
             this.Controls.Add(this.gbLastCheck);
             this.Controls.Add(this.tbDiscount);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.tbGiaTri);
             this.Controls.Add(this.lblGhiChu);
             this.Controls.Add(this.gbLoaiGoi);
             this.Controls.Add(this.tbTenGoi);
@@ -296,7 +296,7 @@
             this.gbLastCheck.PerformLayout();
             this.gbLoaiGoi.ResumeLayout(false);
             this.gbLoaiGoi.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudThoiGianGoi)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -306,15 +306,15 @@
 
         private System.Windows.Forms.RadioButton rdCheckTime;
         private System.Windows.Forms.GroupBox gbLastCheck;
-        private System.Windows.Forms.DateTimePicker dtpDenCheckin;
+        private System.Windows.Forms.DateTimePicker dtpDen;
         private System.Windows.Forms.Label lblDen;
         private System.Windows.Forms.Label lblTu;
-        private System.Windows.Forms.DateTimePicker dtpTuCheckin;
+        private System.Windows.Forms.DateTimePicker dtpTu;
         private System.Windows.Forms.TextBox tbDiscount;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tbGiaTri;
         private System.Windows.Forms.Label lblGhiChu;
         private System.Windows.Forms.GroupBox gbLoaiGoi;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.NumericUpDown nudThoiGianGoi;
         private System.Windows.Forms.RadioButton rdNam;
         private System.Windows.Forms.RadioButton rbBuoi;
         private System.Windows.Forms.RadioButton rdThang;

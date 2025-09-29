@@ -356,6 +356,7 @@
             this.btnThem.TabIndex = 0;
             this.btnThem.Text = "Thêm PT";
             this.btnThem.UseVisualStyleBackColor = true;
+            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
             // pnlLoc
             // 

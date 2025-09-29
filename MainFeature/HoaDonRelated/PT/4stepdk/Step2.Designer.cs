@@ -32,9 +32,9 @@
             this.pns2Content = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.lblChiTiet = new System.Windows.Forms.Label();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.rtbChiTiet = new System.Windows.Forms.RichTextBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.lbChuyenMon = new System.Windows.Forms.ListBox();
             this.label3 = new System.Windows.Forms.Label();
             this.pns2Content.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -55,7 +55,7 @@
             // panel2
             // 
             this.panel2.Controls.Add(this.lblChiTiet);
-            this.panel2.Controls.Add(this.richTextBox1);
+            this.panel2.Controls.Add(this.rtbChiTiet);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(240, 40);
             this.panel2.Name = "panel2";
@@ -71,19 +71,19 @@
             this.lblChiTiet.TabIndex = 48;
             this.lblChiTiet.Text = "Chi Tiết Chuyên Môn";
             // 
-            // richTextBox1
+            // rtbChiTiet
             // 
-            this.richTextBox1.AcceptsTab = true;
-            this.richTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.richTextBox1.Location = new System.Drawing.Point(39, 25);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(629, 499);
-            this.richTextBox1.TabIndex = 47;
-            this.richTextBox1.Text = resources.GetString("richTextBox1.Text");
+            this.rtbChiTiet.AcceptsTab = true;
+            this.rtbChiTiet.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rtbChiTiet.Location = new System.Drawing.Point(39, 25);
+            this.rtbChiTiet.Name = "rtbChiTiet";
+            this.rtbChiTiet.Size = new System.Drawing.Size(629, 499);
+            this.rtbChiTiet.TabIndex = 47;
+            this.rtbChiTiet.Text = resources.GetString("rtbChiTiet.Text");
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.listBox1);
+            this.panel1.Controls.Add(this.lbChuyenMon);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(40, 40);
@@ -91,10 +91,10 @@
             this.panel1.Size = new System.Drawing.Size(200, 460);
             this.panel1.TabIndex = 0;
             // 
-            // listBox1
+            // lbChuyenMon
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Items.AddRange(new object[] {
+            this.lbChuyenMon.FormattingEnabled = true;
+            this.lbChuyenMon.Items.AddRange(new object[] {
             "Hồi Phục Chức Năng",
             "Thi Đấu Thể Hình",
             "Giảm Cân Người Lớn Tuổi",
@@ -103,10 +103,10 @@
             "Huấn Luyện Thể Lực",
             "Thi Đấu Cử tạ",
             "Tăng Cường Sức Mạnh"});
-            this.listBox1.Location = new System.Drawing.Point(24, 56);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(156, 394);
-            this.listBox1.TabIndex = 46;
+            this.lbChuyenMon.Location = new System.Drawing.Point(24, 56);
+            this.lbChuyenMon.Name = "lbChuyenMon";
+            this.lbChuyenMon.Size = new System.Drawing.Size(156, 394);
+            this.lbChuyenMon.TabIndex = 46;
             // 
             // label3
             // 
@@ -137,10 +137,10 @@
 
         private System.Windows.Forms.Panel pns2Content;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox lbChuyenMon;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label lblChiTiet;
-        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.RichTextBox rtbChiTiet;
     }
 }
