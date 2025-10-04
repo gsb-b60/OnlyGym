@@ -48,6 +48,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Business\GoiPT.cs" />
+    <Compile Include="Business\HocVien.cs" />
+    <Compile Include="Business\PT.cs" />
+    <Compile Include="Config.cs" />
     <Compile Include="MainFeature\HoaDonRelated\GoiTap\BanGoi.cs">
       <SubType>UserControl</SubType>
     </Compile>

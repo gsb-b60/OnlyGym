@@ -35,13 +35,6 @@
             this.cbFindB = new System.Windows.Forms.ComboBox();
             this.tbTim = new System.Windows.Forms.TextBox();
             this.dgvDSPT = new System.Windows.Forms.DataGridView();
-            this.chGID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.chgHo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.chgTen = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.chgSDT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.chgTrangThai = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.chgSex = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.chgXoa = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.xóaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -76,6 +69,13 @@
             this.chEND = new System.Windows.Forms.CheckBox();
             this.cbNhanLich = new System.Windows.Forms.CheckBox();
             this.lblTrangThai = new System.Windows.Forms.Label();
+            this.chGID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.chgHo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.chgTen = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.chgSDT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.chgTrangThai = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.chgSex = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.chgXoa = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlDanhSach.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDSPT)).BeginInit();
@@ -155,41 +155,6 @@
             this.dgvDSPT.Name = "dgvDSPT";
             this.dgvDSPT.Size = new System.Drawing.Size(730, 583);
             this.dgvDSPT.TabIndex = 0;
-            // 
-            // chGID
-            // 
-            this.chGID.HeaderText = "ID";
-            this.chGID.Name = "chGID";
-            // 
-            // chgHo
-            // 
-            this.chgHo.HeaderText = "Ho";
-            this.chgHo.Name = "chgHo";
-            // 
-            // chgTen
-            // 
-            this.chgTen.HeaderText = "Tên";
-            this.chgTen.Name = "chgTen";
-            // 
-            // chgSDT
-            // 
-            this.chgSDT.HeaderText = "SDT";
-            this.chgSDT.Name = "chgSDT";
-            // 
-            // chgTrangThai
-            // 
-            this.chgTrangThai.HeaderText = "Trạng Thái";
-            this.chgTrangThai.Name = "chgTrangThai";
-            // 
-            // chgSex
-            // 
-            this.chgSex.HeaderText = "Sex";
-            this.chgSex.Name = "chgSex";
-            // 
-            // chgXoa
-            // 
-            this.chgXoa.HeaderText = "Xóa";
-            this.chgXoa.Name = "chgXoa";
             // 
             // contextMenuStrip1
             // 
@@ -551,6 +516,48 @@
             this.lblTrangThai.TabIndex = 21;
             this.lblTrangThai.Text = "Trạng Thái";
             // 
+            // chGID
+            // 
+            this.chGID.DataPropertyName = "ID";
+            this.chGID.HeaderText = "ID";
+            this.chGID.Name = "chGID";
+            // 
+            // chgHo
+            // 
+            this.chgHo.DataPropertyName = "Ho";
+            this.chgHo.HeaderText = "Ho";
+            this.chgHo.Name = "chgHo";
+            // 
+            // chgTen
+            // 
+            this.chgTen.DataPropertyName = "Ten";
+            this.chgTen.HeaderText = "Tên";
+            this.chgTen.Name = "chgTen";
+            // 
+            // chgSDT
+            // 
+            this.chgSDT.DataPropertyName = "SDT";
+            this.chgSDT.HeaderText = "SDT";
+            this.chgSDT.Name = "chgSDT";
+            // 
+            // chgTrangThai
+            // 
+            this.chgTrangThai.DataPropertyName = "TrangThai";
+            this.chgTrangThai.HeaderText = "Trạng Thái";
+            this.chgTrangThai.Name = "chgTrangThai";
+            // 
+            // chgSex
+            // 
+            this.chgSex.DataPropertyName = "GioiTinh";
+            this.chgSex.HeaderText = "Gioi Tinh";
+            this.chgSex.Name = "chgSex";
+            // 
+            // chgXoa
+            // 
+            this.chgXoa.DataPropertyName = "Thoi Gian Xoa";
+            this.chgXoa.HeaderText = "Xóa";
+            this.chgXoa.Name = "chgXoa";
+            // 
             // DanhSachPTUC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -558,6 +565,7 @@
             this.Controls.Add(this.pnlDanhSach);
             this.Name = "DanhSachPTUC";
             this.Size = new System.Drawing.Size(1264, 679);
+            this.Load += new System.EventHandler(this.DanhSachPTUC_Load);
             this.pnlDanhSach.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
@@ -610,6 +618,11 @@
         private System.Windows.Forms.ListBox lbChuyenMon;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.CheckBox cbXoa;
+        private System.Windows.Forms.CheckBox checkBox15;
+        private System.Windows.Forms.CheckBox CheckBoxNam;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem xóaToolStripMenuItem;
         private System.Windows.Forms.DataGridViewTextBoxColumn chGID;
         private System.Windows.Forms.DataGridViewTextBoxColumn chgHo;
         private System.Windows.Forms.DataGridViewTextBoxColumn chgTen;
@@ -617,10 +630,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn chgTrangThai;
         private System.Windows.Forms.DataGridViewTextBoxColumn chgSex;
         private System.Windows.Forms.DataGridViewTextBoxColumn chgXoa;
-        private System.Windows.Forms.CheckBox checkBox15;
-        private System.Windows.Forms.CheckBox CheckBoxNam;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem xóaToolStripMenuItem;
     }
 }

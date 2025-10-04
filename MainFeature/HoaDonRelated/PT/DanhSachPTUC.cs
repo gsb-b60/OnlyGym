@@ -8,6 +8,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data;
+using System.Data.SqlClient;
 
 namespace GymManagerment_MVP.MainFeature.Main
 {
@@ -42,6 +44,26 @@ namespace GymManagerment_MVP.MainFeature.Main
         {
             ThemPTfrm frm = new ThemPTfrm();
             frm.ShowDialog();
+        }
+
+        private void DanhSachPTUC_Load(object sender, EventArgs e)
+        {
+            dgvDSPT.Rows.Clear();
+            Config config = new Config();
+            SqlConnection sqlConnection = new SqlConnection(config.connection);
+            SqlCommand sqlCommand = sqlConnection.CreateCommand();
+            sqlCommand.CommandText = "select * from PT";
+            sqlConnection.Open();
+            SqlDataAdapter adapter = new SqlDataAdapter(sqlCommand);
+            DataTable dt = new DataTable("PT");
+            adapter.Fill(dt);
+
+            dgvDSPT.DataSource = dt;
+            sqlConnection.Close();
+            sqlConnection.Dispose();
+            adapter.Dispose();
+
+                
         }
     }
 }
