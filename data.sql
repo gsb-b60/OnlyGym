@@ -13,6 +13,19 @@ create table PT(
 	AvartarUrl nvarchar(100) null,
 );
 
+create table GoiTap(
+	ID int identity(0,1) primary key,
+	TenGoi nvarchar(50) not null,
+	LoaiGoi int not null,
+	ThoiHanNgay int null,
+	ThoiHanBuoi int null,
+	GiaTien decimal(12,3) not null,
+	ThongTin nvarchar(1000) null,
+	HoatDong bit not null,
+	Discount decimal(12,3) not null,
+	StartSellingDate datetime null,
+	EndSellingDate datetime null,
+);
 
 INSERT INTO PT (Ho, Ten, SDT, TrangThai, ThoiGianXoa, GioiTinh, NgaySinh, AvartarUrl) VALUES
 (N'Nguyễn Thị', N'Lan', '0912345678', 1, NULL, 0, '1999-04-12', N'https://example.com/avatar/0.jpg'),
@@ -70,3 +83,30 @@ INSERT INTO PT (Ho, Ten, SDT, TrangThai, ThoiGianXoa, GioiTinh, NgaySinh, Avarta
 
 
 select * from PT
+
+-- 🎯 DAY-BASED PACKAGES (LoaiGoi = 1)
+INSERT INTO GoiTap (TenGoi, LoaiGoi, ThoiHanNgay, ThoiHanBuoi, GiaTien, ThongTin, HoatDong, Discount, StartSellingDate, EndSellingDate)
+VALUES
+(N'M1', 1, 30, NULL, 300000, N'Gói cơ bản 1 tháng, phù hợp cho người mới bắt đầu.', 1, 20000, '2025-01-01', NULL),
+(N'M3', 1, 90, NULL, 850000, N'Gói 3 tháng tiết kiệm hơn, phù hợp người luyện đều.', 1, 50000, '2025-01-01', NULL),
+(N'M6', 1, 180, NULL, 1500000, N'Gói 6 tháng, giảm giá nhẹ cho khách hàng trung thành.', 1, 90000, '2025-01-01', NULL),
+(N'M12', 1, 360, NULL, 2700000, N'Gói 12 tháng – lựa chọn phổ biến nhất của phòng gym.', 1, 150000, '2025-01-01', NULL),
+(N'1 Year Pro', 1, 365, NULL, 3000000, N'Gói Pro 1 năm dành cho học viên nghiêm túc.', 1, 200000, '2025-01-01', NULL),
+(N'2 Year Commitment', 1, 730, NULL, 5400000, N'Gói dài hạn 2 năm – nhận nhiều ưu đãi đặc biệt.', 1, 300000, '2025-01-01', NULL),
+
+-- 🎁 MARKETING PACKAGES (Seasonal)
+(N'Tết 2023 Special', 1, 60, NULL, 450000, N'Ưu đãi đặc biệt mừng Tết 2023, chỉ bán trong tháng 1-2.', 0, 120000, '2023-01-01', '2023-02-15'),
+(N'Noel Fit Deal', 1, 45, NULL, 420000, N'Giảm giá mạnh mùa Noel, giới hạn số lượng.', 0, 150000, '2024-12-01', '2024-12-31'),
+(N'Summer Fit 2025', 1, 90, NULL, 700000, N'Khuyến mãi chào hè 2025, tặng kèm nước uống protein.', 1, 80000, '2025-05-01', '2025-07-31'),
+
+-- 💪 SESSION-BASED PACKAGES (LoaiGoi = 2)
+(N'S30', 2, NULL, 30, 350000, N'30 buổi tập – phù hợp học viên mới.', 1, 25000, '2025-01-01', NULL),
+(N'S50', 2, NULL, 50, 550000, N'50 buổi – tiết kiệm 10%.', 1, 40000, '2025-01-01', NULL),
+(N'S70', 2, NULL, 70, 700000, N'70 buổi – dành cho người luyện đều đặn.', 1, 50000, '2025-01-01', NULL),
+(N'S100', 2, NULL, 100, 950000, N'100 buổi – gói tập lâu dài, tiết kiệm lớn.', 1, 70000, '2025-01-01', NULL),
+
+-- 🎉 MARKETING SESSION PACKAGES
+(N'Holiday 2024 Combo', 2, NULL, 60, 480000, N'Ưu đãi lễ cuối năm, tặng thêm 5 buổi miễn phí.', 0, 100000, '2024-12-10', '2025-01-10'),
+(N'Back to School 2025', 2, NULL, 40, 420000, N'Khuyến mãi chào năm học mới cho sinh viên.', 1, 50000, '2025-08-01', '2025-09-30');
+
+select * from GoiTap

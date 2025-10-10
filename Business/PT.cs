@@ -6,21 +6,23 @@ using System.Threading.Tasks;
 
 namespace GymManagerment_MVP.Business
 {
-    internal class PT
+    public class PT
     {
-        int id { get; set; }
-        string tenLot {  get; set; }
-        string sDT { get; set; }
-        string trangThai { get; set; }
-        DateTime thoiGianXoa { get; set; }
-        bool gioiTinh { get; set; }
-        DateTime ngaySinh { get; set; }
-        string AvatarUrl { get; set; }
+        public int id { get; set; }
+        public string tenLot {  get; set; }
+        public string name { get; set; }
+        public string sDT { get; set; }
+        public string trangThai { get; set; }
+        public DateTime? thoiGianXoa { get; set; }
+        public bool? gioiTinh { get; set; }
+        public DateTime? ngaySinh { get; set; }
+        public string AvatarUrl { get; set; }
 
         public PT() { }
-        public PT(int id, string tenLot, string sDT, string trangThai, DateTime thoiGianXoa, bool gioiTinh, DateTime ngaySinh, string avatarUrl)
+        public PT(int id,string tenLot, string name,string sDT, string trangThai, DateTime thoiGianXoa, bool gioiTinh, DateTime? ngaySinh, string avatarUrl)
         {
             this.id = id;
+            this.name = name;
             this.tenLot = tenLot;
             this.sDT = sDT;
             this.trangThai = trangThai;
@@ -28,6 +30,10 @@ namespace GymManagerment_MVP.Business
             this.gioiTinh = gioiTinh;
             this.ngaySinh = ngaySinh;
             AvatarUrl = avatarUrl;
+        }
+        public override string ToString()
+        {
+            return $"{id} {name} {tenLot} {sDT} {trangThai} {thoiGianXoa?.Year} {gioiTinh} {ngaySinh?.Year} {AvatarUrl}";
         }
     }
 }

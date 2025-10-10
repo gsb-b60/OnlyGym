@@ -35,6 +35,13 @@
             this.cbFindB = new System.Windows.Forms.ComboBox();
             this.tbTim = new System.Windows.Forms.TextBox();
             this.dgvDSPT = new System.Windows.Forms.DataGridView();
+            this.chGID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.chgHo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.chgTen = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.chgSDT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.chgTrangThai = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.chgSex = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.chgXoa = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.xóaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -69,13 +76,9 @@
             this.chEND = new System.Windows.Forms.CheckBox();
             this.cbNhanLich = new System.Windows.Forms.CheckBox();
             this.lblTrangThai = new System.Windows.Forms.Label();
-            this.chGID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.chgHo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.chgTen = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.chgSDT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.chgTrangThai = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.chgSex = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.chgXoa = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lblTKActive = new System.Windows.Forms.Label();
+            this.lblTKUnactive = new System.Windows.Forms.Label();
+            this.lblTKDeleted = new System.Windows.Forms.Label();
             this.pnlDanhSach.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDSPT)).BeginInit();
@@ -155,6 +158,48 @@
             this.dgvDSPT.Name = "dgvDSPT";
             this.dgvDSPT.Size = new System.Drawing.Size(730, 583);
             this.dgvDSPT.TabIndex = 0;
+            // 
+            // chGID
+            // 
+            this.chGID.DataPropertyName = "ID";
+            this.chGID.HeaderText = "ID";
+            this.chGID.Name = "chGID";
+            // 
+            // chgHo
+            // 
+            this.chgHo.DataPropertyName = "Ho";
+            this.chgHo.HeaderText = "Ho";
+            this.chgHo.Name = "chgHo";
+            // 
+            // chgTen
+            // 
+            this.chgTen.DataPropertyName = "Ten";
+            this.chgTen.HeaderText = "Tên";
+            this.chgTen.Name = "chgTen";
+            // 
+            // chgSDT
+            // 
+            this.chgSDT.DataPropertyName = "SDT";
+            this.chgSDT.HeaderText = "SDT";
+            this.chgSDT.Name = "chgSDT";
+            // 
+            // chgTrangThai
+            // 
+            this.chgTrangThai.DataPropertyName = "TrangThai";
+            this.chgTrangThai.HeaderText = "Trạng Thái";
+            this.chgTrangThai.Name = "chgTrangThai";
+            // 
+            // chgSex
+            // 
+            this.chgSex.DataPropertyName = "GioiTinh";
+            this.chgSex.HeaderText = "Gioi Tinh";
+            this.chgSex.Name = "chgSex";
+            // 
+            // chgXoa
+            // 
+            this.chgXoa.DataPropertyName = "Thoi Gian Xoa";
+            this.chgXoa.HeaderText = "Xóa";
+            this.chgXoa.Name = "chgXoa";
             // 
             // contextMenuStrip1
             // 
@@ -326,6 +371,9 @@
             // 
             this.pnlLoc.AutoScroll = true;
             this.pnlLoc.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.pnlLoc.Controls.Add(this.lblTKDeleted);
+            this.pnlLoc.Controls.Add(this.lblTKUnactive);
+            this.pnlLoc.Controls.Add(this.lblTKActive);
             this.pnlLoc.Controls.Add(this.checkBox15);
             this.pnlLoc.Controls.Add(this.CheckBoxNam);
             this.pnlLoc.Controls.Add(this.label1);
@@ -516,47 +564,32 @@
             this.lblTrangThai.TabIndex = 21;
             this.lblTrangThai.Text = "Trạng Thái";
             // 
-            // chGID
+            // lblTKActive
             // 
-            this.chGID.DataPropertyName = "ID";
-            this.chGID.HeaderText = "ID";
-            this.chGID.Name = "chGID";
+            this.lblTKActive.Location = new System.Drawing.Point(131, 48);
+            this.lblTKActive.Name = "lblTKActive";
+            this.lblTKActive.Size = new System.Drawing.Size(70, 23);
+            this.lblTKActive.TabIndex = 45;
+            this.lblTKActive.Text = "ac count";
+            this.lblTKActive.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // chgHo
+            // lblTKUnactive
             // 
-            this.chgHo.DataPropertyName = "Ho";
-            this.chgHo.HeaderText = "Ho";
-            this.chgHo.Name = "chgHo";
+            this.lblTKUnactive.Location = new System.Drawing.Point(131, 70);
+            this.lblTKUnactive.Name = "lblTKUnactive";
+            this.lblTKUnactive.Size = new System.Drawing.Size(70, 23);
+            this.lblTKUnactive.TabIndex = 46;
+            this.lblTKUnactive.Text = "unac count";
+            this.lblTKUnactive.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // chgTen
+            // lblTKDeleted
             // 
-            this.chgTen.DataPropertyName = "Ten";
-            this.chgTen.HeaderText = "Tên";
-            this.chgTen.Name = "chgTen";
-            // 
-            // chgSDT
-            // 
-            this.chgSDT.DataPropertyName = "SDT";
-            this.chgSDT.HeaderText = "SDT";
-            this.chgSDT.Name = "chgSDT";
-            // 
-            // chgTrangThai
-            // 
-            this.chgTrangThai.DataPropertyName = "TrangThai";
-            this.chgTrangThai.HeaderText = "Trạng Thái";
-            this.chgTrangThai.Name = "chgTrangThai";
-            // 
-            // chgSex
-            // 
-            this.chgSex.DataPropertyName = "GioiTinh";
-            this.chgSex.HeaderText = "Gioi Tinh";
-            this.chgSex.Name = "chgSex";
-            // 
-            // chgXoa
-            // 
-            this.chgXoa.DataPropertyName = "Thoi Gian Xoa";
-            this.chgXoa.HeaderText = "Xóa";
-            this.chgXoa.Name = "chgXoa";
+            this.lblTKDeleted.Location = new System.Drawing.Point(131, 93);
+            this.lblTKDeleted.Name = "lblTKDeleted";
+            this.lblTKDeleted.Size = new System.Drawing.Size(70, 23);
+            this.lblTKDeleted.TabIndex = 47;
+            this.lblTKDeleted.Text = "del count";
+            this.lblTKDeleted.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // DanhSachPTUC
             // 
@@ -630,5 +663,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn chgTrangThai;
         private System.Windows.Forms.DataGridViewTextBoxColumn chgSex;
         private System.Windows.Forms.DataGridViewTextBoxColumn chgXoa;
+        private System.Windows.Forms.Label lblTKActive;
+        private System.Windows.Forms.Label lblTKDeleted;
+        private System.Windows.Forms.Label lblTKUnactive;
     }
 }
