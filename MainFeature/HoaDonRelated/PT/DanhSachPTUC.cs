@@ -78,9 +78,9 @@ namespace GymManagerment_MVP.MainFeature.Main
                     tenLot = reader["Ho"].ToString(),
                     name = reader["Ten"].ToString(),
                     sDT = reader["SDT"].ToString(),
-                    trangThai = reader["TrangThai"].ToString(),
+                    trangThai = Convert.ToBoolean(reader["TrangThai"]) ? State.Active: State.Inactive,
                     thoiGianXoa = reader["ThoiGianXoa"]!=DBNull.Value? Convert.ToDateTime(reader["ThoiGianXoa"].ToString()):(DateTime?)null,
-                    gioiTinh = Convert.ToBoolean(reader["GioiTinh"].ToString()),
+                    gioiTinh = Convert.ToBoolean(reader["GioiTinh"])?Gender.Male:Gender.Female,
                     ngaySinh = reader["NgaySinh"] != DBNull.Value? Convert.ToDateTime(reader["NgaySinh"].ToString()) : (DateTime?)null,
                     AvatarUrl = reader["AvartarUrl"].ToString(),
                 };
@@ -92,7 +92,7 @@ namespace GymManagerment_MVP.MainFeature.Main
                 Debug.WriteLine(pt);
             }
             Debug.WriteLine(0);
-            
+            dgvDSPT.DataSource= list;
 
             //PT ptInsert=new PT { 
             //    id = 1,
