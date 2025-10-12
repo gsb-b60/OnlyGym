@@ -35,6 +35,13 @@
             this.cbFindB = new System.Windows.Forms.ComboBox();
             this.tbTim = new System.Windows.Forms.TextBox();
             this.dgvDSPT = new System.Windows.Forms.DataGridView();
+            this.chGID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.chgHo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.chgTen = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.chgSDT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.chgTrangThai = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.chgSex = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.chgXoa = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.xóaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -55,8 +62,8 @@
             this.lblTKDeleted = new System.Windows.Forms.Label();
             this.lblTKUnactive = new System.Windows.Forms.Label();
             this.lblTKActive = new System.Windows.Forms.Label();
-            this.checkBox15 = new System.Windows.Forms.CheckBox();
-            this.CheckBoxNam = new System.Windows.Forms.CheckBox();
+            this.cbNu = new System.Windows.Forms.CheckBox();
+            this.cbNam = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
             this.cbXoa = new System.Windows.Forms.CheckBox();
             this.checkBox9 = new System.Windows.Forms.CheckBox();
@@ -69,16 +76,11 @@
             this.cbPhucHoiChucNang = new System.Windows.Forms.CheckBox();
             this.lblChuyenMon = new System.Windows.Forms.Label();
             this.btnXoa = new System.Windows.Forms.Button();
-            this.chEND = new System.Windows.Forms.CheckBox();
+            this.cbUnactive = new System.Windows.Forms.CheckBox();
             this.cbNhanLich = new System.Windows.Forms.CheckBox();
             this.lblTrangThai = new System.Windows.Forms.Label();
-            this.chGID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.chgHo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.chgTen = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.chgSDT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.chgTrangThai = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.chgSex = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.chgXoa = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lblNam = new System.Windows.Forms.Label();
+            this.lblNu = new System.Windows.Forms.Label();
             this.pnlDanhSach.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDSPT)).BeginInit();
@@ -158,6 +160,48 @@
             this.dgvDSPT.Name = "dgvDSPT";
             this.dgvDSPT.Size = new System.Drawing.Size(730, 583);
             this.dgvDSPT.TabIndex = 0;
+            // 
+            // chGID
+            // 
+            this.chGID.DataPropertyName = "ID";
+            this.chGID.HeaderText = "ID";
+            this.chGID.Name = "chGID";
+            // 
+            // chgHo
+            // 
+            this.chgHo.DataPropertyName = "tenLot";
+            this.chgHo.HeaderText = "Ho";
+            this.chgHo.Name = "chgHo";
+            // 
+            // chgTen
+            // 
+            this.chgTen.DataPropertyName = "name";
+            this.chgTen.HeaderText = "Tên";
+            this.chgTen.Name = "chgTen";
+            // 
+            // chgSDT
+            // 
+            this.chgSDT.DataPropertyName = "SDT";
+            this.chgSDT.HeaderText = "SDT";
+            this.chgSDT.Name = "chgSDT";
+            // 
+            // chgTrangThai
+            // 
+            this.chgTrangThai.DataPropertyName = "TrangThai";
+            this.chgTrangThai.HeaderText = "Trạng Thái";
+            this.chgTrangThai.Name = "chgTrangThai";
+            // 
+            // chgSex
+            // 
+            this.chgSex.DataPropertyName = "GioiTinh";
+            this.chgSex.HeaderText = "Gioi Tinh";
+            this.chgSex.Name = "chgSex";
+            // 
+            // chgXoa
+            // 
+            this.chgXoa.DataPropertyName = "thoiGianXoa";
+            this.chgXoa.HeaderText = "Xóa";
+            this.chgXoa.Name = "chgXoa";
             // 
             // contextMenuStrip1
             // 
@@ -329,11 +373,13 @@
             // 
             this.pnlLoc.AutoScroll = true;
             this.pnlLoc.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.pnlLoc.Controls.Add(this.lblNu);
+            this.pnlLoc.Controls.Add(this.lblNam);
             this.pnlLoc.Controls.Add(this.lblTKDeleted);
             this.pnlLoc.Controls.Add(this.lblTKUnactive);
             this.pnlLoc.Controls.Add(this.lblTKActive);
-            this.pnlLoc.Controls.Add(this.checkBox15);
-            this.pnlLoc.Controls.Add(this.CheckBoxNam);
+            this.pnlLoc.Controls.Add(this.cbNu);
+            this.pnlLoc.Controls.Add(this.cbNam);
             this.pnlLoc.Controls.Add(this.label1);
             this.pnlLoc.Controls.Add(this.cbXoa);
             this.pnlLoc.Controls.Add(this.checkBox9);
@@ -346,7 +392,7 @@
             this.pnlLoc.Controls.Add(this.cbPhucHoiChucNang);
             this.pnlLoc.Controls.Add(this.lblChuyenMon);
             this.pnlLoc.Controls.Add(this.btnXoa);
-            this.pnlLoc.Controls.Add(this.chEND);
+            this.pnlLoc.Controls.Add(this.cbUnactive);
             this.pnlLoc.Controls.Add(this.cbNhanLich);
             this.pnlLoc.Controls.Add(this.lblTrangThai);
             this.pnlLoc.Dock = System.Windows.Forms.DockStyle.Left;
@@ -355,6 +401,7 @@
             this.pnlLoc.Padding = new System.Windows.Forms.Padding(20);
             this.pnlLoc.Size = new System.Drawing.Size(207, 677);
             this.pnlLoc.TabIndex = 28;
+            this.pnlLoc.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlLoc_Paint);
             // 
             // lblTKDeleted
             // 
@@ -383,25 +430,25 @@
             this.lblTKActive.Text = "ac count";
             this.lblTKActive.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // checkBox15
+            // cbNu
             // 
-            this.checkBox15.AutoSize = true;
-            this.checkBox15.Location = new System.Drawing.Point(23, 451);
-            this.checkBox15.Name = "checkBox15";
-            this.checkBox15.Size = new System.Drawing.Size(40, 17);
-            this.checkBox15.TabIndex = 44;
-            this.checkBox15.Text = "Nữ";
-            this.checkBox15.UseVisualStyleBackColor = true;
+            this.cbNu.AutoSize = true;
+            this.cbNu.Location = new System.Drawing.Point(23, 451);
+            this.cbNu.Name = "cbNu";
+            this.cbNu.Size = new System.Drawing.Size(40, 17);
+            this.cbNu.TabIndex = 44;
+            this.cbNu.Text = "Nữ";
+            this.cbNu.UseVisualStyleBackColor = true;
             // 
-            // CheckBoxNam
+            // cbNam
             // 
-            this.CheckBoxNam.AutoSize = true;
-            this.CheckBoxNam.Location = new System.Drawing.Point(23, 427);
-            this.CheckBoxNam.Name = "CheckBoxNam";
-            this.CheckBoxNam.Size = new System.Drawing.Size(48, 17);
-            this.CheckBoxNam.TabIndex = 43;
-            this.CheckBoxNam.Text = "Nam";
-            this.CheckBoxNam.UseVisualStyleBackColor = true;
+            this.cbNam.AutoSize = true;
+            this.cbNam.Location = new System.Drawing.Point(23, 427);
+            this.cbNam.Name = "cbNam";
+            this.cbNam.Size = new System.Drawing.Size(48, 17);
+            this.cbNam.TabIndex = 43;
+            this.cbNam.Text = "Nam";
+            this.cbNam.UseVisualStyleBackColor = true;
             // 
             // label1
             // 
@@ -520,15 +567,16 @@
             this.btnXoa.Text = "Xóa tất cả";
             this.btnXoa.UseVisualStyleBackColor = true;
             // 
-            // chEND
+            // cbUnactive
             // 
-            this.chEND.AutoSize = true;
-            this.chEND.Location = new System.Drawing.Point(23, 74);
-            this.chEND.Name = "chEND";
-            this.chEND.Size = new System.Drawing.Size(110, 17);
-            this.chEND.TabIndex = 29;
-            this.chEND.Text = "Ngừng Nhận Lịch";
-            this.chEND.UseVisualStyleBackColor = true;
+            this.cbUnactive.AutoSize = true;
+            this.cbUnactive.Location = new System.Drawing.Point(23, 74);
+            this.cbUnactive.Name = "cbUnactive";
+            this.cbUnactive.Size = new System.Drawing.Size(110, 17);
+            this.cbUnactive.TabIndex = 29;
+            this.cbUnactive.Text = "Ngừng Nhận Lịch";
+            this.cbUnactive.UseVisualStyleBackColor = true;
+            this.cbUnactive.CheckedChanged += new System.EventHandler(this.chEND_CheckedChanged);
             // 
             // cbNhanLich
             // 
@@ -539,6 +587,7 @@
             this.cbNhanLich.TabIndex = 28;
             this.cbNhanLich.Text = "Nhận Lịch";
             this.cbNhanLich.UseVisualStyleBackColor = true;
+            this.cbNhanLich.CheckedChanged += new System.EventHandler(this.cbNhanLich_CheckedChanged);
             // 
             // lblTrangThai
             // 
@@ -549,47 +598,24 @@
             this.lblTrangThai.TabIndex = 21;
             this.lblTrangThai.Text = "Trạng Thái";
             // 
-            // chGID
+            // lblNam
             // 
-            this.chGID.DataPropertyName = "ID";
-            this.chGID.HeaderText = "ID";
-            this.chGID.Name = "chGID";
+            this.lblNam.Location = new System.Drawing.Point(121, 421);
+            this.lblNam.Name = "lblNam";
+            this.lblNam.Size = new System.Drawing.Size(80, 23);
+            this.lblNam.TabIndex = 50;
+            this.lblNam.Text = "Male count";
+            this.lblNam.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // chgHo
+            // lblNu
             // 
-            this.chgHo.DataPropertyName = "tenLot";
-            this.chgHo.HeaderText = "Ho";
-            this.chgHo.Name = "chgHo";
-            // 
-            // chgTen
-            // 
-            this.chgTen.DataPropertyName = "name";
-            this.chgTen.HeaderText = "Tên";
-            this.chgTen.Name = "chgTen";
-            // 
-            // chgSDT
-            // 
-            this.chgSDT.DataPropertyName = "SDT";
-            this.chgSDT.HeaderText = "SDT";
-            this.chgSDT.Name = "chgSDT";
-            // 
-            // chgTrangThai
-            // 
-            this.chgTrangThai.DataPropertyName = "TrangThai";
-            this.chgTrangThai.HeaderText = "Trạng Thái";
-            this.chgTrangThai.Name = "chgTrangThai";
-            // 
-            // chgSex
-            // 
-            this.chgSex.DataPropertyName = "GioiTinh";
-            this.chgSex.HeaderText = "Gioi Tinh";
-            this.chgSex.Name = "chgSex";
-            // 
-            // chgXoa
-            // 
-            this.chgXoa.DataPropertyName = "thoiGianXoa";
-            this.chgXoa.HeaderText = "Xóa";
-            this.chgXoa.Name = "chgXoa";
+            this.lblNu.Location = new System.Drawing.Point(118, 443);
+            this.lblNu.Name = "lblNu";
+            this.lblNu.Size = new System.Drawing.Size(83, 23);
+            this.lblNu.TabIndex = 51;
+            this.lblNu.Text = "Female count";
+            this.lblNu.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblNu.Click += new System.EventHandler(this.lblNu_Click);
             // 
             // DanhSachPTUC
             // 
@@ -636,7 +662,7 @@
         private System.Windows.Forms.Button btnThem;
         private System.Windows.Forms.Panel pnlLoc;
         private System.Windows.Forms.Button btnXoa;
-        private System.Windows.Forms.CheckBox chEND;
+        private System.Windows.Forms.CheckBox cbUnactive;
         private System.Windows.Forms.CheckBox cbNhanLich;
         private System.Windows.Forms.Label lblTrangThai;
         private System.Windows.Forms.CheckBox checkBox9;
@@ -651,8 +677,8 @@
         private System.Windows.Forms.ListBox lbChuyenMon;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.CheckBox cbXoa;
-        private System.Windows.Forms.CheckBox checkBox15;
-        private System.Windows.Forms.CheckBox CheckBoxNam;
+        private System.Windows.Forms.CheckBox cbNu;
+        private System.Windows.Forms.CheckBox cbNam;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem xóaToolStripMenuItem;
@@ -666,5 +692,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn chgTrangThai;
         private System.Windows.Forms.DataGridViewTextBoxColumn chgSex;
         private System.Windows.Forms.DataGridViewTextBoxColumn chgXoa;
+        private System.Windows.Forms.Label lblNu;
+        private System.Windows.Forms.Label lblNam;
     }
 }

@@ -17,9 +17,11 @@ namespace GymManagerment_MVP.MainFeature.Main
 {
     public partial class DanhSachPTUC : UserControl
     {
+        DSPT dSPT;
         public DanhSachPTUC()
         {
             InitializeComponent();
+             dSPT= new DSPT();
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
@@ -64,7 +66,7 @@ namespace GymManagerment_MVP.MainFeature.Main
             //sqlConnection.Dispose();
             //adapter.Dispose();
 
-            List<PT> list= new List<PT>();
+            
 
             SqlConnection sqlConnection1 = new SqlConnection(Config.connection);
             SqlCommand cmd=sqlConnection1.CreateCommand();
@@ -84,29 +86,81 @@ namespace GymManagerment_MVP.MainFeature.Main
                     ngaySinh = reader["NgaySinh"] != DBNull.Value? Convert.ToDateTime(reader["NgaySinh"].ToString()) : (DateTime?)null,
                     AvatarUrl = reader["AvartarUrl"].ToString(),
                 };
-                list.Add(ptInsert);
+                dSPT.pTs.Add(ptInsert);
             }
             sqlConnection1.Close();
             sqlConnection1.Dispose();
-            foreach (PT pt in list) {
-                Debug.WriteLine(pt);
+
+            //set up form
+            dgvDSPT.DataSource= dSPT.pTs;
+
+            int iaCount = 0;
+            int aCount = 0;
+            int male=0;
+            int fe=0;
+            int xoa = 0;
+            foreach(var i in dSPT.pTs)
+            {
+                if(i.trangThai==State.Inactive)
+                {
+                    iaCount++;
+                }
+                else
+                {
+                    aCount++;
+                }
+                if (i.gioiTinh == Gender.Male)
+                {
+                    male++;
+                }
+                else if(i.gioiTinh==Gender.Female)
+                {
+                    fe++;
+                }
+                if(i.thoiGianXoa!= (DateTime?)null)
+                {
+                    xoa++;
+                }
             }
-            Debug.WriteLine(0);
-            dgvDSPT.DataSource= list;
+            lblTKActive.Text=aCount.ToString();
+            lblTKUnactive.Text=iaCount.ToString();   
+            lblTKDeleted.Text=xoa.ToString();
+            lblNam.Text=male.ToString();
+            lblNu.Text=fe.ToString(); 
+        }
 
-            //PT ptInsert=new PT { 
-            //    id = 1,
-            //    tenLot="xin choa",
-            //    name="name",
-            //    sDT="sdt",
-            //    trangThai="true",
-            //    thoiGianXoa=DateTime.Now,
-            //    gioiTinh=false,
-            //    ngaySinh=DateTime.Now,
-            //    AvatarUrl="assets/pt/"
-            //};
+        private void cbNhanLich_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbNhanLich.Checked)
+            {
+                dgvDSPT.DataSource = dSPT.getA();
+            }
+            else
+            {
+                dgvDSPT.DataSource = dSPT.getList();
+            }
+        }
 
-                
+        private void chEND_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbUnactive.Checked)
+            {
+                dgvDSPT.DataSource = dSPT.getUA();
+            }
+            else
+            {
+                dgvDSPT.DataSource = dSPT.getList();
+            }
+        }
+
+        private void pnlLoc_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void lblNu_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

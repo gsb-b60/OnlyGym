@@ -48,6 +48,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Business\DSPT.cs" />
     <Compile Include="Business\GoiPT.cs" />
     <Compile Include="Business\GoiTap.cs" />
     <Compile Include="Business\HocVien.cs" />
