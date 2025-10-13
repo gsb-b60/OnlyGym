@@ -485,5 +485,13 @@
     <Folder Include="MainFeature\PTRealated\" />
     <Folder Include="MainFeature\ThongKeRelated\" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Media\PTPicture\NoShow.jpg" />
+    <Content Include="Media\PTPicture\pt1_m.jpg" />
+    <Content Include="Media\PTPicture\pt2_f.jpg" />
+    <Content Include="Media\PTPicture\pt3_f.jpg" />
+    <Content Include="Media\PTPicture\pt4_m.jpg" />
+    <Content Include="Media\PTPicture\pt5_f.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

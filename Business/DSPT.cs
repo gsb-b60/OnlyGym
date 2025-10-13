@@ -21,5 +21,17 @@ namespace GymManagerment_MVP.Business
         {
             return pTs.FindAll((i) => i.trangThai == State.Active);
         }
+        public List<PT> getM()
+        {
+            return pTs.FindAll((i) => i.gioiTinh == Gender.Male);
+        }
+        public List<PT> getF()
+        {
+            return pTs.FindAll((i) => i.gioiTinh == Gender.Female);
+        }
+        public List<PT> getD()
+        {
+            return pTs.FindAll((i) => i.thoiGianXoa != (DateTime?)null);
+        }
     }
 }
