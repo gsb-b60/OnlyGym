@@ -27,8 +27,8 @@ namespace GymManagerment_MVP.Business
         public Gender? gioiTinh { get; set; }
         public DateTime? ngaySinh { get; set; }
         public string AvatarUrl { get; set; }
-        
-        public List<string> specialties { get; set; }
+
+        public List<string> specialties = new List<string>();
         public PT() { }
         public PT(int id,string tenLot, string name,string sDT, State trangThai, DateTime thoiGianXoa, Gender gioiTinh, DateTime? ngaySinh, string avatarUrl)
         {
@@ -42,9 +42,53 @@ namespace GymManagerment_MVP.Business
             this.ngaySinh = ngaySinh;
             AvatarUrl = avatarUrl;
         }
+        public PT(string specilty)
+        {
+            specialties.Add(specilty);
+        }
         public override string ToString()
         {
-            return $"{id} {name} {tenLot} {sDT} {trangThai} {thoiGianXoa?.Year} {gioiTinh} {ngaySinh?.Year} {AvatarUrl}";
+            var sb = new StringBuilder();
+
+            string genderIcon;
+
+            switch (gioiTinh)
+            {
+                case Gender.Male:
+                    genderIcon = "♂️";
+                    break;
+                case Gender.Female:
+                    genderIcon = "♀️";
+                    break;
+                default:
+                    genderIcon = "⚪";
+                    break;
+            }
+
+            string stateColor = trangThai == State.Active
+                ? "\u001b[32mACTIVE\u001b[0m"  // Green
+                : "\u001b[31mINACTIVE\u001b[0m"; // Red
+
+            string birth = ngaySinh.HasValue ? ngaySinh.Value.ToString("yyyy-MM-dd") : "Unknown";
+            string delTime = thoiGianXoa.HasValue ? thoiGianXoa.Value.ToString("yyyy-MM-dd HH:mm:ss") : "None";
+
+            string spList = specialties != null && specialties.Count > 0
+                ? string.Join(", ", specialties)
+                : "(none)";
+
+            sb.AppendLine("┌───────────────────────────────────────────────");
+            sb.AppendLine($"│  PT #{id}  {genderIcon}");
+            sb.AppendLine("├───────────────────────────────────────────────");
+            sb.AppendLine($"│  Name        : {tenLot} {name}");
+            sb.AppendLine($"│  Phone       : {sDT}");
+            sb.AppendLine($"│  Status      : {stateColor}");
+            sb.AppendLine($"│  Birth Date  : {birth}");
+            sb.AppendLine($"│  Deleted At  : {delTime}");
+            sb.AppendLine($"│  Avatar URL  : {AvatarUrl}");
+            sb.AppendLine($"│  Specialties : {spList}");
+            sb.AppendLine("└───────────────────────────────────────────────");
+
+            return sb.ToString();
         }
     }
 }

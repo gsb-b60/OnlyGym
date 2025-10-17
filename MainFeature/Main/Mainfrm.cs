@@ -1,4 +1,5 @@
-﻿using GymManagerment_MVP.MainFeature.HoaDonRelated.PT;
+﻿using GymManagerment_MVP.Business;
+using GymManagerment_MVP.MainFeature.HoaDonRelated.PT;
 using GymManagerment_MVP.MainFeature.HoaDonRelated.PT._4stepdk;
 using GymManagerment_MVP.MainFeature.HoaDonRelated.PT.HopDongPT;
 using GymManagerment_MVP.MainFeature.Main;
@@ -14,8 +15,10 @@ using System.Windows.Forms;
 
 namespace GymManagerment_MVP
 {
+    
     public partial class Mainfrm : Form
     {
+
         public Mainfrm()
         {
             InitializeComponent();

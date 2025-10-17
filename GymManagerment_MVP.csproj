@@ -49,10 +49,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Business\DSPT.cs" />
+    <Compile Include="Business\DSSpecialties.cs" />
     <Compile Include="Business\GoiPT.cs" />
     <Compile Include="Business\GoiTap.cs" />
     <Compile Include="Business\HocVien.cs" />
     <Compile Include="Business\PT.cs" />
+    <Compile Include="Business\Specialties.cs" />
     <Compile Include="Config.cs" />
     <Compile Include="MainFeature\HoaDonRelated\GoiTapFolder\BanGoi.cs">
       <SubType>UserControl</SubType>
