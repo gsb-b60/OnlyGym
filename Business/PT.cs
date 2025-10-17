@@ -27,7 +27,8 @@ namespace GymManagerment_MVP.Business
         public Gender? gioiTinh { get; set; }
         public DateTime? ngaySinh { get; set; }
         public string AvatarUrl { get; set; }
-
+        
+        public List<string> specialties { get; set; }
         public PT() { }
         public PT(int id,string tenLot, string name,string sDT, State trangThai, DateTime thoiGianXoa, Gender gioiTinh, DateTime? ngaySinh, string avatarUrl)
         {
