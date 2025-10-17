@@ -30,12 +30,11 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GoiTapUC));
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.lblThanhTien = new System.Windows.Forms.Label();
-            this.lblState = new System.Windows.Forms.Label();
-            this.Giá = new System.Windows.Forms.Label();
-            this.lblLoaiHang = new System.Windows.Forms.Label();
+            this.pnGoiContent = new System.Windows.Forms.Panel();
             this.lblTenGoi = new System.Windows.Forms.Label();
+            this.lblState = new System.Windows.Forms.Label();
+            this.lblGiaTri = new System.Windows.Forms.Label();
+            this.lblLoaiHang = new System.Windows.Forms.Label();
             this.btnMuaGoi = new System.Windows.Forms.Button();
             this.btnMuaNgay = new System.Windows.Forms.Button();
             this.pbSetting = new System.Windows.Forms.PictureBox();
@@ -43,36 +42,42 @@
             this.xóaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tắtActiveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.activeNowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.panel1.SuspendLayout();
+            this.lblThanhTien = new System.Windows.Forms.Label();
+            this.lblDiscount = new System.Windows.Forms.Label();
+            this.pnGoiContent.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbSetting)).BeginInit();
             this.cmsConfig.SuspendLayout();
             this.SuspendLayout();
             // 
-            // panel1
+            // pnGoiContent
             // 
-            this.panel1.BackColor = System.Drawing.Color.Teal;
-            this.panel1.Controls.Add(this.lblThanhTien);
-            this.panel1.Controls.Add(this.lblState);
-            this.panel1.Controls.Add(this.Giá);
-            this.panel1.Controls.Add(this.lblLoaiHang);
-            this.panel1.Controls.Add(this.lblTenGoi);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(197, 89);
-            this.panel1.TabIndex = 0;
-            this.panel1.Click += new System.EventHandler(this.panel1_Click);
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            this.pnGoiContent.BackColor = System.Drawing.Color.Teal;
+            this.pnGoiContent.Controls.Add(this.lblDiscount);
+            this.pnGoiContent.Controls.Add(this.lblThanhTien);
+            this.pnGoiContent.Controls.Add(this.lblTenGoi);
+            this.pnGoiContent.Controls.Add(this.lblState);
+            this.pnGoiContent.Controls.Add(this.lblGiaTri);
+            this.pnGoiContent.Controls.Add(this.lblLoaiHang);
+            this.pnGoiContent.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnGoiContent.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.pnGoiContent.Location = new System.Drawing.Point(0, 0);
+            this.pnGoiContent.Name = "pnGoiContent";
+            this.pnGoiContent.Size = new System.Drawing.Size(197, 110);
+            this.pnGoiContent.TabIndex = 0;
+            this.pnGoiContent.Click += new System.EventHandler(this.panel1_Click);
+            this.pnGoiContent.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
-            // lblThanhTien
+            // lblTenGoi
             // 
-            this.lblThanhTien.AutoSize = true;
-            this.lblThanhTien.Location = new System.Drawing.Point(109, 69);
-            this.lblThanhTien.Name = "lblThanhTien";
-            this.lblThanhTien.Size = new System.Drawing.Size(62, 13);
-            this.lblThanhTien.TabIndex = 3;
-            this.lblThanhTien.Text = "Thành Tiền";
+            this.lblTenGoi.AutoSize = true;
+            this.lblTenGoi.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.lblTenGoi.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTenGoi.Location = new System.Drawing.Point(8, 31);
+            this.lblTenGoi.Name = "lblTenGoi";
+            this.lblTenGoi.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.lblTenGoi.Size = new System.Drawing.Size(70, 25);
+            this.lblTenGoi.TabIndex = 4;
+            this.lblTenGoi.Text = "label1";
             // 
             // lblState
             // 
@@ -84,15 +89,16 @@
             this.lblState.TabIndex = 2;
             this.lblState.Text = "Tình Trạng";
             // 
-            // Giá
+            // lblGiaTri
             // 
-            this.Giá.AutoSize = true;
-            this.Giá.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.Giá.Location = new System.Drawing.Point(122, 56);
-            this.Giá.Name = "Giá";
-            this.Giá.Size = new System.Drawing.Size(49, 13);
-            this.Giá.TabIndex = 2;
-            this.Giá.Text = "giá trị gói";
+            this.lblGiaTri.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Strikeout))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGiaTri.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lblGiaTri.Location = new System.Drawing.Point(80, 56);
+            this.lblGiaTri.Name = "lblGiaTri";
+            this.lblGiaTri.Size = new System.Drawing.Size(107, 31);
+            this.lblGiaTri.TabIndex = 2;
+            this.lblGiaTri.Text = "giá trị gói";
+            this.lblGiaTri.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lblLoaiHang
             // 
@@ -104,21 +110,9 @@
             this.lblLoaiHang.TabIndex = 1;
             this.lblLoaiHang.Text = "Loại Hàng";
             // 
-            // lblTenGoi
-            // 
-            this.lblTenGoi.AutoSize = true;
-            this.lblTenGoi.BackColor = System.Drawing.Color.Teal;
-            this.lblTenGoi.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTenGoi.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblTenGoi.Location = new System.Drawing.Point(41, 30);
-            this.lblTenGoi.Name = "lblTenGoi";
-            this.lblTenGoi.Size = new System.Drawing.Size(78, 24);
-            this.lblTenGoi.TabIndex = 0;
-            this.lblTenGoi.Text = "Tên Gói";
-            // 
             // btnMuaGoi
             // 
-            this.btnMuaGoi.Location = new System.Drawing.Point(84, 95);
+            this.btnMuaGoi.Location = new System.Drawing.Point(84, 116);
             this.btnMuaGoi.Name = "btnMuaGoi";
             this.btnMuaGoi.Size = new System.Drawing.Size(75, 23);
             this.btnMuaGoi.TabIndex = 3;
@@ -128,7 +122,7 @@
             // 
             // btnMuaNgay
             // 
-            this.btnMuaNgay.Location = new System.Drawing.Point(3, 95);
+            this.btnMuaNgay.Location = new System.Drawing.Point(3, 116);
             this.btnMuaNgay.Name = "btnMuaNgay";
             this.btnMuaNgay.Size = new System.Drawing.Size(75, 23);
             this.btnMuaNgay.TabIndex = 5;
@@ -139,7 +133,7 @@
             // 
             this.pbSetting.ContextMenuStrip = this.cmsConfig;
             this.pbSetting.Image = ((System.Drawing.Image)(resources.GetObject("pbSetting.Image")));
-            this.pbSetting.Location = new System.Drawing.Point(165, 95);
+            this.pbSetting.Location = new System.Drawing.Point(165, 116);
             this.pbSetting.Name = "pbSetting";
             this.pbSetting.Size = new System.Drawing.Size(22, 22);
             this.pbSetting.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -175,6 +169,29 @@
             this.activeNowToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
             this.activeNowToolStripMenuItem.Text = "Active Now";
             // 
+            // lblThanhTien
+            // 
+            this.lblThanhTien.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblThanhTien.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lblThanhTien.Location = new System.Drawing.Point(80, 87);
+            this.lblThanhTien.Name = "lblThanhTien";
+            this.lblThanhTien.Size = new System.Drawing.Size(107, 23);
+            this.lblThanhTien.TabIndex = 5;
+            this.lblThanhTien.Text = "Thanh Tien";
+            this.lblThanhTien.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblThanhTien.Click += new System.EventHandler(this.lblThanhTien_Click);
+            // 
+            // lblDiscount
+            // 
+            this.lblDiscount.AutoSize = true;
+            this.lblDiscount.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDiscount.Location = new System.Drawing.Point(7, 87);
+            this.lblDiscount.Name = "lblDiscount";
+            this.lblDiscount.Size = new System.Drawing.Size(77, 20);
+            this.lblDiscount.TabIndex = 6;
+            this.lblDiscount.Text = "discount";
+            this.lblDiscount.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
             // GoiTapUC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -185,14 +202,15 @@
             this.Controls.Add(this.pbSetting);
             this.Controls.Add(this.btnMuaNgay);
             this.Controls.Add(this.btnMuaGoi);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.pnGoiContent);
             this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.Margin = new System.Windows.Forms.Padding(10);
             this.Name = "GoiTapUC";
-            this.Size = new System.Drawing.Size(197, 126);
+            this.Size = new System.Drawing.Size(197, 141);
+            this.Load += new System.EventHandler(this.GoiTapUC_Load);
             this.Click += new System.EventHandler(this.GoiTapUC_Click);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.pnGoiContent.ResumeLayout(false);
+            this.pnGoiContent.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbSetting)).EndInit();
             this.cmsConfig.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -201,18 +219,19 @@
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label lblTenGoi;
+        private System.Windows.Forms.Panel pnGoiContent;
         private System.Windows.Forms.Label lblLoaiHang;
-        private System.Windows.Forms.Label Giá;
+        private System.Windows.Forms.Label lblGiaTri;
         private System.Windows.Forms.Label lblState;
         private System.Windows.Forms.Button btnMuaGoi;
         private System.Windows.Forms.Button btnMuaNgay;
         private System.Windows.Forms.PictureBox pbSetting;
-        private System.Windows.Forms.Label lblThanhTien;
         private System.Windows.Forms.ContextMenuStrip cmsConfig;
         private System.Windows.Forms.ToolStripMenuItem xóaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem tắtActiveToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem activeNowToolStripMenuItem;
+        private System.Windows.Forms.Label lblTenGoi;
+        private System.Windows.Forms.Label lblThanhTien;
+        private System.Windows.Forms.Label lblDiscount;
     }
 }

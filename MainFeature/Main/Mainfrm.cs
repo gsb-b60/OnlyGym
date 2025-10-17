@@ -20,6 +20,7 @@ namespace GymManagerment_MVP
         {
             InitializeComponent();
             this.MinimumSize = new Size(1280, 800);
+            loadUserControl(new MuaHang());
             // Test Form
         }
 

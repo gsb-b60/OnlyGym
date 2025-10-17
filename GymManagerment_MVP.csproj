@@ -48,34 +48,40 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MainFeature\HoaDonRelated\GoiTap\BanGoi.cs">
+    <Compile Include="Business\DSPT.cs" />
+    <Compile Include="Business\GoiPT.cs" />
+    <Compile Include="Business\GoiTap.cs" />
+    <Compile Include="Business\HocVien.cs" />
+    <Compile Include="Business\PT.cs" />
+    <Compile Include="Config.cs" />
+    <Compile Include="MainFeature\HoaDonRelated\GoiTapFolder\BanGoi.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="MainFeature\HoaDonRelated\GoiTap\BanGoi.Designer.cs">
+    <Compile Include="MainFeature\HoaDonRelated\GoiTapFolder\BanGoi.Designer.cs">
       <DependentUpon>BanGoi.cs</DependentUpon>
     </Compile>
-    <Compile Include="MainFeature\HoaDonRelated\GoiTap\ChangePackagefrm.cs">
+    <Compile Include="MainFeature\HoaDonRelated\GoiTapFolder\ChangePackagefrm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MainFeature\HoaDonRelated\GoiTap\ChangePackagefrm.Designer.cs">
+    <Compile Include="MainFeature\HoaDonRelated\GoiTapFolder\ChangePackagefrm.Designer.cs">
       <DependentUpon>ChangePackagefrm.cs</DependentUpon>
     </Compile>
-    <Compile Include="MainFeature\HoaDonRelated\GoiTap\DurationThangUC.cs">
+    <Compile Include="MainFeature\HoaDonRelated\GoiTapFolder\DurationThangUC.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="MainFeature\HoaDonRelated\GoiTap\DurationThangUC.Designer.cs">
+    <Compile Include="MainFeature\HoaDonRelated\GoiTapFolder\DurationThangUC.Designer.cs">
       <DependentUpon>DurationThangUC.cs</DependentUpon>
     </Compile>
-    <Compile Include="MainFeature\HoaDonRelated\GoiTap\GoiTapUC.cs">
+    <Compile Include="MainFeature\HoaDonRelated\GoiTapFolder\GoiTapUC.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="MainFeature\HoaDonRelated\GoiTap\GoiTapUC.Designer.cs">
+    <Compile Include="MainFeature\HoaDonRelated\GoiTapFolder\GoiTapUC.Designer.cs">
       <DependentUpon>GoiTapUC.cs</DependentUpon>
     </Compile>
-    <Compile Include="MainFeature\HoaDonRelated\GoiTap\ThemGoiTapfrm.cs">
+    <Compile Include="MainFeature\HoaDonRelated\GoiTapFolder\ThemGoiTapfrm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MainFeature\HoaDonRelated\GoiTap\ThemGoiTapfrm.Designer.cs">
+    <Compile Include="MainFeature\HoaDonRelated\GoiTapFolder\ThemGoiTapfrm.Designer.cs">
       <DependentUpon>ThemGoiTapfrm.cs</DependentUpon>
     </Compile>
     <Compile Include="MainFeature\HoaDonRelated\MuaGoiTap.cs">
@@ -320,19 +326,19 @@
     <Compile Include="Storage\XuatHoaDonUC.Designer.cs">
       <DependentUpon>XuatHoaDonUC.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="MainFeature\HoaDonRelated\GoiTap\BanGoi.resx">
+    <EmbeddedResource Include="MainFeature\HoaDonRelated\GoiTapFolder\BanGoi.resx">
       <DependentUpon>BanGoi.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainFeature\HoaDonRelated\GoiTap\ChangePackagefrm.resx">
+    <EmbeddedResource Include="MainFeature\HoaDonRelated\GoiTapFolder\ChangePackagefrm.resx">
       <DependentUpon>ChangePackagefrm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainFeature\HoaDonRelated\GoiTap\DurationThangUC.resx">
+    <EmbeddedResource Include="MainFeature\HoaDonRelated\GoiTapFolder\DurationThangUC.resx">
       <DependentUpon>DurationThangUC.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainFeature\HoaDonRelated\GoiTap\GoiTapUC.resx">
+    <EmbeddedResource Include="MainFeature\HoaDonRelated\GoiTapFolder\GoiTapUC.resx">
       <DependentUpon>GoiTapUC.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainFeature\HoaDonRelated\GoiTap\ThemGoiTapfrm.resx">
+    <EmbeddedResource Include="MainFeature\HoaDonRelated\GoiTapFolder\ThemGoiTapfrm.resx">
       <DependentUpon>ThemGoiTapfrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainFeature\HoaDonRelated\MuaGoiTap.resx">
@@ -478,6 +484,14 @@
     <Folder Include="MainFeature\HoaDonRelated\SanPham\" />
     <Folder Include="MainFeature\PTRealated\" />
     <Folder Include="MainFeature\ThongKeRelated\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Media\PTPicture\NoShow.jpg" />
+    <Content Include="Media\PTPicture\pt1_m.jpg" />
+    <Content Include="Media\PTPicture\pt2_f.jpg" />
+    <Content Include="Media\PTPicture\pt3_f.jpg" />
+    <Content Include="Media\PTPicture\pt4_m.jpg" />
+    <Content Include="Media\PTPicture\pt5_f.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

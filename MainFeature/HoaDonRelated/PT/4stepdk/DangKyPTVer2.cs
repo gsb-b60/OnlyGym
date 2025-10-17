@@ -67,11 +67,13 @@ namespace GymManagerment_MVP.MainFeature.HoaDonRelated.PT
             {
                 if (i < step ) // step đã hoàn thành
                 {
+                    steps[i].ForeColor = Color.Black;
                     steps[i].BackColor = Color.LightGreen;
                     steps[i].Font = new Font(steps[i].Font, FontStyle.Regular);
                 }
                 else if (i == step ) // step hiện tại
                 {
+                    steps[i].ForeColor = Color.White;
                     steps[i].BackColor = Color.Green;
                     steps[i].Font = new Font(steps[i].Font, FontStyle.Bold);
                 }

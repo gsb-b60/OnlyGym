@@ -31,9 +31,9 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tb1flp1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.flpGoiThang = new System.Windows.Forms.FlowLayoutPanel();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.tb2flp = new System.Windows.Forms.FlowLayoutPanel();
+            this.flpGoiBuoi = new System.Windows.Forms.FlowLayoutPanel();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tb3flp1 = new System.Windows.Forms.FlowLayoutPanel();
             this.btnTim = new System.Windows.Forms.Button();
@@ -96,7 +96,7 @@
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.tb1flp1);
+            this.tabPage1.Controls.Add(this.flpGoiThang);
             this.tabPage1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabPage1.Location = new System.Drawing.Point(4, 39);
             this.tabPage1.Name = "tabPage1";
@@ -106,19 +106,19 @@
             this.tabPage1.Text = "Gói Tập Tháng";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // tb1flp1
+            // flpGoiThang
             // 
-            this.tb1flp1.AutoScroll = true;
-            this.tb1flp1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.tb1flp1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tb1flp1.Location = new System.Drawing.Point(3, 3);
-            this.tb1flp1.Name = "tb1flp1";
-            this.tb1flp1.Size = new System.Drawing.Size(708, 520);
-            this.tb1flp1.TabIndex = 0;
+            this.flpGoiThang.AutoScroll = true;
+            this.flpGoiThang.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.flpGoiThang.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flpGoiThang.Location = new System.Drawing.Point(3, 3);
+            this.flpGoiThang.Name = "flpGoiThang";
+            this.flpGoiThang.Size = new System.Drawing.Size(708, 520);
+            this.flpGoiThang.TabIndex = 0;
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.tb2flp);
+            this.tabPage2.Controls.Add(this.flpGoiBuoi);
             this.tabPage2.Location = new System.Drawing.Point(4, 39);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
@@ -127,16 +127,16 @@
             this.tabPage2.Text = "Gói Theo Buổi";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // tb2flp
+            // flpGoiBuoi
             // 
-            this.tb2flp.AutoScroll = true;
-            this.tb2flp.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.tb2flp.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tb2flp.Location = new System.Drawing.Point(3, 3);
-            this.tb2flp.Name = "tb2flp";
-            this.tb2flp.Size = new System.Drawing.Size(708, 520);
-            this.tb2flp.TabIndex = 1;
-            this.tb2flp.Paint += new System.Windows.Forms.PaintEventHandler(this.tb2flp_Paint);
+            this.flpGoiBuoi.AutoScroll = true;
+            this.flpGoiBuoi.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.flpGoiBuoi.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flpGoiBuoi.Location = new System.Drawing.Point(3, 3);
+            this.flpGoiBuoi.Name = "flpGoiBuoi";
+            this.flpGoiBuoi.Size = new System.Drawing.Size(708, 520);
+            this.flpGoiBuoi.TabIndex = 1;
+            this.flpGoiBuoi.Paint += new System.Windows.Forms.PaintEventHandler(this.tb2flp_Paint);
             // 
             // tabPage3
             // 
@@ -394,7 +394,7 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.FlowLayoutPanel tb1flp1;
+        private System.Windows.Forms.FlowLayoutPanel flpGoiThang;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Button btnTim;
         private System.Windows.Forms.ComboBox cbFindB;
@@ -403,7 +403,7 @@
         private System.Windows.Forms.Button btnXoa;
         private System.Windows.Forms.Button btnChinhSuaGoi;
         private System.Windows.Forms.TabPage tabPage3;
-        private System.Windows.Forms.FlowLayoutPanel tb2flp;
+        private System.Windows.Forms.FlowLayoutPanel flpGoiBuoi;
         private System.Windows.Forms.FlowLayoutPanel tb3flp1;
         private System.Windows.Forms.Label lblTKTong;
         private System.Windows.Forms.Label lblT;

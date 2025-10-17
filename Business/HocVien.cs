@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace GymManagerment_MVP.Business
 {
-    internal class HocVien
+    public class HocVien
     {
+        public string Ho { get; set; }
+        public string Ten { get; set; }
+
     }
 }
