@@ -31,14 +31,24 @@
             this.components = new System.ComponentModel.Container();
             this.pnlDanhSach = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.btnTim = new System.Windows.Forms.Button();
+            this.btnMacDinh = new System.Windows.Forms.Button();
             this.cbFindB = new System.Windows.Forms.ComboBox();
             this.tbTim = new System.Windows.Forms.TextBox();
             this.dgvDSPT = new System.Windows.Forms.DataGridView();
+            this.chGID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.chgHo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.chgTen = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.chgSDT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.chgTrangThai = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.chgSex = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cNgaySinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.chgXoa = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cAvatar = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.xóaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.lblfsdt = new System.Windows.Forms.Label();
             this.lbChuyenMon = new System.Windows.Forms.ListBox();
             this.label3 = new System.Windows.Forms.Label();
             this.lblTuoi = new System.Windows.Forms.Label();
@@ -52,6 +62,11 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnThem = new System.Windows.Forms.Button();
             this.pnlLoc = new System.Windows.Forms.Panel();
+            this.cbKhac = new System.Windows.Forms.CheckBox();
+            this.cbHLDD = new System.Windows.Forms.CheckBox();
+            this.cbYoga = new System.Windows.Forms.CheckBox();
+            this.cbFuncTrain = new System.Windows.Forms.CheckBox();
+            this.cbBoxFit = new System.Windows.Forms.CheckBox();
             this.lblNu = new System.Windows.Forms.Label();
             this.lblNam = new System.Windows.Forms.Label();
             this.lblTKDeleted = new System.Windows.Forms.Label();
@@ -61,29 +76,19 @@
             this.cbNam = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
             this.cbXoa = new System.Windows.Forms.CheckBox();
-            this.checkBox9 = new System.Windows.Forms.CheckBox();
-            this.checkBox10 = new System.Windows.Forms.CheckBox();
-            this.checkBox7 = new System.Windows.Forms.CheckBox();
-            this.checkBox8 = new System.Windows.Forms.CheckBox();
-            this.checkBox5 = new System.Windows.Forms.CheckBox();
-            this.checkBox6 = new System.Windows.Forms.CheckBox();
-            this.checkBox3 = new System.Windows.Forms.CheckBox();
+            this.cbTangCuongSucManh = new System.Windows.Forms.CheckBox();
+            this.cbThiDauCuTa = new System.Windows.Forms.CheckBox();
+            this.cbHuanLuyenTheLuc = new System.Windows.Forms.CheckBox();
+            this.cbGiamCan = new System.Windows.Forms.CheckBox();
+            this.cbGiamCanNu = new System.Windows.Forms.CheckBox();
+            this.cbGiamCanLT = new System.Windows.Forms.CheckBox();
+            this.cbThiDauTT = new System.Windows.Forms.CheckBox();
             this.cbPhucHoiChucNang = new System.Windows.Forms.CheckBox();
             this.lblChuyenMon = new System.Windows.Forms.Label();
             this.btnXoa = new System.Windows.Forms.Button();
             this.cbUnactive = new System.Windows.Forms.CheckBox();
             this.cbNhanLich = new System.Windows.Forms.CheckBox();
             this.lblTrangThai = new System.Windows.Forms.Label();
-            this.lblfsdt = new System.Windows.Forms.Label();
-            this.chGID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.chgHo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.chgTen = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.chgSDT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.chgTrangThai = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.chgSex = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cNgaySinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.chgXoa = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cAvatar = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlDanhSach.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDSPT)).BeginInit();
@@ -109,7 +114,7 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.panel3.Controls.Add(this.btnTim);
+            this.panel3.Controls.Add(this.btnMacDinh);
             this.panel3.Controls.Add(this.cbFindB);
             this.panel3.Controls.Add(this.tbTim);
             this.panel3.Controls.Add(this.dgvDSPT);
@@ -120,18 +125,22 @@
             this.panel3.Size = new System.Drawing.Size(770, 677);
             this.panel3.TabIndex = 30;
             // 
-            // btnTim
+            // btnMacDinh
             // 
-            this.btnTim.Location = new System.Drawing.Point(576, 18);
-            this.btnTim.Name = "btnTim";
-            this.btnTim.Size = new System.Drawing.Size(75, 23);
-            this.btnTim.TabIndex = 2;
-            this.btnTim.Text = "Tìm";
-            this.btnTim.UseVisualStyleBackColor = true;
+            this.btnMacDinh.Location = new System.Drawing.Point(675, 18);
+            this.btnMacDinh.Name = "btnMacDinh";
+            this.btnMacDinh.Size = new System.Drawing.Size(75, 23);
+            this.btnMacDinh.TabIndex = 2;
+            this.btnMacDinh.Text = "Mặc Định";
+            this.btnMacDinh.UseVisualStyleBackColor = true;
+            this.btnMacDinh.Click += new System.EventHandler(this.btnMacDinh_Click);
             // 
             // cbFindB
             // 
             this.cbFindB.FormattingEnabled = true;
+            this.cbFindB.Items.AddRange(new object[] {
+            "ID",
+            "Khác"});
             this.cbFindB.Location = new System.Drawing.Point(20, 18);
             this.cbFindB.Name = "cbFindB";
             this.cbFindB.Size = new System.Drawing.Size(121, 21);
@@ -141,8 +150,9 @@
             // 
             this.tbTim.Location = new System.Drawing.Point(161, 18);
             this.tbTim.Name = "tbTim";
-            this.tbTim.Size = new System.Drawing.Size(357, 20);
+            this.tbTim.Size = new System.Drawing.Size(490, 20);
             this.tbTim.TabIndex = 1;
+            this.tbTim.TextChanged += new System.EventHandler(this.tbTim_TextChanged);
             // 
             // dgvDSPT
             // 
@@ -166,6 +176,76 @@
             this.dgvDSPT.Size = new System.Drawing.Size(730, 583);
             this.dgvDSPT.TabIndex = 0;
             this.dgvDSPT.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDSPT_CellClick);
+            // 
+            // chGID
+            // 
+            this.chGID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.chGID.DataPropertyName = "ID";
+            this.chGID.HeaderText = "ID";
+            this.chGID.Name = "chGID";
+            this.chGID.Width = 43;
+            // 
+            // chgHo
+            // 
+            this.chgHo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.chgHo.DataPropertyName = "tenLot";
+            this.chgHo.HeaderText = "Ho";
+            this.chgHo.Name = "chgHo";
+            // 
+            // chgTen
+            // 
+            this.chgTen.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.chgTen.DataPropertyName = "name";
+            this.chgTen.HeaderText = "Tên";
+            this.chgTen.Name = "chgTen";
+            this.chgTen.Width = 51;
+            // 
+            // chgSDT
+            // 
+            this.chgSDT.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.chgSDT.DataPropertyName = "SDT";
+            this.chgSDT.HeaderText = "SDT";
+            this.chgSDT.Name = "chgSDT";
+            this.chgSDT.Width = 54;
+            // 
+            // chgTrangThai
+            // 
+            this.chgTrangThai.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.chgTrangThai.DataPropertyName = "TrangThai";
+            this.chgTrangThai.HeaderText = "Trạng Thái";
+            this.chgTrangThai.Name = "chgTrangThai";
+            this.chgTrangThai.Width = 84;
+            // 
+            // chgSex
+            // 
+            this.chgSex.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.chgSex.DataPropertyName = "GioiTinh";
+            this.chgSex.HeaderText = "Gioi Tinh";
+            this.chgSex.Name = "chgSex";
+            this.chgSex.Width = 74;
+            // 
+            // cNgaySinh
+            // 
+            this.cNgaySinh.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.cNgaySinh.DataPropertyName = "NgaySinh";
+            this.cNgaySinh.HeaderText = "Ngay Sinh";
+            this.cNgaySinh.Name = "cNgaySinh";
+            this.cNgaySinh.Width = 81;
+            // 
+            // chgXoa
+            // 
+            this.chgXoa.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.chgXoa.DataPropertyName = "thoiGianXoa";
+            this.chgXoa.HeaderText = "Xóa";
+            this.chgXoa.Name = "chgXoa";
+            this.chgXoa.Width = 51;
+            // 
+            // cAvatar
+            // 
+            this.cAvatar.DataPropertyName = "AvatarUrl";
+            this.cAvatar.HeaderText = "Avatar";
+            this.cAvatar.Name = "cAvatar";
+            this.cAvatar.Visible = false;
             // 
             // contextMenuStrip1
             // 
@@ -215,6 +295,15 @@
             this.panel4.TabIndex = 2;
             this.panel4.Paint += new System.Windows.Forms.PaintEventHandler(this.panel4_Paint);
             // 
+            // lblfsdt
+            // 
+            this.lblfsdt.AutoSize = true;
+            this.lblfsdt.Location = new System.Drawing.Point(162, 134);
+            this.lblfsdt.Name = "lblfsdt";
+            this.lblfsdt.Size = new System.Drawing.Size(35, 13);
+            this.lblfsdt.TabIndex = 45;
+            this.lblfsdt.Text = "SDT :";
+            // 
             // lbChuyenMon
             // 
             this.lbChuyenMon.FormattingEnabled = true;
@@ -229,7 +318,7 @@
             "Tăng Cường Sức Mạnh"});
             this.lbChuyenMon.Location = new System.Drawing.Point(14, 266);
             this.lbChuyenMon.Name = "lbChuyenMon";
-            this.lbChuyenMon.Size = new System.Drawing.Size(216, 225);
+            this.lbChuyenMon.Size = new System.Drawing.Size(216, 160);
             this.lbChuyenMon.TabIndex = 44;
             // 
             // label3
@@ -339,6 +428,11 @@
             // 
             this.pnlLoc.AutoScroll = true;
             this.pnlLoc.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.pnlLoc.Controls.Add(this.cbKhac);
+            this.pnlLoc.Controls.Add(this.cbHLDD);
+            this.pnlLoc.Controls.Add(this.cbYoga);
+            this.pnlLoc.Controls.Add(this.cbFuncTrain);
+            this.pnlLoc.Controls.Add(this.cbBoxFit);
             this.pnlLoc.Controls.Add(this.lblNu);
             this.pnlLoc.Controls.Add(this.lblNam);
             this.pnlLoc.Controls.Add(this.lblTKDeleted);
@@ -348,13 +442,13 @@
             this.pnlLoc.Controls.Add(this.cbNam);
             this.pnlLoc.Controls.Add(this.label1);
             this.pnlLoc.Controls.Add(this.cbXoa);
-            this.pnlLoc.Controls.Add(this.checkBox9);
-            this.pnlLoc.Controls.Add(this.checkBox10);
-            this.pnlLoc.Controls.Add(this.checkBox7);
-            this.pnlLoc.Controls.Add(this.checkBox8);
-            this.pnlLoc.Controls.Add(this.checkBox5);
-            this.pnlLoc.Controls.Add(this.checkBox6);
-            this.pnlLoc.Controls.Add(this.checkBox3);
+            this.pnlLoc.Controls.Add(this.cbTangCuongSucManh);
+            this.pnlLoc.Controls.Add(this.cbThiDauCuTa);
+            this.pnlLoc.Controls.Add(this.cbHuanLuyenTheLuc);
+            this.pnlLoc.Controls.Add(this.cbGiamCan);
+            this.pnlLoc.Controls.Add(this.cbGiamCanNu);
+            this.pnlLoc.Controls.Add(this.cbGiamCanLT);
+            this.pnlLoc.Controls.Add(this.cbThiDauTT);
             this.pnlLoc.Controls.Add(this.cbPhucHoiChucNang);
             this.pnlLoc.Controls.Add(this.lblChuyenMon);
             this.pnlLoc.Controls.Add(this.btnXoa);
@@ -369,9 +463,64 @@
             this.pnlLoc.TabIndex = 28;
             this.pnlLoc.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlLoc_Paint);
             // 
+            // cbKhac
+            // 
+            this.cbKhac.AutoSize = true;
+            this.cbKhac.Location = new System.Drawing.Point(23, 466);
+            this.cbKhac.Name = "cbKhac";
+            this.cbKhac.Size = new System.Drawing.Size(51, 17);
+            this.cbKhac.TabIndex = 56;
+            this.cbKhac.Text = "Khác";
+            this.cbKhac.UseVisualStyleBackColor = true;
+            this.cbKhac.CheckedChanged += new System.EventHandler(this.cbKhac_CheckedChanged);
+            // 
+            // cbHLDD
+            // 
+            this.cbHLDD.AutoSize = true;
+            this.cbHLDD.Location = new System.Drawing.Point(23, 443);
+            this.cbHLDD.Name = "cbHLDD";
+            this.cbHLDD.Size = new System.Drawing.Size(144, 17);
+            this.cbHLDD.TabIndex = 55;
+            this.cbHLDD.Text = "Huấn Luyện Dinh Dưỡng";
+            this.cbHLDD.UseVisualStyleBackColor = true;
+            this.cbHLDD.CheckedChanged += new System.EventHandler(this.cbKhac_CheckedChanged);
+            // 
+            // cbYoga
+            // 
+            this.cbYoga.AutoSize = true;
+            this.cbYoga.Location = new System.Drawing.Point(23, 419);
+            this.cbYoga.Name = "cbYoga";
+            this.cbYoga.Size = new System.Drawing.Size(92, 17);
+            this.cbYoga.TabIndex = 54;
+            this.cbYoga.Text = "Yoga Giãn Cơ";
+            this.cbYoga.UseVisualStyleBackColor = true;
+            this.cbYoga.CheckedChanged += new System.EventHandler(this.cbKhac_CheckedChanged);
+            // 
+            // cbFuncTrain
+            // 
+            this.cbFuncTrain.AutoSize = true;
+            this.cbFuncTrain.Location = new System.Drawing.Point(23, 396);
+            this.cbFuncTrain.Name = "cbFuncTrain";
+            this.cbFuncTrain.Size = new System.Drawing.Size(116, 17);
+            this.cbFuncTrain.TabIndex = 53;
+            this.cbFuncTrain.Text = "Functional Training";
+            this.cbFuncTrain.UseVisualStyleBackColor = true;
+            this.cbFuncTrain.CheckedChanged += new System.EventHandler(this.cbKhac_CheckedChanged);
+            // 
+            // cbBoxFit
+            // 
+            this.cbBoxFit.AutoSize = true;
+            this.cbBoxFit.Location = new System.Drawing.Point(23, 372);
+            this.cbBoxFit.Name = "cbBoxFit";
+            this.cbBoxFit.Size = new System.Drawing.Size(94, 17);
+            this.cbBoxFit.TabIndex = 52;
+            this.cbBoxFit.Text = "Boxing Fitness";
+            this.cbBoxFit.UseVisualStyleBackColor = true;
+            this.cbBoxFit.CheckedChanged += new System.EventHandler(this.cbKhac_CheckedChanged);
+            // 
             // lblNu
             // 
-            this.lblNu.Location = new System.Drawing.Point(118, 443);
+            this.lblNu.Location = new System.Drawing.Point(118, 602);
             this.lblNu.Name = "lblNu";
             this.lblNu.Size = new System.Drawing.Size(83, 23);
             this.lblNu.TabIndex = 51;
@@ -381,7 +530,7 @@
             // 
             // lblNam
             // 
-            this.lblNam.Location = new System.Drawing.Point(121, 421);
+            this.lblNam.Location = new System.Drawing.Point(121, 580);
             this.lblNam.Name = "lblNam";
             this.lblNam.Size = new System.Drawing.Size(80, 23);
             this.lblNam.TabIndex = 50;
@@ -405,6 +554,7 @@
             this.lblTKUnactive.TabIndex = 46;
             this.lblTKUnactive.Text = "unac count";
             this.lblTKUnactive.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblTKUnactive.Click += new System.EventHandler(this.lblTKUnactive_Click);
             // 
             // lblTKActive
             // 
@@ -418,7 +568,7 @@
             // cbNu
             // 
             this.cbNu.AutoSize = true;
-            this.cbNu.Location = new System.Drawing.Point(23, 451);
+            this.cbNu.Location = new System.Drawing.Point(23, 610);
             this.cbNu.Name = "cbNu";
             this.cbNu.Size = new System.Drawing.Size(40, 17);
             this.cbNu.TabIndex = 44;
@@ -429,7 +579,7 @@
             // cbNam
             // 
             this.cbNam.AutoSize = true;
-            this.cbNam.Location = new System.Drawing.Point(23, 427);
+            this.cbNam.Location = new System.Drawing.Point(23, 586);
             this.cbNam.Name = "cbNam";
             this.cbNam.Size = new System.Drawing.Size(48, 17);
             this.cbNam.TabIndex = 43;
@@ -440,7 +590,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(20, 400);
+            this.label1.Location = new System.Drawing.Point(20, 559);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(51, 13);
             this.label1.TabIndex = 42;
@@ -457,75 +607,82 @@
             this.cbXoa.UseVisualStyleBackColor = true;
             this.cbXoa.CheckedChanged += new System.EventHandler(this.cbXoa_CheckedChanged);
             // 
-            // checkBox9
+            // cbTangCuongSucManh
             // 
-            this.checkBox9.AutoSize = true;
-            this.checkBox9.Location = new System.Drawing.Point(23, 349);
-            this.checkBox9.Name = "checkBox9";
-            this.checkBox9.Size = new System.Drawing.Size(137, 17);
-            this.checkBox9.TabIndex = 40;
-            this.checkBox9.Text = "Tăng Cường Sức Mạnh";
-            this.checkBox9.UseVisualStyleBackColor = true;
+            this.cbTangCuongSucManh.AutoSize = true;
+            this.cbTangCuongSucManh.Location = new System.Drawing.Point(23, 349);
+            this.cbTangCuongSucManh.Name = "cbTangCuongSucManh";
+            this.cbTangCuongSucManh.Size = new System.Drawing.Size(137, 17);
+            this.cbTangCuongSucManh.TabIndex = 40;
+            this.cbTangCuongSucManh.Text = "Tăng Cường Sức Mạnh";
+            this.cbTangCuongSucManh.UseVisualStyleBackColor = true;
+            this.cbTangCuongSucManh.CheckedChanged += new System.EventHandler(this.cbKhac_CheckedChanged);
             // 
-            // checkBox10
+            // cbThiDauCuTa
             // 
-            this.checkBox10.AutoSize = true;
-            this.checkBox10.Location = new System.Drawing.Point(23, 325);
-            this.checkBox10.Name = "checkBox10";
-            this.checkBox10.Size = new System.Drawing.Size(96, 17);
-            this.checkBox10.TabIndex = 39;
-            this.checkBox10.Text = "Thi Đấu Cử Tạ";
-            this.checkBox10.UseVisualStyleBackColor = true;
+            this.cbThiDauCuTa.AutoSize = true;
+            this.cbThiDauCuTa.Location = new System.Drawing.Point(23, 325);
+            this.cbThiDauCuTa.Name = "cbThiDauCuTa";
+            this.cbThiDauCuTa.Size = new System.Drawing.Size(96, 17);
+            this.cbThiDauCuTa.TabIndex = 39;
+            this.cbThiDauCuTa.Text = "Thi Đấu Cử Tạ";
+            this.cbThiDauCuTa.UseVisualStyleBackColor = true;
+            this.cbThiDauCuTa.CheckedChanged += new System.EventHandler(this.cbKhac_CheckedChanged);
             // 
-            // checkBox7
+            // cbHuanLuyenTheLuc
             // 
-            this.checkBox7.AutoSize = true;
-            this.checkBox7.Location = new System.Drawing.Point(23, 302);
-            this.checkBox7.Name = "checkBox7";
-            this.checkBox7.Size = new System.Drawing.Size(127, 17);
-            this.checkBox7.TabIndex = 38;
-            this.checkBox7.Text = "Huấn Luyện Thể Lực";
-            this.checkBox7.UseVisualStyleBackColor = true;
+            this.cbHuanLuyenTheLuc.AutoSize = true;
+            this.cbHuanLuyenTheLuc.Location = new System.Drawing.Point(23, 302);
+            this.cbHuanLuyenTheLuc.Name = "cbHuanLuyenTheLuc";
+            this.cbHuanLuyenTheLuc.Size = new System.Drawing.Size(127, 17);
+            this.cbHuanLuyenTheLuc.TabIndex = 38;
+            this.cbHuanLuyenTheLuc.Text = "Huấn Luyện Thể Lực";
+            this.cbHuanLuyenTheLuc.UseVisualStyleBackColor = true;
+            this.cbHuanLuyenTheLuc.CheckedChanged += new System.EventHandler(this.cbKhac_CheckedChanged);
             // 
-            // checkBox8
+            // cbGiamCan
             // 
-            this.checkBox8.AutoSize = true;
-            this.checkBox8.Location = new System.Drawing.Point(23, 278);
-            this.checkBox8.Name = "checkBox8";
-            this.checkBox8.Size = new System.Drawing.Size(72, 17);
-            this.checkBox8.TabIndex = 37;
-            this.checkBox8.Text = "Giảm Cân";
-            this.checkBox8.UseVisualStyleBackColor = true;
+            this.cbGiamCan.AutoSize = true;
+            this.cbGiamCan.Location = new System.Drawing.Point(23, 278);
+            this.cbGiamCan.Name = "cbGiamCan";
+            this.cbGiamCan.Size = new System.Drawing.Size(97, 17);
+            this.cbGiamCan.TabIndex = 37;
+            this.cbGiamCan.Text = "Giảm Cân Nam";
+            this.cbGiamCan.UseVisualStyleBackColor = true;
+            this.cbGiamCan.CheckedChanged += new System.EventHandler(this.cbKhac_CheckedChanged);
             // 
-            // checkBox5
+            // cbGiamCanNu
             // 
-            this.checkBox5.AutoSize = true;
-            this.checkBox5.Location = new System.Drawing.Point(23, 255);
-            this.checkBox5.Name = "checkBox5";
-            this.checkBox5.Size = new System.Drawing.Size(89, 17);
-            this.checkBox5.TabIndex = 36;
-            this.checkBox5.Text = "Giảm Cân Nữ";
-            this.checkBox5.UseVisualStyleBackColor = true;
+            this.cbGiamCanNu.AutoSize = true;
+            this.cbGiamCanNu.Location = new System.Drawing.Point(23, 255);
+            this.cbGiamCanNu.Name = "cbGiamCanNu";
+            this.cbGiamCanNu.Size = new System.Drawing.Size(89, 17);
+            this.cbGiamCanNu.TabIndex = 36;
+            this.cbGiamCanNu.Text = "Giảm Cân Nữ";
+            this.cbGiamCanNu.UseVisualStyleBackColor = true;
+            this.cbGiamCanNu.CheckedChanged += new System.EventHandler(this.cbKhac_CheckedChanged);
             // 
-            // checkBox6
+            // cbGiamCanLT
             // 
-            this.checkBox6.AutoSize = true;
-            this.checkBox6.Location = new System.Drawing.Point(23, 231);
-            this.checkBox6.Name = "checkBox6";
-            this.checkBox6.Size = new System.Drawing.Size(148, 17);
-            this.checkBox6.TabIndex = 35;
-            this.checkBox6.Text = "Giảm Cân Người Lớn Tuổi";
-            this.checkBox6.UseVisualStyleBackColor = true;
+            this.cbGiamCanLT.AutoSize = true;
+            this.cbGiamCanLT.Location = new System.Drawing.Point(23, 231);
+            this.cbGiamCanLT.Name = "cbGiamCanLT";
+            this.cbGiamCanLT.Size = new System.Drawing.Size(148, 17);
+            this.cbGiamCanLT.TabIndex = 35;
+            this.cbGiamCanLT.Text = "Giảm Cân Người Lớn Tuổi";
+            this.cbGiamCanLT.UseVisualStyleBackColor = true;
+            this.cbGiamCanLT.CheckedChanged += new System.EventHandler(this.cbKhac_CheckedChanged);
             // 
-            // checkBox3
+            // cbThiDauTT
             // 
-            this.checkBox3.AutoSize = true;
-            this.checkBox3.Location = new System.Drawing.Point(23, 205);
-            this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(111, 17);
-            this.checkBox3.TabIndex = 34;
-            this.checkBox3.Text = "Thi Đấu Thể Hình";
-            this.checkBox3.UseVisualStyleBackColor = true;
+            this.cbThiDauTT.AutoSize = true;
+            this.cbThiDauTT.Location = new System.Drawing.Point(23, 205);
+            this.cbThiDauTT.Name = "cbThiDauTT";
+            this.cbThiDauTT.Size = new System.Drawing.Size(111, 17);
+            this.cbThiDauTT.TabIndex = 34;
+            this.cbThiDauTT.Text = "Thi Đấu Thể Hình";
+            this.cbThiDauTT.UseVisualStyleBackColor = true;
+            this.cbThiDauTT.CheckedChanged += new System.EventHandler(this.cbKhac_CheckedChanged);
             // 
             // cbPhucHoiChucNang
             // 
@@ -534,8 +691,9 @@
             this.cbPhucHoiChucNang.Name = "cbPhucHoiChucNang";
             this.cbPhucHoiChucNang.Size = new System.Drawing.Size(127, 17);
             this.cbPhucHoiChucNang.TabIndex = 33;
-            this.cbPhucHoiChucNang.Text = "Phục Hồi Chức Năng";
+            this.cbPhucHoiChucNang.Text = "Hồi Phục Chức Năng";
             this.cbPhucHoiChucNang.UseVisualStyleBackColor = true;
+            this.cbPhucHoiChucNang.CheckedChanged += new System.EventHandler(this.cbKhac_CheckedChanged);
             // 
             // lblChuyenMon
             // 
@@ -548,7 +706,7 @@
             // 
             // btnXoa
             // 
-            this.btnXoa.Location = new System.Drawing.Point(23, 582);
+            this.btnXoa.Location = new System.Drawing.Point(17, 634);
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Size = new System.Drawing.Size(167, 23);
             this.btnXoa.TabIndex = 26;
@@ -587,85 +745,6 @@
             this.lblTrangThai.TabIndex = 21;
             this.lblTrangThai.Text = "Trạng Thái";
             // 
-            // lblfsdt
-            // 
-            this.lblfsdt.AutoSize = true;
-            this.lblfsdt.Location = new System.Drawing.Point(162, 134);
-            this.lblfsdt.Name = "lblfsdt";
-            this.lblfsdt.Size = new System.Drawing.Size(35, 13);
-            this.lblfsdt.TabIndex = 45;
-            this.lblfsdt.Text = "SDT :";
-            // 
-            // chGID
-            // 
-            this.chGID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.chGID.DataPropertyName = "ID";
-            this.chGID.HeaderText = "ID";
-            this.chGID.Name = "chGID";
-            this.chGID.Width = 43;
-            // 
-            // chgHo
-            // 
-            this.chgHo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.chgHo.DataPropertyName = "tenLot";
-            this.chgHo.HeaderText = "Ho";
-            this.chgHo.Name = "chgHo";
-            // 
-            // chgTen
-            // 
-            this.chgTen.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.chgTen.DataPropertyName = "name";
-            this.chgTen.HeaderText = "Tên";
-            this.chgTen.Name = "chgTen";
-            this.chgTen.Width = 51;
-            // 
-            // chgSDT
-            // 
-            this.chgSDT.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.chgSDT.DataPropertyName = "SDT";
-            this.chgSDT.HeaderText = "SDT";
-            this.chgSDT.Name = "chgSDT";
-            this.chgSDT.Width = 54;
-            // 
-            // chgTrangThai
-            // 
-            this.chgTrangThai.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.chgTrangThai.DataPropertyName = "TrangThai";
-            this.chgTrangThai.HeaderText = "Trạng Thái";
-            this.chgTrangThai.Name = "chgTrangThai";
-            this.chgTrangThai.Width = 84;
-            // 
-            // chgSex
-            // 
-            this.chgSex.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.chgSex.DataPropertyName = "GioiTinh";
-            this.chgSex.HeaderText = "Gioi Tinh";
-            this.chgSex.Name = "chgSex";
-            this.chgSex.Width = 74;
-            // 
-            // cNgaySinh
-            // 
-            this.cNgaySinh.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.cNgaySinh.DataPropertyName = "NgaySinh";
-            this.cNgaySinh.HeaderText = "Ngay Sinh";
-            this.cNgaySinh.Name = "cNgaySinh";
-            this.cNgaySinh.Width = 81;
-            // 
-            // chgXoa
-            // 
-            this.chgXoa.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.chgXoa.DataPropertyName = "thoiGianXoa";
-            this.chgXoa.HeaderText = "Xóa";
-            this.chgXoa.Name = "chgXoa";
-            this.chgXoa.Width = 51;
-            // 
-            // cAvatar
-            // 
-            this.cAvatar.DataPropertyName = "AvatarUrl";
-            this.cAvatar.HeaderText = "Avatar";
-            this.cAvatar.Name = "cAvatar";
-            this.cAvatar.Visible = false;
-            // 
             // DanhSachPTUC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -693,7 +772,7 @@
 
         private System.Windows.Forms.Panel pnlDanhSach;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Button btnTim;
+        private System.Windows.Forms.Button btnMacDinh;
         private System.Windows.Forms.ComboBox cbFindB;
         private System.Windows.Forms.TextBox tbTim;
         private System.Windows.Forms.DataGridView dgvDSPT;
@@ -714,13 +793,13 @@
         private System.Windows.Forms.CheckBox cbUnactive;
         private System.Windows.Forms.CheckBox cbNhanLich;
         private System.Windows.Forms.Label lblTrangThai;
-        private System.Windows.Forms.CheckBox checkBox9;
-        private System.Windows.Forms.CheckBox checkBox10;
-        private System.Windows.Forms.CheckBox checkBox7;
-        private System.Windows.Forms.CheckBox checkBox8;
-        private System.Windows.Forms.CheckBox checkBox5;
-        private System.Windows.Forms.CheckBox checkBox6;
-        private System.Windows.Forms.CheckBox checkBox3;
+        private System.Windows.Forms.CheckBox cbTangCuongSucManh;
+        private System.Windows.Forms.CheckBox cbThiDauCuTa;
+        private System.Windows.Forms.CheckBox cbHuanLuyenTheLuc;
+        private System.Windows.Forms.CheckBox cbGiamCan;
+        private System.Windows.Forms.CheckBox cbGiamCanNu;
+        private System.Windows.Forms.CheckBox cbGiamCanLT;
+        private System.Windows.Forms.CheckBox cbThiDauTT;
         private System.Windows.Forms.CheckBox cbPhucHoiChucNang;
         private System.Windows.Forms.Label lblChuyenMon;
         private System.Windows.Forms.ListBox lbChuyenMon;
@@ -746,5 +825,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn cNgaySinh;
         private System.Windows.Forms.DataGridViewTextBoxColumn chgXoa;
         private System.Windows.Forms.DataGridViewTextBoxColumn cAvatar;
+        private System.Windows.Forms.CheckBox cbKhac;
+        private System.Windows.Forms.CheckBox cbHLDD;
+        private System.Windows.Forms.CheckBox cbYoga;
+        private System.Windows.Forms.CheckBox cbFuncTrain;
+        private System.Windows.Forms.CheckBox cbBoxFit;
     }
 }

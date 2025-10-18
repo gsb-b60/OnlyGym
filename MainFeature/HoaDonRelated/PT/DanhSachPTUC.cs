@@ -19,11 +19,152 @@ namespace GymManagerment_MVP.MainFeature.Main
     {
         DSPT dSPT;
         DSSpecialties dSSpecialties;
+        DSPT filterList;
+        DSPT sourceList;
         public DanhSachPTUC()
         {
+            filterList = new DSPT();
+            sourceList = new DSPT();
             InitializeComponent();
             dSPT = new DSPT();
             dSSpecialties = new DSSpecialties();
+            sourceList.pTs = dSPT.pTs;
+            filterList.pTs = dSPT.pTs;
+        }
+        private void ApplyAllFiltersAndSearch()
+        {
+            // Step 1: start from full source
+            var result = sourceList.pTs;
+
+            // ====== FILTER: Gender ======
+            bool filterMale = cbNam.Checked;
+            bool filterFemale = cbNu.Checked;
+
+            if (filterMale && !filterFemale)
+                result = result.Where(pt => pt.gioiTinh == Gender.Male).ToList();
+            else if (!filterMale && filterFemale)
+                result = result.Where(pt => pt.gioiTinh == Gender.Female).ToList();
+            // if both unchecked or both checked => no gender filter
+
+
+            // ====== FILTER: Active ======
+            bool filterActive = cbNhanLich.Checked;
+            bool filterInactive = cbUnactive.Checked;
+
+            if (filterActive && !filterInactive)
+                result = result.Where(pt => pt.trangThai == State.Active).ToList();
+            else if (!filterActive && filterInactive)
+                result = result.Where(pt => pt.trangThai == State.Inactive).ToList();
+
+
+            // ====== FILTER: Specialties ======
+            List<string> selectedSpecialties = new List<string>();
+            if (cbPhucHoiChucNang.Checked) selectedSpecialties.Add(cbPhucHoiChucNang.Text);
+            if (cbThiDauTT.Checked) selectedSpecialties.Add(cbThiDauTT.Text);
+            if (cbGiamCanLT.Checked) selectedSpecialties.Add(cbGiamCanLT.Text);
+            if (cbGiamCanNu.Checked) selectedSpecialties.Add(cbGiamCanNu.Text);
+            if (cbGiamCan.Checked) selectedSpecialties.Add(cbGiamCan.Text);
+            if (cbHuanLuyenTheLuc.Checked) selectedSpecialties.Add(cbHuanLuyenTheLuc.Text);
+            if (cbThiDauCuTa.Checked) selectedSpecialties.Add(cbThiDauCuTa.Text);
+            if (cbTangCuongSucManh.Checked) selectedSpecialties.Add(cbTangCuongSucManh.Text);
+            if (cbBoxFit.Checked) selectedSpecialties.Add(cbBoxFit.Text);
+            if (cbFuncTrain.Checked) selectedSpecialties.Add(cbFuncTrain.Text);
+            if (cbYoga.Checked) selectedSpecialties.Add(cbYoga.Text);
+            if (cbHLDD.Checked) selectedSpecialties.Add(cbHLDD.Text);
+
+            if (selectedSpecialties.Count > 0)
+            {
+                result = result
+                    .Where(pt => selectedSpecialties.All(s => pt.specialties.Contains(s)))
+                    .ToList();
+            }
+
+            // ====== FILTER: Search keyword ======
+            string keyword = tbTim.Text.Trim().ToLower();
+            if (!string.IsNullOrEmpty(keyword))
+            {
+                result = result
+                    .Where(pt => pt.name.ToLower().Contains(keyword)
+                              || pt.sDT.Contains(keyword))
+                    .ToList();
+            }
+
+            // ====== DISPLAY ======
+            DisplayList(result);
+        }
+
+        public void CheckChange()
+        {
+
+            bool filterMale = cbNam.Checked;
+            bool filterFemale = cbNu.Checked;
+
+            List<string> selectedSpecialties = new List<string>();
+
+
+            if (filterMale && filterFemale)
+            {
+                filterList = sourceList;
+            }
+            else if (filterMale)
+            {
+                filterList.pTs = sourceList.getM();
+            }
+            else if (filterFemale)
+            {
+                filterList.pTs = sourceList.getF();
+            }
+            else
+            {
+                filterList.pTs = sourceList.pTs;
+            }
+
+
+
+
+            bool filterActive = cbNhanLich.Checked;
+            bool filterInactive = cbUnactive.Checked;
+
+            if (filterActive && !filterInactive)
+            {
+                filterList.pTs = filterList.getA();
+            }
+            else if (!filterActive && filterInactive)
+            {
+                filterList.pTs = filterList.getUA();
+            }
+            else if (!filterActive && !filterInactive)
+            {
+
+            }
+
+
+            if (cbPhucHoiChucNang.Checked) selectedSpecialties.Add(cbPhucHoiChucNang.Text);
+            if (cbThiDauTT.Checked) selectedSpecialties.Add(cbThiDauTT.Text);
+            if (cbGiamCanLT.Checked) selectedSpecialties.Add(cbGiamCanLT.Text);
+            if (cbGiamCanNu.Checked) selectedSpecialties.Add(cbGiamCanNu.Text);
+            if (cbGiamCan.Checked) selectedSpecialties.Add(cbGiamCan.Text);
+            if (cbHuanLuyenTheLuc.Checked) selectedSpecialties.Add(cbHuanLuyenTheLuc.Text);
+            if (cbThiDauCuTa.Checked) selectedSpecialties.Add(cbThiDauCuTa.Text);
+            if (cbTangCuongSucManh.Checked) selectedSpecialties.Add(cbTangCuongSucManh.Text);
+            if (cbBoxFit.Checked) selectedSpecialties.Add(cbBoxFit.Text);
+            if (cbFuncTrain.Checked) selectedSpecialties.Add(cbFuncTrain.Text);
+            if (cbYoga.Checked) selectedSpecialties.Add(cbYoga.Text);
+            if (cbHLDD.Checked) selectedSpecialties.Add(cbHLDD.Text);
+            if (selectedSpecialties.Count > 0)
+            {
+                filterList.pTs = filterList.pTs.Where(pt => selectedSpecialties.All(s => pt.specialties.Contains(s))).ToList();
+            }
+
+            DisplayList(filterList.pTs);
+
+        }
+
+
+
+        public void DisplayList(List<PT> listPara)
+        {
+            dgvDSPT.DataSource = listPara;
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
@@ -54,23 +195,6 @@ namespace GymManagerment_MVP.MainFeature.Main
 
         private void DanhSachPTUC_Load(object sender, EventArgs e)
         {
-            //dgvDSPT.Rows.Clear();
-            //SqlConnection sqlConnection = new SqlConnection(Config.connection);
-            //SqlCommand sqlCommand = sqlConnection.CreateCommand();
-            //sqlCommand.CommandText = "select * from PT";
-            //sqlConnection.Open();
-            //SqlDataAdapter adapter = new SqlDataAdapter(sqlCommand);
-            //DataTable dt = new DataTable("PT");
-            //adapter.Fill(dt);
-
-            //dgvDSPT.DataSource = dt;
-            //sqlConnection.Close();
-            //sqlConnection.Dispose();
-            //adapter.Dispose();
-
-
-
-
             using (SqlConnection sqlConnection = new SqlConnection(Config.connection))
             {
                 SqlCommand cmd = sqlConnection.CreateCommand();
@@ -194,26 +318,12 @@ namespace GymManagerment_MVP.MainFeature.Main
 
         private void cbNhanLich_CheckedChanged(object sender, EventArgs e)
         {
-            if (cbNhanLich.Checked)
-            {
-                dgvDSPT.DataSource = dSPT.getA();
-            }
-            else
-            {
-                dgvDSPT.DataSource = dSPT.getList();
-            }
+            ApplyAllFiltersAndSearch();
         }
 
         private void chEND_CheckedChanged(object sender, EventArgs e)
         {
-            if (cbUnactive.Checked)
-            {
-                dgvDSPT.DataSource = dSPT.getUA();
-            }
-            else
-            {
-                dgvDSPT.DataSource = dSPT.getList();
-            }
+            ApplyAllFiltersAndSearch();
         }
 
         private void pnlLoc_Paint(object sender, PaintEventArgs e)
@@ -228,38 +338,17 @@ namespace GymManagerment_MVP.MainFeature.Main
 
         private void cbNam_CheckedChanged(object sender, EventArgs e)
         {
-            if (cbNam.Checked)
-            {
-                dgvDSPT.DataSource = dSPT.getM();
-            }
-            else
-            {
-                dgvDSPT.DataSource = dSPT.getList();
-            }
+            ApplyAllFiltersAndSearch();
         }
 
         private void cbNu_CheckedChanged(object sender, EventArgs e)
         {
-            if (cbNu.Checked)
-            {
-                dgvDSPT.DataSource = dSPT.getF();
-            }
-            else
-            {
-                dgvDSPT.DataSource = dSPT.getList();
-            }
+            ApplyAllFiltersAndSearch();
         }
 
         private void cbXoa_CheckedChanged(object sender, EventArgs e)
         {
-            if (cbXoa.Checked)
-            {
-                dgvDSPT.DataSource = dSPT.getD();
-            }
-            else
-            {
-                dgvDSPT.DataSource = dSPT.getList();
-            }
+            ApplyAllFiltersAndSearch();
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
@@ -270,7 +359,19 @@ namespace GymManagerment_MVP.MainFeature.Main
             cbUnactive.Checked = false;
             cbNhanLich.Checked = false;
             cbXoa.Checked = false;
-
+            cbPhucHoiChucNang.Checked = false;
+            cbThiDauTT.Checked = false;
+            cbGiamCanLT.Checked = false;
+            cbGiamCanNu.Checked = false;
+            cbGiamCan.Checked = false;
+            cbHuanLuyenTheLuc.Checked = false;
+            cbThiDauCuTa.Checked = false;
+            cbTangCuongSucManh.Checked = false;
+            cbBoxFit.Checked = false;
+            cbFuncTrain.Checked = false;
+            cbYoga.Checked = false;
+            cbHLDD.Checked = false;
+            ApplyAllFiltersAndSearch();
         }
 
         private void dgvDSPT_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -278,7 +379,7 @@ namespace GymManagerment_MVP.MainFeature.Main
             if (e.RowIndex < 0) return;
             DataGridViewRow row = dgvDSPT.Rows[e.RowIndex];
 
-            PT pt=dSPT.pTs.Find((i) => i.id == int.Parse(row.Cells["chGID"].Value.ToString()));
+            PT pt = dSPT.pTs.Find((i) => i.id == int.Parse(row.Cells["chGID"].Value.ToString()));
 
             Debug.WriteLine($"u clicked me {row.Cells["chGID"].Value}");
             lblPFTen.Text = $"{row.Cells["chgHo"].Value} {row.Cells["chgTen"].Value}";
@@ -288,7 +389,7 @@ namespace GymManagerment_MVP.MainFeature.Main
 
             pbAvatar.Image = row.Cells["cAvatar"].Value != null ? Image.FromFile(@"PTPicture\" + row.Cells["cAvatar"].Value) : Image.FromFile(@"PTPicture\" + "NoShow.jpg");
             lbChuyenMon.Items.Clear();
-            foreach(string sp in pt.specialties)
+            foreach (string sp in pt.specialties)
             {
                 lbChuyenMon.Items.Add(sp);
             }
@@ -296,7 +397,29 @@ namespace GymManagerment_MVP.MainFeature.Main
 
         private void lblPFSDT_Click(object sender, EventArgs e)
         {
+            ApplyAllFiltersAndSearch();
+        }
 
+        private void cbKhac_CheckedChanged(object sender, EventArgs e)
+        {
+            ApplyAllFiltersAndSearch();
+        }
+
+        private void lblTKUnactive_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tbTim_TextChanged(object sender, EventArgs e)
+        {
+            ApplyAllFiltersAndSearch();
+
+        }
+
+        private void btnMacDinh_Click(object sender, EventArgs e)
+        {
+            tbTim.Text = "";
+            ApplyAllFiltersAndSearch();
         }
     }
 }
