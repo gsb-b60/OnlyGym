@@ -8,7 +8,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data;
 using System.Data.SqlClient;
 using GymManagerment_MVP.Business;
 using System.Diagnostics;
@@ -23,13 +22,135 @@ namespace GymManagerment_MVP.MainFeature.Main
         DSPT sourceList;
         public DanhSachPTUC()
         {
+
             filterList = new DSPT();
             sourceList = new DSPT();
             InitializeComponent();
+            cbFindB.SelectedIndex = 1;
             dSPT = new DSPT();
             dSSpecialties = new DSSpecialties();
             sourceList.pTs = dSPT.pTs;
             filterList.pTs = dSPT.pTs;
+
+        }
+        private void DanhSachPTUC_Load(object sender, EventArgs e)
+        {
+            LoadDBPT();
+
+            DisplayList(dSPT.pTs);
+            DisplayAnalist();
+            
+        }
+        private void DisplayAnalist()
+        {
+            int iaCount = 0;
+            int aCount = 0;
+            int male = 0;
+            int fe = 0;
+            int xoa = 0;
+            foreach (var i in dSPT.pTs)
+            {
+                if (i.trangThai == State.Inactive)
+                {
+                    iaCount++;
+                }
+                else
+                {
+                    aCount++;
+                }
+                if (i.gioiTinh == Gender.Male)
+                {
+                    male++;
+                }
+                else if (i.gioiTinh == Gender.Female)
+                {
+                    fe++;
+                }
+                if (i.thoiGianXoa != (DateTime?)null)
+                {
+                    xoa++;
+                }
+            }
+            lblTKActive.Text = aCount.ToString();
+            lblTKUnactive.Text = iaCount.ToString();
+            lblTKDeleted.Text = xoa.ToString();
+            lblNam.Text = male.ToString();
+            lblNu.Text = fe.ToString();
+            lblChuaXoa.Text = (dSPT.pTs.Count- xoa).ToString();
+        }
+        private void LoadDBPT()
+        {
+            using (SqlConnection sqlConnection = new SqlConnection(Config.connection))
+            {
+                SqlCommand cmd = sqlConnection.CreateCommand();
+                cmd.CommandText = "select * from PT";
+                sqlConnection.Open();
+
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        PT ptInsert = new PT
+                        {
+                            id = int.Parse(reader["ID"].ToString()),
+                            tenLot = reader["Ho"].ToString(),
+                            name = reader["Ten"].ToString(),
+                            sDT = reader["SDT"].ToString(),
+                            trangThai = Convert.ToBoolean(reader["TrangThai"]) ? State.Active : State.Inactive,
+                            thoiGianXoa = reader["ThoiGianXoa"] != DBNull.Value ? Convert.ToDateTime(reader["ThoiGianXoa"].ToString()) : (DateTime?)null,
+                            gioiTinh = Convert.ToBoolean(reader["GioiTinh"]) ? Gender.Male : Gender.Female,
+                            ngaySinh = reader["NgaySinh"] != DBNull.Value ? Convert.ToDateTime(reader["NgaySinh"].ToString()) : (DateTime?)null,
+                            AvatarUrl = reader["AvartarUrl"].ToString(),
+                        };
+                        dSPT.pTs.Add(ptInsert);
+                    }
+                }
+
+                cmd.CommandText = "select * from Specialties";
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        Specialties newspecialty = new Specialties
+                        {
+                            id = int.Parse(reader["ID"].ToString()),
+                            specialty = reader["Specialties"].ToString(),
+                            notes = reader["notes"] != DBNull.Value ? reader["notes"].ToString() : ""
+                        };
+                        dSSpecialties.specialtiesList.Add(newspecialty);
+                        Debug.WriteLine(newspecialty);
+                    }
+
+                }
+            }
+            //create dictionary
+            var ptDict = dSPT.pTs.ToDictionary(pt => pt.id);
+            var spDict = dSSpecialties.specialtiesList.ToDictionary(sp => sp.id, sp => sp.specialty);
+
+
+
+            using (SqlConnection sqlConnection = new SqlConnection(Config.connection))
+            {
+                sqlConnection.Open();
+                SqlCommand cmd = sqlConnection.CreateCommand();
+                cmd.CommandText = "select * from PTSpecialties";
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        int idPT = Convert.ToInt32(reader["PT_ID"].ToString());
+                        int idSP = Convert.ToInt32(reader["Specialties_ID"].ToString());
+                        //string addsp = dSSpecialties.specialtiesList.Find((i) => i.id == idSP).specialty;
+                        //dSPT.pTs.Find((i) => i.id == idPT).specialties.Add(addsp);
+                        if (ptDict.TryGetValue(idPT, out var pt) && spDict.TryGetValue(idSP, out var spName))
+                        {
+                            pt.specialties.Add(spName);
+                        }
+                    }
+
+                }
+            }
+            DisplayList(dSPT.pTs);
         }
         private void ApplyAllFiltersAndSearch()
         {
@@ -57,8 +178,20 @@ namespace GymManagerment_MVP.MainFeature.Main
                 result = result.Where(pt => pt.trangThai == State.Inactive).ToList();
 
 
-            // ====== FILTER: Specialties ======
-            List<string> selectedSpecialties = new List<string>();
+            //====== FILTER deleted=======
+            bool filterDeleted = cbXoa.Checked;
+            bool filterUndeleted=cbChuaXoa.Checked;
+            if(filterDeleted&&!filterUndeleted)
+            {
+                result = result.Where(pt => pt.thoiGianXoa != (DateTime?)null).ToList();
+            }else if(!filterDeleted && filterUndeleted)
+            {
+                result = result.Where(pt => pt.thoiGianXoa == (DateTime?)null).ToList();
+            }
+
+
+                // ====== FILTER: Specialties ======
+                List<string> selectedSpecialties = new List<string>();
             if (cbPhucHoiChucNang.Checked) selectedSpecialties.Add(cbPhucHoiChucNang.Text);
             if (cbThiDauTT.Checked) selectedSpecialties.Add(cbThiDauTT.Text);
             if (cbGiamCanLT.Checked) selectedSpecialties.Add(cbGiamCanLT.Text);
@@ -81,12 +214,30 @@ namespace GymManagerment_MVP.MainFeature.Main
 
             // ====== FILTER: Search keyword ======
             string keyword = tbTim.Text.Trim().ToLower();
-            if (!string.IsNullOrEmpty(keyword))
+            if (!string.IsNullOrEmpty(keyword) || keyword != "")
             {
-                result = result
+                if (cbFindB.SelectedIndex == 1)
+                {
+                    result = result
                     .Where(pt => pt.name.ToLower().Contains(keyword)
                               || pt.sDT.Contains(keyword))
                     .ToList();
+                }
+                else // Search by ID
+                {
+                    if (int.TryParse(tbTim.Text, out int id))
+                    {
+                        result = result
+                            .Where(pt => pt.id == id)
+                            .ToList();
+                    }
+                    else
+                    {
+                        // Optional: if input is not a valid number, show empty result
+                        result = new List<PT>();
+                    }
+                }
+
             }
 
             // ====== DISPLAY ======
@@ -190,132 +341,42 @@ namespace GymManagerment_MVP.MainFeature.Main
         private void btnThem_Click(object sender, EventArgs e)
         {
             ThemPTfrm frm = new ThemPTfrm();
-            frm.ShowDialog();
+
+            DialogResult re = frm.ShowDialog();
+            if (re == DialogResult.OK)
+            {
+                MessageBox.Show(frm.addPT.ToString());
+                AddPTDB(frm.addPT);
+                LoadDBPT();
+            }
+            else
+            {
+                MessageBox.Show("Huy Them PT");
+            }
         }
 
-        private void DanhSachPTUC_Load(object sender, EventArgs e)
+
+        private void AddPTDB(PT ptPara)
         {
-            using (SqlConnection sqlConnection = new SqlConnection(Config.connection))
+            using (SqlConnection connection = new SqlConnection(Config.connection))
             {
-                SqlCommand cmd = sqlConnection.CreateCommand();
-                cmd.CommandText = "select * from PT";
-                sqlConnection.Open();
-
-                using (SqlDataReader reader = cmd.ExecuteReader())
+                string query = @"INSERT INTO PT (Ho, Ten, SDT, TrangThai, GioiTinh, NgaySinh, AvartarUrl)
+                                 VALUES (@TenLot, @Ten, @SDT,@TrangThai , @GioiTinh, @NgaySinh, @AvatarUrl);";
+                using (SqlCommand cmd = new SqlCommand(query, connection))
                 {
-                    while (reader.Read())
-                    {
-                        PT ptInsert = new PT
-                        {
-                            id = int.Parse(reader["ID"].ToString()),
-                            tenLot = reader["Ho"].ToString(),
-                            name = reader["Ten"].ToString(),
-                            sDT = reader["SDT"].ToString(),
-                            trangThai = Convert.ToBoolean(reader["TrangThai"]) ? State.Active : State.Inactive,
-                            thoiGianXoa = reader["ThoiGianXoa"] != DBNull.Value ? Convert.ToDateTime(reader["ThoiGianXoa"].ToString()) : (DateTime?)null,
-                            gioiTinh = Convert.ToBoolean(reader["GioiTinh"]) ? Gender.Male : Gender.Female,
-                            ngaySinh = reader["NgaySinh"] != DBNull.Value ? Convert.ToDateTime(reader["NgaySinh"].ToString()) : (DateTime?)null,
-                            AvatarUrl = reader["AvartarUrl"].ToString(),
-                        };
-                        dSPT.pTs.Add(ptInsert);
-                    }
-                }
-
-                cmd.CommandText = "select * from Specialties";
-                using (SqlDataReader reader = cmd.ExecuteReader())
-                {
-                    while (reader.Read())
-                    {
-                        Specialties newspecialty = new Specialties
-                        {
-                            id = int.Parse(reader["ID"].ToString()),
-                            specialty = reader["Specialties"].ToString(),
-                            notes = reader["notes"] != DBNull.Value ? reader["notes"].ToString() : ""
-                        };
-                        dSSpecialties.specialtiesList.Add(newspecialty);
-                        Debug.WriteLine(newspecialty);
-                    }
-
+                    cmd.Parameters.AddWithValue("@TenLot", ptPara.tenLot);
+                    cmd.Parameters.AddWithValue("@Ten", ptPara.name);
+                    cmd.Parameters.AddWithValue("@SDT", ptPara.sDT);
+                    cmd.Parameters.AddWithValue("@TrangThai", ptPara.trangThai == State.Active ? 1 : 0);
+                    cmd.Parameters.AddWithValue("@GioiTinh", ptPara.gioiTinh == Gender.Male ? 1 : 0);
+                    cmd.Parameters.AddWithValue("@NgaySinh", ptPara.ngaySinh);
+                    cmd.Parameters.AddWithValue("@AvatarUrl", ptPara.AvatarUrl);
+                    connection.Open();
+                    cmd.ExecuteNonQuery();
+                    connection.Close();
                 }
             }
-            //create dictionary
-            var ptDict = dSPT.pTs.ToDictionary(pt => pt.id);
-            var spDict = dSSpecialties.specialtiesList.ToDictionary(sp => sp.id, sp => sp.specialty);
-
-
-
-            using (SqlConnection sqlConnection = new SqlConnection(Config.connection))
-            {
-                sqlConnection.Open();
-                SqlCommand cmd = sqlConnection.CreateCommand();
-                cmd.CommandText = "select * from PTSpecialties";
-                using (SqlDataReader reader = cmd.ExecuteReader())
-                {
-                    while (reader.Read())
-                    {
-                        int idPT = Convert.ToInt32(reader["PT_ID"].ToString());
-                        int idSP = Convert.ToInt32(reader["Specialties_ID"].ToString());
-                        //string addsp = dSSpecialties.specialtiesList.Find((i) => i.id == idSP).specialty;
-                        //dSPT.pTs.Find((i) => i.id == idPT).specialties.Add(addsp);
-                        if (ptDict.TryGetValue(idPT, out var pt) && spDict.TryGetValue(idSP, out var spName))
-                        {
-                            pt.specialties.Add(spName);
-                        }
-                    }
-
-                }
-            }
-            Debug.WriteLine(dSPT);
-
-
-            //cmd.CommandText = "select * from PTSpecialties";
-            //reader=cmd.ExecuteReader();
-            //while (reader.Read())
-            //{
-
-            //}
-
-            Debug.WriteLine(dSSpecialties);
-
-
-            //set up form
-            dgvDSPT.DataSource = dSPT.pTs;
-
-            int iaCount = 0;
-            int aCount = 0;
-            int male = 0;
-            int fe = 0;
-            int xoa = 0;
-            foreach (var i in dSPT.pTs)
-            {
-                if (i.trangThai == State.Inactive)
-                {
-                    iaCount++;
-                }
-                else
-                {
-                    aCount++;
-                }
-                if (i.gioiTinh == Gender.Male)
-                {
-                    male++;
-                }
-                else if (i.gioiTinh == Gender.Female)
-                {
-                    fe++;
-                }
-                if (i.thoiGianXoa != (DateTime?)null)
-                {
-                    xoa++;
-                }
-            }
-            lblTKActive.Text = aCount.ToString();
-            lblTKUnactive.Text = iaCount.ToString();
-            lblTKDeleted.Text = xoa.ToString();
-            lblNam.Text = male.ToString();
-            lblNu.Text = fe.ToString();
         }
-
         private void cbNhanLich_CheckedChanged(object sender, EventArgs e)
         {
             ApplyAllFiltersAndSearch();
@@ -371,6 +432,7 @@ namespace GymManagerment_MVP.MainFeature.Main
             cbFuncTrain.Checked = false;
             cbYoga.Checked = false;
             cbHLDD.Checked = false;
+            cbChuaXoa.Checked = false;
             ApplyAllFiltersAndSearch();
         }
 
@@ -381,13 +443,37 @@ namespace GymManagerment_MVP.MainFeature.Main
 
             PT pt = dSPT.pTs.Find((i) => i.id == int.Parse(row.Cells["chGID"].Value.ToString()));
 
-            Debug.WriteLine($"u clicked me {row.Cells["chGID"].Value}");
+            if (row.Cells["cAvatar"].Value != null)
+            {
+                if (row.Cells["cAvatar"].Value.ToString().StartsWith("pt"))
+                {
+                    pbAvatar.Image = Image.FromFile(@"PTPicture\" + row.Cells["cAvatar"].Value);
+                }
+                else
+                {
+                    try
+                    {
+                        pbAvatar.Image = Image.FromFile(row.Cells["cAvatar"].Value.ToString());
+                    }
+                    catch
+                    {
+                        Debug.WriteLine(e);
+                    }
+                }
+
+            }
+            else
+            {
+                pbAvatar.Image = Image.FromFile(@"PTPicture\" + "NoShow.jpg");
+            }
+
+
             lblPFTen.Text = $"{row.Cells["chgHo"].Value} {row.Cells["chgTen"].Value}";
             lblPFTrangThai.Text = row.Cells["chgTrangThai"].Value.ToString() == "Active" ? "Nhận thêm lịch" : "Ngừng nhận lịch";
             lblTuoi.Text = DateTime.Parse(row.Cells["cNgaySinh"].Value.ToString()) == (DateTime?)null ? "" : (DateTime.Now.Year - DateTime.Parse(row.Cells["cNgaySinh"].Value.ToString()).Year).ToString();
             lblPFSDT.Text = row.Cells["chgSDT"].Value.ToString();
 
-            pbAvatar.Image = row.Cells["cAvatar"].Value != null ? Image.FromFile(@"PTPicture\" + row.Cells["cAvatar"].Value) : Image.FromFile(@"PTPicture\" + "NoShow.jpg");
+
             lbChuyenMon.Items.Clear();
             foreach (string sp in pt.specialties)
             {
@@ -419,6 +505,17 @@ namespace GymManagerment_MVP.MainFeature.Main
         private void btnMacDinh_Click(object sender, EventArgs e)
         {
             tbTim.Text = "";
+            ApplyAllFiltersAndSearch();
+        }
+
+        private void cbFindB_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            tbTim.Text = "";
+            ApplyAllFiltersAndSearch();
+        }
+
+        private void cbChuaXoa_CheckedChanged(object sender, EventArgs e)
+        {
             ApplyAllFiltersAndSearch();
         }
     }

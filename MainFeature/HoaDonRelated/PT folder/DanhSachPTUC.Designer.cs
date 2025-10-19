@@ -89,6 +89,8 @@
             this.cbUnactive = new System.Windows.Forms.CheckBox();
             this.cbNhanLich = new System.Windows.Forms.CheckBox();
             this.lblTrangThai = new System.Windows.Forms.Label();
+            this.lblChuaXoa = new System.Windows.Forms.Label();
+            this.cbChuaXoa = new System.Windows.Forms.CheckBox();
             this.pnlDanhSach.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDSPT)).BeginInit();
@@ -145,6 +147,7 @@
             this.cbFindB.Name = "cbFindB";
             this.cbFindB.Size = new System.Drawing.Size(121, 21);
             this.cbFindB.TabIndex = 3;
+            this.cbFindB.SelectedIndexChanged += new System.EventHandler(this.cbFindB_SelectedIndexChanged);
             // 
             // tbTim
             // 
@@ -428,6 +431,9 @@
             // 
             this.pnlLoc.AutoScroll = true;
             this.pnlLoc.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.pnlLoc.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlLoc.Controls.Add(this.lblChuaXoa);
+            this.pnlLoc.Controls.Add(this.cbChuaXoa);
             this.pnlLoc.Controls.Add(this.cbKhac);
             this.pnlLoc.Controls.Add(this.cbHLDD);
             this.pnlLoc.Controls.Add(this.cbYoga);
@@ -466,7 +472,7 @@
             // cbKhac
             // 
             this.cbKhac.AutoSize = true;
-            this.cbKhac.Location = new System.Drawing.Point(23, 466);
+            this.cbKhac.Location = new System.Drawing.Point(23, 488);
             this.cbKhac.Name = "cbKhac";
             this.cbKhac.Size = new System.Drawing.Size(51, 17);
             this.cbKhac.TabIndex = 56;
@@ -477,7 +483,7 @@
             // cbHLDD
             // 
             this.cbHLDD.AutoSize = true;
-            this.cbHLDD.Location = new System.Drawing.Point(23, 443);
+            this.cbHLDD.Location = new System.Drawing.Point(23, 465);
             this.cbHLDD.Name = "cbHLDD";
             this.cbHLDD.Size = new System.Drawing.Size(144, 17);
             this.cbHLDD.TabIndex = 55;
@@ -488,7 +494,7 @@
             // cbYoga
             // 
             this.cbYoga.AutoSize = true;
-            this.cbYoga.Location = new System.Drawing.Point(23, 419);
+            this.cbYoga.Location = new System.Drawing.Point(23, 441);
             this.cbYoga.Name = "cbYoga";
             this.cbYoga.Size = new System.Drawing.Size(92, 17);
             this.cbYoga.TabIndex = 54;
@@ -499,7 +505,7 @@
             // cbFuncTrain
             // 
             this.cbFuncTrain.AutoSize = true;
-            this.cbFuncTrain.Location = new System.Drawing.Point(23, 396);
+            this.cbFuncTrain.Location = new System.Drawing.Point(23, 418);
             this.cbFuncTrain.Name = "cbFuncTrain";
             this.cbFuncTrain.Size = new System.Drawing.Size(116, 17);
             this.cbFuncTrain.TabIndex = 53;
@@ -510,7 +516,7 @@
             // cbBoxFit
             // 
             this.cbBoxFit.AutoSize = true;
-            this.cbBoxFit.Location = new System.Drawing.Point(23, 372);
+            this.cbBoxFit.Location = new System.Drawing.Point(23, 394);
             this.cbBoxFit.Name = "cbBoxFit";
             this.cbBoxFit.Size = new System.Drawing.Size(94, 17);
             this.cbBoxFit.TabIndex = 52;
@@ -610,7 +616,7 @@
             // cbTangCuongSucManh
             // 
             this.cbTangCuongSucManh.AutoSize = true;
-            this.cbTangCuongSucManh.Location = new System.Drawing.Point(23, 349);
+            this.cbTangCuongSucManh.Location = new System.Drawing.Point(23, 371);
             this.cbTangCuongSucManh.Name = "cbTangCuongSucManh";
             this.cbTangCuongSucManh.Size = new System.Drawing.Size(137, 17);
             this.cbTangCuongSucManh.TabIndex = 40;
@@ -621,7 +627,7 @@
             // cbThiDauCuTa
             // 
             this.cbThiDauCuTa.AutoSize = true;
-            this.cbThiDauCuTa.Location = new System.Drawing.Point(23, 325);
+            this.cbThiDauCuTa.Location = new System.Drawing.Point(23, 347);
             this.cbThiDauCuTa.Name = "cbThiDauCuTa";
             this.cbThiDauCuTa.Size = new System.Drawing.Size(96, 17);
             this.cbThiDauCuTa.TabIndex = 39;
@@ -632,7 +638,7 @@
             // cbHuanLuyenTheLuc
             // 
             this.cbHuanLuyenTheLuc.AutoSize = true;
-            this.cbHuanLuyenTheLuc.Location = new System.Drawing.Point(23, 302);
+            this.cbHuanLuyenTheLuc.Location = new System.Drawing.Point(23, 324);
             this.cbHuanLuyenTheLuc.Name = "cbHuanLuyenTheLuc";
             this.cbHuanLuyenTheLuc.Size = new System.Drawing.Size(127, 17);
             this.cbHuanLuyenTheLuc.TabIndex = 38;
@@ -643,7 +649,7 @@
             // cbGiamCan
             // 
             this.cbGiamCan.AutoSize = true;
-            this.cbGiamCan.Location = new System.Drawing.Point(23, 278);
+            this.cbGiamCan.Location = new System.Drawing.Point(23, 300);
             this.cbGiamCan.Name = "cbGiamCan";
             this.cbGiamCan.Size = new System.Drawing.Size(97, 17);
             this.cbGiamCan.TabIndex = 37;
@@ -654,7 +660,7 @@
             // cbGiamCanNu
             // 
             this.cbGiamCanNu.AutoSize = true;
-            this.cbGiamCanNu.Location = new System.Drawing.Point(23, 255);
+            this.cbGiamCanNu.Location = new System.Drawing.Point(23, 277);
             this.cbGiamCanNu.Name = "cbGiamCanNu";
             this.cbGiamCanNu.Size = new System.Drawing.Size(89, 17);
             this.cbGiamCanNu.TabIndex = 36;
@@ -665,7 +671,7 @@
             // cbGiamCanLT
             // 
             this.cbGiamCanLT.AutoSize = true;
-            this.cbGiamCanLT.Location = new System.Drawing.Point(23, 231);
+            this.cbGiamCanLT.Location = new System.Drawing.Point(23, 253);
             this.cbGiamCanLT.Name = "cbGiamCanLT";
             this.cbGiamCanLT.Size = new System.Drawing.Size(148, 17);
             this.cbGiamCanLT.TabIndex = 35;
@@ -676,7 +682,7 @@
             // cbThiDauTT
             // 
             this.cbThiDauTT.AutoSize = true;
-            this.cbThiDauTT.Location = new System.Drawing.Point(23, 205);
+            this.cbThiDauTT.Location = new System.Drawing.Point(23, 227);
             this.cbThiDauTT.Name = "cbThiDauTT";
             this.cbThiDauTT.Size = new System.Drawing.Size(111, 17);
             this.cbThiDauTT.TabIndex = 34;
@@ -687,7 +693,7 @@
             // cbPhucHoiChucNang
             // 
             this.cbPhucHoiChucNang.AutoSize = true;
-            this.cbPhucHoiChucNang.Location = new System.Drawing.Point(23, 181);
+            this.cbPhucHoiChucNang.Location = new System.Drawing.Point(23, 203);
             this.cbPhucHoiChucNang.Name = "cbPhucHoiChucNang";
             this.cbPhucHoiChucNang.Size = new System.Drawing.Size(127, 17);
             this.cbPhucHoiChucNang.TabIndex = 33;
@@ -698,7 +704,7 @@
             // lblChuyenMon
             // 
             this.lblChuyenMon.AutoSize = true;
-            this.lblChuyenMon.Location = new System.Drawing.Point(20, 145);
+            this.lblChuyenMon.Location = new System.Drawing.Point(20, 167);
             this.lblChuyenMon.Name = "lblChuyenMon";
             this.lblChuyenMon.Size = new System.Drawing.Size(67, 13);
             this.lblChuyenMon.TabIndex = 30;
@@ -744,6 +750,26 @@
             this.lblTrangThai.Size = new System.Drawing.Size(59, 13);
             this.lblTrangThai.TabIndex = 21;
             this.lblTrangThai.Text = "Trạng Thái";
+            // 
+            // lblChuaXoa
+            // 
+            this.lblChuaXoa.Location = new System.Drawing.Point(131, 116);
+            this.lblChuaXoa.Name = "lblChuaXoa";
+            this.lblChuaXoa.Size = new System.Drawing.Size(70, 23);
+            this.lblChuaXoa.TabIndex = 58;
+            this.lblChuaXoa.Text = "del count";
+            this.lblChuaXoa.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // cbChuaXoa
+            // 
+            this.cbChuaXoa.AutoSize = true;
+            this.cbChuaXoa.Location = new System.Drawing.Point(23, 120);
+            this.cbChuaXoa.Name = "cbChuaXoa";
+            this.cbChuaXoa.Size = new System.Drawing.Size(73, 17);
+            this.cbChuaXoa.TabIndex = 57;
+            this.cbChuaXoa.Text = "Chưa Xóa";
+            this.cbChuaXoa.UseVisualStyleBackColor = true;
+            this.cbChuaXoa.CheckedChanged += new System.EventHandler(this.cbChuaXoa_CheckedChanged);
             // 
             // DanhSachPTUC
             // 
@@ -830,5 +856,7 @@
         private System.Windows.Forms.CheckBox cbYoga;
         private System.Windows.Forms.CheckBox cbFuncTrain;
         private System.Windows.Forms.CheckBox cbBoxFit;
+        private System.Windows.Forms.Label lblChuaXoa;
+        private System.Windows.Forms.CheckBox cbChuaXoa;
     }
 }

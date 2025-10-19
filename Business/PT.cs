@@ -66,8 +66,8 @@ namespace GymManagerment_MVP.Business
             }
 
             string stateColor = trangThai == State.Active
-                ? "\u001b[32mACTIVE\u001b[0m"  // Green
-                : "\u001b[31mINACTIVE\u001b[0m"; // Red
+                ? "ACTIVE"
+                : "INACTIVE";
 
             string birth = ngaySinh.HasValue ? ngaySinh.Value.ToString("yyyy-MM-dd") : "Unknown";
             string delTime = thoiGianXoa.HasValue ? thoiGianXoa.Value.ToString("yyyy-MM-dd HH:mm:ss") : "None";
