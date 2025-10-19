@@ -20,6 +20,7 @@ namespace GymManagerment_MVP.MainFeature.Main
         DSSpecialties dSSpecialties;
         DSPT filterList;
         DSPT sourceList;
+        private bool isNameSortedAsc = true;
         public DanhSachPTUC()
         {
 
@@ -32,6 +33,9 @@ namespace GymManagerment_MVP.MainFeature.Main
             sourceList.pTs = dSPT.pTs;
             filterList.pTs = dSPT.pTs;
 
+            dgvDSPT.Columns["chgTen"].SortMode = DataGridViewColumnSortMode.Automatic;
+
+
         }
         private void DanhSachPTUC_Load(object sender, EventArgs e)
         {
@@ -39,7 +43,7 @@ namespace GymManagerment_MVP.MainFeature.Main
 
             DisplayList(dSPT.pTs);
             DisplayAnalist();
-            
+
         }
         private void DisplayAnalist()
         {
@@ -76,7 +80,7 @@ namespace GymManagerment_MVP.MainFeature.Main
             lblTKDeleted.Text = xoa.ToString();
             lblNam.Text = male.ToString();
             lblNu.Text = fe.ToString();
-            lblChuaXoa.Text = (dSPT.pTs.Count- xoa).ToString();
+            lblChuaXoa.Text = (dSPT.pTs.Count - xoa).ToString();
         }
         private void LoadDBPT()
         {
@@ -118,7 +122,7 @@ namespace GymManagerment_MVP.MainFeature.Main
                             notes = reader["notes"] != DBNull.Value ? reader["notes"].ToString() : ""
                         };
                         dSSpecialties.specialtiesList.Add(newspecialty);
-                        Debug.WriteLine(newspecialty);
+
                     }
 
                 }
@@ -180,18 +184,19 @@ namespace GymManagerment_MVP.MainFeature.Main
 
             //====== FILTER deleted=======
             bool filterDeleted = cbXoa.Checked;
-            bool filterUndeleted=cbChuaXoa.Checked;
-            if(filterDeleted&&!filterUndeleted)
+            bool filterUndeleted = cbChuaXoa.Checked;
+            if (filterDeleted && !filterUndeleted)
             {
                 result = result.Where(pt => pt.thoiGianXoa != (DateTime?)null).ToList();
-            }else if(!filterDeleted && filterUndeleted)
+            }
+            else if (!filterDeleted && filterUndeleted)
             {
                 result = result.Where(pt => pt.thoiGianXoa == (DateTime?)null).ToList();
             }
 
 
-                // ====== FILTER: Specialties ======
-                List<string> selectedSpecialties = new List<string>();
+            // ====== FILTER: Specialties ======
+            List<string> selectedSpecialties = new List<string>();
             if (cbPhucHoiChucNang.Checked) selectedSpecialties.Add(cbPhucHoiChucNang.Text);
             if (cbThiDauTT.Checked) selectedSpecialties.Add(cbThiDauTT.Text);
             if (cbGiamCanLT.Checked) selectedSpecialties.Add(cbGiamCanLT.Text);
@@ -330,7 +335,8 @@ namespace GymManagerment_MVP.MainFeature.Main
 
         private void btnChiTiet_Click(object sender, EventArgs e)
         {
-
+            Mainfrm main = (Mainfrm)this.FindForm();
+            main.loadUserControl(new ThongTinPT(dSPT.pTs[0]));
         }
 
         private void panel4_Paint(object sender, PaintEventArgs e)
@@ -438,47 +444,50 @@ namespace GymManagerment_MVP.MainFeature.Main
 
         private void dgvDSPT_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex < 0) return;
-            DataGridViewRow row = dgvDSPT.Rows[e.RowIndex];
-
-            PT pt = dSPT.pTs.Find((i) => i.id == int.Parse(row.Cells["chGID"].Value.ToString()));
-
-            if (row.Cells["cAvatar"].Value != null)
+            if (e.RowIndex >= 0)
             {
-                if (row.Cells["cAvatar"].Value.ToString().StartsWith("pt"))
+                DataGridViewRow row = dgvDSPT.Rows[e.RowIndex];
+
+                PT pt = dSPT.pTs.Find((i) => i.id == int.Parse(row.Cells["chGID"].Value.ToString()));
+
+                if (row.Cells["cAvatar"].Value != null)
                 {
-                    pbAvatar.Image = Image.FromFile(@"PTPicture\" + row.Cells["cAvatar"].Value);
+                    if (row.Cells["cAvatar"].Value.ToString().StartsWith("pt"))
+                    {
+                        pbAvatar.Image = Image.FromFile(@"PTPicture\" + row.Cells["cAvatar"].Value);
+                    }
+                    else
+                    {
+                        try
+                        {
+                            pbAvatar.Image = Image.FromFile(row.Cells["cAvatar"].Value.ToString());
+                        }
+                        catch
+                        {
+                            Debug.WriteLine(e);
+                        }
+                    }
+
                 }
                 else
                 {
-                    try
-                    {
-                        pbAvatar.Image = Image.FromFile(row.Cells["cAvatar"].Value.ToString());
-                    }
-                    catch
-                    {
-                        Debug.WriteLine(e);
-                    }
+                    pbAvatar.Image = Image.FromFile(@"PTPicture\" + "NoShow.jpg");
                 }
 
+
+                lblPFTen.Text = $"{row.Cells["chgHo"].Value} {row.Cells["chgTen"].Value}";
+                lblPFTrangThai.Text = row.Cells["chgTrangThai"].Value.ToString() == "Active" ? "Nhận thêm lịch" : "Ngừng nhận lịch";
+                lblTuoi.Text = DateTime.Parse(row.Cells["cNgaySinh"].Value.ToString()) == (DateTime?)null ? "" : (DateTime.Now.Year - DateTime.Parse(row.Cells["cNgaySinh"].Value.ToString()).Year).ToString();
+                lblPFSDT.Text = row.Cells["chgSDT"].Value.ToString();
+
+
+                lbChuyenMon.Items.Clear();
+                foreach (string sp in pt.specialties)
+                {
+                    lbChuyenMon.Items.Add(sp);
+                }
             }
-            else
-            {
-                pbAvatar.Image = Image.FromFile(@"PTPicture\" + "NoShow.jpg");
-            }
 
-
-            lblPFTen.Text = $"{row.Cells["chgHo"].Value} {row.Cells["chgTen"].Value}";
-            lblPFTrangThai.Text = row.Cells["chgTrangThai"].Value.ToString() == "Active" ? "Nhận thêm lịch" : "Ngừng nhận lịch";
-            lblTuoi.Text = DateTime.Parse(row.Cells["cNgaySinh"].Value.ToString()) == (DateTime?)null ? "" : (DateTime.Now.Year - DateTime.Parse(row.Cells["cNgaySinh"].Value.ToString()).Year).ToString();
-            lblPFSDT.Text = row.Cells["chgSDT"].Value.ToString();
-
-
-            lbChuyenMon.Items.Clear();
-            foreach (string sp in pt.specialties)
-            {
-                lbChuyenMon.Items.Add(sp);
-            }
         }
 
         private void lblPFSDT_Click(object sender, EventArgs e)
@@ -517,6 +526,58 @@ namespace GymManagerment_MVP.MainFeature.Main
         private void cbChuaXoa_CheckedChanged(object sender, EventArgs e)
         {
             ApplyAllFiltersAndSearch();
+        }
+
+        private void contextMenuStrip1_Opening(object sender, CancelEventArgs e)
+        {
+
+        }
+
+        private void xóaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (dgvDSPT.SelectedRows.Count == 0) return;
+            //Debug.WriteLine("hi");
+            //Debug.WriteLine(dgvDSPT.SelectedRows[0].Cells["chGID"]);
+            dgvDSPT.SelectedRows[0].Cells["chgXoa"].Value = DateTime.Now.ToString();
+
+        }
+
+        private void dgvDSPT_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void dgvDSPT_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (dgvDSPT.Columns[e.ColumnIndex].Name == "chgTen")
+            {
+                //// Get your current data
+                //List<PT> currentList = dSPT.pTs;
+
+                //// Sort ascending or descending
+                //if (isNameSortedAsc)
+                //    currentList = currentList.OrderBy(pt => pt.name).ToList();
+                //else
+                //    currentList = currentList.OrderByDescending(pt => pt.name).ToList();
+
+                //// Flip sort direction for next click
+                //isNameSortedAsc = !isNameSortedAsc;
+
+                //// Re-bind to grid
+                //dgvDSPT.DataSource = null;
+                //dgvDSPT.DataSource = currentList;
+
+                //// Highlight the header
+                //foreach (DataGridViewColumn col in dgvDSPT.Columns)
+                //    col.HeaderCell.Style.ForeColor = Color.Black; // reset others
+
+                //dgvDSPT.Columns[e.ColumnIndex].HeaderCell.Style.ForeColor = Color.Red; // mark active
+
+                //Debug.WriteLine($"Sorted by name {(isNameSortedAsc ? "ascending" : "descending")}");
+                dgvDSPT.DataSource=filterList.pTs.OrderByDescending(pt => pt.name).ToList();
+                dgvDSPT.Columns["chgTen"].HeaderCell.Style.ForeColor = Color.Red;
+                //dgvDSPT.Columns.
+            }
         }
     }
 }

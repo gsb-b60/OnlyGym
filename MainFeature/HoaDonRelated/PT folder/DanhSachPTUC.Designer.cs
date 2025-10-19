@@ -44,7 +44,7 @@
             this.cNgaySinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.chgXoa = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cAvatar = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.ctmsPT = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.xóaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -94,7 +94,7 @@
             this.pnlDanhSach.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDSPT)).BeginInit();
-            this.contextMenuStrip1.SuspendLayout();
+            this.ctmsPT.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbAvatar)).BeginInit();
@@ -172,13 +172,15 @@
             this.cNgaySinh,
             this.chgXoa,
             this.cAvatar});
-            this.dgvDSPT.ContextMenuStrip = this.contextMenuStrip1;
+            this.dgvDSPT.ContextMenuStrip = this.ctmsPT;
             this.dgvDSPT.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dgvDSPT.Location = new System.Drawing.Point(20, 74);
             this.dgvDSPT.Name = "dgvDSPT";
             this.dgvDSPT.Size = new System.Drawing.Size(730, 583);
             this.dgvDSPT.TabIndex = 0;
             this.dgvDSPT.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDSPT_CellClick);
+            this.dgvDSPT.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDSPT_CellContentClick);
+            this.dgvDSPT.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvDSPT_ColumnHeaderMouseClick);
             // 
             // chGID
             // 
@@ -250,18 +252,20 @@
             this.cAvatar.Name = "cAvatar";
             this.cAvatar.Visible = false;
             // 
-            // contextMenuStrip1
+            // ctmsPT
             // 
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ctmsPT.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.xóaToolStripMenuItem});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(95, 26);
+            this.ctmsPT.Name = "contextMenuStrip1";
+            this.ctmsPT.Size = new System.Drawing.Size(95, 26);
+            this.ctmsPT.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip1_Opening);
             // 
             // xóaToolStripMenuItem
             // 
             this.xóaToolStripMenuItem.Name = "xóaToolStripMenuItem";
-            this.xóaToolStripMenuItem.Size = new System.Drawing.Size(94, 22);
+            this.xóaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.xóaToolStripMenuItem.Text = "Xóa";
+            this.xóaToolStripMenuItem.Click += new System.EventHandler(this.xóaToolStripMenuItem_Click);
             // 
             // panel2
             // 
@@ -362,7 +366,7 @@
             // 
             // btnChiTiet
             // 
-            this.btnChiTiet.Location = new System.Drawing.Point(175, 187);
+            this.btnChiTiet.Location = new System.Drawing.Point(182, 209);
             this.btnChiTiet.Name = "btnChiTiet";
             this.btnChiTiet.Size = new System.Drawing.Size(75, 23);
             this.btnChiTiet.TabIndex = 26;
@@ -783,7 +787,7 @@
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDSPT)).EndInit();
-            this.contextMenuStrip1.ResumeLayout(false);
+            this.ctmsPT.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
@@ -834,7 +838,7 @@
         private System.Windows.Forms.CheckBox cbNu;
         private System.Windows.Forms.CheckBox cbNam;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ContextMenuStrip ctmsPT;
         private System.Windows.Forms.ToolStripMenuItem xóaToolStripMenuItem;
         private System.Windows.Forms.Label lblTKActive;
         private System.Windows.Forms.Label lblTKDeleted;
