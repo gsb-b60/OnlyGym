@@ -22,6 +22,7 @@ namespace GymManagerment_MVP.MainFeature.HoaDonRelated.PT
             lblCatchSDT.Text = "";
             lblCatchSpec.Text = "";
             lblCatchTen.Text = "";
+            lblCatchHo.Text = "";
         }
 
         private void btnChonHinh_Click(object sender, EventArgs e)
@@ -79,16 +80,26 @@ namespace GymManagerment_MVP.MainFeature.HoaDonRelated.PT
                 }
             }
 
-            lblCatchSDT.Text = "";
-            lblCatchSpec.Text = "";
-            lblCatchTen.Text = "";
-            string tenLot = tbHo.Text.Trim();
-            string ten = tbPFTen.Text.Trim();
-            string sdt = mtbPFSDT.Text.Trim();
+            
 
             if(ptSpec.Count==0)
             {
                 lblCatchSpec.Text = "⚠️ Vui lòng chọn ít nhất 1 chuyên môn";
+                return;
+            }
+
+            lblCatchSDT.Text = "";
+            lblCatchSpec.Text = "";
+            lblCatchTen.Text = "";
+            lblCatchHo.Text = "";
+            string tenLot = tbHo.Text.Trim();
+            string ten = tbPFTen.Text.Trim();
+            string sdt = mtbPFSDT.Text.Trim();
+
+            if (string.IsNullOrWhiteSpace(tenLot))
+            {
+                lblCatchTen.Text = "⚠️ Vui lòng nhập ten lot.";
+                tbPFTen.Focus();
                 return;
             }
 

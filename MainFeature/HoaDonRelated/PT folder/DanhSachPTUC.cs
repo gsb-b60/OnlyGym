@@ -336,7 +336,16 @@ namespace GymManagerment_MVP.MainFeature.Main
         private void btnChiTiet_Click(object sender, EventArgs e)
         {
             Mainfrm main = (Mainfrm)this.FindForm();
-            main.loadUserControl(new ThongTinPT(dSPT.pTs[0]));
+            var pt = btnChiTiet.Tag as Business.PT;
+            if (pt != null)
+            {
+                main.loadUserControl(new ThongTinPT(pt));
+            }
+            else
+            {
+                main.loadUserControl(new ThongTinPT(dSPT.pTs[0]));
+            }
+
         }
 
         private void panel4_Paint(object sender, PaintEventArgs e)
@@ -486,6 +495,7 @@ namespace GymManagerment_MVP.MainFeature.Main
                 {
                     lbChuyenMon.Items.Add(sp);
                 }
+                btnChiTiet.Tag = pt;
             }
 
         }
@@ -574,7 +584,7 @@ namespace GymManagerment_MVP.MainFeature.Main
                 //dgvDSPT.Columns[e.ColumnIndex].HeaderCell.Style.ForeColor = Color.Red; // mark active
 
                 //Debug.WriteLine($"Sorted by name {(isNameSortedAsc ? "ascending" : "descending")}");
-                dgvDSPT.DataSource=filterList.pTs.OrderByDescending(pt => pt.name).ToList();
+                dgvDSPT.DataSource = filterList.pTs.OrderByDescending(pt => pt.name).ToList();
                 dgvDSPT.Columns["chgTen"].HeaderCell.Style.ForeColor = Color.Red;
                 //dgvDSPT.Columns.
             }

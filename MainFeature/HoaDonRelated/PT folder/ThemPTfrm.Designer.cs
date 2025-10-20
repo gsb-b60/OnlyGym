@@ -63,6 +63,7 @@
             this.lblCatchSDT = new System.Windows.Forms.Label();
             this.lblCatchSpec = new System.Windows.Forms.Label();
             this.cbNhanLich = new System.Windows.Forms.CheckBox();
+            this.lblCatchHo = new System.Windows.Forms.Label();
             this.gbSex.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbAvartar)).BeginInit();
             this.SuspendLayout();
@@ -413,11 +414,23 @@
             this.cbNhanLich.Text = "Nhận Lịch";
             this.cbNhanLich.UseVisualStyleBackColor = true;
             // 
+            // lblCatchHo
+            // 
+            this.lblCatchHo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCatchHo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lblCatchHo.Location = new System.Drawing.Point(222, 2);
+            this.lblCatchHo.Name = "lblCatchHo";
+            this.lblCatchHo.Size = new System.Drawing.Size(293, 23);
+            this.lblCatchHo.TabIndex = 100;
+            this.lblCatchHo.Text = "label1";
+            this.lblCatchHo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
             // ThemPTfrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(558, 525);
+            this.Controls.Add(this.lblCatchHo);
             this.Controls.Add(this.cbNhanLich);
             this.Controls.Add(this.lblCatchSpec);
             this.Controls.Add(this.lblCatchSDT);
@@ -497,5 +510,6 @@
         private System.Windows.Forms.Label lblCatchSDT;
         private System.Windows.Forms.Label lblCatchSpec;
         private System.Windows.Forms.CheckBox cbNhanLich;
+        private System.Windows.Forms.Label lblCatchHo;
     }
 }
