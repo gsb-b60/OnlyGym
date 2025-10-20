@@ -84,7 +84,9 @@ namespace GymManagerment_MVP
 
         private void xóaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            if (dgvBill.SelectedRows.Count == 0) return;
+            dgvBill.Rows.Remove(dgvBill.SelectedRows[0]);
+            SetTotal();
         }
         private void SetTotal()
         {

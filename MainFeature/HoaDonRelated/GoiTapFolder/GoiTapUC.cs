@@ -101,8 +101,8 @@ namespace GymManagerment_MVP.MainFeature.HoaDonRelated
             if (goiPara.discount != 0)
             {
                 lblDiscount.Text = "-" + Math.Round(((double)goiPara.giaTien / goiPara.discount)).ToString() + "%";
-                lblGiaTri.Text = goiPara.giaTien.ToString();
-                lblThanhTien.Text = (goiPara.giaTien - goiPara.discount).ToString();
+                lblGiaTri.Text =  string.Format("{0:N0} đ", goiPara.giaTien);
+                lblThanhTien.Text = string.Format("{0:N0} đ", goiPara.giaTien - goiPara.discount);
             }
             else
             {

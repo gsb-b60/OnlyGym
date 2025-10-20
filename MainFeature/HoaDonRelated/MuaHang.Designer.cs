@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MuaHang));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlDanhSach = new System.Windows.Forms.Panel();
             this.tpMuaHang = new System.Windows.Forms.TabControl();
             this.tabGoiTap = new System.Windows.Forms.TabPage();
@@ -220,7 +220,7 @@
             this.pnThongTinMuaHang.Controls.Add(this.lblPFSDT);
             this.pnThongTinMuaHang.Controls.Add(this.lblPFTen);
             this.pnThongTinMuaHang.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnThongTinMuaHang.Location = new System.Drawing.Point(3, 93);
+            this.pnThongTinMuaHang.Location = new System.Drawing.Point(3, 54);
             this.pnThongTinMuaHang.Name = "pnThongTinMuaHang";
             this.pnThongTinMuaHang.Size = new System.Drawing.Size(316, 601);
             this.pnThongTinMuaHang.TabIndex = 3;
@@ -394,12 +394,12 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(3, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(316, 90);
+            this.panel1.Size = new System.Drawing.Size(316, 51);
             this.panel1.TabIndex = 0;
             // 
             // btnTim
             // 
-            this.btnTim.Location = new System.Drawing.Point(162, 14);
+            this.btnTim.Location = new System.Drawing.Point(248, 14);
             this.btnTim.Name = "btnTim";
             this.btnTim.Size = new System.Drawing.Size(68, 23);
             this.btnTim.TabIndex = 5;
@@ -410,7 +410,7 @@
             // 
             this.textBox1.Location = new System.Drawing.Point(14, 14);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(134, 20);
+            this.textBox1.Size = new System.Drawing.Size(216, 20);
             this.textBox1.TabIndex = 4;
             // 
             // dgvBill
@@ -420,6 +420,7 @@
             this.csp,
             this.csl,
             this.ctt});
+            this.dgvBill.ContextMenuStrip = this.cmsXoa;
             this.dgvBill.Location = new System.Drawing.Point(0, 222);
             this.dgvBill.Name = "dgvBill";
             this.dgvBill.Size = new System.Drawing.Size(320, 172);
@@ -444,10 +445,10 @@
             // ctt
             // 
             this.ctt.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle1.Format = "C0";
-            dataGridViewCellStyle1.NullValue = null;
-            this.ctt.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle3.Format = "C0";
+            dataGridViewCellStyle3.NullValue = null;
+            this.ctt.DefaultCellStyle = dataGridViewCellStyle3;
             this.ctt.HeaderText = "Thành Tiền";
             this.ctt.Name = "ctt";
             this.ctt.ReadOnly = true;
