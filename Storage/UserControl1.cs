@@ -16,5 +16,30 @@ namespace GymManagerment_MVP
         {
             InitializeComponent();
         }
+
+        private void lblTrangThai_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cbH_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void chEND_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void gbLastCheck_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnXoa_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -42,9 +42,8 @@
             this.lblPFTen = new System.Windows.Forms.Label();
             this.pbAvartar = new System.Windows.Forms.PictureBox();
             this.btnXacNhan = new System.Windows.Forms.Button();
-            this.btnDKPT = new System.Windows.Forms.Button();
-            this.btnDKGoi = new System.Windows.Forms.Button();
             this.btnHuy = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.gbSex.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbAvartar)).BeginInit();
             this.SuspendLayout();
@@ -53,7 +52,7 @@
             // 
             this.gbSex.Controls.Add(this.rdNu);
             this.gbSex.Controls.Add(this.rdNam);
-            this.gbSex.Location = new System.Drawing.Point(192, 176);
+            this.gbSex.Location = new System.Drawing.Point(192, 142);
             this.gbSex.Name = "gbSex";
             this.gbSex.Size = new System.Drawing.Size(251, 50);
             this.gbSex.TabIndex = 74;
@@ -102,7 +101,7 @@
             // 
             // btnChonHinh
             // 
-            this.btnChonHinh.Location = new System.Drawing.Point(382, 232);
+            this.btnChonHinh.Location = new System.Drawing.Point(382, 198);
             this.btnChonHinh.Name = "btnChonHinh";
             this.btnChonHinh.Size = new System.Drawing.Size(61, 23);
             this.btnChonHinh.TabIndex = 71;
@@ -111,7 +110,7 @@
             // 
             // tbDuongDan
             // 
-            this.tbDuongDan.Location = new System.Drawing.Point(16, 232);
+            this.tbDuongDan.Location = new System.Drawing.Point(12, 198);
             this.tbDuongDan.Name = "tbDuongDan";
             this.tbDuongDan.ReadOnly = true;
             this.tbDuongDan.Size = new System.Drawing.Size(347, 20);
@@ -155,14 +154,14 @@
             this.pbAvartar.Location = new System.Drawing.Point(12, 12);
             this.pbAvartar.Name = "pbAvartar";
             this.pbAvartar.Padding = new System.Windows.Forms.Padding(10);
-            this.pbAvartar.Size = new System.Drawing.Size(166, 214);
+            this.pbAvartar.Size = new System.Drawing.Size(171, 180);
             this.pbAvartar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbAvartar.TabIndex = 56;
             this.pbAvartar.TabStop = false;
             // 
             // btnXacNhan
             // 
-            this.btnXacNhan.Location = new System.Drawing.Point(371, 299);
+            this.btnXacNhan.Location = new System.Drawing.Point(371, 227);
             this.btnXacNhan.Name = "btnXacNhan";
             this.btnXacNhan.Size = new System.Drawing.Size(72, 23);
             this.btnXacNhan.TabIndex = 75;
@@ -170,28 +169,9 @@
             this.btnXacNhan.UseVisualStyleBackColor = true;
             this.btnXacNhan.Click += new System.EventHandler(this.btnXacNhan_Click);
             // 
-            // btnDKPT
-            // 
-            this.btnDKPT.Location = new System.Drawing.Point(12, 299);
-            this.btnDKPT.Name = "btnDKPT";
-            this.btnDKPT.Size = new System.Drawing.Size(110, 23);
-            this.btnDKPT.TabIndex = 76;
-            this.btnDKPT.Text = "Đăng ký PT";
-            this.btnDKPT.UseVisualStyleBackColor = true;
-            // 
-            // btnDKGoi
-            // 
-            this.btnDKGoi.Location = new System.Drawing.Point(12, 258);
-            this.btnDKGoi.Name = "btnDKGoi";
-            this.btnDKGoi.Size = new System.Drawing.Size(110, 23);
-            this.btnDKGoi.TabIndex = 77;
-            this.btnDKGoi.Text = "Đăng Ký Gói Tập";
-            this.btnDKGoi.UseVisualStyleBackColor = true;
-            this.btnDKGoi.Click += new System.EventHandler(this.btnDKGoi_Click);
-            // 
             // btnHuy
             // 
-            this.btnHuy.Location = new System.Drawing.Point(291, 299);
+            this.btnHuy.Location = new System.Drawing.Point(12, 227);
             this.btnHuy.Name = "btnHuy";
             this.btnHuy.Size = new System.Drawing.Size(72, 23);
             this.btnHuy.TabIndex = 78;
@@ -199,14 +179,22 @@
             this.btnHuy.UseVisualStyleBackColor = true;
             this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(281, 227);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 79;
+            this.button1.Text = "Mua Hàng";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // ThemHocVienfrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(477, 334);
+            this.ClientSize = new System.Drawing.Size(459, 269);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.btnHuy);
-            this.Controls.Add(this.btnDKGoi);
-            this.Controls.Add(this.btnDKPT);
             this.Controls.Add(this.btnXacNhan);
             this.Controls.Add(this.gbSex);
             this.Controls.Add(this.dtpNgaysinh);
@@ -242,8 +230,7 @@
         private System.Windows.Forms.Label lblPFTen;
         private System.Windows.Forms.PictureBox pbAvartar;
         private System.Windows.Forms.Button btnXacNhan;
-        private System.Windows.Forms.Button btnDKPT;
-        private System.Windows.Forms.Button btnDKGoi;
         private System.Windows.Forms.Button btnHuy;
+        private System.Windows.Forms.Button button1;
     }
 }

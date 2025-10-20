@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GymManagerment_MVP.MainFeature.HocVienRelated;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -65,6 +66,31 @@ namespace GymManagerment_MVP
         private void lvThongTinPT_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void ThongTinHocVien_Load(object sender, EventArgs e)
+        {
+            ThongTinGoiTapUC goitap = new ThongTinGoiTapUC();
+            goitap.Dock= DockStyle.Fill;
+            tabGoi.Controls.Add(goitap);
+            goitap.BringToFront();
+
+
+            ThongTinCheckInUC thongTinCheckInUC = new ThongTinCheckInUC();
+            thongTinCheckInUC.Dock = DockStyle.Fill;
+            tabCheckIn.Controls.Add(thongTinCheckInUC);
+            thongTinCheckInUC.BringToFront();
+
+
+            ThongTinGoiTapPTUC thongTinGoiTapPTUC=new ThongTinGoiTapPTUC();
+            thongTinGoiTapPTUC.Dock = DockStyle.Fill;
+            tabLichSuPT.Controls.Add(thongTinGoiTapPTUC);
+            thongTinGoiTapPTUC.BringToFront();
+
+            ThongTinHoaDonUC thongTinHoaDonUC = new ThongTinHoaDonUC();
+            thongTinHoaDonUC.Dock = DockStyle.Fill;
+            tabHóaĐơn.Controls.Add(thongTinHoaDonUC);
+            thongTinHoaDonUC.BringToFront();
         }
     }
 }
