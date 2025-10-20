@@ -31,6 +31,8 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GoiTapUC));
             this.pnGoiContent = new System.Windows.Forms.Panel();
+            this.lblDiscount = new System.Windows.Forms.Label();
+            this.lblThanhTien = new System.Windows.Forms.Label();
             this.lblTenGoi = new System.Windows.Forms.Label();
             this.lblState = new System.Windows.Forms.Label();
             this.lblGiaTri = new System.Windows.Forms.Label();
@@ -42,8 +44,6 @@
             this.xóaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tắtActiveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.activeNowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.lblThanhTien = new System.Windows.Forms.Label();
-            this.lblDiscount = new System.Windows.Forms.Label();
             this.pnGoiContent.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbSetting)).BeginInit();
             this.cmsConfig.SuspendLayout();
@@ -66,6 +66,29 @@
             this.pnGoiContent.TabIndex = 0;
             this.pnGoiContent.Click += new System.EventHandler(this.panel1_Click);
             this.pnGoiContent.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // lblDiscount
+            // 
+            this.lblDiscount.AutoSize = true;
+            this.lblDiscount.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDiscount.Location = new System.Drawing.Point(7, 87);
+            this.lblDiscount.Name = "lblDiscount";
+            this.lblDiscount.Size = new System.Drawing.Size(77, 20);
+            this.lblDiscount.TabIndex = 6;
+            this.lblDiscount.Text = "discount";
+            this.lblDiscount.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lblThanhTien
+            // 
+            this.lblThanhTien.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblThanhTien.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lblThanhTien.Location = new System.Drawing.Point(80, 87);
+            this.lblThanhTien.Name = "lblThanhTien";
+            this.lblThanhTien.Size = new System.Drawing.Size(107, 23);
+            this.lblThanhTien.TabIndex = 5;
+            this.lblThanhTien.Text = "Thanh Tien";
+            this.lblThanhTien.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblThanhTien.Click += new System.EventHandler(this.lblThanhTien_Click);
             // 
             // lblTenGoi
             // 
@@ -128,6 +151,7 @@
             this.btnMuaNgay.TabIndex = 5;
             this.btnMuaNgay.Text = "Mua Ngay";
             this.btnMuaNgay.UseVisualStyleBackColor = true;
+            this.btnMuaNgay.Click += new System.EventHandler(this.btnMuaNgay_Click);
             // 
             // pbSetting
             // 
@@ -168,29 +192,6 @@
             this.activeNowToolStripMenuItem.Name = "activeNowToolStripMenuItem";
             this.activeNowToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
             this.activeNowToolStripMenuItem.Text = "Active Now";
-            // 
-            // lblThanhTien
-            // 
-            this.lblThanhTien.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblThanhTien.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblThanhTien.Location = new System.Drawing.Point(80, 87);
-            this.lblThanhTien.Name = "lblThanhTien";
-            this.lblThanhTien.Size = new System.Drawing.Size(107, 23);
-            this.lblThanhTien.TabIndex = 5;
-            this.lblThanhTien.Text = "Thanh Tien";
-            this.lblThanhTien.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.lblThanhTien.Click += new System.EventHandler(this.lblThanhTien_Click);
-            // 
-            // lblDiscount
-            // 
-            this.lblDiscount.AutoSize = true;
-            this.lblDiscount.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDiscount.Location = new System.Drawing.Point(7, 87);
-            this.lblDiscount.Name = "lblDiscount";
-            this.lblDiscount.Size = new System.Drawing.Size(77, 20);
-            this.lblDiscount.TabIndex = 6;
-            this.lblDiscount.Text = "discount";
-            this.lblDiscount.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // GoiTapUC
             // 

@@ -4,18 +4,21 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
+using System.Diagnostics.Eventing.Reader;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace GymManagerment_MVP.MainFeature.HoaDonRelated
 {
     public partial class GoiTapUC : UserControl
     {
-
+        Business.GoiTap goi;
+        public event Action<Business.GoiTap> BuyPackge;
 
         public void setPacketIndor(string name,int duration,bool status)
         {
@@ -30,9 +33,10 @@ namespace GymManagerment_MVP.MainFeature.HoaDonRelated
 
         public void setPacketIndoor(Business.GoiTap goi)
         {
-            lblTenGoi.Parent=pnGoiContent;
+            
+            //lblTenGoi.Parent = pnGoiContent;
             lblTenGoi.Text = goi.tenGoi;
-            if(goi.loaiGoi==1)
+            if (goi.loaiGoi == 1)
             {
                 lblLoaiHang.Text = $"{goi.thoiHanNgay / 30} Thang";
             }
@@ -41,36 +45,73 @@ namespace GymManagerment_MVP.MainFeature.HoaDonRelated
                 lblLoaiHang.Text = $"{goi.thoiHanBuoi} Buoi";
             }
 
-            if (goi.hoatDong == true) 
-            { 
+            if (goi.hoatDong == true)
+            {
                 lblState.Text = "Active";
                 pnGoiContent.BackColor = Config.main1;
             }
-            else{ 
+            else
+            {
                 lblState.Text = "Unactive";
                 pnGoiContent.BackColor = Config.main2;
             }
 
 
-            if(goi.discount!=0)
+            if (goi.discount != 0)
             {
-                lblDiscount.Text ="-"+Math.Round(((double)goi.giaTien/goi.discount)).ToString()+"%";
+                lblDiscount.Text = "-" + Math.Round(((double)goi.giaTien / goi.discount)).ToString() + "%";
                 lblGiaTri.Text = goi.giaTien.ToString();
                 lblThanhTien.Text = (goi.giaTien - goi.discount).ToString();
             }
             else
             {
-                lblThanhTien.Text=goi.giaTien.ToString() ;
+                lblThanhTien.Text = goi.giaTien.ToString();
             }
-            
-
-
         }
 
         public GoiTapUC()
         {
             InitializeComponent();
         }
+        public GoiTapUC(Business.GoiTap goiPara)
+        {
+            InitializeComponent();
+            lblTenGoi.Text = goiPara.tenGoi;
+            if (goiPara.loaiGoi == 1)
+            {
+                lblLoaiHang.Text = $"{goiPara.thoiHanNgay / 30} Thang";
+            }
+            else
+            {
+                lblLoaiHang.Text = $"{goiPara.thoiHanBuoi} Buoi";
+            }
+
+            if (goiPara.hoatDong == true)
+            {
+                lblState.Text = "Active";
+                pnGoiContent.BackColor = Config.main1;
+            }
+            else
+            {
+                lblState.Text = "Unactive";
+                pnGoiContent.BackColor = Config.main2;
+            }
+
+
+            if (goiPara.discount != 0)
+            {
+                lblDiscount.Text = "-" + Math.Round(((double)goiPara.giaTien / goiPara.discount)).ToString() + "%";
+                lblGiaTri.Text = goiPara.giaTien.ToString();
+                lblThanhTien.Text = (goiPara.giaTien - goiPara.discount).ToString();
+            }
+            else
+            {
+                lblThanhTien.Text = goiPara.giaTien.ToString();
+            }
+            goi = goiPara;
+
+        }
+       
 
         private void GoiTapUC_Click(object sender, EventArgs e)
         {
@@ -123,5 +164,13 @@ namespace GymManagerment_MVP.MainFeature.HoaDonRelated
         {
 
         }
+
+        private void btnMuaNgay_Click(object sender, EventArgs e)
+        {
+            //MuaHang uc = (MuaHang)this;
+            BuyPackge?.Invoke(goi);
+
+        }
+        
     }
 }
