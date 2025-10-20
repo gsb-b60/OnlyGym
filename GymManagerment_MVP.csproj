@@ -53,6 +53,7 @@
     <Compile Include="Business\GoiPT.cs" />
     <Compile Include="Business\GoiTap.cs" />
     <Compile Include="Business\HocVien.cs" />
+    <Compile Include="Business\ItemBase.cs" />
     <Compile Include="Business\PT.cs" />
     <Compile Include="Business\Specialties.cs" />
     <Compile Include="Config.cs" />

@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -54,9 +55,10 @@ namespace GymManagerment_MVP
 
         private void BanGoi_SetToBill(GoiTap obj)
         {
-            ListViewItem item = new ListViewItem();
-            item.SubItems[0].Text = obj.tenGoi;
-            lvHoaDon.Items.Add(item);
+
+            int i=dgvBill.Rows.Add(obj.tenGoi,1,obj.giaTien);
+            dgvBill.Rows[i].Tag= obj;
+            SetTotal();
         }
 
         private void tabControl1_DrawItem(object sender, DrawItemEventArgs e)
@@ -78,13 +80,41 @@ namespace GymManagerment_MVP
         {
 
         }
-        public void SetBill(GoiTap goi)
-        {
-            //lvHoaDon.
-            ListViewItem item = new ListViewItem();
-            item.SubItems[0].Text = goi.tenGoi;
-            lvHoaDon.Items.Add(item);
 
+
+        private void xóaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void SetTotal()
+        {
+            if (dgvBill.Rows.Count == 0) return;
+
+            decimal discount = 0;
+            decimal price = 0;
+
+            foreach (DataGridViewRow row in dgvBill.Rows)
+            {
+                if (row.Cells["ctt"].Value != null)
+                {
+                    decimal value;
+                    if (decimal.TryParse(row.Cells["ctt"].Value.ToString(), out value))
+                    {
+                        price += value;
+                    }
+                }
+                var obj = row.Tag;
+
+                if (obj is GoiTap goi)
+                {
+                    discount+= goi.discount;    
+                }
+
+            }
+
+            lblTongTienHang.Text = string.Format("{0:N0} đ", price);
+            lblDiscount.Text = string.Format("{0:N0} đ", discount);
+            lblTongThanhToan.Text= string.Format("{0:N0} đ", price-discount);
         }
     }
 }
