@@ -9,7 +9,7 @@ namespace GymManagerment_MVP
 {
     internal class Config
     {
-        static public string connection= "server=.;database=GymManagement;Integrated Security= true";
+        static public string connection= "server=.;database=GymManagement_1;Integrated Security= true";
         public static Color main1=Color.Teal;
         public static Color main2=Color.Red; 
     }

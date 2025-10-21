@@ -34,26 +34,18 @@
             this.tpMuaHang = new System.Windows.Forms.TabControl();
             this.tabGoiTap = new System.Windows.Forms.TabPage();
             this.pnGoiTap = new System.Windows.Forms.Panel();
-            this.tabPT = new System.Windows.Forms.TabPage();
-            this.pnPTV2 = new System.Windows.Forms.Panel();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.pnSanPham = new System.Windows.Forms.Panel();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.pnPT = new System.Windows.Forms.Panel();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.pnSanPham = new System.Windows.Forms.Panel();
+            this.tabPT = new System.Windows.Forms.TabPage();
+            this.pnPTV2 = new System.Windows.Forms.Panel();
             this.pnKhachHang = new System.Windows.Forms.Panel();
             this.pnThongTinMuaHang = new System.Windows.Forms.Panel();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.lblTTT = new System.Windows.Forms.Label();
-            this.lblDC = new System.Windows.Forms.Label();
-            this.lblTongTienHang = new System.Windows.Forms.Label();
             this.lvHoaDon = new System.Windows.Forms.ListView();
             this.chSP = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chSL = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chTT = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.cmsXoa = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.xóaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnThanhToan = new System.Windows.Forms.Button();
             this.lblTuoi = new System.Windows.Forms.Label();
             this.lblKyHieu = new System.Windows.Forms.Label();
@@ -67,19 +59,25 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnTim = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.lblTTT = new System.Windows.Forms.Label();
+            this.lblDC = new System.Windows.Forms.Label();
+            this.lblTongTienHang = new System.Windows.Forms.Label();
+            this.cmsXoa = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.xóaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pnlDanhSach.SuspendLayout();
             this.tpMuaHang.SuspendLayout();
             this.tabGoiTap.SuspendLayout();
-            this.tabPT.SuspendLayout();
-            this.tabPage3.SuspendLayout();
             this.tabPage2.SuspendLayout();
-            this.pnPT.SuspendLayout();
+            this.tabPage3.SuspendLayout();
+            this.tabPT.SuspendLayout();
             this.pnKhachHang.SuspendLayout();
             this.pnThongTinMuaHang.SuspendLayout();
-            this.cmsXoa.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
+            this.cmsXoa.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlDanhSach
@@ -129,24 +127,25 @@
             this.pnGoiTap.Size = new System.Drawing.Size(963, 642);
             this.pnGoiTap.TabIndex = 1;
             // 
-            // tabPT
+            // tabPage2
             // 
-            this.tabPT.Controls.Add(this.pnPTV2);
-            this.tabPT.Location = new System.Drawing.Point(4, 49);
-            this.tabPT.Name = "tabPT";
-            this.tabPT.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPT.Size = new System.Drawing.Size(969, 648);
-            this.tabPT.TabIndex = 3;
-            this.tabPT.Text = "Đăng Ký PT";
-            this.tabPT.UseVisualStyleBackColor = true;
+            this.tabPage2.Controls.Add(this.pnPT);
+            this.tabPage2.Location = new System.Drawing.Point(4, 49);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(969, 648);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Gói PT";
+            this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // pnPTV2
+            // pnPT
             // 
-            this.pnPTV2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnPTV2.Location = new System.Drawing.Point(3, 3);
-            this.pnPTV2.Name = "pnPTV2";
-            this.pnPTV2.Size = new System.Drawing.Size(963, 642);
-            this.pnPTV2.TabIndex = 0;
+            this.pnPT.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnPT.Location = new System.Drawing.Point(3, 3);
+            this.pnPT.Name = "pnPT";
+            this.pnPT.Size = new System.Drawing.Size(963, 642);
+            this.pnPT.TabIndex = 0;
+            this.pnPT.Paint += new System.Windows.Forms.PaintEventHandler(this.pnPT_Paint);
             // 
             // tabPage3
             // 
@@ -166,26 +165,24 @@
             this.pnSanPham.Size = new System.Drawing.Size(969, 648);
             this.pnSanPham.TabIndex = 0;
             // 
-            // tabPage2
+            // tabPT
             // 
-            this.tabPage2.Controls.Add(this.pnPT);
-            this.tabPage2.Location = new System.Drawing.Point(4, 49);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(969, 648);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Gói PT";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.tabPT.Controls.Add(this.pnPTV2);
+            this.tabPT.Location = new System.Drawing.Point(4, 49);
+            this.tabPT.Name = "tabPT";
+            this.tabPT.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPT.Size = new System.Drawing.Size(969, 648);
+            this.tabPT.TabIndex = 3;
+            this.tabPT.Text = "Đăng Ký PT";
+            this.tabPT.UseVisualStyleBackColor = true;
             // 
-            // pnPT
+            // pnPTV2
             // 
-            this.pnPT.Controls.Add(this.panel2);
-            this.pnPT.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnPT.Location = new System.Drawing.Point(3, 3);
-            this.pnPT.Name = "pnPT";
-            this.pnPT.Size = new System.Drawing.Size(963, 642);
-            this.pnPT.TabIndex = 0;
-            this.pnPT.Paint += new System.Windows.Forms.PaintEventHandler(this.pnPT_Paint);
+            this.pnPTV2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnPTV2.Location = new System.Drawing.Point(3, 3);
+            this.pnPTV2.Name = "pnPTV2";
+            this.pnPTV2.Size = new System.Drawing.Size(963, 642);
+            this.pnPTV2.TabIndex = 0;
             // 
             // pnKhachHang
             // 
@@ -226,60 +223,6 @@
             this.pnThongTinMuaHang.Size = new System.Drawing.Size(247, 563);
             this.pnThongTinMuaHang.TabIndex = 3;
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(177, 499);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(46, 13);
-            this.label4.TabIndex = 49;
-            this.label4.Text = "279.000";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(189, 458);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(34, 13);
-            this.label3.TabIndex = 48;
-            this.label3.Text = "0.000";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(177, 419);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(46, 13);
-            this.label2.TabIndex = 47;
-            this.label2.Text = "279.000";
-            // 
-            // lblTTT
-            // 
-            this.lblTTT.AutoSize = true;
-            this.lblTTT.Location = new System.Drawing.Point(63, 499);
-            this.lblTTT.Name = "lblTTT";
-            this.lblTTT.Size = new System.Drawing.Size(94, 13);
-            this.lblTTT.TabIndex = 46;
-            this.lblTTT.Text = "Tổng Thanh Toán";
-            // 
-            // lblDC
-            // 
-            this.lblDC.AutoSize = true;
-            this.lblDC.Location = new System.Drawing.Point(63, 458);
-            this.lblDC.Name = "lblDC";
-            this.lblDC.Size = new System.Drawing.Size(49, 13);
-            this.lblDC.TabIndex = 45;
-            this.lblDC.Text = "Discount";
-            // 
-            // lblTongTienHang
-            // 
-            this.lblTongTienHang.AutoSize = true;
-            this.lblTongTienHang.Location = new System.Drawing.Point(63, 419);
-            this.lblTongTienHang.Name = "lblTongTienHang";
-            this.lblTongTienHang.Size = new System.Drawing.Size(85, 13);
-            this.lblTongTienHang.TabIndex = 44;
-            this.lblTongTienHang.Text = "Tổng Tiền Hàng";
-            // 
             // lvHoaDon
             // 
             this.lvHoaDon.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
@@ -309,20 +252,6 @@
             // 
             this.chTT.Text = "Thành Tiền";
             this.chTT.Width = 68;
-            // 
-            // cmsXoa
-            // 
-            this.cmsXoa.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.xóaToolStripMenuItem});
-            this.cmsXoa.Name = "cmsXoa";
-            this.cmsXoa.Size = new System.Drawing.Size(95, 26);
-            this.cmsXoa.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip1_Opening);
-            // 
-            // xóaToolStripMenuItem
-            // 
-            this.xóaToolStripMenuItem.Name = "xóaToolStripMenuItem";
-            this.xóaToolStripMenuItem.Size = new System.Drawing.Size(94, 22);
-            this.xóaToolStripMenuItem.Text = "Xóa";
             // 
             // btnThanhToan
             // 
@@ -369,7 +298,6 @@
             this.btnChiTiet.TabIndex = 26;
             this.btnChiTiet.Text = "Chi tiết";
             this.btnChiTiet.UseVisualStyleBackColor = true;
-            this.btnChiTiet.Click += new System.EventHandler(this.btnChiTiet_Click);
             // 
             // pictureBox1
             // 
@@ -444,13 +372,73 @@
             this.textBox1.Size = new System.Drawing.Size(134, 20);
             this.textBox1.TabIndex = 4;
             // 
-            // panel2
+            // label4
             // 
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(963, 642);
-            this.panel2.TabIndex = 1;
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(177, 499);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(46, 13);
+            this.label4.TabIndex = 49;
+            this.label4.Text = "279.000";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(189, 458);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(34, 13);
+            this.label3.TabIndex = 48;
+            this.label3.Text = "0.000";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(177, 419);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(46, 13);
+            this.label2.TabIndex = 47;
+            this.label2.Text = "279.000";
+            // 
+            // lblTTT
+            // 
+            this.lblTTT.AutoSize = true;
+            this.lblTTT.Location = new System.Drawing.Point(63, 499);
+            this.lblTTT.Name = "lblTTT";
+            this.lblTTT.Size = new System.Drawing.Size(94, 13);
+            this.lblTTT.TabIndex = 46;
+            this.lblTTT.Text = "Tổng Thanh Toán";
+            // 
+            // lblDC
+            // 
+            this.lblDC.AutoSize = true;
+            this.lblDC.Location = new System.Drawing.Point(63, 458);
+            this.lblDC.Name = "lblDC";
+            this.lblDC.Size = new System.Drawing.Size(49, 13);
+            this.lblDC.TabIndex = 45;
+            this.lblDC.Text = "Discount";
+            // 
+            // lblTongTienHang
+            // 
+            this.lblTongTienHang.AutoSize = true;
+            this.lblTongTienHang.Location = new System.Drawing.Point(63, 419);
+            this.lblTongTienHang.Name = "lblTongTienHang";
+            this.lblTongTienHang.Size = new System.Drawing.Size(85, 13);
+            this.lblTongTienHang.TabIndex = 44;
+            this.lblTongTienHang.Text = "Tổng Tiền Hàng";
+            // 
+            // cmsXoa
+            // 
+            this.cmsXoa.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.xóaToolStripMenuItem});
+            this.cmsXoa.Name = "cmsXoa";
+            this.cmsXoa.Size = new System.Drawing.Size(95, 26);
+            this.cmsXoa.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip1_Opening);
+            // 
+            // xóaToolStripMenuItem
+            // 
+            this.xóaToolStripMenuItem.Name = "xóaToolStripMenuItem";
+            this.xóaToolStripMenuItem.Size = new System.Drawing.Size(94, 22);
+            this.xóaToolStripMenuItem.Text = "Xóa";
             // 
             // MuaHang
             // 
@@ -463,17 +451,16 @@
             this.pnlDanhSach.ResumeLayout(false);
             this.tpMuaHang.ResumeLayout(false);
             this.tabGoiTap.ResumeLayout(false);
-            this.tabPT.ResumeLayout(false);
-            this.tabPage3.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
-            this.pnPT.ResumeLayout(false);
+            this.tabPage3.ResumeLayout(false);
+            this.tabPT.ResumeLayout(false);
             this.pnKhachHang.ResumeLayout(false);
             this.pnThongTinMuaHang.ResumeLayout(false);
             this.pnThongTinMuaHang.PerformLayout();
-            this.cmsXoa.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.cmsXoa.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -481,25 +468,12 @@
         #endregion
 
         private System.Windows.Forms.Panel pnlDanhSach;
+        private System.Windows.Forms.Panel pnKhachHang;
         private System.Windows.Forms.TabControl tpMuaHang;
         private System.Windows.Forms.TabPage tabGoiTap;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Panel pnGoiTap;
-        private System.Windows.Forms.TabPage tabPage3;
-        private System.Windows.Forms.Panel pnSanPham;
-        private System.Windows.Forms.Panel pnPT;
-        private System.Windows.Forms.TabPage tabPT;
-        private System.Windows.Forms.Panel pnPTV2;
-        private System.Windows.Forms.ContextMenuStrip cmsXoa;
-        private System.Windows.Forms.ToolStripMenuItem xóaToolStripMenuItem;
-        private System.Windows.Forms.Panel pnKhachHang;
         private System.Windows.Forms.Panel pnThongTinMuaHang;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label lblTTT;
-        private System.Windows.Forms.Label lblDC;
-        private System.Windows.Forms.Label lblTongTienHang;
         private System.Windows.Forms.ListView lvHoaDon;
         private System.Windows.Forms.ColumnHeader chSP;
         private System.Windows.Forms.ColumnHeader chSL;
@@ -515,8 +489,20 @@
         private System.Windows.Forms.Label lblPFSDT;
         private System.Windows.Forms.Label lblPFTen;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.Panel pnSanPham;
         private System.Windows.Forms.Button btnTim;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel pnPT;
+        private System.Windows.Forms.TabPage tabPT;
+        private System.Windows.Forms.Panel pnPTV2;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblTTT;
+        private System.Windows.Forms.Label lblDC;
+        private System.Windows.Forms.Label lblTongTienHang;
+        private System.Windows.Forms.ContextMenuStrip cmsXoa;
+        private System.Windows.Forms.ToolStripMenuItem xóaToolStripMenuItem;
     }
 }

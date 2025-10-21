@@ -12,25 +12,28 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
 
-
 namespace GymManagerment_MVP
 {
     public partial class DanhSachHoaDonUC : UserControl
     {
-
         string connectionString = "server = LAPTOP-470KBPRO; database = GymManagement; integrated security = true";
         public DanhSachHoaDonUC()
         {
             InitializeComponent();
         }
 
+        private void btnMuaHang_Click(object sender, EventArgs e)
+        {
+            var frm = new frmMuaHang();
+            frm.ShowDialog();
+        }
         private void DanhSachHoaDonUC_Load(object sender, EventArgs e)
         {
             TaoTextInput();
             LoadDanhSachHoaDon();
             tbTimKiem.Enabled = false;
             cbTimTheo.SelectedIndexChanged += cbTimTheo_SelectedIndexChanged;
-            
+
         }
 
         private void LoadDanhSachHoaDon()
@@ -251,7 +254,7 @@ namespace GymManagerment_MVP
             }
             else
             {
-                var frm = new HoaDon();
+                var frm = new frmHoaDon();
                 frm.ShowDialog();
             }
         }

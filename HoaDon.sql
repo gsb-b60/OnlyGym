@@ -157,8 +157,8 @@ SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[Hang](
 	[STT] [int] IDENTITY(1,1) NOT NULL,
+	--[MaNhom] [nvarchar](10) NOT NULL,
 	[MaHang] [nvarchar](10) NOT NULL,
-	[MaNhom] [nvarchar](10) NOT NULL,
 	[TenHang] [nvarchar](100) NOT NULL,
 	[DVT] [nvarchar](10) NOT NULL,
 	[DonGia] [int] NOT NULL,
@@ -168,8 +168,6 @@ CREATE TABLE [dbo].[Hang](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-drop table Hang
-
 /****** Object:  Table [dbo].[HoaDon]    Script Date: 9/29/2025 8:13:22 PM ******/
 SET ANSI_NULLS ON
 GO
@@ -237,46 +235,46 @@ GO
 
 
 
-select * from NhomHang
+
 
 insert into NhomHang (TenNhom) values(N'Tất cả'),
 (N'Nước uống và đồ ăn'),
 (N'Phụ kiện tập luyện'),
 (N'Quần áo');
 
-insert into Hang (MaHang, MaNhom, TenHang, DVT, DonGia) values
-('NA0001',1, N'Nước suối 500ml', N'Chai', 10000),
-('NA0002',1, N'Nước điện giải', N'Chai', 25000),
-('NA0003',1, N'Thanh protein bar', N'Thanh', 45000),
-('NA0004',1, N'Sữa tăng cơ (whey 1kg)', N'Hộp', 650000),
-('NA0005',1, N'Nước tăng lực', N'Chai', 30000),
-('NA0006',1, N'Sinh tố protein', N'Ly', 55000),
-('NA0007',1, N'Vitamin tổng hợp', N'Lọ', 220000),
-('NA0008',1, N'Bánh yến mạch', N'Gói', 35000),
-('NA0009',1, N'Sữa hạnh nhân', N'Hộp', 40000),
-('NA0010',1, N'Gel năng lượng', N'Gói', 28000),
+insert into Hang (MaHang, TenHang, DVT, DonGia) values
+('NA0001', N'Nước suối 500ml', N'Chai', 10000),
+('NA0002', N'Nước điện giải', N'Chai', 25000),
+('NA0003', N'Thanh protein bar', N'Thanh', 45000),
+('NA0004', N'Sữa tăng cơ (whey 1kg)', N'Hộp', 650000),
+('NA0005', N'Nước tăng lực', N'Chai', 30000),
+('NA0006', N'Sinh tố protein', N'Ly', 55000),
+('NA0007', N'Vitamin tổng hợp', N'Lọ', 220000),
+('NA0008', N'Bánh yến mạch', N'Gói', 35000),
+('NA0009', N'Sữa hạnh nhân', N'Hộp', 40000),
+('NA0010', N'Gel năng lượng', N'Gói', 28000),
  
-('PK0001',2, N'Găng tay tập gym', N'Đôi', 90000),
-('PK0002',2, N'Dây nhảy thể lực', N'Cái', 70000),
-('PK0003',2, N'Thảm tập yoga', N'Cái', 250000),
-('PK0004',2, N'Dây kháng lực', N'Bộ', 180000),
-('PK0005',2, N'Bóng tập yoga', N'Cái', 150000),
-('PK0006',2, N'Bình nước thể thao 1L', N'Cái', 120000),
-('PK0007',2, N'Băng quấn cổ tay', N'Đôi', 75000),
-('PK0008',2, N'Tạ tay cao su 5kg', N'Cặp', 350000),
-('PK0009',2, N'Đai lưng tập tạ', N'Cái', 300000),
-('PK0010',2, N'Khăn thể thao', N'Cái', 90000),
+('PK0001', N'Găng tay tập gym', N'Đôi', 90000),
+('PK0002', N'Dây nhảy thể lực', N'Cái', 70000),
+('PK0003', N'Thảm tập yoga', N'Cái', 250000),
+('PK0004', N'Dây kháng lực', N'Bộ', 180000),
+('PK0005', N'Bóng tập yoga', N'Cái', 150000),
+('PK0006', N'Bình nước thể thao 1L', N'Cái', 120000),
+('PK0007', N'Băng quấn cổ tay', N'Đôi', 75000),
+('PK0008', N'Tạ tay cao su 5kg', N'Cặp', 350000),
+('PK0009', N'Đai lưng tập tạ', N'Cái', 300000),
+('PK0010', N'Khăn thể thao', N'Cái', 90000),
  
-('QA0001', 3, N'Áo thun tập gym nam', N'Cái', 120000),
-('QA0002', 3, N'Quần short gym nữ', N'Cái', 150000),
-('QA0003', 3, N'Áo bra thể thao nữ', N'Cái', 180000),
-('QA0004', 3, N'Quần legging nữ', N'Cái', 220000),
-('QA0005', 3, N'Áo khoác gió tập gym', N'Cái', 350000),
-('QA0006', 3, N'Quần jogger nam', N'Cái', 280000),
-('QA0007', 3, N'Áo tank top nam', N'Cái', 140000),
-('QA0008', 3, N'Bộ đồ thể thao nữ', N'Bộ', 480000),
-('QA0009', 3, N'Áo hoodie thể thao nam', N'Cái', 420000),
-('QA0010', 3, N'Áo polo tập gym', N'Cái', 260000);
+('QA0001', N'Áo thun tập gym nam', N'Cái', 120000),
+('QA0002', N'Quần short gym nữ', N'Cái', 150000),
+('QA0003', N'Áo bra thể thao nữ', N'Cái', 180000),
+('QA0004', N'Quần legging nữ', N'Cái', 220000),
+('QA0005', N'Áo khoác gió tập gym', N'Cái', 350000),
+('QA0006', N'Quần jogger nam', N'Cái', 280000),
+('QA0007', N'Áo tank top nam', N'Cái', 140000),
+('QA0008', N'Bộ đồ thể thao nữ', N'Bộ', 480000),
+('QA0009', N'Áo hoodie thể thao nam', N'Cái', 420000),
+('QA0010', N'Áo polo tập gym', N'Cái', 260000);
 
 
 INSERT INTO CTHD (MaHD, MaMuaHang, TenKhachHang, SDT, NgayBan, NhanVien, TongTien, GiamGia, ThanhTien, KhachDua, HinhThuc, ConLai) 
@@ -437,98 +435,7 @@ INSERT INTO MuaHang (MaMuaHang, STT, MaHang, NhomHang, TenHang, DVT, SoLuong, Do
 ('MH020', 2, 'PK0008', N'Phụ kiện tập luyện', N'Tạ tay cao su 5kg', N'Cặp', 3, 350000, 1050000),
 ('MH020', 3, 'NA0008', N'Nước uống và đồ ăn', N'Bánh yến mạch', N'Gói', 5, 58000, 290000);
 
-delete from MuaHang where MaMuaHang = 'MH021'
-delete from MuaHang where MaMuaHang = 'MH022'
-delete from MuaHang where MaMuaHang = 'MH023'
-delete from MuaHang where MaMuaHang = 'MH024'
 
-delete from DanhSachHoaDon where MaHD = 'HD20102503'
-delete from HoaDon where MaHD = 'HD20102503'
-delete from CTHD where MaHD = 'HD20102503'
-
-delete from DanhSachHoaDon where MaHD = 'HD20102504'
-delete from HoaDon where MaHD = 'HD20102504'
-delete from CTHD where MaHD = 'HD20102504'
-
-delete from DanhSachHoaDon where MaHD = 'HD20102502'
-delete from HoaDon where MaHD = 'HD20102502'
-delete from CTHD where MaHD = 'HD20102502'
-
-delete from DanhSachHoaDon where MaHD = 'HD201025'
-delete from HoaDon where MaHD = 'HD201025'
-delete from CTHD where MaHD = 'HD201025'
-
-Select * from NhomHang
-Select * from Hang
-Select * from MuaHang
-Select * from HoaDon
-Select * from CTHD
-Select * from DanhSachHoaDon
-
-CREATE PROCEDURE ResetStt_Hang
-AS
-BEGIN
-    SET NOCOUNT ON;
-
-    -- Kiểm tra nếu bảng tồn tại
-    IF OBJECT_ID('Hang', 'U') IS NULL
-    BEGIN
-        PRINT 'Bảng Hang không tồn tại!';
-        RETURN;
-    END
-
-    -- Bước 1: Tạo bảng tạm
-    SELECT MaHang, MaNhom, TenHang, DVT, DonGia
-    INTO #TempHang
-    FROM Hang;
-
-    -- Bước 2: Xóa dữ liệu cũ
-    DELETE FROM Hang;
-
-    -- Bước 3: Reset lại giá trị IDENTITY về 0
-    DBCC CHECKIDENT ('Hang', RESEED, 0);
-
-    -- Bước 4: Chèn lại dữ liệu
-    INSERT INTO Hang (MaHang, MaNhom, TenHang, DVT, DonGia)
-    SELECT MaHang, MaNhom, TenHang, DVT, DonGia
-    FROM #TempHang;
-
-    -- Bước 5: Xóa bảng tạm
-    DROP TABLE #TempHang;
-
-    PRINT 'Đã refresh lại STT của bảng Hang thành công.';
-END
-GO
-
-
-CREATE PROCEDURE ResetStt_NhomHang
-AS
-BEGIN
-    SET NOCOUNT ON;
-
-    -- Bước 1: Sao lưu dữ liệu sang bảng tạm
-    SELECT TenNhom
-    INTO #TempNhomHang
-    FROM NhomHang;
-
-    -- Bước 2: Xóa toàn bộ dữ liệu cũ
-    DELETE FROM NhomHang;
-
-    -- Bước 3: Reset lại giá trị IDENTITY về 0
-    DBCC CHECKIDENT ('NhomHang', RESEED, 0);
-
-    -- Bước 4: Chèn lại dữ liệu từ bảng tạm
-    INSERT INTO NhomHang (TenNhom)
-    SELECT TenNhom FROM #TempNhomHang;
-
-    -- Bước 5: Xóa bảng tạm
-    DROP TABLE #TempNhomHang;
-
-    PRINT 'Đã reset lại MaNhom (IDENTITY) trong bảng NhomHang thành công!';
-END
-GO
-
-drop proc ResetStt_NhomHang
 
 INSERT INTO DanhSachHoaDon
 (MaHD, IDHocVien, NgayTao, KhachHang, TongTien, HinhThuc, NhanVienLap) VALUES
@@ -553,99 +460,11 @@ INSERT INTO DanhSachHoaDon
 ('HD111125', '011', '11/11/2025', N'Đặng Thị K', 1250000, N'Tiền mặt', N'Lê Thị Mai'),
 ('HD121225', '012', '12/12/2025', N'Nguyễn Văn L', 1850000, N'Chuyển khoản', N'Nguyễn Văn Bình');
 
-CREATE FUNCTION TaoMaHangMoi(@TenNhom NVARCHAR(100))
-RETURNS NVARCHAR(10)
-AS
-BEGIN
-    DECLARE @Prefix NVARCHAR(2)
-    DECLARE @LastCode NVARCHAR(10)
-    DECLARE @NextNumber INT
-    DECLARE @NewCode NVARCHAR(10)
 
-    -- Lấy 2 ký tự đầu từ tên nhóm, loại bỏ dấu cách
-    SET @Prefix = LEFT(REPLACE(@TenNhom, ' ', ''), 2)
 
-    -- Lấy mã cuối cùng trong bảng Hàng theo prefix
-    SELECT TOP 1 @LastCode = MaHang
-    FROM Hang
-    WHERE MaHang LIKE @Prefix + '%'
-    ORDER BY MaHang DESC
 
-    -- Nếu chưa có mã nào thì bắt đầu từ 1
-    IF @LastCode IS NULL
-        SET @NextNumber = 1
-    ELSE
-        SET @NextNumber = CAST(RIGHT(@LastCode, 4) AS INT) + 1
 
-    -- Tạo mã mới theo định dạng XX0001
-    SET @NewCode = @Prefix + RIGHT('0000' + CAST(@NextNumber AS NVARCHAR(4)), 4)
 
-    RETURN @NewCode
-END
-GO
-
-INSERT INTO Hang (MaHang, TenHang, DVT, DonGia)
-VALUES (dbo.TaoMaHangMoi(N'Phụ kiện tập luyện'), N'Găng tay tập gym', N'Đôi', 90000);
-
-CREATE FUNCTION dbo.TaoMaHDMoi(@NgayBan DATE)
-RETURNS NVARCHAR(20)
-AS
-BEGIN
-    DECLARE @BaseCode NVARCHAR(20)
-    DECLARE @NewCode NVARCHAR(20)
-    DECLARE @Count INT
-
-    -- Bước 1: Tạo mã gốc HD + ddMMyy
-    SET @BaseCode = 'HD' + FORMAT(@NgayBan, 'ddMMyy')
-
-    -- Bước 2: Đếm xem trong ngày đó đã có bao nhiêu hóa đơn
-    SELECT @Count = COUNT(*)
-    FROM CTHD
-    WHERE LEFT(MaHD, 8) = @BaseCode
-
-    -- Bước 3: Nếu chưa có → dùng mã gốc, nếu có rồi → thêm hậu tố 01, 02, ...
-    IF @Count = 0
-        SET @NewCode = @BaseCode
-    ELSE
-        SET @NewCode = @BaseCode + RIGHT('00' + CAST(@Count + 1 AS NVARCHAR(2)), 2)
-
-    RETURN @NewCode
-END
-GO
-
-drop function dbo.TaoMaHDMoi
-
-SELECT dbo.TaoMaHDMoi('2025-02-05')
-
-CREATE FUNCTION dbo.TaoMaMuaHangMoi()
-RETURNS NVARCHAR(10)
-AS
-BEGIN
-    DECLARE @NewCode NVARCHAR(10);
-    DECLARE @LastCode NVARCHAR(10);
-    DECLARE @NumPart INT;
-
-    -- Lấy mã mới nhất hiện có trong bảng MuaHang
-    SELECT TOP 1 @LastCode = MaMuaHang
-    FROM MuaHang
-    ORDER BY MaMuaHang DESC;
-
-    -- Nếu chưa có mã nào thì bắt đầu từ MH001
-    IF @LastCode IS NULL
-        SET @NewCode = 'MH001';
-    ELSE
-    BEGIN
-        -- Cắt phần số ở sau 'MH'
-        SET @NumPart = CAST(SUBSTRING(@LastCode, 3, LEN(@LastCode)) AS INT) + 1;
-        -- Tạo mã mới với padding 3 chữ số
-        SET @NewCode = 'MH' + RIGHT('000' + CAST(@NumPart AS NVARCHAR(3)), 3);
-    END;
-
-    RETURN @NewCode;
-END;
-GO
-
-SELECT dbo.TaoMaMuaHangMoi();
 
 
 Select * from DanhSachHoaDon

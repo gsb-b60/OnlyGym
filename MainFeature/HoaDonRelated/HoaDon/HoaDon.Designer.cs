@@ -1,6 +1,6 @@
 ﻿namespace GymManagerment_MVP.MainFeature.HoaDonRelated.HoaDon
 {
-    partial class HoaDon
+    partial class frmHoaDon
     {
         /// <summary>
         /// Required designer variable.

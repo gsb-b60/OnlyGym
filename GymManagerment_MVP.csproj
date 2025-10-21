@@ -94,6 +94,24 @@
     <Compile Include="MainFeature\HoaDonRelated\HoaDon\HoaDon.Designer.cs">
       <DependentUpon>HoaDon.cs</DependentUpon>
     </Compile>
+    <Compile Include="MainFeature\HoaDonRelated\HoaDon\MuaHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainFeature\HoaDonRelated\HoaDon\MuaHang.Designer.cs">
+      <DependentUpon>MuaHang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainFeature\HoaDonRelated\HoaDon\ThanhToanChuyenKhoan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainFeature\HoaDonRelated\HoaDon\ThanhToanChuyenKhoan.Designer.cs">
+      <DependentUpon>ThanhToanChuyenKhoan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainFeature\HoaDonRelated\HoaDon\ThemDanhMuc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainFeature\HoaDonRelated\HoaDon\ThemDanhMuc.Designer.cs">
+      <DependentUpon>ThemDanhMuc.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainFeature\HoaDonRelated\MuaGoiTap.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -353,6 +371,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MainFeature\HoaDonRelated\HoaDon\HoaDon.resx">
       <DependentUpon>HoaDon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainFeature\HoaDonRelated\HoaDon\MuaHang.resx">
+      <DependentUpon>MuaHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainFeature\HoaDonRelated\HoaDon\ThanhToanChuyenKhoan.resx">
+      <DependentUpon>ThanhToanChuyenKhoan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainFeature\HoaDonRelated\HoaDon\ThemDanhMuc.resx">
+      <DependentUpon>ThemDanhMuc.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainFeature\HoaDonRelated\MuaGoiTap.resx">
       <DependentUpon>MuaGoiTap.cs</DependentUpon>

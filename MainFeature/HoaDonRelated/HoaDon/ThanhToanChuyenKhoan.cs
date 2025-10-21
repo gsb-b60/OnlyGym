@@ -8,13 +8,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace GymManagerment_MVP.MainFeature.HoaDonRelated
+namespace GymManagerment_MVP.MainFeature.HoaDonRelated.HoaDon
 {
-    public partial class SanPhamUC : UserControl
+    public partial class frmThanhToanChuyenKhoan : Form
     {
-        public SanPhamUC()
+        public frmThanhToanChuyenKhoan()
         {
             InitializeComponent();
         }
+
     }
 }

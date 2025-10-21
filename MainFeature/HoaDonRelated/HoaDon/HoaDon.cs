@@ -12,19 +12,40 @@ using System.Windows.Forms;
 
 namespace GymManagerment_MVP.MainFeature.HoaDonRelated.HoaDon
 {
-    public partial class HoaDon : Form
+    public partial class frmHoaDon : Form
     {
         private PrintDocument printDocument = new PrintDocument();
         private string connectionString = "server = LAPTOP-470KBPRO; database = GymManagement; integrated security = true";
         DanhSachHoaDonUC dshd = new DanhSachHoaDonUC();
 
-        public HoaDon()
+        public string MaHD { get; }
+        public string MaMuaHang { get; }
+
+        public frmHoaDon()
         {
             InitializeComponent();
             printDocument.PrintPage += PrintDocument_PrintPage;
         }
 
+        public frmHoaDon(string maHD, string maMuaHang)
+        {
+            MaHD = maHD;
+            MaMuaHang = maMuaHang;
+            InitializeComponent();
+            printDocument.PrintPage += PrintDocument_PrintPage;
 
+        }
+
+        // Add this field to track if opened from MuaHang
+        private bool isFromMuaHang = false;
+
+        // Add a constructor for MuaHang usage
+        public frmHoaDon(bool fromMuaHang)
+        {
+            isFromMuaHang = fromMuaHang;
+            InitializeComponent();
+            printDocument.PrintPage += PrintDocument_PrintPage;
+        }
 
         private void btnInHoaDon_Click(object sender, EventArgs e)
         {
@@ -68,29 +89,24 @@ namespace GymManagerment_MVP.MainFeature.HoaDonRelated.HoaDon
 
         private void frmHoaDon_Load(object sender, EventArgs e)
         {
-            foreach (Form f in Application.OpenForms)
+            if (isFromMuaHang)
             {
-                var ctrl = FindControlRecursive(f, c => c.Name == "lbTenKhach");
-                if (ctrl is Label lbl && lbl.Text == "TenKhach")
+                // Get the last MaHD from the database, not from DataGridView
+                string maHD = null;
+                using (var conn = new SqlConnection(connectionString))
+                using (var cmd = conn.CreateCommand())
                 {
-                    MessageBox.Show("Chưa chọn hóa đơn để xem", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    cmd.CommandText = "SELECT TOP 1 MaHD FROM DanhSachHoaDon ORDER BY STT DESC";
+                    conn.Open();
+                    var result = cmd.ExecuteScalar();
+                    maHD = result != null ? result.ToString() : null;
+                }
+                if (string.IsNullOrEmpty(maHD))
+                {
+                    MessageBox.Show("Không tìm thấy mã hóa đơn cuối.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
-            }
-            try
-            {
-
-                var dgv = FindDanhSachHoaDonGrid();
-                if (dgv == null) { MessageBox.Show("Không tìm thấy danh sách hóa đơn.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning); return; }
-
-                // Get MaHD from selected/current/selected cell
-                string maHD = dgv.SelectedRows.Cast<DataGridViewRow>().Select(r => r.Cells.Cast<DataGridViewCell>().FirstOrDefault(c => string.Equals(c.OwningColumn.Name, "MaHD", StringComparison.OrdinalIgnoreCase))?.Value?.ToString()).FirstOrDefault(s => !string.IsNullOrEmpty(s))
-                              ?? dgv.CurrentRow?.Cells.Cast<DataGridViewCell>().FirstOrDefault(c => string.Equals(c.OwningColumn.Name, "MaHD", StringComparison.OrdinalIgnoreCase))?.Value?.ToString()
-                              ?? dgv.SelectedCells.Cast<DataGridViewCell>().Select(c => c.OwningRow.Cells.Cast<DataGridViewCell>().FirstOrDefault(x => string.Equals(x.OwningColumn.Name, "MaHD", StringComparison.OrdinalIgnoreCase))?.Value?.ToString()).FirstOrDefault(s => !string.IsNullOrEmpty(s));
-
-                if (string.IsNullOrEmpty(maHD)) { MessageBox.Show("Vui lòng chọn một hóa đơn.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information); return; }
-
-                // load CTHD
+                // load CTHD for this MaHD
                 var cthd = new DataTable();
                 using (var conn = new SqlConnection(connectionString))
                 using (var cmd = conn.CreateCommand())
@@ -100,8 +116,6 @@ namespace GymManagerment_MVP.MainFeature.HoaDonRelated.HoaDon
                     new SqlDataAdapter(cmd).Fill(cthd);
                 }
                 if (cthd.Rows.Count == 0) return;
-
-                // header labels from first row
                 DataRow hdr = cthd.Rows[0];
                 Func<string, string> G = col => hdr.Table.Columns.Contains(col) && hdr[col] != DBNull.Value ? hdr[col].ToString() : string.Empty;
                 lbTenKhachMua.Text = G("TenKhachHang"); lbSDTKhachMua.Text = G("SDT"); lbNhanVienLap.Text = G("NhanVien");
@@ -111,7 +125,6 @@ namespace GymManagerment_MVP.MainFeature.HoaDonRelated.HoaDon
                 lbKhachDua.Text = !string.IsNullOrEmpty(G("KhachDua")) ? string.Format("{0:N0}", Convert.ToDecimal(hdr["KhachDua"])) : string.Empty;
                 lbConLai.Text = !string.IsNullOrEmpty(G("ConLai")) ? string.Format("{0:N0}", Convert.ToDecimal(hdr["ConLai"])) : string.Empty;
                 lbHinhThuc.Text = G("HinhThuc"); if (DateTime.TryParse(G("NgayBan"), out DateTime nb)) lbNgayBan.Text = nb.ToString("dd/MM/yyyy");
-
                 // collect MaMuaHang and query MuaHang
                 var ids = cthd.AsEnumerable().Where(r => cthd.Columns.Contains("MaMuaHang") && r["MaMuaHang"] != DBNull.Value).Select(r => r["MaMuaHang"].ToString()).Distinct().ToArray();
                 var mua = new DataTable();
@@ -126,11 +139,91 @@ namespace GymManagerment_MVP.MainFeature.HoaDonRelated.HoaDon
                         new SqlDataAdapter(cmd2).Fill(mua);
                     }
                 }
-
-                // build lookup
                 var lookup = mua.AsEnumerable().GroupBy(r => r.Field<string>("MaMuaHang")).ToDictionary(g => g.Key, g => g.ToList());
+                lvHangMua.Items.Clear(); int stt = 1;
+                foreach (DataRow r in cthd.Rows)
+                {
+                    var key = cthd.Columns.Contains("MaMuaHang") && r["MaMuaHang"] != DBNull.Value ? r["MaMuaHang"].ToString() : string.Empty;
+                    var so = cthd.Columns.Contains("SoLuong") && r["SoLuong"] != DBNull.Value ? r["SoLuong"].ToString() : string.Empty;
+                    if (!string.IsNullOrEmpty(key) && lookup.ContainsKey(key))
+                    {
+                        foreach (var m in lookup[key])
+                        {
+                            var ten = m.Table.Columns.Contains("TenHang") && m["TenHang"] != DBNull.Value ? m["TenHang"].ToString() : string.Empty;
+                            var dvt = m.Table.Columns.Contains("DVT") && m["DVT"] != DBNull.Value ? m["DVT"].ToString() : string.Empty;
+                            var dg = m.Table.Columns.Contains("DonGia") && m["DonGia"] != DBNull.Value ? string.Format("{0:N0}", Convert.ToDecimal(m["DonGia"])) : string.Empty;
+                            var qty = m.Table.Columns.Contains("SoLuong") && m["SoLuong"] != DBNull.Value ? m["SoLuong"].ToString() : so;
+                            var thanh = (decimal.TryParse(qty, out decimal qv) && decimal.TryParse(m["DonGia"]?.ToString() ?? "0", out decimal dv)) ? (qv * dv).ToString("N0") : string.Empty;
+                            var lvi = new ListViewItem(stt.ToString());
+                            lvi.SubItems.Add(ten); lvi.SubItems.Add(dvt); lvi.SubItems.Add(qty); lvi.SubItems.Add(dg); lvi.SubItems.Add(thanh);
+                            lvHangMua.Items.Add(lvi); stt++;
+                        }
+                    }
+                    else
+                    {
+                        var lvi = new ListViewItem(stt.ToString());
+                        lvi.SubItems.Add(string.Empty); lvi.SubItems.Add(string.Empty); lvi.SubItems.Add(so); lvi.SubItems.Add(string.Empty); lvi.SubItems.Add(string.Empty);
+                        lvHangMua.Items.Add(lvi); stt++;
+                    }
+                }
+                return;
+            }
 
-                // populate list
+            // --- default code for btnXemChiTiet (do not change) ---
+            foreach (Form f in Application.OpenForms)
+            {
+                var ctrl = FindControlRecursive(f, c => c.Name == "lbTenKhach");
+                if (ctrl is Label lbl && lbl.Text == "TenKhach")
+                {
+                    MessageBox.Show("Chưa chọn hóa đơn để xem", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+            }
+            try
+            {
+                var dgv = FindDanhSachHoaDonGrid();
+                if (dgv == null) { MessageBox.Show("Không tìm thấy danh sách hóa đơn.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning); return; }
+                string maHD = dgv.SelectedRows.Cast<DataGridViewRow>().Select(r => r.Cells.Cast<DataGridViewCell>().FirstOrDefault(c => string.Equals(c.OwningColumn.Name, "MaHD", StringComparison.OrdinalIgnoreCase))?.Value?.ToString()).FirstOrDefault(s => !string.IsNullOrEmpty(s))
+                              ?? dgv.CurrentRow?.Cells.Cast<DataGridViewCell>().FirstOrDefault(c => string.Equals(c.OwningColumn.Name, "MaHD", StringComparison.OrdinalIgnoreCase))?.Value?.ToString()
+                              ?? dgv.SelectedCells.Cast<DataGridViewCell>().Select(c => c.OwningRow.Cells.Cast<DataGridViewCell>().FirstOrDefault(x => string.Equals(x.OwningColumn.Name, "MaHD", StringComparison.OrdinalIgnoreCase))?.Value?.ToString()).FirstOrDefault(s => !string.IsNullOrEmpty(s));
+                if (string.IsNullOrEmpty(maHD))
+                {
+                    MessageBox.Show("Vui lòng chọn một hóa đơn.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+                var cthd = new DataTable();
+                using (var conn = new SqlConnection(connectionString))
+                using (var cmd = conn.CreateCommand())
+                {
+                    cmd.CommandText = "SELECT * FROM CTHD WHERE MaHD=@MaHD";
+                    cmd.Parameters.AddWithValue("@MaHD", maHD);
+                    new SqlDataAdapter(cmd).Fill(cthd);
+                }
+                if (cthd.Rows.Count == 0) return;
+                DataRow hdr = cthd.Rows[0];
+                Func<string, string> G = col => hdr.Table.Columns.Contains(col) && hdr[col] != DBNull.Value ? hdr[col].ToString() : string.Empty;
+                lbTenKhachMua.Text = G("TenKhachHang"); lbSDTKhachMua.Text = G("SDT"); lbNhanVienLap.Text = G("NhanVien");
+                lbTongTien.Text = !string.IsNullOrEmpty(G("TongTien")) ? string.Format("{0:N0}", Convert.ToDecimal(hdr["TongTien"])) : string.Empty;
+                lbGiamGa.Text = !string.IsNullOrEmpty(G("GiamGia")) ? string.Format("{0:N0}", Convert.ToDecimal(hdr["GiamGia"])) : string.Empty;
+                lbThanhTien.Text = !string.IsNullOrEmpty(G("ThanhTien")) ? string.Format("{0:N0}", Convert.ToDecimal(hdr["ThanhTien"])) : string.Empty;
+                lbKhachDua.Text = !string.IsNullOrEmpty(G("KhachDua")) ? string.Format("{0:N0}", Convert.ToDecimal(hdr["KhachDua"])) : string.Empty;
+                lbConLai.Text = !string.IsNullOrEmpty(G("ConLai")) ? string.Format("{0:N0}", Convert.ToDecimal(hdr["ConLai"])) : string.Empty;
+                lbHinhThuc.Text = G("HinhThuc"); if (DateTime.TryParse(G("NgayBan"), out DateTime nb)) lbNgayBan.Text = nb.ToString("dd/MM/yyyy");
+                // collect MaMuaHang and query MuaHang
+                var ids = cthd.AsEnumerable().Where(r => cthd.Columns.Contains("MaMuaHang") && r["MaMuaHang"] != DBNull.Value).Select(r => r["MaMuaHang"].ToString()).Distinct().ToArray();
+                var mua = new DataTable();
+                if (ids.Length > 0)
+                {
+                    using (var conn2 = new SqlConnection(connectionString))
+                    using (var cmd2 = conn2.CreateCommand())
+                    {
+                        var ps = ids.Select((v, i) => "@p" + i).ToArray();
+                        for (int i = 0; i < ps.Length; i++) cmd2.Parameters.AddWithValue(ps[i], ids[i]);
+                        cmd2.CommandText = "SELECT MaMuaHang, TenHang, DVT, DonGia, SoLuong FROM MuaHang WHERE MaMuaHang IN (" + string.Join(",", ps) + ")";
+                        new SqlDataAdapter(cmd2).Fill(mua);
+                    }
+                }
+                var lookup = mua.AsEnumerable().GroupBy(r => r.Field<string>("MaMuaHang")).ToDictionary(g => g.Key, g => g.ToList());
                 lvHangMua.Items.Clear(); int stt = 1;
                 foreach (DataRow r in cthd.Rows)
                 {
@@ -164,6 +257,7 @@ namespace GymManagerment_MVP.MainFeature.HoaDonRelated.HoaDon
         private void btnThoat_Click(object sender, EventArgs e)
         {
             this.Close();
+
         }
     }
 }

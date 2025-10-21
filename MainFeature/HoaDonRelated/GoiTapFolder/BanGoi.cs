@@ -44,50 +44,50 @@ namespace GymManagerment_MVP.MainFeature.HoaDonRelated
             //    goiTapUC.setPacketIndor($"goi {i}", $"{i} Năm", 0);
             //    tb3flp1.Controls.Add(goiTapUC);
             //}
-            //Config config=new Config();
-            //SqlConnection connection = new SqlConnection(Config.connection);
-            //SqlCommand sqlCommand = connection.CreateCommand();
+            //    Config config=new Config();
+            //    SqlConnection connection = new SqlConnection(Config.connection);
+            //    SqlCommand sqlCommand = connection.CreateCommand();
 
-            //List<Business.GoiTap> package=new List<Business.GoiTap>();
+            //    List<Business.GoiTap> package=new List<Business.GoiTap>();
 
-            //sqlCommand.CommandText = "select * from GoiTap";
-            //connection.Open();
-            //using (SqlDataReader reader = sqlCommand.ExecuteReader()) {
-            //    while (reader.Read()) {
-            //        Business.GoiTap goiTap = new Business.GoiTap {
-            //            id = Convert.ToInt32(reader["ID"]),
-            //            tenGoi = reader["TenGoi"].ToString(),
-            //            loaiGoi = Convert.ToInt32(reader["LoaiGoi"]),
-            //            thoiHanNgay = reader["ThoiHanNgay"] == DBNull.Value ? 0 : Convert.ToInt32(reader["ThoiHanNgay"]),
-            //            thoiHanBuoi = reader["ThoiHanBuoi"] == DBNull.Value ? 0 : Convert.ToInt32(reader["ThoiHanBuoi"]),
-            //            giaTien = Convert.ToInt64(reader["GiaTien"]),
-            //            thongTin = reader["ThongTin"] != DBNull.Value ? reader["ThongTin"].ToString() : "",
-            //            hoatDong = Convert.ToBoolean(reader["HoatDong"]),
-            //            discount= reader["Discount"]!=DBNull.Value? Convert.ToInt64(reader["Discount"]):0,
-            //            startSellingDate = reader["StartSellingDate"] != DBNull.Value ? Convert.ToDateTime(reader["StartSellingDate"]):DateTime.MinValue,
-            //            endSellingDate = reader["EndSellingDate"] != DBNull.Value ? Convert.ToDateTime(reader["EndSellingDate"]):DateTime.MinValue,
+            //    sqlCommand.CommandText = "select * from GoiTap";
+            //    connection.Open();
+            //    using (SqlDataReader reader = sqlCommand.ExecuteReader()) {
+            //        while (reader.Read()) {
+            //            Business.GoiTap goiTap = new Business.GoiTap {
+            //                id = Convert.ToInt32(reader["ID"]),
+            //                tenGoi = reader["TenGoi"].ToString(),
+            //                loaiGoi = Convert.ToInt32(reader["LoaiGoi"]),
+            //                thoiHanNgay = reader["ThoiHanNgay"] == DBNull.Value ? 0 : Convert.ToInt32(reader["ThoiHanNgay"]),
+            //                thoiHanBuoi = reader["ThoiHanBuoi"] == DBNull.Value ? 0 : Convert.ToInt32(reader["ThoiHanBuoi"]),
+            //                giaTien = Convert.ToInt64(reader["GiaTien"]),
+            //                thongTin = reader["ThongTin"] != DBNull.Value ? reader["ThongTin"].ToString() : "",
+            //                hoatDong = Convert.ToBoolean(reader["HoatDong"]),
+            //                discount= reader["Discount"]!=DBNull.Value? Convert.ToInt64(reader["Discount"]):0,
+            //                startSellingDate = reader["StartSellingDate"] != DBNull.Value ? Convert.ToDateTime(reader["StartSellingDate"]):DateTime.MinValue,
+            //                endSellingDate = reader["EndSellingDate"] != DBNull.Value ? Convert.ToDateTime(reader["EndSellingDate"]):DateTime.MinValue,
 
-            //        };  
-            //        package.Add(goiTap);
+            //            };  
+            //            package.Add(goiTap);
+            //        }
             //    }
-            //}
-            //connection.Close();
-            //foreach(var p in package)
-            //{
-            //    GoiTapUC goiTapUC = new GoiTapUC();
-            //    //goiTapUC.setPacketIndor(p.tenGoi, p.thoiHanNgay, p.hoatDong);
-            //    goiTapUC.setPacketIndoor(p);
-
-
-            //    if(p.loaiGoi==1)
+            //    connection.Close();
+            //    foreach(var p in package)
             //    {
-            //        flpGoiThang.Controls.Add(goiTapUC);
+            //        GoiTapUC goiTapUC = new GoiTapUC();
+            //        //goiTapUC.setPacketIndor(p.tenGoi, p.thoiHanNgay, p.hoatDong);
+            //        goiTapUC.setPacketIndoor(p);
+
+
+            //        if(p.loaiGoi==1)
+            //        {
+            //            flpGoiThang.Controls.Add(goiTapUC);
+            //        }
+            //        else
+            //        {
+            //            flpGoiBuoi.Controls.Add(goiTapUC);
+            //        }
             //    }
-            //    else
-            //    {
-            //        flpGoiBuoi.Controls.Add(goiTapUC);
-            //    }
-            //}
 
         }
 
