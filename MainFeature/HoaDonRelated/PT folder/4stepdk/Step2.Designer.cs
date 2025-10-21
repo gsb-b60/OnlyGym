@@ -77,7 +77,7 @@
             this.rtbChiTiet.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rtbChiTiet.Location = new System.Drawing.Point(39, 25);
             this.rtbChiTiet.Name = "rtbChiTiet";
-            this.rtbChiTiet.Size = new System.Drawing.Size(629, 499);
+            this.rtbChiTiet.Size = new System.Drawing.Size(635, 395);
             this.rtbChiTiet.TabIndex = 47;
             this.rtbChiTiet.Text = resources.GetString("rtbChiTiet.Text");
             // 
@@ -108,6 +108,7 @@
             this.lbChuyenMon.Size = new System.Drawing.Size(156, 394);
             this.lbChuyenMon.TabIndex = 46;
             this.lbChuyenMon.SelectedIndexChanged += new System.EventHandler(this.lbChuyenMon_SelectedIndexChanged);
+            this.lbChuyenMon.DoubleClick += new System.EventHandler(this.lbChuyenMon_DoubleClick);
             // 
             // label3
             // 

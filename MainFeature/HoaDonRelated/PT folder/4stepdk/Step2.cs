@@ -15,6 +15,7 @@ namespace GymManagerment_MVP.MainFeature.HoaDonRelated.PT._4stepdk
     public partial class Step2 : UserControl
     {
         List<Specialties> dSSpecialties = new List<Specialties>();
+        public event Action<Specialties> ChooseSpec;
         public Step2()
         {
             InitializeComponent();
@@ -46,6 +47,7 @@ namespace GymManagerment_MVP.MainFeature.HoaDonRelated.PT._4stepdk
             lbChuyenMon.Items.Clear();
             foreach (var spec in dSSpecialties)
             {
+                
                 lbChuyenMon.Items.Add(spec.specialty);
             }
         }
@@ -57,11 +59,38 @@ namespace GymManagerment_MVP.MainFeature.HoaDonRelated.PT._4stepdk
 
             string selected = lbChuyenMon.SelectedItems[0].ToString();
 
-            var spec = dSSpecialties.FirstOrDefault(
-                s => string.Equals(s.specialty, selected, StringComparison.OrdinalIgnoreCase)
-            );
+            var spec = dSSpecialties.FirstOrDefault(s => s.specialty == selected);
 
-            rtbChiTiet.Text = spec?.notes ?? "Không có ghi chú cho chuyên môn này.";
+            if (spec == null || string.IsNullOrWhiteSpace(spec.notes))
+            {
+                rtbChiTiet.Text = "Không có ghi chú cho chuyên môn này.";
+                return;
+            }
+
+            // Format text: split by '.', make new paragraphs, trim spaces
+            var formatted = string.Join("\n\n", spec.notes
+                .Split('.', (char)StringSplitOptions.RemoveEmptyEntries)
+                .Select(s => s.Trim() + "."));
+
+            // Update rich text
+            rtbChiTiet.Clear();
+            rtbChiTiet.SelectionFont = new Font("Segoe UI", 11, FontStyle.Regular);
+            rtbChiTiet.SelectionColor = Color.Black;
+            rtbChiTiet.AppendText(formatted);
+
+            // Optional: add heading style
+            rtbChiTiet.SelectionStart = 0;
+            rtbChiTiet.SelectionLength = 0;
+        }
+
+        private void lbChuyenMon_DoubleClick(object sender, EventArgs e)
+        {
+            if (lbChuyenMon.SelectedItems.Count == 0)
+                return;
+            string selected = lbChuyenMon.SelectedItems[0].ToString();
+
+            Specialties spec = dSSpecialties.FirstOrDefault(s => s.specialty == selected);
+            ChooseSpec.Invoke(spec);
         }
     }
 }

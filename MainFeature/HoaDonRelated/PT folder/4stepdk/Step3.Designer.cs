@@ -34,32 +34,35 @@
             this.btnTim = new System.Windows.Forms.Button();
             this.cbFindPT = new System.Windows.Forms.ComboBox();
             this.tbTim = new System.Windows.Forms.TextBox();
-            this.dgvPT = new System.Windows.Forms.DataGridView();
-            this.chGID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.chgHo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.chgTen = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.chgSDT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.chgSex = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.chgSelect = new System.Windows.Forms.DataGridViewButtonColumn();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.btnChon = new System.Windows.Forms.Button();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.lbChuyenMon = new System.Windows.Forms.ListBox();
             this.label3 = new System.Windows.Forms.Label();
             this.lblTuoi = new System.Windows.Forms.Label();
             this.lblKyHieu = new System.Windows.Forms.Label();
             this.lblSex = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pbAvatar = new System.Windows.Forms.PictureBox();
             this.lblPFTrangThai = new System.Windows.Forms.Label();
             this.lblPFSDT = new System.Windows.Forms.Label();
             this.lblPFTen = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.dgvDSPT = new System.Windows.Forms.DataGridView();
+            this.chGID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.chgHo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.chgTen = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.chgSDT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.chgTrangThai = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.chgSex = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cNgaySinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.chgXoa = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cAvatar = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlDanhSach.SuspendLayout();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvPT)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAvatar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDSPT)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlDanhSach
@@ -70,26 +73,26 @@
             this.pnlDanhSach.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlDanhSach.Location = new System.Drawing.Point(0, 0);
             this.pnlDanhSach.Name = "pnlDanhSach";
-            this.pnlDanhSach.Size = new System.Drawing.Size(969, 540);
+            this.pnlDanhSach.Size = new System.Drawing.Size(920, 540);
             this.pnlDanhSach.TabIndex = 28;
             // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.panel3.Controls.Add(this.dgvDSPT);
             this.panel3.Controls.Add(this.btnTim);
             this.panel3.Controls.Add(this.cbFindPT);
             this.panel3.Controls.Add(this.tbTim);
-            this.panel3.Controls.Add(this.dgvPT);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
             this.panel3.Padding = new System.Windows.Forms.Padding(20);
-            this.panel3.Size = new System.Drawing.Size(682, 538);
+            this.panel3.Size = new System.Drawing.Size(633, 538);
             this.panel3.TabIndex = 30;
             // 
             // btnTim
             // 
-            this.btnTim.Location = new System.Drawing.Point(576, 18);
+            this.btnTim.Location = new System.Drawing.Point(535, 18);
             this.btnTim.Name = "btnTim";
             this.btnTim.Size = new System.Drawing.Size(75, 23);
             this.btnTim.TabIndex = 2;
@@ -114,63 +117,13 @@
             this.tbTim.Size = new System.Drawing.Size(357, 20);
             this.tbTim.TabIndex = 1;
             // 
-            // dgvPT
-            // 
-            this.dgvPT.AllowUserToOrderColumns = true;
-            this.dgvPT.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPT.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.chGID,
-            this.chgHo,
-            this.chgTen,
-            this.chgSDT,
-            this.chgSex,
-            this.chgSelect});
-            this.dgvPT.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dgvPT.Location = new System.Drawing.Point(20, 71);
-            this.dgvPT.Name = "dgvPT";
-            this.dgvPT.Size = new System.Drawing.Size(642, 447);
-            this.dgvPT.TabIndex = 0;
-            this.dgvPT.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // chGID
-            // 
-            this.chGID.HeaderText = "ID";
-            this.chGID.Name = "chGID";
-            // 
-            // chgHo
-            // 
-            this.chgHo.HeaderText = "Ho";
-            this.chgHo.Name = "chgHo";
-            // 
-            // chgTen
-            // 
-            this.chgTen.HeaderText = "Tên";
-            this.chgTen.Name = "chgTen";
-            // 
-            // chgSDT
-            // 
-            this.chgSDT.HeaderText = "SDT";
-            this.chgSDT.Name = "chgSDT";
-            // 
-            // chgSex
-            // 
-            this.chgSex.HeaderText = "Sex";
-            this.chgSex.Name = "chgSex";
-            // 
-            // chgSelect
-            // 
-            this.chgSelect.HeaderText = "Chon";
-            this.chgSelect.Name = "chgSelect";
-            this.chgSelect.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.chgSelect.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.panel2.Controls.Add(this.panel4);
             this.panel2.Controls.Add(this.panel1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel2.Location = new System.Drawing.Point(682, 0);
+            this.panel2.Location = new System.Drawing.Point(633, 0);
             this.panel2.Name = "panel2";
             this.panel2.Padding = new System.Windows.Forms.Padding(19);
             this.panel2.Size = new System.Drawing.Size(285, 538);
@@ -180,12 +133,12 @@
             // 
             this.panel4.BackColor = System.Drawing.Color.Azure;
             this.panel4.Controls.Add(this.btnChon);
-            this.panel4.Controls.Add(this.listBox1);
+            this.panel4.Controls.Add(this.lbChuyenMon);
             this.panel4.Controls.Add(this.label3);
             this.panel4.Controls.Add(this.lblTuoi);
             this.panel4.Controls.Add(this.lblKyHieu);
             this.panel4.Controls.Add(this.lblSex);
-            this.panel4.Controls.Add(this.pictureBox1);
+            this.panel4.Controls.Add(this.pbAvatar);
             this.panel4.Controls.Add(this.lblPFTrangThai);
             this.panel4.Controls.Add(this.lblPFSDT);
             this.panel4.Controls.Add(this.lblPFTen);
@@ -204,10 +157,10 @@
             this.btnChon.Text = "Chọn";
             this.btnChon.UseVisualStyleBackColor = true;
             // 
-            // listBox1
+            // lbChuyenMon
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Items.AddRange(new object[] {
+            this.lbChuyenMon.FormattingEnabled = true;
+            this.lbChuyenMon.Items.AddRange(new object[] {
             "Hồi Phục Chức Năng",
             "Thi Đấu Thể Hình",
             "Giảm Cân Người Lớn Tuổi",
@@ -216,10 +169,10 @@
             "Huấn Luyện Thể Lực",
             "Thi Đấu Cử tạ",
             "Tăng Cường Sức Mạnh"});
-            this.listBox1.Location = new System.Drawing.Point(14, 223);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(216, 160);
-            this.listBox1.TabIndex = 44;
+            this.lbChuyenMon.Location = new System.Drawing.Point(14, 223);
+            this.lbChuyenMon.Name = "lbChuyenMon";
+            this.lbChuyenMon.Size = new System.Drawing.Size(216, 160);
+            this.lbChuyenMon.TabIndex = 44;
             // 
             // label3
             // 
@@ -257,16 +210,16 @@
             this.lblSex.TabIndex = 29;
             this.lblSex.Text = "Nam";
             // 
-            // pictureBox1
+            // pbAvatar
             // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(14, 8);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Padding = new System.Windows.Forms.Padding(10);
-            this.pictureBox1.Size = new System.Drawing.Size(116, 181);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 19;
-            this.pictureBox1.TabStop = false;
+            this.pbAvatar.Image = ((System.Drawing.Image)(resources.GetObject("pbAvatar.Image")));
+            this.pbAvatar.Location = new System.Drawing.Point(14, 8);
+            this.pbAvatar.Name = "pbAvatar";
+            this.pbAvatar.Padding = new System.Windows.Forms.Padding(10);
+            this.pbAvatar.Size = new System.Drawing.Size(116, 181);
+            this.pbAvatar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbAvatar.TabIndex = 19;
+            this.pbAvatar.TabStop = false;
             // 
             // lblPFTrangThai
             // 
@@ -303,21 +256,116 @@
             this.panel1.Size = new System.Drawing.Size(247, 44);
             this.panel1.TabIndex = 1;
             // 
+            // dgvDSPT
+            // 
+            this.dgvDSPT.AllowDrop = true;
+            this.dgvDSPT.AllowUserToOrderColumns = true;
+            this.dgvDSPT.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDSPT.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.chGID,
+            this.chgHo,
+            this.chgTen,
+            this.chgSDT,
+            this.chgTrangThai,
+            this.chgSex,
+            this.cNgaySinh,
+            this.chgXoa,
+            this.cAvatar});
+            this.dgvDSPT.Location = new System.Drawing.Point(20, 47);
+            this.dgvDSPT.Name = "dgvDSPT";
+            this.dgvDSPT.Size = new System.Drawing.Size(578, 474);
+            this.dgvDSPT.TabIndex = 4;
+            this.dgvDSPT.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDSPT_CellClick);
+            // 
+            // chGID
+            // 
+            this.chGID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.chGID.DataPropertyName = "ID";
+            this.chGID.HeaderText = "ID";
+            this.chGID.Name = "chGID";
+            this.chGID.Visible = false;
+            this.chGID.Width = 43;
+            // 
+            // chgHo
+            // 
+            this.chgHo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.chgHo.DataPropertyName = "tenLot";
+            this.chgHo.HeaderText = "Ho";
+            this.chgHo.Name = "chgHo";
+            // 
+            // chgTen
+            // 
+            this.chgTen.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.chgTen.DataPropertyName = "name";
+            this.chgTen.HeaderText = "Tên";
+            this.chgTen.Name = "chgTen";
+            this.chgTen.Width = 51;
+            // 
+            // chgSDT
+            // 
+            this.chgSDT.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.chgSDT.DataPropertyName = "SDT";
+            this.chgSDT.HeaderText = "SDT";
+            this.chgSDT.Name = "chgSDT";
+            this.chgSDT.Width = 54;
+            // 
+            // chgTrangThai
+            // 
+            this.chgTrangThai.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.chgTrangThai.DataPropertyName = "TrangThai";
+            this.chgTrangThai.HeaderText = "Trạng Thái";
+            this.chgTrangThai.Name = "chgTrangThai";
+            this.chgTrangThai.Visible = false;
+            this.chgTrangThai.Width = 84;
+            // 
+            // chgSex
+            // 
+            this.chgSex.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.chgSex.DataPropertyName = "GioiTinh";
+            this.chgSex.HeaderText = "Gioi Tinh";
+            this.chgSex.Name = "chgSex";
+            this.chgSex.Width = 74;
+            // 
+            // cNgaySinh
+            // 
+            this.cNgaySinh.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.cNgaySinh.DataPropertyName = "NgaySinh";
+            this.cNgaySinh.HeaderText = "Ngay Sinh";
+            this.cNgaySinh.Name = "cNgaySinh";
+            this.cNgaySinh.Visible = false;
+            this.cNgaySinh.Width = 81;
+            // 
+            // chgXoa
+            // 
+            this.chgXoa.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.chgXoa.DataPropertyName = "thoiGianXoa";
+            this.chgXoa.HeaderText = "Xóa";
+            this.chgXoa.Name = "chgXoa";
+            this.chgXoa.Visible = false;
+            this.chgXoa.Width = 51;
+            // 
+            // cAvatar
+            // 
+            this.cAvatar.DataPropertyName = "AvatarUrl";
+            this.cAvatar.HeaderText = "Avatar";
+            this.cAvatar.Name = "cAvatar";
+            this.cAvatar.Visible = false;
+            // 
             // Step3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.pnlDanhSach);
             this.Name = "Step3";
-            this.Size = new System.Drawing.Size(969, 540);
+            this.Size = new System.Drawing.Size(920, 540);
             this.pnlDanhSach.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvPT)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAvatar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDSPT)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -329,25 +377,28 @@
         private System.Windows.Forms.Button btnTim;
         private System.Windows.Forms.ComboBox cbFindPT;
         private System.Windows.Forms.TextBox tbTim;
-        private System.Windows.Forms.DataGridView dgvPT;
-        private System.Windows.Forms.DataGridViewTextBoxColumn chGID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn chgHo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn chgTen;
-        private System.Windows.Forms.DataGridViewTextBoxColumn chgSDT;
-        private System.Windows.Forms.DataGridViewTextBoxColumn chgSex;
-        private System.Windows.Forms.DataGridViewButtonColumn chgSelect;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox lbChuyenMon;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label lblTuoi;
         private System.Windows.Forms.Label lblKyHieu;
         private System.Windows.Forms.Label lblSex;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pbAvatar;
         private System.Windows.Forms.Label lblPFTrangThai;
         private System.Windows.Forms.Label lblPFSDT;
         private System.Windows.Forms.Label lblPFTen;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnChon;
+        private System.Windows.Forms.DataGridView dgvDSPT;
+        private System.Windows.Forms.DataGridViewTextBoxColumn chGID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn chgHo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn chgTen;
+        private System.Windows.Forms.DataGridViewTextBoxColumn chgSDT;
+        private System.Windows.Forms.DataGridViewTextBoxColumn chgTrangThai;
+        private System.Windows.Forms.DataGridViewTextBoxColumn chgSex;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cNgaySinh;
+        private System.Windows.Forms.DataGridViewTextBoxColumn chgXoa;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cAvatar;
     }
 }
