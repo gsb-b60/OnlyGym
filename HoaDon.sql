@@ -236,6 +236,7 @@ ALTER TABLE [dbo].[DanhSachHoaDon] CHECK CONSTRAINT [FK_DanhSachHoaDon_HoaDon]
 GO
 
 
+
 select * from NhomHang
 
 insert into NhomHang (TenNhom) values(N'Tất cả'),
@@ -449,8 +450,6 @@ delete from DanhSachHoaDon where MaHD = 'HD20102504'
 delete from HoaDon where MaHD = 'HD20102504'
 delete from CTHD where MaHD = 'HD20102504'
 
-
-
 delete from DanhSachHoaDon where MaHD = 'HD20102502'
 delete from HoaDon where MaHD = 'HD20102502'
 delete from CTHD where MaHD = 'HD20102502'
@@ -529,6 +528,7 @@ BEGIN
 END
 GO
 
+drop proc ResetStt_NhomHang
 
 INSERT INTO DanhSachHoaDon
 (MaHD, IDHocVien, NgayTao, KhachHang, TongTien, HinhThuc, NhanVienLap) VALUES
