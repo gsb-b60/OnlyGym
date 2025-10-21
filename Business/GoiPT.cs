@@ -6,16 +6,17 @@ using System.Threading.Tasks;
 
 namespace GymManagerment_MVP.Business
 {
-    internal class GoiPT
+    public class GoiPT
     {
         public int id { get; set; }
-        public string tenGoi  { get; set; }
-        public string soBuoi { get; set; }
+        public string tenGoi { get; set; }
+        public int soBuoi { get; set; }
         public bool trangThai { get; set; }
         public long giaTien { get; set; }
         public string thongTin { get; set; }
+        public long discount { get; set; }
         public GoiPT() { }
-        public GoiPT(int id, string tenGoi, string soBuoi, bool trangThai, long giaTien, string thongTin)
+        public GoiPT(int id, string tenGoi, int soBuoi, bool trangThai, long giaTien, string thongTin,long discount)
         {
             this.id = id;
             this.tenGoi = tenGoi;
@@ -23,6 +24,23 @@ namespace GymManagerment_MVP.Business
             this.trangThai = trangThai;
             this.giaTien = giaTien;
             this.thongTin = thongTin;
+            this.discount = discount;
         }
+        public override string ToString()
+        {
+            return $@"
+✨ PT PACKAGE ✨
+────────────────────────────
+🆔  ID:          {id}
+📦  Name:        {tenGoi}
+📅  Sessions:    {soBuoi}
+💰  Price:       {giaTien:N0} VND
+💸  Discount:    {discount:N0} VND
+📋  Info:        {thongTin}
+⚙️  Status:      {(trangThai ? "✅ Active" : "❌ Inactive")}
+────────────────────────────";
+        }
+
+
     }
 }

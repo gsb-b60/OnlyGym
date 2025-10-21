@@ -44,13 +44,22 @@ namespace GymManagerment_MVP
             pnPT.Controls.Add(dangKyPT);
             dangKyPT.BringToFront();
 
+           
+
             DangKyPTVer2 dangKyPT2 = new DangKyPTVer2();
             dangKyPT2.Dock = DockStyle.Fill;
             pnPTV2.Controls.Add(dangKyPT2);
             dangKyPT.BringToFront();
 
+            dangKyPT2.SetForBuy += DangKyPT2_SetForBuy;
 
+        }
 
+        private void DangKyPT2_SetForBuy(GoiPT obj)
+        {
+            int i = dgvBill.Rows.Add(obj.tenGoi, 1, obj.giaTien);
+            dgvBill.Rows[i].Tag = obj;
+            SetTotal();
         }
 
         private void BanGoi_SetToBill(GoiTap obj)
@@ -110,6 +119,10 @@ namespace GymManagerment_MVP
                 if (obj is GoiTap goi)
                 {
                     discount+= goi.discount;    
+                }
+                if(obj is GoiPT goipt)
+                {
+                    discount += goipt.discount;
                 }
 
             }

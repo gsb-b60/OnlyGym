@@ -107,6 +107,7 @@
             this.lbChuyenMon.Name = "lbChuyenMon";
             this.lbChuyenMon.Size = new System.Drawing.Size(156, 394);
             this.lbChuyenMon.TabIndex = 46;
+            this.lbChuyenMon.SelectedIndexChanged += new System.EventHandler(this.lbChuyenMon_SelectedIndexChanged);
             // 
             // label3
             // 
@@ -124,6 +125,7 @@
             this.Controls.Add(this.pns2Content);
             this.Name = "Step2";
             this.Size = new System.Drawing.Size(969, 540);
+            this.Load += new System.EventHandler(this.Step2_Load);
             this.pns2Content.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();

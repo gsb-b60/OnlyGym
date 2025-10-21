@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GymManagerment_MVP.Business;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,6 +15,7 @@ namespace GymManagerment_MVP.MainFeature.HoaDonRelated.PT
     {
         private UserControl[] steps;   
         private int currentStep = 0;
+        public event Action<GoiPT> SetForBuy;
         public DangKyPTVer2()
         {
             steps = new UserControl[] {
@@ -23,9 +25,17 @@ namespace GymManagerment_MVP.MainFeature.HoaDonRelated.PT
                    new _4stepdk.Step4(),
             };
             InitializeComponent();
+            _4stepdk.Step1 step1 = (_4stepdk.Step1)steps[0];
+            step1.SetToBill += Step1_SetToBill;
             ShowStep(currentStep);
             SetActiveStep(currentStep);
         }
+
+        private void Step1_SetToBill(Business.GoiPT obj)
+        {
+            SetForBuy.Invoke(obj);
+        }
+
         private void ShowStep(int index)
         {
             // Xóa control cũ

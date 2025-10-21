@@ -41,6 +41,40 @@ create table PTSpecialties(
 	foreign key (Specialties_ID) references Specialties(ID)
 );
 
+create table GoiPT(
+	ID int primary key identity(0,1),
+	TenGoi nvarchar(50) not null,
+	SoBuoi	int not null,
+	TrangThai bit not null default(1),
+	GiaTien decimal(12,3) not null,
+	Discount decimal(12,3) null
+);
+
+INSERT INTO GoiPT (TenGoi, SoBuoi, TrangThai, GiaTien, Discount)
+VALUES
+(N'PT S5', 5, 1, 800000, 0),
+(N'PT S10', 10, 1, 1500000, 50000),
+(N'PT S15', 15, 1, 2100000, 100000),
+(N'PT S20', 20, 1, 2700000, 150000),
+(N'PT S25', 25, 1, 3200000, 200000),
+(N'PT S30', 30, 1, 3600000, 300000),
+(N'PT S40', 40, 1, 4500000, 400000),
+(N'PT S50', 50, 1, 5200000, 500000),
+(N'PT S60', 60, 1, 6000000, 700000),
+(N'PT S80', 80, 1, 7500000, 1000000);
+
+-- Inactive / Event-based packages
+INSERT INTO GoiPT (TenGoi, SoBuoi, TrangThai, GiaTien, Discount)
+VALUES
+(N'Valentine PT S15', 15, 0, 1900000, 200000),
+(N'Summer PT S10', 10, 0, 1300000, 300000),
+(N'NewYear PT S20', 20, 0, 2500000, 200000),
+(N'Anniversary PT S25', 25, 0, 3000000, 250000),
+(N'BlackFriday PT S30', 30, 0, 3400000, 400000);
+
+
+select * from GoiPT
+
 INSERT INTO PTSpecialties (PT_ID, Specialties_ID) VALUES
 -- Female trainers 50–69
 (50, 0), (50, 3), (50, 4),
