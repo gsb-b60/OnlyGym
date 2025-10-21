@@ -33,6 +33,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=16.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Office.Interop.Excel.16.0.18925.20022\lib\net40\Microsoft.Office.Interop.Excel.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.DirectoryServices" />
@@ -83,6 +87,30 @@
     </Compile>
     <Compile Include="MainFeature\HoaDonRelated\GoiTapFolder\ThemGoiTapfrm.Designer.cs">
       <DependentUpon>ThemGoiTapfrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainFeature\HoaDonRelated\HoaDon\HoaDon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainFeature\HoaDonRelated\HoaDon\HoaDon.Designer.cs">
+      <DependentUpon>HoaDon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainFeature\HoaDonRelated\HoaDon\MuaHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainFeature\HoaDonRelated\HoaDon\MuaHang.Designer.cs">
+      <DependentUpon>MuaHang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainFeature\HoaDonRelated\HoaDon\ThanhToanChuyenKhoan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainFeature\HoaDonRelated\HoaDon\ThanhToanChuyenKhoan.Designer.cs">
+      <DependentUpon>ThanhToanChuyenKhoan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainFeature\HoaDonRelated\HoaDon\ThemDanhMuc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainFeature\HoaDonRelated\HoaDon\ThemDanhMuc.Designer.cs">
+      <DependentUpon>ThemDanhMuc.cs</DependentUpon>
     </Compile>
     <Compile Include="MainFeature\HoaDonRelated\MuaGoiTap.cs">
       <SubType>Form</SubType>
@@ -341,6 +369,18 @@
     <EmbeddedResource Include="MainFeature\HoaDonRelated\GoiTapFolder\ThemGoiTapfrm.resx">
       <DependentUpon>ThemGoiTapfrm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MainFeature\HoaDonRelated\HoaDon\HoaDon.resx">
+      <DependentUpon>HoaDon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainFeature\HoaDonRelated\HoaDon\MuaHang.resx">
+      <DependentUpon>MuaHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainFeature\HoaDonRelated\HoaDon\ThanhToanChuyenKhoan.resx">
+      <DependentUpon>ThanhToanChuyenKhoan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainFeature\HoaDonRelated\HoaDon\ThemDanhMuc.resx">
+      <DependentUpon>ThemDanhMuc.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainFeature\HoaDonRelated\MuaGoiTap.resx">
       <DependentUpon>MuaGoiTap.cs</DependentUpon>
     </EmbeddedResource>
@@ -467,6 +507,7 @@
     <EmbeddedResource Include="Storage\XuatHoaDonUC.resx">
       <DependentUpon>XuatHoaDonUC.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

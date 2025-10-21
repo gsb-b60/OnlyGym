@@ -144,5 +144,11 @@ namespace GymManagerment_MVP
         {
             loadUserControl(new ThongTinHopDongPTUC());
         }
+
+        private void btnDSHoaDon_Click(object sender, EventArgs e)
+        {
+            loadUserControl(new DanhSachHoaDonUC());
+
+        }
     }
 }

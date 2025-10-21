@@ -365,6 +365,7 @@
             this.btnXoa.TabIndex = 26;
             this.btnXoa.Text = "Xóa tất cả";
             this.btnXoa.UseVisualStyleBackColor = true;
+            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
             // BanGoi
             // 

@@ -39,16 +39,17 @@
             this.thôngTinChuyểnKhoảnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.hướngDẫnSửDụngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.thôngTinChuyênMônToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pnlMenu = new System.Windows.Forms.Panel();
-            this.btnThongTinPT = new System.Windows.Forms.Button();
-            this.btnDSPT = new System.Windows.Forms.Button();
-            this.btnDanhSachKH = new System.Windows.Forms.Button();
-            this.btnThongTinKH = new System.Windows.Forms.Button();
-            this.btnCheckin = new System.Windows.Forms.Button();
-            this.btnQuanLyNhanVien = new System.Windows.Forms.Button();
             this.pnlContent = new System.Windows.Forms.Panel();
+            this.btnQuanLyNhanVien = new System.Windows.Forms.Button();
+            this.btnCheckin = new System.Windows.Forms.Button();
+            this.btnThongTinKH = new System.Windows.Forms.Button();
+            this.btnDanhSachKH = new System.Windows.Forms.Button();
+            this.btnDSPT = new System.Windows.Forms.Button();
+            this.btnThongTinPT = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.pnlMenu = new System.Windows.Forms.Panel();
+            this.btnDSHoaDon = new System.Windows.Forms.Button();
             this.pnlHome.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.pnlMenu.SuspendLayout();
@@ -147,78 +148,14 @@
             this.thôngTinChuyênMônToolStripMenuItem.Text = "Thông Tin Chuyên Môn";
             this.thôngTinChuyênMônToolStripMenuItem.Click += new System.EventHandler(this.thôngTinChuyênMônToolStripMenuItem_Click);
             // 
-            // pnlMenu
+            // pnlContent
             // 
-            this.pnlMenu.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.pnlMenu.Controls.Add(this.button2);
-            this.pnlMenu.Controls.Add(this.button1);
-            this.pnlMenu.Controls.Add(this.btnThongTinPT);
-            this.pnlMenu.Controls.Add(this.btnDSPT);
-            this.pnlMenu.Controls.Add(this.btnDanhSachKH);
-            this.pnlMenu.Controls.Add(this.btnThongTinKH);
-            this.pnlMenu.Controls.Add(this.btnCheckin);
-            this.pnlMenu.Controls.Add(this.btnQuanLyNhanVien);
-            this.pnlMenu.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlMenu.Location = new System.Drawing.Point(0, 27);
-            this.pnlMenu.Name = "pnlMenu";
-            this.pnlMenu.Size = new System.Drawing.Size(1264, 31);
-            this.pnlMenu.TabIndex = 1;
-            this.pnlMenu.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlMenu_Paint);
-            // 
-            // btnThongTinPT
-            // 
-            this.btnThongTinPT.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnThongTinPT.Location = new System.Drawing.Point(574, 0);
-            this.btnThongTinPT.Name = "btnThongTinPT";
-            this.btnThongTinPT.Size = new System.Drawing.Size(139, 31);
-            this.btnThongTinPT.TabIndex = 10;
-            this.btnThongTinPT.Text = "Thông Tin PT";
-            this.btnThongTinPT.UseVisualStyleBackColor = true;
-            this.btnThongTinPT.Click += new System.EventHandler(this.btnThongTinPT_Click);
-            // 
-            // btnDSPT
-            // 
-            this.btnDSPT.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnDSPT.Location = new System.Drawing.Point(435, 0);
-            this.btnDSPT.Name = "btnDSPT";
-            this.btnDSPT.Size = new System.Drawing.Size(139, 31);
-            this.btnDSPT.TabIndex = 9;
-            this.btnDSPT.Text = "Danh Sách PT";
-            this.btnDSPT.UseVisualStyleBackColor = true;
-            this.btnDSPT.Click += new System.EventHandler(this.btnDSPT_Click);
-            // 
-            // btnDanhSachKH
-            // 
-            this.btnDanhSachKH.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnDanhSachKH.Location = new System.Drawing.Point(296, 0);
-            this.btnDanhSachKH.Name = "btnDanhSachKH";
-            this.btnDanhSachKH.Size = new System.Drawing.Size(139, 31);
-            this.btnDanhSachKH.TabIndex = 8;
-            this.btnDanhSachKH.Text = "Danh Sach Khac Hang";
-            this.btnDanhSachKH.UseVisualStyleBackColor = true;
-            this.btnDanhSachKH.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // btnThongTinKH
-            // 
-            this.btnThongTinKH.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnThongTinKH.Location = new System.Drawing.Point(157, 0);
-            this.btnThongTinKH.Name = "btnThongTinKH";
-            this.btnThongTinKH.Size = new System.Drawing.Size(139, 31);
-            this.btnThongTinKH.TabIndex = 7;
-            this.btnThongTinKH.Text = "Thông Tin Khách Hàng";
-            this.btnThongTinKH.UseVisualStyleBackColor = true;
-            this.btnThongTinKH.Click += new System.EventHandler(this.button1_Click_1);
-            // 
-            // btnCheckin
-            // 
-            this.btnCheckin.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnCheckin.Location = new System.Drawing.Point(91, 0);
-            this.btnCheckin.Name = "btnCheckin";
-            this.btnCheckin.Size = new System.Drawing.Size(66, 31);
-            this.btnCheckin.TabIndex = 5;
-            this.btnCheckin.Text = "Check In";
-            this.btnCheckin.UseVisualStyleBackColor = true;
-            this.btnCheckin.Click += new System.EventHandler(this.btnCheckin_Click);
+            this.pnlContent.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlContent.Location = new System.Drawing.Point(0, 58);
+            this.pnlContent.Name = "pnlContent";
+            this.pnlContent.Size = new System.Drawing.Size(1264, 703);
+            this.pnlContent.TabIndex = 2;
+            this.pnlContent.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlContent_Paint);
             // 
             // btnQuanLyNhanVien
             // 
@@ -231,14 +168,60 @@
             this.btnQuanLyNhanVien.UseVisualStyleBackColor = true;
             this.btnQuanLyNhanVien.Click += new System.EventHandler(this.btnQuanLyNhanVien_Click);
             // 
-            // pnlContent
+            // btnCheckin
             // 
-            this.pnlContent.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlContent.Location = new System.Drawing.Point(0, 58);
-            this.pnlContent.Name = "pnlContent";
-            this.pnlContent.Size = new System.Drawing.Size(1264, 703);
-            this.pnlContent.TabIndex = 2;
-            this.pnlContent.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlContent_Paint);
+            this.btnCheckin.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnCheckin.Location = new System.Drawing.Point(91, 0);
+            this.btnCheckin.Name = "btnCheckin";
+            this.btnCheckin.Size = new System.Drawing.Size(66, 31);
+            this.btnCheckin.TabIndex = 5;
+            this.btnCheckin.Text = "Check In";
+            this.btnCheckin.UseVisualStyleBackColor = true;
+            this.btnCheckin.Click += new System.EventHandler(this.btnCheckin_Click);
+            // 
+            // btnThongTinKH
+            // 
+            this.btnThongTinKH.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnThongTinKH.Location = new System.Drawing.Point(157, 0);
+            this.btnThongTinKH.Name = "btnThongTinKH";
+            this.btnThongTinKH.Size = new System.Drawing.Size(139, 31);
+            this.btnThongTinKH.TabIndex = 7;
+            this.btnThongTinKH.Text = "Thông Tin Khách Hàng";
+            this.btnThongTinKH.UseVisualStyleBackColor = true;
+            this.btnThongTinKH.Click += new System.EventHandler(this.button1_Click_1);
+            // 
+            // btnDanhSachKH
+            // 
+            this.btnDanhSachKH.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnDanhSachKH.Location = new System.Drawing.Point(296, 0);
+            this.btnDanhSachKH.Name = "btnDanhSachKH";
+            this.btnDanhSachKH.Size = new System.Drawing.Size(139, 31);
+            this.btnDanhSachKH.TabIndex = 8;
+            this.btnDanhSachKH.Text = "Danh Sach Khac Hang";
+            this.btnDanhSachKH.UseVisualStyleBackColor = true;
+            this.btnDanhSachKH.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // btnDSPT
+            // 
+            this.btnDSPT.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnDSPT.Location = new System.Drawing.Point(435, 0);
+            this.btnDSPT.Name = "btnDSPT";
+            this.btnDSPT.Size = new System.Drawing.Size(139, 31);
+            this.btnDSPT.TabIndex = 9;
+            this.btnDSPT.Text = "Danh Sách PT";
+            this.btnDSPT.UseVisualStyleBackColor = true;
+            this.btnDSPT.Click += new System.EventHandler(this.btnDSPT_Click);
+            // 
+            // btnThongTinPT
+            // 
+            this.btnThongTinPT.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnThongTinPT.Location = new System.Drawing.Point(574, 0);
+            this.btnThongTinPT.Name = "btnThongTinPT";
+            this.btnThongTinPT.Size = new System.Drawing.Size(139, 31);
+            this.btnThongTinPT.TabIndex = 10;
+            this.btnThongTinPT.Text = "Thông Tin PT";
+            this.btnThongTinPT.UseVisualStyleBackColor = true;
+            this.btnThongTinPT.Click += new System.EventHandler(this.btnThongTinPT_Click);
             // 
             // button1
             // 
@@ -261,6 +244,36 @@
             this.button2.Text = "Chi Tiết Hợp Đồng";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click_1);
+            // 
+            // pnlMenu
+            // 
+            this.pnlMenu.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.pnlMenu.Controls.Add(this.btnDSHoaDon);
+            this.pnlMenu.Controls.Add(this.button2);
+            this.pnlMenu.Controls.Add(this.button1);
+            this.pnlMenu.Controls.Add(this.btnThongTinPT);
+            this.pnlMenu.Controls.Add(this.btnDSPT);
+            this.pnlMenu.Controls.Add(this.btnDanhSachKH);
+            this.pnlMenu.Controls.Add(this.btnThongTinKH);
+            this.pnlMenu.Controls.Add(this.btnCheckin);
+            this.pnlMenu.Controls.Add(this.btnQuanLyNhanVien);
+            this.pnlMenu.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlMenu.Location = new System.Drawing.Point(0, 27);
+            this.pnlMenu.Name = "pnlMenu";
+            this.pnlMenu.Size = new System.Drawing.Size(1264, 31);
+            this.pnlMenu.TabIndex = 1;
+            this.pnlMenu.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlMenu_Paint);
+            // 
+            // btnDSHoaDon
+            // 
+            this.btnDSHoaDon.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnDSHoaDon.Location = new System.Drawing.Point(991, 0);
+            this.btnDSHoaDon.Name = "btnDSHoaDon";
+            this.btnDSHoaDon.Size = new System.Drawing.Size(139, 31);
+            this.btnDSHoaDon.TabIndex = 13;
+            this.btnDSHoaDon.Text = "Danh Sách Hóa Đơn";
+            this.btnDSHoaDon.UseVisualStyleBackColor = true;
+            this.btnDSHoaDon.Click += new System.EventHandler(this.btnDSHoaDon_Click);
             // 
             // Mainfrm
             // 
@@ -285,14 +298,9 @@
         #endregion
 
         private System.Windows.Forms.Panel pnlHome;
-        private System.Windows.Forms.Panel pnlMenu;
         private System.Windows.Forms.Panel pnlContent;
-        private System.Windows.Forms.Button btnQuanLyNhanVien;
         private System.Windows.Forms.Label lblChucVu;
         private System.Windows.Forms.Label lblAccName;
-        private System.Windows.Forms.Button btnCheckin;
-        private System.Windows.Forms.Button btnThongTinKH;
-        private System.Windows.Forms.Button btnDanhSachKH;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem thôngTinGóiTậpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem thôngTinGóiTậpToolStripMenuItem1;
@@ -300,10 +308,16 @@
         private System.Windows.Forms.ToolStripMenuItem thôngTinHãngSảnXuấtToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem thôngTinChuyểnKhoảnToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem hướngDẫnSửDụngToolStripMenuItem;
-        private System.Windows.Forms.Button btnDSPT;
         private System.Windows.Forms.ToolStripMenuItem thôngTinChuyênMônToolStripMenuItem;
+        private System.Windows.Forms.Button btnQuanLyNhanVien;
+        private System.Windows.Forms.Button btnCheckin;
+        private System.Windows.Forms.Button btnThongTinKH;
+        private System.Windows.Forms.Button btnDanhSachKH;
+        private System.Windows.Forms.Button btnDSPT;
         private System.Windows.Forms.Button btnThongTinPT;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Panel pnlMenu;
+        private System.Windows.Forms.Button btnDSHoaDon;
     }
 }
