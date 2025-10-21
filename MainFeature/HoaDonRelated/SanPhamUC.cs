@@ -24,6 +24,7 @@ namespace GymManagerment_MVP.MainFeature.HoaDonRelated
         {
             LoadDanhMuc();
             TaoTextInput();
+            
         }
 
         private void LoadDanhMuc()

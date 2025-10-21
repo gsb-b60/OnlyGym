@@ -24,18 +24,13 @@ namespace GymManagerment_MVP
             InitializeComponent();
         }
 
-        private void btnMuaHang_Click(object sender, EventArgs e)
-        {
-
-
-        }
         private void DanhSachHoaDonUC_Load(object sender, EventArgs e)
         {
             TaoTextInput();
             LoadDanhSachHoaDon();
             tbTimKiem.Enabled = false;
             cbTimTheo.SelectedIndexChanged += cbTimTheo_SelectedIndexChanged;
-
+            
         }
 
         private void LoadDanhSachHoaDon()
@@ -67,35 +62,35 @@ namespace GymManagerment_MVP
 
 
 
-        //private void btnXuatExcel_Click(object sender, EventArgs e)
-        //{
-        //    if (dgvDanhSachHoaDon.Rows.Count > 0)
-        //    {
-        //        Microsoft.Office.Interop.Excel.Application XcelApp = new Microsoft.Office.Interop.Excel.Application();
-        //        XcelApp.Application.Workbooks.Add(Type.Missing);
+        private void btnXuatExcel_Click(object sender, EventArgs e)
+        {
+            if (dgvDanhSachHoaDon.Rows.Count > 0)
+            {
+                Microsoft.Office.Interop.Excel.Application XcelApp = new Microsoft.Office.Interop.Excel.Application();
+                XcelApp.Application.Workbooks.Add(Type.Missing);
 
-        //        for (int i = 1; i < dgvDanhSachHoaDon.Columns.Count + 1; i++)
-        //        {
-        //            XcelApp.Cells[1, i] = dgvDanhSachHoaDon.Columns[i - 1].HeaderText;
-        //        }
+                for (int i = 1; i < dgvDanhSachHoaDon.Columns.Count + 1; i++)
+                {
+                    XcelApp.Cells[1, i] = dgvDanhSachHoaDon.Columns[i - 1].HeaderText;
+                }
 
-        //        for (int i = 0; i < dgvDanhSachHoaDon.Rows.Count; i++)
-        //        {
-        //            for (int j = 0; j < dgvDanhSachHoaDon.Columns.Count; j++)
-        //            {
-        //                var cellValue = dgvDanhSachHoaDon.Rows[i].Cells[j].Value;
-        //                XcelApp.Cells[i + 2, j + 1] = cellValue != null ? cellValue.ToString() : "";
-        //            }
-        //        }
+                for (int i = 0; i < dgvDanhSachHoaDon.Rows.Count; i++)
+                {
+                    for (int j = 0; j < dgvDanhSachHoaDon.Columns.Count; j++)
+                    {
+                        var cellValue = dgvDanhSachHoaDon.Rows[i].Cells[j].Value;
+                        XcelApp.Cells[i + 2, j + 1] = cellValue != null ? cellValue.ToString() : "";
+                    }
+                }
 
-        //        XcelApp.Columns.AutoFit();
-        //        XcelApp.Visible = true;
-        //    }
-        //    else
-        //    {
-        //        MessageBox.Show("Không có dữ liệu để xuất Excel!");
-        //    }
-        //}
+                XcelApp.Columns.AutoFit();
+                XcelApp.Visible = true;
+            }
+            else
+            {
+                MessageBox.Show("Không có dữ liệu để xuất Excel!");
+            }
+        }
 
 
 

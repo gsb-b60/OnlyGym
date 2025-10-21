@@ -14,7 +14,7 @@ namespace GymManagerment_MVP
 {
     public partial class MuaHang : UserControl
     {
-        internal Panel panelSanPham;
+        internal Panel panelKhachHang;
 
 
         public MuaHang()
@@ -50,14 +50,12 @@ namespace GymManagerment_MVP
                 sanPham.Dock = DockStyle.Fill;
                 pnSanPham.Controls.Add(sanPham);
                 sanPham.BringToFront();
-                pnKhachHang.Visible = false;
-            
-            
+                //pnKhachHang.Visible = false;
 
 
         }
 
-
+   
 
         private void tabControl1_DrawItem(object sender, DrawItemEventArgs e)
         {
@@ -82,15 +80,6 @@ namespace GymManagerment_MVP
         private void btnChiTiet_Click(object sender, EventArgs e)
         {
 
-        }
-
-        public void ShowSanPhamUC()
-        {
-            pnSanPham.Controls.Clear();
-            var sanPhamUC = new SanPhamUC();
-            sanPhamUC.Dock = DockStyle.Fill;
-            pnSanPham.Controls.Add(sanPhamUC);
-            sanPhamUC.BringToFront();
         }
     }
 }

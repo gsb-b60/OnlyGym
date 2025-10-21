@@ -77,6 +77,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.MuaHangUC = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
+            this.btnChuyenKhoan = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnThemDM = new System.Windows.Forms.Button();
@@ -87,8 +89,6 @@
             this.cbTimTheo = new System.Windows.Forms.ComboBox();
             this.tbTimKiem = new System.Windows.Forms.TextBox();
             this.label19 = new System.Windows.Forms.Label();
-            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
-            this.btnChuyenKhoan = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.cmsDsHangMua.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDSHang)).BeginInit();
@@ -514,7 +514,7 @@
             this.MuaHangUC.Dock = System.Windows.Forms.DockStyle.Fill;
             this.MuaHangUC.Location = new System.Drawing.Point(0, 0);
             this.MuaHangUC.Name = "MuaHangUC";
-            this.MuaHangUC.Size = new System.Drawing.Size(1264, 699);
+            this.MuaHangUC.Size = new System.Drawing.Size(1271, 707);
             this.MuaHangUC.TabIndex = 29;
             // 
             // panel4
@@ -550,6 +550,25 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(490, 693);
             this.panel4.TabIndex = 0;
+            // 
+            // maskedTextBox1
+            // 
+            this.maskedTextBox1.Location = new System.Drawing.Point(270, 98);
+            this.maskedTextBox1.Mask = "0000000000";
+            this.maskedTextBox1.Name = "maskedTextBox1";
+            this.maskedTextBox1.Size = new System.Drawing.Size(204, 20);
+            this.maskedTextBox1.TabIndex = 1;
+            // 
+            // btnChuyenKhoan
+            // 
+            this.btnChuyenKhoan.Enabled = false;
+            this.btnChuyenKhoan.Location = new System.Drawing.Point(286, 459);
+            this.btnChuyenKhoan.Name = "btnChuyenKhoan";
+            this.btnChuyenKhoan.Size = new System.Drawing.Size(171, 23);
+            this.btnChuyenKhoan.TabIndex = 12;
+            this.btnChuyenKhoan.Text = "Thông tin chuyển khoản";
+            this.btnChuyenKhoan.UseVisualStyleBackColor = true;
+            this.btnChuyenKhoan.Click += new System.EventHandler(this.btnHoanTat_Click);
             // 
             // label2
             // 
@@ -657,33 +676,13 @@
             this.label19.TabIndex = 7;
             this.label19.Text = "Danh sách mặt hàng";
             // 
-            // maskedTextBox1
-            // 
-            this.maskedTextBox1.Location = new System.Drawing.Point(270, 98);
-            this.maskedTextBox1.Mask = "0000000000";
-            this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(204, 20);
-            this.maskedTextBox1.TabIndex = 1;
-            // 
-            // btnChuyenKhoan
-            // 
-            this.btnChuyenKhoan.Enabled = false;
-            this.btnChuyenKhoan.Location = new System.Drawing.Point(286, 459);
-            this.btnChuyenKhoan.Name = "btnChuyenKhoan";
-            this.btnChuyenKhoan.Size = new System.Drawing.Size(171, 23);
-            this.btnChuyenKhoan.TabIndex = 12;
-            this.btnChuyenKhoan.Text = "Thông tin chuyển khoản";
-            this.btnChuyenKhoan.UseVisualStyleBackColor = true;
-            this.btnChuyenKhoan.Click += new System.EventHandler(this.btnHoanTat_Click);
-            // 
-            // frmMuaHang
+            // SanPhamUC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1264, 699);
             this.Controls.Add(this.MuaHangUC);
-            this.Name = "frmMuaHang";
-            this.Text = "Mua Hàng";
+            this.Name = "SanPhamUC";
+            this.Size = new System.Drawing.Size(1271, 707);
             this.Load += new System.EventHandler(this.frmMuaHang_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
