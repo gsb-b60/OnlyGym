@@ -465,6 +465,158 @@ INSERT INTO DanhSachHoaDon
 
 
 
+CREATE FUNCTION dbo.TaoMaHDMoi(@NgayBan DATE)
+RETURNS NVARCHAR(20)
+AS
+BEGIN
+    DECLARE @BaseCode NVARCHAR(20)
+    DECLARE @NewCode NVARCHAR(20)
+    DECLARE @Count INT
+
+    -- Bước 1: Tạo mã gốc HD + ddMMyy
+    SET @BaseCode = 'HD' + FORMAT(@NgayBan, 'ddMMyy')
+
+    -- Bước 2: Đếm xem trong ngày đó đã có bao nhiêu hóa đơn
+    SELECT @Count = COUNT(*)
+    FROM CTHD
+    WHERE LEFT(MaHD, 8) = @BaseCode
+
+    -- Bước 3: Nếu chưa có → dùng mã gốc, nếu có rồi → thêm hậu tố 01, 02, ...
+    IF @Count = 0
+        SET @NewCode = @BaseCode
+    ELSE
+        SET @NewCode = @BaseCode + RIGHT('00' + CAST(@Count + 1 AS NVARCHAR(2)), 2)
+
+    RETURN @NewCode
+END
+GO
+
+SELECT dbo.TaoMaHDMoi('2025-01-12')
+
+CREATE FUNCTION dbo.TaoMaMuaHangMoi()
+RETURNS NVARCHAR(10)
+AS
+BEGIN
+    DECLARE @NewCode NVARCHAR(10);
+    DECLARE @LastCode NVARCHAR(10);
+    DECLARE @NumPart INT;
+
+    -- Lấy mã mới nhất hiện có trong bảng MuaHang
+    SELECT TOP 1 @LastCode = MaMuaHang
+    FROM MuaHang
+    ORDER BY MaMuaHang DESC;
+
+    -- Nếu chưa có mã nào thì bắt đầu từ MH001
+    IF @LastCode IS NULL
+        SET @NewCode = 'MH001';
+    ELSE
+    BEGIN
+        -- Cắt phần số ở sau 'MH'
+        SET @NumPart = CAST(SUBSTRING(@LastCode, 3, LEN(@LastCode)) AS INT) + 1;
+        -- Tạo mã mới với padding 3 chữ số
+        SET @NewCode = 'MH' + RIGHT('000' + CAST(@NumPart AS NVARCHAR(3)), 3);
+    END;
+
+    RETURN @NewCode;
+END;
+GO
+
+CREATE FUNCTION TaoMaHangMoi(@TenNhom NVARCHAR(100))
+RETURNS NVARCHAR(10)
+AS
+BEGIN
+    DECLARE @Prefix NVARCHAR(2)
+    DECLARE @LastCode NVARCHAR(10)
+    DECLARE @NextNumber INT
+    DECLARE @NewCode NVARCHAR(10)
+
+    -- Lấy 2 ký tự đầu từ tên nhóm, loại bỏ dấu cách
+    SET @Prefix = LEFT(REPLACE(@TenNhom, ' ', ''), 2)
+
+    -- Lấy mã cuối cùng trong bảng Hàng theo prefix
+    SELECT TOP 1 @LastCode = MaHang
+    FROM Hang
+    WHERE MaHang LIKE @Prefix + '%'
+    ORDER BY MaHang DESC
+
+    -- Nếu chưa có mã nào thì bắt đầu từ 1
+    IF @LastCode IS NULL
+        SET @NextNumber = 1
+    ELSE
+        SET @NextNumber = CAST(RIGHT(@LastCode, 4) AS INT) + 1
+
+    -- Tạo mã mới theo định dạng XX0001
+    SET @NewCode = @Prefix + RIGHT('0000' + CAST(@NextNumber AS NVARCHAR(4)), 4)
+
+    RETURN @NewCode
+END
+GO
+
+INSERT INTO Hang (MaHang, TenHang, DVT, DonGia)
+VALUES (dbo.TaoMaHangMoi(N'Phụ kiện tập luyện'), N'Găng tay tập gym', N'Đôi', 90000);
+
+
+CREATE PROCEDURE ResetStt_NhomHang
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    -- Bước 1: Sao lưu dữ liệu sang bảng tạm
+    SELECT TenNhom
+    INTO #TempNhomHang
+    FROM NhomHang;
+
+    -- Bước 2: Xóa toàn bộ dữ liệu cũ
+    DELETE FROM NhomHang;
+
+    -- Bước 3: Reset lại giá trị IDENTITY về 0
+    DBCC CHECKIDENT ('NhomHang', RESEED, 0);
+
+    -- Bước 4: Chèn lại dữ liệu từ bảng tạm
+    INSERT INTO NhomHang (TenNhom)
+    SELECT TenNhom FROM #TempNhomHang;
+
+    -- Bước 5: Xóa bảng tạm
+    DROP TABLE #TempNhomHang;
+
+    PRINT '✅ Đã reset lại MaNhom (IDENTITY) trong bảng NhomHang thành công!';
+END
+GO
+
+CREATE PROCEDURE ResetStt_Hang
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    -- Kiểm tra nếu bảng tồn tại
+    IF OBJECT_ID('Hang', 'U') IS NULL
+    BEGIN
+        PRINT '❌ Bảng Hang không tồn tại!';
+        RETURN;
+    END
+
+    -- Bước 1: Tạo bảng tạm
+    SELECT MaHang, MaNhom, TenHang, DVT, DonGia
+    INTO #TempHang
+    FROM Hang;
+
+    -- Bước 2: Xóa dữ liệu cũ
+    DELETE FROM Hang;
+
+    -- Bước 3: Reset lại giá trị IDENTITY về 0
+    DBCC CHECKIDENT ('Hang', RESEED, 0);
+
+    -- Bước 4: Chèn lại dữ liệu
+    INSERT INTO Hang (MaHang, MaNhom, TenHang, DVT, DonGia)
+    SELECT MaHang, MaNhom, TenHang, DVT, DonGia
+    FROM #TempHang;
+
+    -- Bước 5: Xóa bảng tạm
+    DROP TABLE #TempHang;
+
+    PRINT '✅ Đã refresh lại STT của bảng Hang thành công.';
+END
+GO
 
 
 Select * from DanhSachHoaDon

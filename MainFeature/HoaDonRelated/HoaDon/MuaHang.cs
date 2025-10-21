@@ -459,15 +459,16 @@ namespace GymManagerment_MVP.MainFeature.HoaDonRelated.HoaDon
                     string hinhThuc = cbHinhThuc.Text;
                     int conLai = 0;
                     int.TryParse(lbConLai.Text.Replace(",", ""), out conLai);
+                    string ngayBanStr = dtpNgayMua.Value.ToString("dd/MM/yyyy");
 
                     string insertHoaDon = @"INSERT INTO HoaDon (MaHD, TenKhachHang, SDT, NgayBan, NhanVienLap, TongTien, GiamGia, ThanhTien, KhachDua, HinhThuc, ConLai) 
-            VALUES (@MaHD, @TenKhachHang, @SDT, @NgayBan, @NhanVienLap, @TongTien, @GiamGia, @ThanhTien, @KhachDua, @HinhThuc, @ConLai)";
+VALUES (@MaHD, @TenKhachHang, @SDT, @NgayBan, @NhanVienLap, @TongTien, @GiamGia, @ThanhTien, @KhachDua, @HinhThuc, @ConLai)";
                     using (SqlCommand cmd = new SqlCommand(insertHoaDon, conn))
                     {
                         cmd.Parameters.AddWithValue("@MaHD", maHD);
                         cmd.Parameters.AddWithValue("@TenKhachHang", tenKhachHang);
                         cmd.Parameters.AddWithValue("@SDT", sdt);
-                        cmd.Parameters.AddWithValue("@NgayBan", ngayBan.Date);
+                        cmd.Parameters.AddWithValue("@NgayBan", ngayBanStr);
                         cmd.Parameters.AddWithValue("@NhanVienLap", nhanVienLap);
                         cmd.Parameters.AddWithValue("@TongTien", tongTien);
                         cmd.Parameters.AddWithValue("@GiamGia", giamGia);
@@ -479,13 +480,14 @@ namespace GymManagerment_MVP.MainFeature.HoaDonRelated.HoaDon
                     }
 
                     // Insert to DanhSachHoaDon
+                    string ngayTaoStr = DateTime.Now.ToString("dd/MM/yyyy");
                     string insertDSHD = @"INSERT INTO DanhSachHoaDon (MaHD, IDHocVien, NgayTao, KhachHang, TongTien, HinhThuc, NhanVienLap) 
-            VALUES (@MaHD, @IDHocVien, @NgayTao, @KhachHang, @TongTien, @HinhThuc, @NhanVienLap)";
+VALUES (@MaHD, @IDHocVien, @NgayTao, @KhachHang, @TongTien, @HinhThuc, @NhanVienLap)";
                     using (SqlCommand cmd = new SqlCommand(insertDSHD, conn))
                     {
                         cmd.Parameters.AddWithValue("@MaHD", maHD);
                         cmd.Parameters.AddWithValue("@IDHocVien", ""); // Set this if you have student ID
-                        cmd.Parameters.AddWithValue("@NgayTao", DateTime.Now.Date);
+                        cmd.Parameters.AddWithValue("@NgayTao", ngayTaoStr);
                         cmd.Parameters.AddWithValue("@KhachHang", tenKhachHang);
                         cmd.Parameters.AddWithValue("@TongTien", tongTien);
                         cmd.Parameters.AddWithValue("@HinhThuc", hinhThuc);
@@ -495,14 +497,14 @@ namespace GymManagerment_MVP.MainFeature.HoaDonRelated.HoaDon
 
                     // Insert into CTHD
                     string insertCTHD = @"INSERT INTO CTHD (MaHD, MaMuaHang, TenKhachHang, SDT, NgayBan, NhanVien, TongTien, GiamGia, ThanhTien, KhachDua, HinhThuc, ConLai)
-    VALUES (@MaHD, @MaMuaHang, @TenKhachHang, @SDT, @NgayBan, @NhanVien, @TongTien, @GiamGia, @ThanhTien, @KhachDua, @HinhThuc, @ConLai)";
+VALUES (@MaHD, @MaMuaHang, @TenKhachHang, @SDT, @NgayBan, @NhanVien, @TongTien, @GiamGia, @ThanhTien, @KhachDua, @HinhThuc, @ConLai)";
                     using (SqlCommand cmd = new SqlCommand(insertCTHD, conn))
                     {
                         cmd.Parameters.AddWithValue("@MaHD", maHD);
                         cmd.Parameters.AddWithValue("@MaMuaHang", maMuaHang);
                         cmd.Parameters.AddWithValue("@TenKhachHang", tenKhachHang);
                         cmd.Parameters.AddWithValue("@SDT", sdt);
-                        cmd.Parameters.AddWithValue("@NgayBan", ngayBan.Date);
+                        cmd.Parameters.AddWithValue("@NgayBan", ngayBanStr);
                         cmd.Parameters.AddWithValue("@NhanVien", nhanVienLap);
                         cmd.Parameters.AddWithValue("@TongTien", tongTien);
                         cmd.Parameters.AddWithValue("@GiamGia", giamGia);
@@ -579,40 +581,40 @@ namespace GymManagerment_MVP.MainFeature.HoaDonRelated.HoaDon
             }
         }
 
-        //private void InsertHang(string tenNhom, string tenHang, string dvt, int donGia)
-        //{
-        //    using (SqlConnection conn = new SqlConnection(connectionString))
-        //    {
-        //        conn.Open();
-        //        // Lookup MaNhom by TenNhom
-        //        string maNhom = "";
-        //        using (SqlCommand cmd = new SqlCommand("SELECT MaNhom FROM NhomHang WHERE TenNhom = @TenNhom", conn))
-        //        {
-        //            cmd.Parameters.AddWithValue("@TenNhom", tenNhom);
-        //            var result = cmd.ExecuteScalar();
-        //            if (result != null) maNhom = result.ToString();
-        //        }
-        //        // Generate MaHang
-        //        string maHang = "";
-        //        using (SqlCommand cmd = new SqlCommand("SELECT dbo.TaoMaHangMoi(@TenNhom)", conn))
-        //        {
-        //            cmd.Parameters.AddWithValue("@TenNhom", tenNhom);
-        //            var result = cmd.ExecuteScalar();
-        //            if (result != null) maHang = result.ToString();
-        //        }
-        //        // Insert Hang
-        //        string query = "INSERT INTO Hang (MaHang, MaNhom, TenHang, DVT, DonGia) VALUES (@MaHang, @MaNhom, @TenHang, @DVT, @DonGia)";
-        //        using (SqlCommand cmd = new SqlCommand(query, conn))
-        //        {
-        //            cmd.Parameters.AddWithValue("@MaHang", maHang);
-        //            cmd.Parameters.AddWithValue("@MaNhom", maNhom);
-        //            cmd.Parameters.AddWithValue("@TenHang", tenHang);
-        //            cmd.Parameters.AddWithValue("@DVT", dvt);
-        //            cmd.Parameters.AddWithValue("@DonGia", donGia);
-        //            cmd.ExecuteNonQuery();
-        //        }
-        //    }
-        //}
+        private void InsertHang(string tenNhom, string tenHang, string dvt, int donGia)
+        {
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                conn.Open();
+                // Lookup MaNhom by TenNhom
+                string maNhom = "";
+                using (SqlCommand cmd = new SqlCommand("SELECT MaNhom FROM NhomHang WHERE TenNhom = @TenNhom", conn))
+                {
+                    cmd.Parameters.AddWithValue("@TenNhom", tenNhom);
+                    var result = cmd.ExecuteScalar();
+                    if (result != null) maNhom = result.ToString();
+                }
+                // Generate MaHang
+                string maHang = "";
+                using (SqlCommand cmd = new SqlCommand("SELECT dbo.TaoMaHangMoi(@TenNhom)", conn))
+                {
+                    cmd.Parameters.AddWithValue("@TenNhom", tenNhom);
+                    var result = cmd.ExecuteScalar();
+                    if (result != null) maHang = result.ToString();
+                }
+                // Insert Hang
+                string query = "INSERT INTO Hang (MaHang, MaNhom, TenHang, DVT, DonGia) VALUES (@MaHang, @MaNhom, @TenHang, @DVT, @DonGia)";
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@MaHang", maHang);
+                    cmd.Parameters.AddWithValue("@MaNhom", maNhom);
+                    cmd.Parameters.AddWithValue("@TenHang", tenHang);
+                    cmd.Parameters.AddWithValue("@DVT", dvt);
+                    cmd.Parameters.AddWithValue("@DonGia", donGia);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
 
         //private void UpdateNhomHang(string oldTenNhom, string newTenNhom)
         //{
@@ -682,7 +684,48 @@ namespace GymManagerment_MVP.MainFeature.HoaDonRelated.HoaDon
 
         private void tsmiXoa_Click(object sender, EventArgs e)
         {
+            if (flpDanhMuc.Focused)
+            {
+                XoaDanhMuc();
+            }
+            else if (dgvDSHang.Focused)
+            {
+                XoaHang();
+            }
+        }
 
+        public void XoaDanhMuc()
+        {
+            if (MessageBox.Show("Bạn muốn xóa?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                var selectedBtn = flpDanhMuc.Controls.OfType<Button>().FirstOrDefault(b => b.Focused);
+                if (selectedBtn != null)
+                {
+                    string tenNhom = selectedBtn.Text;
+                    using (SqlConnection conn = new SqlConnection(connectionString))
+                    {
+                        conn.Open();
+                        string query = "DELETE FROM NhomHang WHERE TenNhom = @TenNhom";
+                        using (SqlCommand cmd = new SqlCommand(query, conn))
+                        {
+                            cmd.Parameters.AddWithValue("@TenNhom", tenNhom);
+                            cmd.ExecuteNonQuery();
+                        }
+                        // Call ResetStt_NhomHang after deletion
+                        using (SqlCommand cmd = new SqlCommand("ResetStt_NhomHang", conn))
+                        {
+                            cmd.CommandType = CommandType.StoredProcedure;
+                            cmd.ExecuteNonQuery();
+                        }
+                    }
+                    MessageBox.Show("Xóa danh mục thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    flpDanhMuc.Controls.Remove(selectedBtn);
+                    LoadDanhMuc(); // Reload categories
+                }
+            }
+        }
+        public void XoaHang()
+        {
             if (MessageBox.Show("Bạn muốn xóa?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 // Remove selected items from Hang table and UI (using dgvDSHang)
@@ -709,32 +752,6 @@ namespace GymManagerment_MVP.MainFeature.HoaDonRelated.HoaDon
                     }
                     LoadHangTheoNhom("Tất cả"); // Reload items
                     RefreshStt();
-                }
-
-                // Remove selected category button from NhomHang and UI
-                var selectedBtn = flpDanhMuc.Controls.OfType<Button>().FirstOrDefault(b => b.Focused);
-                if (selectedBtn != null)
-                {
-                    string tenNhom = selectedBtn.Text;
-                    using (SqlConnection conn = new SqlConnection(connectionString))
-                    {
-                        conn.Open();
-                        string query = "DELETE FROM NhomHang WHERE TenNhom = @TenNhom";
-                        using (SqlCommand cmd = new SqlCommand(query, conn))
-                        {
-                            cmd.Parameters.AddWithValue("@TenNhom", tenNhom);
-                            cmd.ExecuteNonQuery();
-                        }
-                        // Call ResetStt_NhomHang after deletion
-                        using (SqlCommand cmd = new SqlCommand("ResetStt_NhomHang", conn))
-                        {
-                            cmd.CommandType = CommandType.StoredProcedure;
-                            cmd.ExecuteNonQuery();
-                        }
-                    }
-                    MessageBox.Show("Xóa danh mục thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    flpDanhMuc.Controls.Remove(selectedBtn);
-                    LoadDanhMuc(); // Reload categories
                 }
             }
         }
