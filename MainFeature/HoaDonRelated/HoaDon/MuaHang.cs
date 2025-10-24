@@ -24,6 +24,8 @@ namespace GymManagerment_MVP.MainFeature.HoaDonRelated.HoaDon
         {
             LoadDanhMuc();
             TaoTextInput();
+            dgvDSHang.Columns["MaNhom"].Visible = false;
+
         }
 
         private void LoadDanhMuc()
@@ -60,19 +62,19 @@ namespace GymManagerment_MVP.MainFeature.HoaDonRelated.HoaDon
 
         private void btnClick(Button btn)
         {
+            btn.Focus(); // Ensure the clicked button is focused for selection logic
             string maNhom = btn.Tag.ToString();
             LoadHangTheoNhom(maNhom);
         }
 
         private void LoadHangTheoNhom(string maNhom)
         {
-            dgvDSHang.Columns["MaNhom"].Visible = false;
             DataTable dt = new DataTable();
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 conn.Open();
                 string query;
-                if (maNhom == "0" || string.IsNullOrEmpty(maNhom) || maNhom == "Tất cả")
+                if (maNhom == "1" || string.IsNullOrEmpty(maNhom) || maNhom == "Tất cả")
                 {
                     query = "SELECT * FROM Hang";
                 }
@@ -83,7 +85,7 @@ namespace GymManagerment_MVP.MainFeature.HoaDonRelated.HoaDon
 
                 using (SqlDataAdapter adapter = new SqlDataAdapter(query, conn))
                 {
-                    if (!(maNhom == "0" || string.IsNullOrEmpty(maNhom) || maNhom == "Tất cả"))
+                    if (!(maNhom == "1" || string.IsNullOrEmpty(maNhom) || maNhom == "Tất cả"))
                     {
                         adapter.SelectCommand.Parameters.AddWithValue("@MaNhom", maNhom);
                     }
@@ -91,6 +93,15 @@ namespace GymManagerment_MVP.MainFeature.HoaDonRelated.HoaDon
                 }
             }
             dgvDSHang.DataSource = dt;
+            foreach (DataGridViewRow row in dgvDSHang.Rows)
+            {
+                if (row.IsNewRow) continue;
+                var cell = row.Cells["DVT"];
+                if (cell.Value != null && int.TryParse(cell.Value.ToString(), out int dvtValue))
+                {
+                    cell.Value = dvtValue.ToString("N0");
+                }
+            }
         }
 
         private void tbTimDanhMuc_TextChanged(object sender, EventArgs e)
@@ -125,7 +136,7 @@ namespace GymManagerment_MVP.MainFeature.HoaDonRelated.HoaDon
 
         private void TaoTextInput()
         {
-            tbGiamGia.LostFocus += HienThiTien;
+            nudGiamGia.LostFocus += HienThiTien;
             tbKhachDua.LostFocus += HienThiTien;
             cbHinhThuc.LostFocus += HienThiHinhThuc;
 
@@ -183,10 +194,12 @@ namespace GymManagerment_MVP.MainFeature.HoaDonRelated.HoaDon
             if (cbTimTheo.Text == "Theo mã hàng")
             {
                 text = "Select * from TimKiemHangTheoMa(N'" + timKiem + "')";
+
             }
             else if (cbTimTheo.Text == "Theo tên hàng")
             {
                 text = "Select * from TimKiemHangTheoTen(N'" + timKiem + "')";
+
 
             }
             cmd.CommandText = text;
@@ -203,6 +216,7 @@ namespace GymManagerment_MVP.MainFeature.HoaDonRelated.HoaDon
 
         private void tbTimKiem_TextChanged(object sender, EventArgs e)
         {
+
             if (cbTimTheo.Text != "Tìm theo")
             {
                 tbTimKiem.Enabled = true;
@@ -223,20 +237,29 @@ namespace GymManagerment_MVP.MainFeature.HoaDonRelated.HoaDon
         }
         private void dgvDSHang_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-
-            string selectedCategory = "Tất cả";
-
-            int soLuong = 1;
-
             if (e.RowIndex < 0) return;
 
+            // Lookup TenNhom from NhomHang table using MaNhom from selected row
+            string maNhom = dgvDSHang.Rows[e.RowIndex].Cells["MaNhom"].Value.ToString();
+            string tenNhom = "";
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                conn.Open();
+                string query = "SELECT TenNhom FROM NhomHang WHERE MaNhom = @MaNhom";
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@MaNhom", maNhom);
+                    var result = cmd.ExecuteScalar();
+                    if (result != null)
+                        tenNhom = result.ToString();
+                }
+            }
+            string selectedCategory = tenNhom;
+            int soLuong = 1;
             string maHang = dgvDSHang.Rows[e.RowIndex].Cells["MaHang"].Value.ToString();
             string tenHang = dgvDSHang.Rows[e.RowIndex].Cells["TenHang"].Value.ToString();
             string donViTinh = dgvDSHang.Rows[e.RowIndex].Cells["DVT"].Value.ToString();
             int donGia = Convert.ToInt32(dgvDSHang.Rows[e.RowIndex].Cells["DonGia"].Value);
-
-            string tenNhom = selectedCategory;
-
             bool daTonTai = false;
             foreach (ListViewItem item in lvHangMua.Items)
             {
@@ -244,27 +267,23 @@ namespace GymManagerment_MVP.MainFeature.HoaDonRelated.HoaDon
                 {
                     soLuong = int.Parse(item.SubItems[5].Text) + 1;
                     item.SubItems[5].Text = soLuong.ToString();
-
                     int thanhTien = donGia * soLuong;
                     item.SubItems[7].Text = thanhTien.ToString("N0");
-
                     daTonTai = true;
                     break;
                 }
             }
-
             if (!daTonTai)
             {
                 int stt = lvHangMua.Items.Count + 1;
                 ListViewItem lvi = new ListViewItem(stt.ToString());
                 lvi.SubItems.Add(maHang);
-                lvi.SubItems.Add(tenNhom);
+                lvi.SubItems.Add(selectedCategory);
                 lvi.SubItems.Add(tenHang);
                 lvi.SubItems.Add(donViTinh);
                 lvi.SubItems.Add("1");
                 lvi.SubItems.Add(donGia.ToString("N0"));
                 lvi.SubItems.Add((donGia * soLuong).ToString("N0"));
-
                 lvHangMua.Items.Add(lvi);
                 RefreshStt();
             }
@@ -274,7 +293,7 @@ namespace GymManagerment_MVP.MainFeature.HoaDonRelated.HoaDon
         private void HienThiTien(object sender, EventArgs e)
         {
             int tongTien = 0;
-            int giamGia = int.Parse(tbGiamGia.Text);
+            int giamGia = int.Parse(nudGiamGia.Text);
             int khachDua = int.Parse(tbKhachDua.Text);
             int conLai = 0;
             foreach (ListViewItem item in lvHangMua.Items)
@@ -383,7 +402,6 @@ namespace GymManagerment_MVP.MainFeature.HoaDonRelated.HoaDon
             }
             return isEmpty;
         }
-
         private void btnHoanTat_Click(object sender, EventArgs e)
         {
             string maMuaHang = "";
@@ -453,13 +471,13 @@ namespace GymManagerment_MVP.MainFeature.HoaDonRelated.HoaDon
                     string sdt = mtbSDT.Text;
                     string nhanVienLap = cbNhanVienLap.Text;
                     int tongTien = int.Parse(tbTongTien.Text.Replace(",", ""));
-                    int giamGia = int.Parse(tbGiamGia.Text);
+                    int giamGia = int.Parse(nudGiamGia.Text);
                     int thanhTienHD = int.Parse(tbThanhTien.Text.Replace(",", ""));
                     int khachDua = int.Parse(tbKhachDua.Text);
                     string hinhThuc = cbHinhThuc.Text;
                     int conLai = 0;
                     int.TryParse(lbConLai.Text.Replace(",", ""), out conLai);
-                    string ngayBanStr = dtpNgayMua.Value.ToString("dd/MM/yyyy");
+                    DateTime ngayBanStr = dtpNgayMua.Value;
 
                     string insertHoaDon = @"INSERT INTO HoaDon (MaHD, TenKhachHang, SDT, NgayBan, NhanVienLap, TongTien, GiamGia, ThanhTien, KhachDua, HinhThuc, ConLai) 
 VALUES (@MaHD, @TenKhachHang, @SDT, @NgayBan, @NhanVienLap, @TongTien, @GiamGia, @ThanhTien, @KhachDua, @HinhThuc, @ConLai)";
@@ -528,7 +546,7 @@ VALUES (@MaHD, @MaMuaHang, @TenKhachHang, @SDT, @NgayBan, @NhanVien, @TongTien, 
                     cbNhanVienLap.SelectedIndex = -1;
                     cbHinhThuc.SelectedIndex = -1;
                     tbTongTien.Text = "0";
-                    tbGiamGia.Text = "0";
+                    nudGiamGia.Text = "0";
 
                     tbThanhTien.Text = "0";
 
@@ -541,157 +559,111 @@ VALUES (@MaHD, @MaMuaHang, @TenKhachHang, @SDT, @NgayBan, @NhanVien, @TongTien, 
             }
         }
 
+        public void ThemMoi()
+        {
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+
+                foreach (DataGridViewRow row in dgvDSHang.SelectedRows)
+                {
+                    var selectedBtn = flpDanhMuc.Controls.OfType<Button>().FirstOrDefault(b => b.Focused);
+
+                    int maNhom = Convert.ToInt32(row.Cells[1].Value);
+                    string tenNhom = selectedBtn.Text;
+                    string tenHang = row.Cells[3].Value.ToString();
+                    string dvt = row.Cells[4].Value.ToString();
+                    int donGia = Convert.ToInt32(row.Cells[5].Value);
+
+                    SqlCommand sqlCommand = conn.CreateCommand();
+
+                    sqlCommand.CommandText = "exec ThemHangMoi " + maNhom + ", N'" + tenNhom + "', N'" + tenHang + "', " + dvt + ", " + donGia;
+
+                    conn.Open();
+
+                    SqlDataAdapter da = new SqlDataAdapter(sqlCommand);
+
+                    DataTable dt = new DataTable("ThemHangMoi");
+                    da.Fill(dt);
+
+                    dgvDSHang.DataSource = dt;
+
+                    conn.Close();
+                    conn.Dispose();
+                    da.Dispose();
+
+                    LoadHangTheoNhom(tenNhom);
+
+                }
+            }
+        }
+
+        public void CapNhat()
+        {
+            
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+
+                foreach (DataGridViewRow row in dgvDSHang.SelectedRows)
+                {
+                    var selectedBtn = flpDanhMuc.Controls.OfType<Button>().FirstOrDefault(b => b.Focused);
+
+                    string tenNhom = selectedBtn.Text;
+                    int maNhom = Convert.ToInt32(row.Cells[1].Value);
+                    int maHang = Convert.ToInt32(row.Cells[2].Value);
+                    string tenHang = row.Cells[3].Value.ToString();
+                    string dvt = row.Cells[4].Value.ToString();
+                    int donGia = Convert.ToInt32(row.Cells[5].Value);
+
+                    SqlCommand sqlCommand = conn.CreateCommand();
+
+                    sqlCommand.CommandText = "exec CapNhatHang " + maHang + ", " + maNhom + ", N'" + tenHang + "', " + dvt + ", " + donGia;
+
+                    conn.Open();
+
+                    SqlDataAdapter da = new SqlDataAdapter(sqlCommand);
+
+                    DataTable dt = new DataTable("CapNhatHang");
+                    da.Fill(dt);
+
+                    dgvDSHang.DataSource = dt;
+
+                    conn.Close();
+                    conn.Dispose();
+                    da.Dispose();
+
+                    LoadHangTheoNhom(tenNhom);
+
+                }
+                }
+        }
+
+
+
+
         private void btnThemDM_Click(object sender, EventArgs e)
         {
             var frm = new frmThemMoi();
-            // Populate cbNhomHang with categories
-            using (SqlConnection conn = new SqlConnection(connectionString))
-            {
-                conn.Open();
-                string query = "SELECT TenNhom FROM NhomHang";
-                using (SqlCommand cmd = new SqlCommand(query, conn))
-                using (SqlDataReader reader = cmd.ExecuteReader())
-                {
-                    frm.CbNhomHang.Items.Clear();
-                    while (reader.Read())
-                    {
-                        frm.CbNhomHang.Items.Add(reader["TenNhom"].ToString());
-                    }
-                }
-            }
-            frm.CbNhomHang.Enabled = false;
-            frm.TbTenHangMoi.Enabled = false;
-            frm.TbDVTMoi.Enabled = false;
-            frm.TbDonGiaMoi.Enabled = false;
             frm.FormClosed += (s, args) => { LoadDanhMuc(); }; // Reload after close
             frm.ShowDialog();
         }
 
-        private void InsertNhomHang(string tenNhom)
-        {
-            using (SqlConnection conn = new SqlConnection(connectionString))
-            {
-                conn.Open();
-                string query = "INSERT INTO NhomHang (TenNhom) VALUES (@TenNhom)";
-                using (SqlCommand cmd = new SqlCommand(query, conn))
-                {
-                    cmd.Parameters.AddWithValue("@TenNhom", tenNhom);
-                    cmd.ExecuteNonQuery();
-                }
-            }
-        }
-
-        private void InsertHang(string tenNhom, string tenHang, string dvt, int donGia)
-        {
-            using (SqlConnection conn = new SqlConnection(connectionString))
-            {
-                conn.Open();
-                // Lookup MaNhom by TenNhom
-                string maNhom = "";
-                using (SqlCommand cmd = new SqlCommand("SELECT MaNhom FROM NhomHang WHERE TenNhom = @TenNhom", conn))
-                {
-                    cmd.Parameters.AddWithValue("@TenNhom", tenNhom);
-                    var result = cmd.ExecuteScalar();
-                    if (result != null) maNhom = result.ToString();
-                }
-                // Generate MaHang
-                string maHang = "";
-                using (SqlCommand cmd = new SqlCommand("SELECT dbo.TaoMaHangMoi(@TenNhom)", conn))
-                {
-                    cmd.Parameters.AddWithValue("@TenNhom", tenNhom);
-                    var result = cmd.ExecuteScalar();
-                    if (result != null) maHang = result.ToString();
-                }
-                // Insert Hang
-                string query = "INSERT INTO Hang (MaHang, MaNhom, TenHang, DVT, DonGia) VALUES (@MaHang, @MaNhom, @TenHang, @DVT, @DonGia)";
-                using (SqlCommand cmd = new SqlCommand(query, conn))
-                {
-                    cmd.Parameters.AddWithValue("@MaHang", maHang);
-                    cmd.Parameters.AddWithValue("@MaNhom", maNhom);
-                    cmd.Parameters.AddWithValue("@TenHang", tenHang);
-                    cmd.Parameters.AddWithValue("@DVT", dvt);
-                    cmd.Parameters.AddWithValue("@DonGia", donGia);
-                    cmd.ExecuteNonQuery();
-                }
-            }
-        }
-
-        //private void UpdateNhomHang(string oldTenNhom, string newTenNhom)
-        //{
-        //    using (SqlConnection conn = new SqlConnection(connectionString))
-        //    {
-        //        conn.Open();
-        //        string query = "UPDATE NhomHang SET TenNhom = @NewTenNhom WHERE TenNhom = @OldTenNhom";
-        //        using (SqlCommand cmd = new SqlCommand(query, conn))
-        //        {
-        //            cmd.Parameters.AddWithValue("@NewTenNhom", newTenNhom);
-        //            cmd.Parameters.AddWithValue("@OldTenNhom", oldTenNhom);
-        //            cmd.ExecuteNonQuery();
-        //        }
-        //    }
-        //}
-
-        //private void UpdateHang(string maHang, string tenHang, string dvt, int donGia)
-        //{
-        //    using (SqlConnection conn = new SqlConnection(connectionString))
-        //    {
-        //        conn.Open();
-        //        string query = "UPDATE Hang SET TenHang = @TenHang, DVT = @DVT, DonGia = @DonGia WHERE MaHang = @MaHang";
-        //        using (SqlCommand cmd = new SqlCommand(query, conn))
-        //        {
-        //            cmd.Parameters.AddWithValue("@TenHang", tenHang);
-        //            cmd.Parameters.AddWithValue("@DVT", dvt);
-        //            cmd.Parameters.AddWithValue("@DonGia", donGia);
-        //            cmd.Parameters.AddWithValue("@MaHang", maHang);
-        //            cmd.ExecuteNonQuery();
-        //        }
-        //    }
-        //}
-
-        private void btnThemHang_Click(object sender, EventArgs e)
-        {
-            var frm = new frmThemMoi();
-            using (SqlConnection conn = new SqlConnection(connectionString))
-            {
-                conn.Open();
-                string query = "SELECT TenNhom FROM NhomHang";
-                using (SqlCommand cmd = new SqlCommand(query, conn))
-                using (SqlDataReader reader = cmd.ExecuteReader())
-                {
-                    frm.CbNhomHang.Items.Clear();
-                    while (reader.Read())
-                    {
-                        frm.CbNhomHang.Items.Add(reader["TenNhom"].ToString());
-                    }
-                }
-            }
-            //frm.TbDanhMucMoi.Enabled = false;
-            //frm.FormClosed += (s, args) =>
-            //{
-            //    if (frm.DialogResult == DialogResult.OK)
-            //    {
-            //        // Use InsertHang with data from ThemDanhMuc.cs
-            //        string tenNhom = frm.CbNhomHang.Text;
-            //        string tenHang = frm.TbTenHangMoi.Text;
-            //        string dvt = frm.TbDVTMoi.Text;
-            //        int donGia = int.Parse(frm.TbDonGiaMoi.Text.Replace(",", ""));
-            //        InsertHang(tenNhom, tenHang, dvt, donGia);
-            //        LoadHangTheoNhom("Tất cả");
-            //    }
-            //};
-            //frm.ShowDialog();
-        }
-
         private void tsmiXoa_Click(object sender, EventArgs e)
         {
-            if (flpDanhMuc.Focused)
+            // If a button in flpDanhMuc is focused, delete category
+            var selectedBtn = flpDanhMuc.Controls.OfType<Button>().FirstOrDefault(b => b.Focused);
+            if (selectedBtn != null)
             {
                 XoaDanhMuc();
+                return;
             }
-            else if (dgvDSHang.Focused)
+            // If an item in lvHangMua is selected, delete item
+            if (lvHangMua.SelectedItems.Count > 0)
             {
                 XoaHang();
+                return;
             }
+            // Optionally, show a message if nothing is selected
+            MessageBox.Show("Vui lòng chọn danh mục hoặc hàng để xóa.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         public void XoaDanhMuc()
@@ -758,69 +730,131 @@ VALUES (@MaHD, @MaMuaHang, @TenKhachHang, @SDT, @NgayBan, @NhanVien, @TongTien, 
 
         private void tsmiSua_Click(object sender, EventArgs e)
         {
-            //    var frm = new frmThemMoi();
-            //    using (SqlConnection conn = new SqlConnection(connectionString))
-            //    {
-            //        conn.Open();
-            //        string query = "SELECT TenNhom FROM NhomHang";
-            //        using (SqlCommand cmd = new SqlCommand(query, conn))
-            //        using (SqlDataReader reader = cmd.ExecuteReader())
-            //        {
-            //            frm.CbNhomHang.Items.Clear();
-            //            while (reader.Read())
-            //            {
-            //                frm.CbNhomHang.Items.Add(reader["TenNhom"].ToString());
-            //            }
-            //        }
-            //    }
-            //    // If editing Hang (lvHangMua selected)
-            //    if (lvHangMua.SelectedItems.Count > 0)
-            //    {
-            //        var item = lvHangMua.SelectedItems[0];
-            //        frm.TbDanhMucMoi.Enabled = false;
-            //        frm.CbNhomHang.Enabled = false;
-            //        frm.TbTenHangMoi.Text = item.SubItems[3].Text;
-            //        frm.TbDVTMoi.Text = item.SubItems[4].Text;
-            //        frm.TbDonGiaMoi.Text = item.SubItems[6].Text;
-            //    }
-            //    // If editing DanhMuc (button in flpDanhMuc focused)
-            //    var selectedBtn = flpDanhMuc.Controls.OfType<Button>().FirstOrDefault(b => b.Focused);
-            //    if (selectedBtn != null)
-            //    {
-            //        frm.TbDanhMucMoi.Text = selectedBtn.Text;
-            //        frm.TbTenHangMoi.Enabled = false;
-            //        frm.TbDVTMoi.Enabled = false;
-            //        frm.TbDonGiaMoi.Enabled = false;
-            //        frm.CbNhomHang.Enabled = false;
+            var selectedBtn = flpDanhMuc.Controls.OfType<Button>().FirstOrDefault(b => b.Focused);
+            if (selectedBtn != null)
+            {
+                if (selectedBtn != null && selectedBtn.Text == "Tất cả")
+                {
+                    MessageBox.Show("Hãy chọn các danh mục ở dưới để thêm hàng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+                var frm = new frmThemMoi();
+                // Set tbMaDanhMuc in frmThemMoi to btn.Tag (MaNrom)
+                frm.TbMaDanhMuc.Text = selectedBtn.Tag.ToString();
+                // Optionally set tbDanhMucMoi to current TenNhom for editing
+                frm.TbDanhMucMoi.Text = selectedBtn.Text;
+                frm.ShowDialog();
+                // Optionally reload categories after editing
+                LoadDanhMuc();
+            }
 
-            //        frm.FormClosed += (s, args) =>
-            //        {
-            //            if (frm.DialogResult == DialogResult.OK)
-            //            {
-            //                // Update NhomHang only TenNhom
-            //                UpdateNhomHang(selectedBtn.Text, frm.TbDanhMucMoi.Text);
-            //                LoadDanhMuc();
-            //            }
-            //        };
-            //    }
-            //    else if (lvHangMua.SelectedItems.Count > 0)
-            //    {
-            //        frm.FormClosed += (s, args) =>
-            //        {
-            //            if (frm.DialogResult == DialogResult.OK)
-            //            {
-            //                // Update Hang
-            //                var item = lvHangMua.SelectedItems[0];
-            //                string maHang = item.SubItems[1].Text;
-            //                string tenHang = frm.TbTenHangMoi.Text;
-            //                string dvt = frm.TbDVTMoi.Text;
-            //                int donGia = int.Parse(frm.TbDonGiaMoi.Text.Replace(",", ""));
-            //                UpdateHang(maHang, tenHang, dvt, donGia);
-            //                LoadHangTheoNhom("Tất cả");
-            //            }
-            //        };
-            //    }
-            //    frm.ShowDialog();
+            if (selectedBtn != null && selectedBtn.Text == "Tất cả")
+            {
+                MessageBox.Show("Hãy chọn các danh mục ở dưới để thêm hàng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            else
+            {
+                //tbTenHang.Enabled = true;
+                //tbDonGia.Enabled = true;
+                //tbDVT.Enabled = true;
+
+                if (dgvDSHang.SelectedRows.Count > 0)
+                {
+                    var row = dgvDSHang.SelectedRows[0];
+                    var frm = new ThemHang();
+                    // Lookup TenNhom by MaNhom from the selected row
+                    string maNhom = row.Cells["MaNhom"].Value?.ToString();
+                    string tenNhom = string.Empty;
+                    using (SqlConnection conn = new SqlConnection(connectionString))
+                    {
+                        conn.Open();
+                        string query = "SELECT TenNhom FROM NhomHang WHERE MaNhom = @MaNhom";
+                        using (SqlCommand cmd = new SqlCommand(query, conn))
+                        {
+                            cmd.Parameters.AddWithValue("@MaNhom", maNhom);
+                            var result = cmd.ExecuteScalar();
+                            if (result != null)
+                                tenNhom = result.ToString();
+                        }
+                    }
+                    frm.TbMaHang.Text = row.Cells["MaHang"].Value?.ToString();
+                    frm.TbTenHang.Text = row.Cells["TenHang"].Value?.ToString();
+                    frm.TbDVT.Text = row.Cells["DVT"].Value?.ToString();
+                    frm.TbDonGia.Text = row.Cells["DonGia"].Value?.ToString();
+                    frm.CbNhomHang.Items.Clear();
+                    if (!string.IsNullOrEmpty(tenNhom))
+                    {
+                        frm.CbNhomHang.Items.Add(tenNhom);
+                        frm.CbNhomHang.SelectedIndex = 0;
+                    }
+                    frm.CbNhomHang.Enabled = false; // Disable changing category on edit
+                    frm.Controls["tbMaNhom"].Text = maNhom;
+                    frm.ShowDialog();
+                    LoadHangTheoNhom(tenNhom); // Reload items after editing
+                }
+            }
         }
-}
+
+        private void mtbSDT_Validating(object sender, CancelEventArgs e)
+        {
+            MaskedTextBox mtxt = sender as MaskedTextBox;
+            mtxt.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
+            string soDienThoai = mtxt.Text;
+
+            if (soDienThoai.Length < 10)
+            {
+                MessageBox.Show("Số điện thoại phải đủ 10 số. Vui lòng kiểm tra lại.", "Lỗi nhập liệu", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                e.Cancel = true;
+                return;
+            }
+            mtxt.TextMaskFormat = MaskFormat.IncludePromptAndLiterals;
+        }
+
+        private void tbKhachDua_Validating(object sender, CancelEventArgs e)
+        {
+            decimal thanhTien = decimal.Parse(tbThanhTien.Text);
+            decimal khachDua  = decimal.Parse(tbKhachDua.Text);
+
+            decimal conLai = khachDua - thanhTien;
+
+            if(conLai < 0)
+            {
+                MessageBox.Show("Chưa trả đủ tiền.", "Lỗi thanh toán", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                tbKhachDua.Text = "0";
+                return;
+            }
+        }
+
+        private void btnThoat_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnThemHang_Click(object sender, EventArgs e)
+        {
+            var frm = new ThemHang();
+            frm.LoadNhomHang();
+            frm.CbNhomHang.SelectedIndexChanged += (s, args) =>
+            {
+                if (frm.CbNhomHang.SelectedItem != null)
+                {
+                    string tenNhom = frm.CbNhomHang.SelectedItem.ToString();
+                    using (SqlConnection conn = new SqlConnection(connectionString))
+                    {
+                        conn.Open();
+                        string query = "SELECT MaNhom FROM NhomHang WHERE TenNhom = @TenNhom";
+                        using (SqlCommand cmd = new SqlCommand(query, conn))
+                        {
+                            cmd.Parameters.AddWithValue("@TenNhom", tenNhom);
+                            var result = cmd.ExecuteScalar();
+                            if (result != null)
+                                frm.Controls["tbMaNhom"].Text = result.ToString();
+                        }
+                    }
+                }
+            };
+            frm.ShowDialog();
+        }
+    }
 }

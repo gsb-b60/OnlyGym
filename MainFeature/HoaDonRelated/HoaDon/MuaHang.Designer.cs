@@ -51,7 +51,6 @@
             this.tbTongTien = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
-            this.tbGiamGia = new System.Windows.Forms.TextBox();
             this.tbKhachDua = new System.Windows.Forms.TextBox();
             this.tbTenKhachMua = new System.Windows.Forms.TextBox();
             this.cbHinhThuc = new System.Windows.Forms.ComboBox();
@@ -82,8 +81,11 @@
             this.label3 = new System.Windows.Forms.Label();
             this.MuaHangUC = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.nudGiamGia = new System.Windows.Forms.NumericUpDown();
             this.mtbSDT = new System.Windows.Forms.MaskedTextBox();
             this.btnChuyenKhoan = new System.Windows.Forms.Button();
+            this.btnThoat = new System.Windows.Forms.Button();
+            this.label14 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnThemDM = new System.Windows.Forms.Button();
@@ -100,6 +102,7 @@
             this.DsHang.SuspendLayout();
             this.MuaHangUC.SuspendLayout();
             this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudGiamGia)).BeginInit();
             this.panel2.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -283,14 +286,6 @@
             this.label15.TabIndex = 9;
             this.label15.Text = "đồng";
             // 
-            // tbGiamGia
-            // 
-            this.tbGiamGia.Location = new System.Drawing.Point(271, 295);
-            this.tbGiamGia.Name = "tbGiamGia";
-            this.tbGiamGia.Size = new System.Drawing.Size(204, 20);
-            this.tbGiamGia.TabIndex = 3;
-            this.tbGiamGia.Text = "0";
-            // 
             // tbKhachDua
             // 
             this.tbKhachDua.Location = new System.Drawing.Point(271, 371);
@@ -298,6 +293,7 @@
             this.tbKhachDua.Size = new System.Drawing.Size(133, 20);
             this.tbKhachDua.TabIndex = 4;
             this.tbKhachDua.Text = "0";
+            this.tbKhachDua.Validating += new System.ComponentModel.CancelEventHandler(this.tbKhachDua_Validating);
             // 
             // tbTenKhachMua
             // 
@@ -414,7 +410,7 @@
             this.tsmiSua.Text = "Sửa";
             this.tsmiSua.Click += new System.EventHandler(this.tsmiSua_Click);
             // 
-            //label12
+            // label12
             // 
             this.label12.AutoSize = true;
             this.label12.Location = new System.Drawing.Point(9, 56);
@@ -556,16 +552,17 @@
             // 
             // panel4
             // 
+            this.panel4.Controls.Add(this.nudGiamGia);
             this.panel4.Controls.Add(this.mtbSDT);
             this.panel4.Controls.Add(this.dtpNgayMua);
             this.panel4.Controls.Add(this.chbInHoaDon);
             this.panel4.Controls.Add(this.btnChuyenKhoan);
+            this.panel4.Controls.Add(this.btnThoat);
             this.panel4.Controls.Add(this.btnHoanTat);
             this.panel4.Controls.Add(this.tbThanhTien);
             this.panel4.Controls.Add(this.tbTongTien);
             this.panel4.Controls.Add(this.label16);
             this.panel4.Controls.Add(this.label15);
-            this.panel4.Controls.Add(this.tbGiamGia);
             this.panel4.Controls.Add(this.tbKhachDua);
             this.panel4.Controls.Add(this.tbTenKhachMua);
             this.panel4.Controls.Add(this.cbHinhThuc);
@@ -576,6 +573,7 @@
             this.panel4.Controls.Add(this.lbConLai);
             this.panel4.Controls.Add(this.label13);
             this.panel4.Controls.Add(this.label8);
+            this.panel4.Controls.Add(this.label14);
             this.panel4.Controls.Add(this.label7);
             this.panel4.Controls.Add(this.label6);
             this.panel4.Controls.Add(this.label5);
@@ -588,13 +586,27 @@
             this.panel4.Size = new System.Drawing.Size(490, 693);
             this.panel4.TabIndex = 0;
             // 
+            // nudGiamGia
+            // 
+            this.nudGiamGia.Location = new System.Drawing.Point(271, 296);
+            this.nudGiamGia.Maximum = new decimal(new int[] {
+            15,
+            0,
+            0,
+            0});
+            this.nudGiamGia.Name = "nudGiamGia";
+            this.nudGiamGia.Size = new System.Drawing.Size(51, 20);
+            this.nudGiamGia.TabIndex = 11;
+            // 
             // mtbSDT
             // 
+            this.mtbSDT.BeepOnError = true;
             this.mtbSDT.Location = new System.Drawing.Point(270, 98);
             this.mtbSDT.Mask = "0000000000";
             this.mtbSDT.Name = "mtbSDT";
             this.mtbSDT.Size = new System.Drawing.Size(204, 20);
             this.mtbSDT.TabIndex = 1;
+            this.mtbSDT.Validating += new System.ComponentModel.CancelEventHandler(this.mtbSDT_Validating);
             // 
             // btnChuyenKhoan
             // 
@@ -606,6 +618,26 @@
             this.btnChuyenKhoan.Text = "Thông tin chuyển khoản";
             this.btnChuyenKhoan.UseVisualStyleBackColor = true;
             this.btnChuyenKhoan.Click += new System.EventHandler(this.btnChuyenKhoan_Click);
+            // 
+            // btnThoat
+            // 
+            this.btnThoat.Location = new System.Drawing.Point(218, 661);
+            this.btnThoat.Name = "btnThoat";
+            this.btnThoat.Size = new System.Drawing.Size(75, 23);
+            this.btnThoat.TabIndex = 8;
+            this.btnThoat.Text = "Thoát";
+            this.btnThoat.UseVisualStyleBackColor = true;
+            this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(327, 295);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(20, 17);
+            this.label14.TabIndex = 4;
+            this.label14.Text = "%";
             // 
             // label2
             // 
@@ -732,6 +764,7 @@
             this.MuaHangUC.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudGiamGia)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -766,7 +799,6 @@
         private System.Windows.Forms.TextBox tbTongTien;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.TextBox tbGiamGia;
         private System.Windows.Forms.TextBox tbKhachDua;
         private System.Windows.Forms.TextBox tbTenKhachMua;
         private System.Windows.Forms.ComboBox cbHinhThuc;
@@ -791,7 +823,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btnThemDM;
-        private System.Windows.Forms.Button btnThemHang;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.TextBox tbTimDanhMuc;
         private System.Windows.Forms.GroupBox groupBox1;
@@ -809,5 +840,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn TenHang;
         private System.Windows.Forms.DataGridViewTextBoxColumn DVT;
         private System.Windows.Forms.DataGridViewTextBoxColumn DonGia;
+        private System.Windows.Forms.Button btnThemHang;
+        private System.Windows.Forms.NumericUpDown nudGiamGia;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Button btnThoat;
     }
 }

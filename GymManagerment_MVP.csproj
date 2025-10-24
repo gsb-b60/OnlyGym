@@ -112,6 +112,12 @@
     <Compile Include="MainFeature\HoaDonRelated\HoaDon\ThemDanhMuc.Designer.cs">
       <DependentUpon>ThemDanhMuc.cs</DependentUpon>
     </Compile>
+    <Compile Include="MainFeature\HoaDonRelated\HoaDon\ThemHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainFeature\HoaDonRelated\HoaDon\ThemHang.Designer.cs">
+      <DependentUpon>ThemHang.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainFeature\HoaDonRelated\MuaGoiTap.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -380,6 +386,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MainFeature\HoaDonRelated\HoaDon\ThemDanhMuc.resx">
       <DependentUpon>ThemDanhMuc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainFeature\HoaDonRelated\HoaDon\ThemHang.resx">
+      <DependentUpon>ThemHang.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainFeature\HoaDonRelated\MuaGoiTap.resx">
       <DependentUpon>MuaGoiTap.cs</DependentUpon>

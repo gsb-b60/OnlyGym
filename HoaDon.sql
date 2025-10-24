@@ -157,8 +157,8 @@ SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[Hang](
 	[STT] [int] IDENTITY(1,1) NOT NULL,
-	--[MaNhom] [nvarchar](10) NOT NULL,
 	[MaHang] [nvarchar](10) NOT NULL,
+	[MaNhom] [nvarchar](10) NOT NULL,
 	[TenHang] [nvarchar](100) NOT NULL,
 	[DVT] [nvarchar](10) NOT NULL,
 	[DonGia] [int] NOT NULL,
@@ -219,7 +219,7 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[NhomHang](
-	[MaNhom] [int] IDENTITY(0,1) NOT NULL,
+	[MaNhom] [int] IDENTITY(1,1) NOT NULL,
 	[TenNhom] [nvarchar](100) NOT NULL,
  CONSTRAINT [PK_NhomHang] PRIMARY KEY CLUSTERED 
 (
@@ -242,39 +242,39 @@ insert into NhomHang (TenNhom) values(N'Tất cả'),
 (N'Phụ kiện tập luyện'),
 (N'Quần áo');
 
-insert into Hang (MaHang, TenHang, DVT, DonGia) values
-('NA0001', N'Nước suối 500ml', N'Chai', 10000),
-('NA0002', N'Nước điện giải', N'Chai', 25000),
-('NA0003', N'Thanh protein bar', N'Thanh', 45000),
-('NA0004', N'Sữa tăng cơ (whey 1kg)', N'Hộp', 650000),
-('NA0005', N'Nước tăng lực', N'Chai', 30000),
-('NA0006', N'Sinh tố protein', N'Ly', 55000),
-('NA0007', N'Vitamin tổng hợp', N'Lọ', 220000),
-('NA0008', N'Bánh yến mạch', N'Gói', 35000),
-('NA0009', N'Sữa hạnh nhân', N'Hộp', 40000),
-('NA0010', N'Gel năng lượng', N'Gói', 28000),
+insert into Hang (MaHang, MaNhom, TenHang, DVT, DonGia) values
+('NA0001',2, N'Nước suối 500ml', N'Chai', 10000),
+('NA0002',2, N'Nước điện giải', N'Chai', 25000),
+('NA0003',2, N'Thanh protein bar', N'Thanh', 45000),
+('NA0004',2, N'Sữa tăng cơ (whey 1kg)', N'Hộp', 650000),
+('NA0005',2, N'Nước tăng lực', N'Chai', 30000),
+('NA0006',2, N'Sinh tố protein', N'Ly', 55000),
+('NA0007',2, N'Vitamin tổng hợp', N'Lọ', 220000),
+('NA0008',2, N'Bánh yến mạch', N'Gói', 35000),
+('NA0009',2, N'Sữa hạnh nhân', N'Hộp', 40000),
+('NA0010',2, N'Gel năng lượng', N'Gói', 28000),
  
-('PK0001', N'Găng tay tập gym', N'Đôi', 90000),
-('PK0002', N'Dây nhảy thể lực', N'Cái', 70000),
-('PK0003', N'Thảm tập yoga', N'Cái', 250000),
-('PK0004', N'Dây kháng lực', N'Bộ', 180000),
-('PK0005', N'Bóng tập yoga', N'Cái', 150000),
-('PK0006', N'Bình nước thể thao 1L', N'Cái', 120000),
-('PK0007', N'Băng quấn cổ tay', N'Đôi', 75000),
-('PK0008', N'Tạ tay cao su 5kg', N'Cặp', 350000),
-('PK0009', N'Đai lưng tập tạ', N'Cái', 300000),
-('PK0010', N'Khăn thể thao', N'Cái', 90000),
+('PK0001',3, N'Găng tay tập gym', N'Đôi', 90000),
+('PK0002',3, N'Dây nhảy thể lực', N'Cái', 70000),
+('PK0003',3, N'Thảm tập yoga', N'Cái', 250000),
+('PK0004',3, N'Dây kháng lực', N'Bộ', 180000),
+('PK0005',3, N'Bóng tập yoga', N'Cái', 150000),
+('PK0006',3, N'Bình nước thể thao 1L', N'Cái', 120000),
+('PK0007',3, N'Băng quấn cổ tay', N'Đôi', 75000),
+('PK0008',3, N'Tạ tay cao su 5kg', N'Cặp', 350000),
+('PK0009',3, N'Đai lưng tập tạ', N'Cái', 300000),
+('PK0010',3, N'Khăn thể thao', N'Cái', 90000),
  
-('QA0001', N'Áo thun tập gym nam', N'Cái', 120000),
-('QA0002', N'Quần short gym nữ', N'Cái', 150000),
-('QA0003', N'Áo bra thể thao nữ', N'Cái', 180000),
-('QA0004', N'Quần legging nữ', N'Cái', 220000),
-('QA0005', N'Áo khoác gió tập gym', N'Cái', 350000),
-('QA0006', N'Quần jogger nam', N'Cái', 280000),
-('QA0007', N'Áo tank top nam', N'Cái', 140000),
-('QA0008', N'Bộ đồ thể thao nữ', N'Bộ', 480000),
-('QA0009', N'Áo hoodie thể thao nam', N'Cái', 420000),
-('QA0010', N'Áo polo tập gym', N'Cái', 260000);
+('QA0001',4, N'Áo thun tập gym nam', N'Cái', 120000),
+('QA0002',4, N'Quần short gym nữ', N'Cái', 150000),
+('QA0003',4, N'Áo bra thể thao nữ', N'Cái', 180000),
+('QA0004',4, N'Quần legging nữ', N'Cái', 220000),
+('QA0005',4, N'Áo khoác gió tập gym', N'Cái', 350000),
+('QA0006',4, N'Quần jogger nam', N'Cái', 280000),
+('QA0007',4, N'Áo tank top nam', N'Cái', 140000),
+('QA0008',4, N'Bộ đồ thể thao nữ', N'Bộ', 480000),
+('QA0009',4, N'Áo hoodie thể thao nam', N'Cái', 420000),
+('QA0010',4, N'Áo polo tập gym', N'Cái', 260000);
 
 
 INSERT INTO CTHD (MaHD, MaMuaHang, TenKhachHang, SDT, NgayBan, NhanVien, TongTien, GiamGia, ThanhTien, KhachDua, HinhThuc, ConLai) 
@@ -300,29 +300,28 @@ VALUES
 ('HD111125', 'MH019', N'Đặng Thị K', '0903459988', '2025-11-11', N'Lê Thị Mai', 1250000, 10, 1125000, 1200000, N'Tiền mặt', 75000),
 ('HD121225', 'MH020', N'Nguyễn Văn L', '0908877665', '2025-12-12', N'Nguyễn Văn Bình', 1850000, 8, 1702000, 1702000, N'Chuyển khoản', 0);
 
-insert into HoaDon
-(MaHD, TenKhachHang, SDT, NgayBan, NhanVienLap, TongTien, GiamGia, ThanhTien, KhachDua, HinhThuc, ConLai) values
-('HD060125', N'Trần Thị M', '0911000001', '06/01/2025', N'Phạm Hồng Anh', 1950000, 0, 1950000, 1950000, N'Tiền mặt', 0),
-('HD120125', N'Nguyễn Văn A', '0911000002', '12/01/2025', N'Lê Thị Mai', 1500000, 100000, 1400000, 1400000, N'Tiền mặt', 0),
-('HD050225', N'Trần Thị B', '0911000003', '05/02/2025', N'Nguyễn Văn Bình', 1200000, 0, 1200000, 1000000, N'Chuyển khoản', 200000),
-('HD170225', N'Lê Văn N', '0911000004', '17/02/2025', N'Vũ Thị Hoa', 2300000, 300000, 2000000, 2000000, N'Chuyển khoản', 0),
-('HD110325', N'Hoàng Oanh', '0911000005', '11/03/2025', N'Trần Hữu Quang', 1450000, 0, 1450000, 1450000, N'Tiền mặt', 0),
-('HD180325', N'Phạm Văn C', '0911000006', '18/03/2025', N'Phạm Hồng Anh', 1800000, 200000, 1600000, 1000000, N'Tiền mặt', 600000),
-('HD020425', N'Lê Minh D', '0911000007', '02/04/2025', N'Vũ Thị Hoa', 2000000, 0, 2000000, 1500000, N'Chuyển khoản', 500000),
-('HD040425', N'Nguyễn Văn P', '0911000008', '04/04/2025', N'Lê Thị Mai', 2500000, 250000, 2250000, 2250000, N'Chuyển khoản', 0),
-('HD100525', N'Trần Thị Q', '0911000009', '10/05/2025', N'Nguyễn Văn Bình', 1100000, 0, 1100000, 1100000, N'Tiền mặt', 0),
-('HD160525', N'Hoàng Thu E', '0911000010', '16/05/2025', N'Trần Hữu Quang', 950000, 0, 950000, 500000, N'Tiền mặt', 450000),
-('HD070625', N'Nguyễn Văn F', '0911000011', '07/06/2025', N'Lê Thị Mai', 2200000, 200000, 2000000, 2000000, N'Tiền mặt', 0),
-('HD190625', N'Phạm Văn R', '0911000012', '19/06/2025', N'Phạm Hồng Anh', 2000000, 0, 2000000, 1800000, N'Chuyển khoản', 200000),
-('HD080725', N'Lê Thị S', '0911000013', '17/07/2025', N'Vũ Thị Hoa', 1750000, 75000, 1675000, 1675000, N'Tiền mặt', 0),
-('HD200725', N'Bùi Thị G', '0911000014', '20/07/2025', N'Nguyễn Văn Bình', 1350000, 0, 1350000, 1000000, N'Chuyển khoản', 350000),
-('HD030825', N'Trịnh Văn H', '0911000015', '03/08/2025', N'Phạm Hồng Anh', 1750000, 0, 1750000, 1750000, N'Tiền mặt', 0),
-('HD140825', N'Nguyễn Văn T', '0911000016', '14/08/2025', N'Trần Hữu Quang', 2600000, 600000, 2000000, 2000000, N'Chuyển khoản', 0),
-('HD150925', N'Ngô Thị I', '0911000017', '15/09/2025', N'Vũ Thị Hoa', 1600000, 0, 1600000, 1600000, N'Chuyển khoản', 0),
-('HD101025', N'Vũ Văn J', '0911000018', '10/10/2025', N'Trần Hữu Quang', 2100000, 0, 2100000, 2000000, N'Tiền mặt', 100000),
-('HD111125', N'Đặng Thị K', '0911000019', '11/11/2025', N'Lê Thị Mai', 1250000, 0, 1250000, 1250000, N'Tiền mặt', 0),
-('HD121225', N'Nguyễn Văn L', '0911000020', '12/12/2025', N'Nguyễn Văn Bình', 1850000, 85000, 1765000, 1765000, N'Chuyển khoản', 0)
-
+INSERT INTO HoaDon
+(MaHD, TenKhachHang, SDT, NgayBan, NhanVienLap, TongTien, GiamGia, ThanhTien, KhachDua, HinhThuc, ConLai) VALUES
+('HD120125', N'Nguyễn Văn A', '0987654321', '2025-01-12', N'Lê Thị Mai', 1500000, 5, 1425000, 1425000, N'Tiền mặt', 0),
+('HD060125', N'Trần Thị M', '0912345678', '2025-01-06', N'Phạm Hồng Anh', 1950000, 10, 1755000, 1755000, N'Tiền mặt', 0),
+('HD050225', N'Trần Thị B', '0971234567', '2025-02-05', N'Nguyễn Văn Bình', 1200000, 0, 1200000, 1200000, N'Chuyển khoản', 0),
+('HD170225', N'Lê Văn N', '0903344556', '2025-02-17', N'Vũ Thị Hoa', 2300000, 8, 2116000, 2116000, N'Chuyển khoản', 0),
+('HD180325', N'Phạm Văn C', '0912987456', '2025-03-18', N'Phạm Hồng Anh', 1800000, 5, 1710000, 1800000, N'Tiền mặt', 90000),
+('HD110325', N'Hoàng Oanh', '0934567890', '2025-03-11', N'Trần Hữu Quang', 1450000, 10, 1305000, 1500000, N'Tiền mặt', 195000),
+('HD020425', N'Lê Minh D', '0909123456', '2025-04-02', N'Vũ Thị Hoa', 2000000, 7, 1860000, 1860000, N'Chuyển khoản', 0),
+('HD040425', N'Nguyễn Văn P', '0908999333', '2025-04-04', N'Lê Thị Mai', 2500000, 10, 2250000, 2250000, N'Chuyển khoản', 0),
+('HD100525', N'Trần Thị Q', '0977665544', '2025-05-10', N'Nguyễn Văn Bình', 1100000, 0, 1100000, 1100000, N'Tiền mặt', 0),
+('HD160525', N'Hoàng Thu E', '0967788990', '2025-05-16', N'Trần Hữu Quang', 950000, 5, 902500, 1000000, N'Tiền mặt', 97500),
+('HD070625', N'Nguyễn Văn F', '0988111222', '2025-06-07', N'Lê Thị Mai', 2200000, 8, 2024000, 2100000, N'Tiền mặt', 76000),
+('HD190625', N'Phạm Văn R', '0911445566', '2025-06-19', N'Phạm Hồng Anh', 2000000, 5, 1900000, 1900000, N'Chuyển khoản', 0),
+('HD080725', N'Lê Thị S', '0922334455', '2025-07-08', N'Vũ Thị Hoa', 1750000, 10, 1575000, 1600000, N'Tiền mặt', 250000),
+('HD200725', N'Bùi Thị G', '0901239876', '2025-07-20', N'Nguyễn Văn Bình', 1350000, 0, 1350000, 1350000, N'Chuyển khoản', 0),
+('HD030825', N'Trịnh Văn H', '0977432112', '2025-08-03', N'Phạm Hồng Anh', 1750000, 5, 1662500, 1662500, N'Tiền mặt', 0),
+('HD140825', N'Nguyễn Văn T', '0944556677', '2025-08-14', N'Trần Hữu Quang', 2600000, 10, 2340000, 2340000, N'Chuyển khoản', 0),
+('HD150925', N'Ngô Thị I', '0939221122', '2025-09-15', N'Vũ Thị Hoa', 1600000, 5, 1520000, 1520000, N'Chuyển khoản', 0),
+('HD101025', N'Vũ Văn J', '0927668899', '2025-10-10', N'Trần Hữu Quang', 2100000, 0, 2100000, 2100000, N'Tiền mặt', 0),
+('HD111125', N'Đặng Thị K', '0903459988', '2025-11-11', N'Lê Thị Mai', 1250000, 10, 1125000, 1200000, N'Tiền mặt', 75000),
+('HD121225', N'Nguyễn Văn L', '0908877665', '2025-12-12', N'Nguyễn Văn Bình', 1850000, 8, 1702000, 1702000, N'Chuyển khoản', 0);
 
 INSERT INTO MuaHang (MaMuaHang, STT, MaHang, NhomHang, TenHang, DVT, SoLuong, DonGia, ThanhTien) VALUES
 -- MH001 = 1,950,000
@@ -456,13 +455,103 @@ INSERT INTO DanhSachHoaDon
 ('HD030825', '008', '03/08/2025', N'Trịnh Văn H', 1750000, N'Tiền mặt', N'Phạm Hồng Anh'),
 ('HD140825', '020', '14/08/2025', N'Nguyễn Văn T', 2600000, N'Chuyển khoản', N'Trần Hữu Quang'),
 ('HD150925', '009', '15/09/2025', N'Ngô Thị I', 1600000, N'Chuyển khoản', N'Vũ Thị Hoa'),
-('HD101025', '010', '10/10/2025', N'Vũ Văn J', 2100000, N'Tiền mặt', N'Trần Hữu Quang'),
+('HD101025', '010', '10/10/2025', N'Vũ Văn Jack', 2100000, N'Tiền mặt', N'Trần Hữu Quang'),
 ('HD111125', '011', '11/11/2025', N'Đặng Thị K', 1250000, N'Tiền mặt', N'Lê Thị Mai'),
 ('HD121225', '012', '12/12/2025', N'Nguyễn Văn L', 1850000, N'Chuyển khoản', N'Nguyễn Văn Bình');
 
+select * from Hang
+delete Hang where MaHang = 'Ph0011'
 
+CREATE PROCEDURE dbo.ThemHangMoi
+    @MaNhom NVARCHAR(10),
+    @TenNhom NVARCHAR(100),
+    @TenHang NVARCHAR(100),
+    @DVT NVARCHAR(10),
+    @DonGia INT
+AS
+BEGIN
+    SET NOCOUNT ON;
 
+    DECLARE @MaHang NVARCHAR(10);
 
+    -- Sinh mã hàng mới dựa vào tên nhóm
+    SET @MaHang = dbo.TaoMaHangMoi(@TenNhom);
+
+    -- Kiểm tra mã nhóm có tồn tại trong bảng NhomHang không
+    IF NOT EXISTS (SELECT 1 FROM NhomHang WHERE MaNhom = @MaNhom)
+    BEGIN
+        RAISERROR(N'Mã nhóm hàng không tồn tại.', 16, 1);
+        RETURN;
+    END
+
+    -- Thêm hàng mới
+    INSERT INTO Hang (MaHang, MaNhom, TenHang, DVT, DonGia)
+    VALUES (@MaHang, @MaNhom, @TenHang, @DVT, @DonGia);
+
+    PRINT N'Thêm hàng mới thành công với mã: ' + @MaHang;
+END
+GO
+
+EXEC ThemHangMoi 
+    @MaNhom = 1,
+    @TenNhom = N'Ú Á',
+    @TenHang = N'Dây kéo kháng lực',
+    @DVT = N'Bộ',
+    @DonGia = 180000;
+    
+drop proc dbo.ThemHangMoi
+drop proc dbo.CapNhatHang
+
+    CREATE PROCEDURE dbo.CapNhatHang
+    @MaHang NVARCHAR(10),
+    @MaNhom NVARCHAR(10),
+    @TenHang NVARCHAR(100),
+    @DVT NVARCHAR(10),
+    @DonGia INT
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    -- Kiểm tra hàng có tồn tại không
+    IF NOT EXISTS (SELECT 1 FROM Hang WHERE MaHang = @MaHang)
+    BEGIN
+        RAISERROR(N'Mã hàng không tồn tại.', 16, 1);
+        RETURN;
+    END
+
+    -- Kiểm tra mã nhóm có tồn tại không
+    IF NOT EXISTS (SELECT 1 FROM NhomHang WHERE MaNhom = @MaNhom)
+    BEGIN
+        RAISERROR(N'Mã nhóm hàng không tồn tại.', 16, 1);
+        RETURN;
+    END
+
+    -- Cập nhật dữ liệu
+    UPDATE Hang
+    SET 
+        MaNhom = @MaNhom,
+        TenHang = @TenHang,
+        DVT = @DVT,
+        DonGia = @DonGia
+    WHERE MaHang = @MaHang;
+
+    PRINT N'Cập nhật hàng thành công cho mã: ' + @MaHang;
+END
+GO
+
+EXEC CapNhatHang 
+    @MaHang = 'PK0005',
+    @MaNhom = 2,
+    @TenHang = N'Dây kháng lực Pro',
+    @DVT = N'Bộ',
+    @DonGia = 200000;
+
+Select * from NhomHang
+Select * from Hang
+Select * from MuaHang
+Select * from HoaDon
+Select * from CTHD
+Select * from DanhSachHoaDon
 
 
 CREATE FUNCTION dbo.TaoMaHDMoi(@NgayBan DATE)
@@ -521,39 +610,70 @@ BEGIN
 END;
 GO
 
-CREATE FUNCTION TaoMaHangMoi(@TenNhom NVARCHAR(100))
+Create  FUNCTION TaoMaHangMoi(@TenNhom NVARCHAR(100))
 RETURNS NVARCHAR(10)
 AS
 BEGIN
-    DECLARE @Prefix NVARCHAR(2)
-    DECLARE @LastCode NVARCHAR(10)
-    DECLARE @NextNumber INT
-    DECLARE @NewCode NVARCHAR(10)
+    DECLARE @Prefix NVARCHAR(2),
+            @LastCode NVARCHAR(10),
+            @NextNumber INT,
+            @NewCode NVARCHAR(10),
+            @CleanVarchar VARCHAR(200),
+            @Word1 VARCHAR(100),
+            @Word2 VARCHAR(100),
+            @pos INT;
 
-    -- Lấy 2 ký tự đầu từ tên nhóm, loại bỏ dấu cách
-    SET @Prefix = LEFT(REPLACE(@TenNhom, ' ', ''), 2)
+    -- 1) Chuyển về varchar với collation accent-insensitive để loại bỏ dấu
+    --    (sử dụng collation có AI - Accent Insensitive)
+    SET @CleanVarchar = UPPER(CONVERT(VARCHAR(200), @TenNhom COLLATE SQL_Latin1_General_CP1253_CI_AI));
 
-    -- Lấy mã cuối cùng trong bảng Hàng theo prefix
+    -- 2) Loại khoảng trắng thừa
+    SET @CleanVarchar = LTRIM(RTRIM(@CleanVarchar));
+
+    -- 3) Lấy từ đầu tiên
+    SET @pos = CHARINDEX(' ', @CleanVarchar);
+    IF @pos > 0
+        SET @Word1 = LEFT(@CleanVarchar, @pos - 1);
+    ELSE
+        SET @Word1 = @CleanVarchar;
+
+    -- 4) Lấy từ thứ hai (nếu có)
+    IF @pos > 0
+    BEGIN
+        SET @CleanVarchar = LTRIM(SUBSTRING(@CleanVarchar, @pos + 1, LEN(@CleanVarchar)));
+        SET @pos = CHARINDEX(' ', @CleanVarchar);
+        IF @pos > 0
+            SET @Word2 = LEFT(@CleanVarchar, @pos - 1);
+        ELSE
+            SET @Word2 = @CleanVarchar;
+    END
+    ELSE
+        SET @Word2 = NULL;
+
+    -- 5) Tạo prefix: nếu có 2 từ thì lấy 1 ký tự đầu mỗi từ; nếu 1 từ thì 2 ký tự đầu
+    IF @Word2 IS NULL OR LEN(@Word2) = 0
+        SET @Prefix = UPPER(LEFT(@Word1, 2));
+    ELSE
+        SET @Prefix = UPPER(LEFT(@Word1,1) + LEFT(@Word2,1));
+
+    -- 6) Lấy mã lớn nhất hiện có theo prefix, tăng số
     SELECT TOP 1 @LastCode = MaHang
     FROM Hang
     WHERE MaHang LIKE @Prefix + '%'
-    ORDER BY MaHang DESC
+    ORDER BY MaHang DESC;
 
-    -- Nếu chưa có mã nào thì bắt đầu từ 1
-    IF @LastCode IS NULL
-        SET @NextNumber = 1
-    ELSE
-        SET @NextNumber = CAST(RIGHT(@LastCode, 4) AS INT) + 1
+    SET @NextNumber = ISNULL(CAST(RIGHT(@LastCode,4) AS INT), 0) + 1;
 
-    -- Tạo mã mới theo định dạng XX0001
-    SET @NewCode = @Prefix + RIGHT('0000' + CAST(@NextNumber AS NVARCHAR(4)), 4)
+    SET @NewCode = @Prefix + RIGHT('0000' + CAST(@NextNumber AS VARCHAR(4)), 4);
 
-    RETURN @NewCode
+    RETURN @NewCode;
 END
 GO
 
-INSERT INTO Hang (MaHang, TenHang, DVT, DonGia)
-VALUES (dbo.TaoMaHangMoi(N'Phụ kiện tập luyện'), N'Găng tay tập gym', N'Đôi', 90000);
+drop function TaoMaHangMoi
+
+INSERT INTO Hang (MaNhom, MaHang, TenHang, DVT, DonGia)
+VALUES (5, dbo.TaoMaHangMoi(N'Ú Á'), N'Lmao', N'okkkkkk', 90000);
 
 
 CREATE PROCEDURE ResetStt_NhomHang
@@ -579,7 +699,7 @@ BEGIN
     -- Bước 5: Xóa bảng tạm
     DROP TABLE #TempNhomHang;
 
-    PRINT '✅ Đã reset lại MaNhom (IDENTITY) trong bảng NhomHang thành công!';
+    PRINT 'Đã reset lại MaNhom (IDENTITY) trong bảng NhomHang thành công!';
 END
 GO
 
@@ -591,7 +711,7 @@ BEGIN
     -- Kiểm tra nếu bảng tồn tại
     IF OBJECT_ID('Hang', 'U') IS NULL
     BEGIN
-        PRINT '❌ Bảng Hang không tồn tại!';
+        PRINT ' Bảng Hang không tồn tại!';
         RETURN;
     END
 
@@ -614,9 +734,12 @@ BEGIN
     -- Bước 5: Xóa bảng tạm
     DROP TABLE #TempHang;
 
-    PRINT '✅ Đã refresh lại STT của bảng Hang thành công.';
+    PRINT ' Đã refresh lại STT của bảng Hang thành công.';
 END
 GO
+
+UPDATE NhomHang SET TenNhom = 'Quan Ao' WHERE MaNhom = 1
+
 
 
 Select * from DanhSachHoaDon
@@ -639,8 +762,9 @@ create function TimKiemHoaDonTheoMa(@hoaDon nvarchar(100)) returns table
 as
 return(
     SELECT *
+
     FROM DanhSachHoaDon
-    WHERE MaHD LIKE '%'+@hoaDon+'%'
+    WHERE MaHD LIKE '%'+@hoaDon+'%' COLLATE SQL_Latin1_General_Cp1253_CI_AI
 )
 go
 
@@ -651,7 +775,7 @@ as
 return(
     SELECT *
     FROM DanhSachHoaDon
-    WHERE KhachHang LIKE N'%'+@hoaDon+'%'
+    WHERE KhachHang LIKE N'%'+@hoaDon+'%' COLLATE SQL_Latin1_General_Cp1253_CI_AI
 )
 go
 
@@ -689,9 +813,14 @@ Select * from CTHD
 create function TimKiemHangTheoMa(@hang nvarchar(100)) returns table
 as
 return(
-    SELECT *
+    SELECT STT,
+           MaHang,
+           TenHang,
+           DVT,
+           DonGia
+
     FROM Hang
-    WHERE MaHang LIKE N'%'+@hang+'%'
+    WHERE MaHang LIKE N'%'+@hang+'%' COLLATE SQL_Latin1_General_Cp1253_CI_AI
 )
 go
 
@@ -701,9 +830,13 @@ drop function TimKiemHangTheoMa
 create function TimKiemHangTheoTen(@hang nvarchar(100)) returns table
 as
 return(
-    SELECT *
+    SELECT STT,
+           MaHang,
+           TenHang,
+           DVT,
+           DonGia
     FROM Hang
-    WHERE TenHang LIKE N'%'+@hang+'%'
+    WHERE TenHang LIKE N'%'+@hang+'%' COLLATE SQL_Latin1_General_Cp1253_CI_AI
 )
 go
 
@@ -714,7 +847,7 @@ as
 return(
     SELECT *
     FROM NhomHang
-    WHERE TenNhom LIKE N'%'+@danhMuc+'%'
+    WHERE TenNhom LIKE N'%'+@danhMuc+'%' COLLATE SQL_Latin1_General_Cp1253_CI_AI
 )
 go
 

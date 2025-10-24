@@ -19,7 +19,9 @@ namespace GymManagerment_MVP
         string connectionString = "server = LAPTOP-470KBPRO; database = GymManagement; integrated security = true";
         public DanhSachHoaDonUC()
         {
+            
             InitializeComponent();
+
         }
 
         private void btnMuaHang_Click(object sender, EventArgs e)
@@ -51,6 +53,14 @@ namespace GymManagerment_MVP
 
             dgvDanhSachHoaDon.DataSource = dt;
             dgvDanhSachHoaDon.Columns["IDHocVien"].Visible = false;
+            //foreach (DataGridViewRow row in dgvDanhSachHoaDon.Rows)
+            //{
+            //    var cell = row.Cells["TongTien"];
+            //    if (cell.Value != null)
+            //    {
+            //        cell.Value = dvtValue.ToString("N0");
+            //    }
+            //}
         }
 
         private void btnTaiLai_Click(object sender, EventArgs e)
@@ -62,7 +72,11 @@ namespace GymManagerment_MVP
             tbTimKiem.Text = "Nhập hàng";
         }
 
+        public void DoTogether()
+        {if (tbTimKiem.Text != "" || tbTimKiem.Text !="Nhập hàng" || rdChuyenKhoan.Checked||rdTienMat.Checked||dtpTuNgay.Value<dtpDenNgay.Value)
 
+            ApplyAllFilters();
+        }
 
 
         private void btnXuatExcel_Click(object sender, EventArgs e)
@@ -100,6 +114,11 @@ namespace GymManagerment_MVP
 
         private void btnLoc_Click(object sender, EventArgs e)
         {
+            if(dtpDenNgay.Value <= dtpTuNgay.Value)
+            {
+                MessageBox.Show("Ngày kết thúc phải lớn hơn hoặc bằng ngày bắt đầu.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             var ngayBD = dtpTuNgay.Value.ToString("dd/MM/yyyy");
             var ngayKT = dtpDenNgay.Value.ToString("dd/MM/yyyy");
             SqlConnection sqlConnection = new SqlConnection(connectionString);
@@ -191,7 +210,60 @@ namespace GymManagerment_MVP
             tbTimKiem.Text = "";
         }
 
+        private void ApplyAllFilters()
+        {
+            string query = "SELECT * FROM DanhSachHoaDon WHERE 1=1";
+            var parameters = new List<SqlParameter>();
 
+            // Date filter
+            DateTime tuNgay = dtpTuNgay.Value.Date;
+            DateTime denNgay = dtpDenNgay.Value.Date;
+            query += " AND NgayTao >= @TuNgay AND NgayTao <= @DenNgay";
+            parameters.Add(new SqlParameter("@TuNgay", tuNgay));
+            parameters.Add(new SqlParameter("@DenNgay", denNgay));
+
+            // Payment method filter
+            if (rdChuyenKhoan.Checked)
+            {
+                query += " AND HinhThuc = @HinhThuc";
+                parameters.Add(new SqlParameter("@HinhThuc", "Chuyển khoản"));
+            }
+            else if (rdTienMat.Checked)
+            {
+                query += " AND HinhThuc = @HinhThuc";
+                parameters.Add(new SqlParameter("@HinhThuc", "Tiền mặt"));
+            }
+
+            // Search filter
+            string timKiem = tbTimKiem.Text.Trim();
+            if (!string.IsNullOrWhiteSpace(timKiem) && timKiem != "Nhập hàng" && cbTimTheo.Text != "Tìm theo")
+            {
+                if (cbTimTheo.Text == "Theo mã hóa đơn")
+                {
+                    query += " AND MaHD LIKE @TimKiem";
+                    parameters.Add(new SqlParameter("@TimKiem", "%" + timKiem + "%"));
+                }
+                else if (cbTimTheo.Text == "Theo khách hàng")
+                {
+                    query += " AND TenKhachHang LIKE @TimKiem";
+                    parameters.Add(new SqlParameter("@TimKiem", "%" + timKiem + "%"));
+                }
+            }
+
+            using (SqlConnection sqlConnection = new SqlConnection(connectionString))
+            using (SqlCommand cmd = new SqlCommand(query, sqlConnection))
+            {
+                cmd.Parameters.AddRange(parameters.ToArray());
+                DataTable table = new DataTable();
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                sqlConnection.Open();
+                adapter.Fill(table);
+                sqlConnection.Close();
+                dgvDanhSachHoaDon.DataSource = table;
+                if (dgvDanhSachHoaDon.Columns.Contains("IDHocVien"))
+                    dgvDanhSachHoaDon.Columns["IDHocVien"].Visible = false;
+            }
+        }
 
         private void LocHinhThuc()
         {
