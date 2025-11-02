@@ -43,7 +43,7 @@ namespace GymManagerment_MVP.MainFeature.HoaDonRelated.HoaDon
         {
             InitializeComponent();
         }
-        string connectionString = "server = LAPTOP-470KBPRO; database = GymManagement; integrated security = true";
+        string connectionString = Config.connection;
         private void btnThoat_Click(object sender, EventArgs e)
         {
             this.Close();

@@ -15,7 +15,7 @@ namespace GymManagerment_MVP.MainFeature.HoaDonRelated.HoaDon
     public partial class frmHoaDon : Form
     {
         private PrintDocument printDocument = new PrintDocument();
-        private string connectionString = "server = LAPTOP-470KBPRO; database = GymManagement; integrated security = true";
+        private string connectionString = Config.connection;
         DanhSachHoaDonUC dshd = new DanhSachHoaDonUC();
 
         public string MaHD { get; }

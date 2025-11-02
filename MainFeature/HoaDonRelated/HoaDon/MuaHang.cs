@@ -14,7 +14,7 @@ namespace GymManagerment_MVP.MainFeature.HoaDonRelated.HoaDon
 {
     public partial class frmMuaHang : Form
     {
-        string connectionString = "server = LAPTOP-470KBPRO; database = GymManagement; integrated security = true";
+        string connectionString = Config.connection;
         public frmMuaHang()
         {
             InitializeComponent();
@@ -23,6 +23,7 @@ namespace GymManagerment_MVP.MainFeature.HoaDonRelated.HoaDon
         private void frmMuaHang_Load(object sender, EventArgs e)
         {
             LoadDanhMuc();
+            LoadNhanVien();
             TaoTextInput();
             dgvDSHang.Columns["MaNhom"].Visible = false;
 
@@ -58,6 +59,23 @@ namespace GymManagerment_MVP.MainFeature.HoaDonRelated.HoaDon
 
                 reader.Close();
             }
+        }
+
+        private void LoadNhanVien()
+        {
+            cbNhanVienLap.Items.Clear();
+            SqlConnection sqlConnection = new SqlConnection(connectionString);
+            SqlCommand cmd = sqlConnection.CreateCommand();
+            cmd.CommandText = "Select ID, Ten from NhanVien";
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            sqlConnection.Open();
+            da.Fill(dt);
+            sqlConnection.Close();
+            sqlConnection.Dispose();
+            cbNhanVienLap.DataSource = dt;
+            cbNhanVienLap.DisplayMember = "Ten";
+            cbNhanVienLap.ValueMember = "ID";
         }
 
         private void btnClick(Button btn)
@@ -856,5 +874,7 @@ VALUES (@MaHD, @MaMuaHang, @TenKhachHang, @SDT, @NgayBan, @NhanVien, @TongTien, 
             };
             frm.ShowDialog();
         }
+
+
     }
 }
