@@ -16,7 +16,7 @@ namespace GymManagerment_MVP
 {
     public partial class DanhSachHoaDonUC : UserControl
     {
-        string connectionString = "server = LAPTOP-470KBPRO; database = GymManagement; integrated security = true";
+        string connectionString = Config.connection;
         public DanhSachHoaDonUC()
         {
             

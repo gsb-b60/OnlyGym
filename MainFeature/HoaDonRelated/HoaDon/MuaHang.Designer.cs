@@ -346,6 +346,7 @@
             this.dgvDSHang.ContextMenuStrip = this.DsHang;
             this.dgvDSHang.Location = new System.Drawing.Point(202, 71);
             this.dgvDSHang.Name = "dgvDSHang";
+            this.dgvDSHang.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvDSHang.Size = new System.Drawing.Size(552, 277);
             this.dgvDSHang.TabIndex = 4;
             this.dgvDSHang.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDSHang_CellDoubleClick);

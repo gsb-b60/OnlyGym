@@ -81,8 +81,8 @@
             this.btnXemChiTiet = new System.Windows.Forms.Button();
             this.lbConLai = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.lvHangDaMua = new System.Windows.Forms.ListView();
             this.label2 = new System.Windows.Forms.Label();
+            this.lvHangDaMua = new System.Windows.Forms.ListView();
             this.panel1.SuspendLayout();
             this.pnlLoc.SuspendLayout();
             this.gbHinhThuc.SuspendLayout();
@@ -495,6 +495,7 @@
             this.NVLap});
             this.dgvDanhSachHoaDon.Location = new System.Drawing.Point(15, 101);
             this.dgvDanhSachHoaDon.Name = "dgvDanhSachHoaDon";
+            this.dgvDanhSachHoaDon.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvDanhSachHoaDon.Size = new System.Drawing.Size(717, 562);
             this.dgvDanhSachHoaDon.TabIndex = 4;
             this.dgvDanhSachHoaDon.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDanhSachHoaDon_CellDoubleClick);
@@ -633,6 +634,16 @@
             this.label1.TabIndex = 45;
             this.label1.Text = "Còn lại";
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(233, 380);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(20, 17);
+            this.label2.TabIndex = 42;
+            this.label2.Text = "%";
+            // 
             // lvHangDaMua
             // 
             this.lvHangDaMua.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
@@ -647,16 +658,6 @@
             this.lvHangDaMua.TabIndex = 0;
             this.lvHangDaMua.UseCompatibleStateImageBehavior = false;
             this.lvHangDaMua.View = System.Windows.Forms.View.Details;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(233, 380);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(20, 17);
-            this.label2.TabIndex = 42;
-            this.label2.Text = "%";
             // 
             // DanhSachHoaDonUC
             // 

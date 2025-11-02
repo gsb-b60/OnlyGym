@@ -162,6 +162,7 @@ CREATE TABLE [dbo].[Hang](
 	[TenHang] [nvarchar](100) NOT NULL,
 	[DVT] [nvarchar](10) NOT NULL,
 	[DonGia] [int] NOT NULL,
+    [Active] [bit] NOT NULL,
  CONSTRAINT [PK_Hang] PRIMARY KEY CLUSTERED 
 (
 	[MaHang] ASC
@@ -233,9 +234,41 @@ GO
 ALTER TABLE [dbo].[DanhSachHoaDon] CHECK CONSTRAINT [FK_DanhSachHoaDon_HoaDon]
 GO
 
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[NhanVien](
+	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[Ten] [nvarchar](1000) NOT NULL,
+	[GioiTinh] [nvarchar](100) NOT NULL,
+	[NSinh] [smalldatetime] NOT NULL,
+	[SDT] [varchar](100) NOT NULL,
+	[CCCD] [varchar](100) NOT NULL,
+ CONSTRAINT [PK_NhanVien] PRIMARY KEY CLUSTERED 
+(
+	[ID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
 
 
+SET IDENTITY_INSERT [dbo].[NhanVien] ON
 
+
+INSERT [dbo].[NhanVien] ([ID], [Ten], [GioiTinh], [NSinh], [SDT], [CCCD]) VALUES (1, N'Nguyễn Văn An', N'Nam', CAST(N'1990-05-12T00:00:00' AS SmallDateTime), N'0912345678', N'012345678901')
+INSERT [dbo].[NhanVien] ([ID], [Ten], [GioiTinh], [NSinh], [SDT], [CCCD]) VALUES (2, N'Trần Thị Bình', N'Nữ', CAST(N'1993-08-21T00:00:00' AS SmallDateTime), N'0912345679', N'012345678902')
+INSERT [dbo].[NhanVien] ([ID], [Ten], [GioiTinh], [NSinh], [SDT], [CCCD]) VALUES (3, N'Lê Văn Cường', N'Nam', CAST(N'1988-01-30T00:00:00' AS SmallDateTime), N'0912345680', N'012345678903')
+INSERT [dbo].[NhanVien] ([ID], [Ten], [GioiTinh], [NSinh], [SDT], [CCCD]) VALUES (4, N'Phạm Thị Dung', N'Nữ', CAST(N'1995-04-15T00:00:00' AS SmallDateTime), N'0912345681', N'012345678904')
+INSERT [dbo].[NhanVien] ([ID], [Ten], [GioiTinh], [NSinh], [SDT], [CCCD]) VALUES (5, N'Hồ Văn Đức', N'Nam', CAST(N'1992-09-09T00:00:00' AS SmallDateTime), N'0912345682', N'012345678905')
+INSERT [dbo].[NhanVien] ([ID], [Ten], [GioiTinh], [NSinh], [SDT], [CCCD]) VALUES (6, N'Vũ Thị Hà', N'Nữ', CAST(N'1996-12-18T00:00:00' AS SmallDateTime), N'0912345683', N'012345678906')
+INSERT [dbo].[NhanVien] ([ID], [Ten], [GioiTinh], [NSinh], [SDT], [CCCD]) VALUES (7, N'Ngô Văn Hùng', N'Nam', CAST(N'1987-11-22T00:00:00' AS SmallDateTime), N'0912345684', N'012345678907')
+INSERT [dbo].[NhanVien] ([ID], [Ten], [GioiTinh], [NSinh], [SDT], [CCCD]) VALUES (8, N'Đỗ Thị Lan', N'Nữ', CAST(N'1994-07-07T00:00:00' AS SmallDateTime), N'0912345685', N'012345678908')
+INSERT [dbo].[NhanVien] ([ID], [Ten], [GioiTinh], [NSinh], [SDT], [CCCD]) VALUES (9, N'Bùi Văn Minh', N'Nam', CAST(N'1991-03-03T00:00:00' AS SmallDateTime), N'0912345686', N'012345678909')
+INSERT [dbo].[NhanVien] ([ID], [Ten], [GioiTinh], [NSinh], [SDT], [CCCD]) VALUES (10, N'Nguyễn Thị Thu', N'Nữ', CAST(N'1998-06-25T00:00:00' AS SmallDateTime), N'0912345687', N'012345678910')
+INSERT [dbo].[NhanVien] ([ID], [Ten], [GioiTinh], [NSinh], [SDT], [CCCD]) VALUES (11, N'Nguyễn Lê Anh Tuấn', N'Nam', CAST(N'2005-11-01T00:00:00' AS SmallDateTime), N'0845152447', N'068205001130')
+
+Select Ten from NhanVien
 
 insert into NhomHang (TenNhom) values(N'Tất cả'),
 (N'Nước uống và đồ ăn'),

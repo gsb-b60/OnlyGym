@@ -43,7 +43,7 @@ namespace GymManagerment_MVP.MainFeature.HoaDonRelated.HoaDon
         {
             InitializeComponent();
         }
-        string connectionString = "server = LAPTOP-470KBPRO; database = GymManagement; integrated security = true";
+        string connectionString = Config.connection;
         private void btnThoat_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -110,6 +110,7 @@ namespace GymManagerment_MVP.MainFeature.HoaDonRelated.HoaDon
 
         public void CapNhatHang()
         {
+            
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 conn.Open();
@@ -166,5 +167,10 @@ namespace GymManagerment_MVP.MainFeature.HoaDonRelated.HoaDon
             }
         }
 
+        private void ThemHang_Load(object sender, EventArgs e)
+        {
+            cbNhomHang.Items.Clear();
+            LoadNhomHang();
+        }
     }
 }

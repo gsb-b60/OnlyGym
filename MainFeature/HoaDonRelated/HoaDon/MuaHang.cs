@@ -14,7 +14,7 @@ namespace GymManagerment_MVP.MainFeature.HoaDonRelated.HoaDon
 {
     public partial class frmMuaHang : Form
     {
-        string connectionString = "server = LAPTOP-470KBPRO; database = GymManagement; integrated security = true";
+        string connectionString = Config.connection;
         public frmMuaHang()
         {
             InitializeComponent();
@@ -23,6 +23,7 @@ namespace GymManagerment_MVP.MainFeature.HoaDonRelated.HoaDon
         private void frmMuaHang_Load(object sender, EventArgs e)
         {
             LoadDanhMuc();
+            LoadNhanVien();
             TaoTextInput();
             dgvDSHang.Columns["MaNhom"].Visible = false;
 
@@ -58,6 +59,23 @@ namespace GymManagerment_MVP.MainFeature.HoaDonRelated.HoaDon
 
                 reader.Close();
             }
+        }
+
+        private void LoadNhanVien()
+        {
+            cbNhanVienLap.Items.Clear();
+            SqlConnection sqlConnection = new SqlConnection(connectionString);
+            SqlCommand cmd = sqlConnection.CreateCommand();
+            cmd.CommandText = "Select ID, Ten from NhanVien";
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            sqlConnection.Open();
+            da.Fill(dt);
+            sqlConnection.Close();
+            sqlConnection.Dispose();
+            cbNhanVienLap.DataSource = dt;
+            cbNhanVienLap.DisplayMember = "Ten";
+            cbNhanVienLap.ValueMember = "ID";
         }
 
         private void btnClick(Button btn)
@@ -237,6 +255,14 @@ namespace GymManagerment_MVP.MainFeature.HoaDonRelated.HoaDon
         }
         private void dgvDSHang_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
+            foreach(DataGridViewRow row in dgvDSHang.SelectedRows)
+            {
+                if(row.IsNewRow)
+                {
+                    MessageBox.Show("Dòng không hợp lệ!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+            }
             if (e.RowIndex < 0) return;
 
             // Lookup TenNhom from NhomHang table using MaNhom from selected row
@@ -303,6 +329,11 @@ namespace GymManagerment_MVP.MainFeature.HoaDonRelated.HoaDon
                     int val;
                     if (int.TryParse(item.SubItems[7].Text.Replace(",", ""), out val))
                         tongTien += val;
+                }
+                else
+                {
+                    tbTongTien.Text = "0";
+                    tbThanhTien.Text = "0";
                 }
             }
             tbTongTien.Text = tongTien.ToString("N0");
@@ -649,8 +680,10 @@ VALUES (@MaHD, @MaMuaHang, @TenKhachHang, @SDT, @NgayBan, @NhanVien, @TongTien, 
 
         private void tsmiXoa_Click(object sender, EventArgs e)
         {
+            
             // If a button in flpDanhMuc is focused, delete category
             var selectedBtn = flpDanhMuc.Controls.OfType<Button>().FirstOrDefault(b => b.Focused);
+            //if()
             if (selectedBtn != null)
             {
                 XoaDanhMuc();
@@ -738,9 +771,12 @@ VALUES (@MaHD, @MaMuaHang, @TenKhachHang, @SDT, @NgayBan, @NhanVien, @TongTien, 
                     MessageBox.Show("Hãy chọn các danh mục ở dưới để thêm hàng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return;
                 }
-                var frm = new frmThemMoi();
+                
+                    var frm = new frmThemMoi();
+
                 // Set tbMaDanhMuc in frmThemMoi to btn.Tag (MaNrom)
                 frm.TbMaDanhMuc.Text = selectedBtn.Tag.ToString();
+                
                 // Optionally set tbDanhMucMoi to current TenNhom for editing
                 frm.TbDanhMucMoi.Text = selectedBtn.Text;
                 frm.ShowDialog();
@@ -788,7 +824,7 @@ VALUES (@MaHD, @MaMuaHang, @TenKhachHang, @SDT, @NgayBan, @NhanVien, @TongTien, 
                         frm.CbNhomHang.Items.Add(tenNhom);
                         frm.CbNhomHang.SelectedIndex = 0;
                     }
-                    frm.CbNhomHang.Enabled = false; // Disable changing category on edit
+                     // Disable changing category on edit
                     frm.Controls["tbMaNhom"].Text = maNhom;
                     frm.ShowDialog();
                     LoadHangTheoNhom(tenNhom); // Reload items after editing
@@ -856,5 +892,7 @@ VALUES (@MaHD, @MaMuaHang, @TenKhachHang, @SDT, @NgayBan, @NhanVien, @TongTien, 
             };
             frm.ShowDialog();
         }
+
+
     }
 }

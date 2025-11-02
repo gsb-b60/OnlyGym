@@ -22,7 +22,7 @@ namespace GymManagerment_MVP.MainFeature.HoaDonRelated.HoaDon
                        get { return tbDanhMucMoi; }
         }
 
-        string connectionString = "server = LAPTOP-470KBPRO; database = GymManagement; integrated security = true";
+        string connectionString = Config.connection;
         public frmThemMoi()
         {
             InitializeComponent();
