@@ -335,7 +335,7 @@ namespace GymManagerment_MVP.MainFeature.Main
 
         private void btnChiTiet_Click(object sender, EventArgs e)
         {
-            gt main = (gt)this.FindForm();
+            Mainfrm main = (Mainfrm)this.FindForm();
             var pt = btnChiTiet.Tag as Business.PT;
             if (pt != null)
             {

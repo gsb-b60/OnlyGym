@@ -16,7 +16,7 @@ namespace GymManagerment_MVP
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new gt());
+            Application.Run(new Mainfrm());
         }
     }
 }
