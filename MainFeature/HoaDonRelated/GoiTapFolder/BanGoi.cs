@@ -9,16 +9,17 @@ using System.Runtime.Versioning;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data;
 using System.Data.Sql;
 using System.Data.SqlClient;
 using GymManagerment_MVP.Business;
 using System.Diagnostics;
+using System.Net.Http.Headers;
 
 namespace GymManagerment_MVP.MainFeature.HoaDonRelated
 {
     public partial class BanGoi : UserControl
     {
+        public event Action<Business.GoiTap> SetToBill;
         public BanGoi()
         {
             InitializeComponent();
@@ -26,24 +27,6 @@ namespace GymManagerment_MVP.MainFeature.HoaDonRelated
 
         private void BanGoi_Load(object sender, EventArgs e)
         {
-            //for (int i = 1; i <=19; i++)
-            //{
-            //    GoiTapUC goiTapUC = new GoiTapUC();
-            //    goiTapUC.setPacketIndor($"goi {i}", $"{i}0 Buổi", 0);
-            //    tb2flp.Controls.Add(goiTapUC);
-            //}
-            //for (int i = 1; i <= 5; i++)
-            //{
-            //    GoiTapUC goiTapUC = new GoiTapUC();
-            //    goiTapUC.setPacketIndor($"goi {i}", $"{i} Tháng", 0);
-            //    ptlGoiThang.Controls.Add(goiTapUC);
-            //}
-            //for (int i = 1; i <= 3; i++)
-            //{
-            //    GoiTapUC goiTapUC = new GoiTapUC();
-            //    goiTapUC.setPacketIndor($"goi {i}", $"{i} Năm", 0);
-            //    tb3flp1.Controls.Add(goiTapUC);
-            //}
             Config config=new Config();
             SqlConnection connection = new SqlConnection(Config.connection);
             SqlCommand sqlCommand = connection.CreateCommand();
@@ -74,10 +57,10 @@ namespace GymManagerment_MVP.MainFeature.HoaDonRelated
             connection.Close();
             foreach(var p in package)
             {
-                GoiTapUC goiTapUC = new GoiTapUC();
+                GoiTapUC goiTapUC = new GoiTapUC(p);
                 //goiTapUC.setPacketIndor(p.tenGoi, p.thoiHanNgay, p.hoatDong);
-                goiTapUC.setPacketIndoor(p);
-
+                //goiTapUC.setPacketIndoor(p);
+                goiTapUC.BuyPackge += GoiTapUC_BuyPackge;
 
                 if(p.loaiGoi==1)
                 {
@@ -89,6 +72,11 @@ namespace GymManagerment_MVP.MainFeature.HoaDonRelated
                 }
             }
 
+        }
+
+        private void GoiTapUC_BuyPackge(Business.GoiTap obj)
+        {
+            SetToBill.Invoke(obj);
         }
 
         private void btnChinhSuaGoi_Click(object sender, EventArgs e)
