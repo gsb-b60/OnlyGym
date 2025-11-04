@@ -493,5 +493,11 @@
     <Content Include="Media\PTPicture\pt4_m.jpg" />
     <Content Include="Media\PTPicture\pt5_f.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Business\Business.csproj">
+      <Project>{9173303d-98c4-4eba-a93a-f5e61c2f05d0}</Project>
+      <Name>Business</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

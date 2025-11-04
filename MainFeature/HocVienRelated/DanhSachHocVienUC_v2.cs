@@ -60,20 +60,20 @@ namespace GymManagerment_MVP
         //public SqlConnection con = new SqlConnection("server = TUNN\\ANHTUAN; database = gymManagement;Integrated Security=True");
         private void LoadHV()
         {
-            SqlConnection con = new SqlConnection("server = TUNN\\ANHTUAN; database = gymManagement;Integrated Security=True");
-            SqlCommand cmd = con.CreateCommand();
-            cmd.CommandText = "select b.code, b.ten, b.sdt, b.tag, b.thoiGianTao, b.ngayXoa, a.TrangThai, c.tenGoi from GoiTapCuaHocVien a, HocVien b, GoiTap c where a.id_HocVien = b.id and a.id_GoiTap = c.id";
+            //SqlConnection con = new SqlConnection("server = TUNN\\ANHTUAN; database = gymManagement;Integrated Security=True");
+            //SqlCommand cmd = con.CreateCommand();
+            //cmd.CommandText = "select b.code, b.ten, b.sdt, b.tag, b.thoiGianTao, b.ngayXoa, a.TrangThai, c.tenGoi from GoiTapCuaHocVien a, HocVien b, GoiTap c where a.id_HocVien = b.id and a.id_GoiTap = c.id";
 
-            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-            DataTable table = new DataTable();
+            //SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+            //DataTable table = new DataTable();
 
-            con.Open();
-            adapter.Fill(table);
+            //con.Open();
+            //adapter.Fill(table);
 
-            con.Close();
-            con.Dispose();
+            //con.Close();
+            //con.Dispose();
             
-            dgvHocVien.DataSource = table;
+            //dgvHocVien.DataSource = table;
         }
         private void DanhSachHocVienUC_v2_Load(object sender, EventArgs e)
         {
@@ -82,46 +82,46 @@ namespace GymManagerment_MVP
 
         public void TimHV()
         {
-            SqlConnection con = new SqlConnection("server = TUNN\\ANHTUAN; database = gymManagement;Integrated Security=True");
-            SqlCommand cmd = con.CreateCommand();
+            //SqlConnection con = new SqlConnection("server = TUNN\\ANHTUAN; database = gymManagement;Integrated Security=True");
+            //SqlCommand cmd = con.CreateCommand();
             
-            if (cbFindB.Text == "Code" )
-            {
-                cmd.CommandText = "exec sp_TimKiemTheoCode @keyword = @code";
-                cmd.Parameters.AddWithValue("@code", txtTimHV.Text);
-            }
-            if (cbFindB.Text == "Tên")
-            {
-                cmd.CommandText = "exec sp_TimKiemTheoTen @keyword = @ten";
-                cmd.Parameters.AddWithValue("@ten", txtTimHV.Text);
-            }
-            if (cbFindB.Text == "SDT")
-            {
-                cmd.CommandText = "exec sp_TimKiemTheoSDT @keyword = @sdt";
-                cmd.Parameters.AddWithValue("@sdt", txtTimHV.Text);
-            }    
+            //if (cbFindB.Text == "Code" )
+            //{
+            //    cmd.CommandText = "exec sp_TimKiemTheoCode @keyword = @code";
+            //    cmd.Parameters.AddWithValue("@code", txtTimHV.Text);
+            //}
+            //if (cbFindB.Text == "Tên")
+            //{
+            //    cmd.CommandText = "exec sp_TimKiemTheoTen @keyword = @ten";
+            //    cmd.Parameters.AddWithValue("@ten", txtTimHV.Text);
+            //}
+            //if (cbFindB.Text == "SDT")
+            //{
+            //    cmd.CommandText = "exec sp_TimKiemTheoSDT @keyword = @sdt";
+            //    cmd.Parameters.AddWithValue("@sdt", txtTimHV.Text);
+            //}    
 
-            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-            DataTable table = new DataTable();
+            //SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+            //DataTable table = new DataTable();
 
-            con.Open();
-            adapter.Fill(table);
-            con.Close();
-            con.Dispose();
-            dgvHocVien.DataSource = table;
+            //con.Open();
+            //adapter.Fill(table);
+            //con.Close();
+            //con.Dispose();
+            //dgvHocVien.DataSource = table;
         }
 
         private void btnTim_Click(object sender, EventArgs e)
         {
-            if(!string.IsNullOrWhiteSpace(cbFindB.Text) && !string.IsNullOrWhiteSpace(txtTimHV.Text))
-                TimHV();
-            else
-                MessageBox.Show("Vui lòng chọn tiêu chí hoặc tư khóa tìm kiếm!");
+            //if(!string.IsNullOrWhiteSpace(cbFindB.Text) && !string.IsNullOrWhiteSpace(txtTimHV.Text))
+            //    TimHV();
+            //else
+            //    MessageBox.Show("Vui lòng chọn tiêu chí hoặc tư khóa tìm kiếm!");
         }
 
         private void btnReset_Click(object sender, EventArgs e)
         {
-            LoadHV();
+            //LoadHV();
         }
     }
 }
