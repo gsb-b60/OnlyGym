@@ -138,7 +138,7 @@ CREATE TABLE [dbo].[DanhSachHoaDon](
 	[STT] [int] IDENTITY(1,1) NOT NULL,
 	[MaHD] [nvarchar](10) NOT NULL,
 	[IDHocVien] [nvarchar](10) NOT NULL,
-	[NgayTao] [nvarchar](10) NOT NULL,
+	[NgayTao] [smalldatetime] NOT NULL,
 	[KhachHang] [nvarchar](100) NOT NULL,
 	[TongTien] [int] NOT NULL,
 	[HinhThuc] [nvarchar](100) NOT NULL,
@@ -149,7 +149,6 @@ CREATE TABLE [dbo].[DanhSachHoaDon](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-
 /****** Object:  Table [dbo].[Hang]    Script Date: 9/29/2025 8:13:22 PM ******/
 SET ANSI_NULLS ON
 GO
@@ -467,27 +466,27 @@ INSERT INTO MuaHang (MaMuaHang, STT, MaHang, NhomHang, TenHang, DVT, SoLuong, Do
 ('MH020', 2, 'PK0008', N'Phụ kiện tập luyện', N'Tạ tay cao su 5kg', N'Cặp', 3, 350000, 1050000),
 ('MH020', 3, 'NA0008', N'Nước uống và đồ ăn', N'Bánh yến mạch', N'Gói', 5, 58000, 290000);
 
-
+select * from DanhSachHoaDon
 
 INSERT INTO DanhSachHoaDon
 (MaHD, IDHocVien, NgayTao, KhachHang, TongTien, HinhThuc, NhanVienLap) VALUES
-('HD060125', '013', '06/01/2025', N'Trần Thị M', 1950000, N'Tiền mặt', N'Phạm Hồng Anh'),
-('HD120125', '001', '12/01/2025', N'Nguyễn Văn A', 1500000, N'Tiền mặt', N'Lê Thị Mai'),
-('HD050225', '002', '05/02/2025', N'Trần Thị B', 1200000, N'Chuyển khoản', N'Nguyễn Văn Bình'),
-('HD170225', '014', '17/02/2025', N'Lê Văn N', 2300000, N'Chuyển khoản', N'Vũ Thị Hoa'),
-('HD110325', '015', '11/03/2025', N'Hoàng Oanh', 1450000, N'Tiền mặt', N'Trần Hữu Quang'),
-('HD180325', '003', '18/03/2025', N'Phạm Văn C', 1800000, N'Tiền mặt', N'Phạm Hồng Anh'),
-('HD020425', '004', '02/04/2025', N'Lê Minh D', 2000000, N'Chuyển khoản', N'Vũ Thị Hoa'),
+('HD060125', '013', '01/06/2025', N'Trần Thị M', 1950000, N'Tiền mặt', N'Phạm Hồng Anh'),
+('HD120125', '001', '01/12/2025', N'Nguyễn Văn A', 1500000, N'Tiền mặt', N'Lê Thị Mai'),
+('HD050225', '002', '02/05/2025', N'Trần Thị B', 1200000, N'Chuyển khoản', N'Nguyễn Văn Bình'),
+('HD170225', '014', '02/17/2025', N'Lê Văn N', 2300000, N'Chuyển khoản', N'Vũ Thị Hoa'),
+('HD110325', '015', '03/11/2025', N'Hoàng Oanh', 1450000, N'Tiền mặt', N'Trần Hữu Quang'),
+('HD180325', '003', '03/18/2025', N'Phạm Văn C', 1800000, N'Tiền mặt', N'Phạm Hồng Anh'),
+('HD020425', '004', '04/02/2025', N'Lê Minh D', 2000000, N'Chuyển khoản', N'Vũ Thị Hoa'),
 ('HD040425', '016', '04/04/2025', N'Nguyễn Văn P', 2500000, N'Chuyển khoản', N'Lê Thị Mai'),
-('HD100525', '017', '10/05/2025', N'Trần Thị Q', 1100000, N'Tiền mặt', N'Nguyễn Văn Bình'),
-('HD160525', '005', '16/05/2025', N'Hoàng Thu E', 950000, N'Tiền mặt', N'Trần Hữu Quang'),
-('HD070625', '006', '07/06/2025', N'Nguyễn Văn F', 2200000, N'Tiền mặt', N'Lê Thị Mai'),
-('HD190625', '018', '19/06/2025', N'Phạm Văn R', 2000000, N'Chuyển khoản', N'Phạm Hồng Anh'),
-('HD080725', '019', '08/07/2025', N'Lê Thị S', 1750000, N'Tiền mặt', N'Vũ Thị Hoa'),
-('HD200725', '007', '20/07/2025', N'Bùi Thị G', 1350000, N'Chuyển khoản', N'Nguyễn Văn Bình'),
-('HD030825', '008', '03/08/2025', N'Trịnh Văn H', 1750000, N'Tiền mặt', N'Phạm Hồng Anh'),
-('HD140825', '020', '14/08/2025', N'Nguyễn Văn T', 2600000, N'Chuyển khoản', N'Trần Hữu Quang'),
-('HD150925', '009', '15/09/2025', N'Ngô Thị I', 1600000, N'Chuyển khoản', N'Vũ Thị Hoa'),
+('HD100525', '017', '05/10/2025', N'Trần Thị Q', 1100000, N'Tiền mặt', N'Nguyễn Văn Bình'),
+('HD160525', '005', '05/16/2025', N'Hoàng Thu E', 950000, N'Tiền mặt', N'Trần Hữu Quang'),
+('HD070625', '006', '06/07/2025', N'Nguyễn Văn F', 2200000, N'Tiền mặt', N'Lê Thị Mai'),
+('HD190625', '018', '06/19/2025', N'Phạm Văn R', 2000000, N'Chuyển khoản', N'Phạm Hồng Anh'),
+('HD080725', '019', '07/08/2025', N'Lê Thị S', 1750000, N'Tiền mặt', N'Vũ Thị Hoa'),
+('HD200725', '007', '07/20/2025', N'Bùi Thị G', 1350000, N'Chuyển khoản', N'Nguyễn Văn Bình'),
+('HD030825', '008', '08/03/2025', N'Trịnh Văn H', 1750000, N'Tiền mặt', N'Phạm Hồng Anh'),
+('HD140825', '020', '08/14/2025', N'Nguyễn Văn T', 2600000, N'Chuyển khoản', N'Trần Hữu Quang'),
+('HD150925', '009', '09/15/2025', N'Ngô Thị I', 1600000, N'Chuyển khoản', N'Vũ Thị Hoa'),
 ('HD101025', '010', '10/10/2025', N'Vũ Văn Jack', 2100000, N'Tiền mặt', N'Trần Hữu Quang'),
 ('HD111125', '011', '11/11/2025', N'Đặng Thị K', 1250000, N'Tiền mặt', N'Lê Thị Mai'),
 ('HD121225', '012', '12/12/2025', N'Nguyễn Văn L', 1850000, N'Chuyển khoản', N'Nguyễn Văn Bình');
@@ -578,6 +577,8 @@ EXEC CapNhatHang
     @TenHang = N'Dây kháng lực Pro',
     @DVT = N'Bộ',
     @DonGia = 200000;
+
+
 
 Select * from NhomHang
 Select * from Hang
@@ -843,6 +844,37 @@ where A.MaHD = B.MaHD
 Select * from DanhSachHoaDon
 Select * from CTHD
 
+CREATE PROC TimVaLoc
+    @mahd NVARCHAR(50) = NULL,
+    @tenkh NVARCHAR(100) = NULL,
+    @hinhthuc nvarchar(50) = Null,-- 1: hoạt động, 0: không hoạt động
+    @ngaymin smalldatetime = null,
+    @ngaymax smalldatetime = null
+AS
+BEGIN
+    SELECT 
+    STT,
+        MaHD,
+        NgayTao,
+        KhachHang,
+        TongTien,
+        HinhThuc,
+        NhanVienLap
+    FROM DanhSachHoaDon 
+    WHERE 
+        (@mahd IS NULL OR MaHD LIKE N'%' + @mahd + N'%')
+        AND (@tenkh IS NULL OR KhachHang COLLATE Vietnamese_CI_AI LIKE N'%' + @tenkh + N'%')
+        AND (@hinhthuc IS NULL OR HinhThuc = @hinhthuc)
+        AND (
+            (@ngaymin IS NULL AND @ngaymax IS NULL)
+            OR NgayTao BETWEEN ISNULL(@ngaymin, NgayTao) AND ISNULL(@ngaymax, NgayTao)
+        );
+END
+
+exec TimVaLoc @ngaymin = '1/1/2025', @ngaymax = '1/30/2025'
+Select * from DanhSachHoaDon where NgayTao = '6/1/2025'
+drop proc TimVaLoc
+Select * from DanhSachHoaDon
 create function TimKiemHangTheoMa(@hang nvarchar(100)) returns table
 as
 return(
@@ -867,7 +899,8 @@ return(
            MaHang,
            TenHang,
            DVT,
-           DonGia
+           DonGia,
+           MaNhom
     FROM Hang
     WHERE TenHang LIKE N'%'+@hang+'%' COLLATE SQL_Latin1_General_Cp1253_CI_AI
 )

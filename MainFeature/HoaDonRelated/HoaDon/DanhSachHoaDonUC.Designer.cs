@@ -181,6 +181,7 @@
             this.pnlLoc.AutoScroll = true;
             this.pnlLoc.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.pnlLoc.Controls.Add(this.btnMuaHangMoi);
+            this.pnlLoc.Controls.Add(this.btnTaiLai);
             this.pnlLoc.Controls.Add(this.gbHinhThuc);
             this.pnlLoc.Controls.Add(this.gbLastCheck);
             this.pnlLoc.Dock = System.Windows.Forms.DockStyle.Left;
@@ -204,7 +205,7 @@
             // 
             this.gbHinhThuc.Controls.Add(this.rdChuyenKhoan);
             this.gbHinhThuc.Controls.Add(this.rdTienMat);
-            this.gbHinhThuc.Location = new System.Drawing.Point(17, 218);
+            this.gbHinhThuc.Location = new System.Drawing.Point(17, 185);
             this.gbHinhThuc.Name = "gbHinhThuc";
             this.gbHinhThuc.Size = new System.Drawing.Size(167, 99);
             this.gbHinhThuc.TabIndex = 25;
@@ -238,33 +239,33 @@
             // gbLastCheck
             // 
             this.gbLastCheck.Controls.Add(this.dtpDenNgay);
-            this.gbLastCheck.Controls.Add(this.btnLoc);
             this.gbLastCheck.Controls.Add(this.lblDen);
             this.gbLastCheck.Controls.Add(this.lblTu);
             this.gbLastCheck.Controls.Add(this.dtpTuNgay);
-            this.gbLastCheck.Location = new System.Drawing.Point(17, 18);
+            this.gbLastCheck.Location = new System.Drawing.Point(17, 25);
             this.gbLastCheck.Name = "gbLastCheck";
-            this.gbLastCheck.Size = new System.Drawing.Size(167, 178);
+            this.gbLastCheck.Size = new System.Drawing.Size(167, 142);
             this.gbLastCheck.TabIndex = 25;
             this.gbLastCheck.TabStop = false;
             this.gbLastCheck.Text = "Thời Gian Tạo";
             // 
             // dtpDenNgay
             // 
-            this.dtpDenNgay.CustomFormat = "dd/MM/yyyy";
+            this.dtpDenNgay.CustomFormat = "MM/dd/yyyy";
             this.dtpDenNgay.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpDenNgay.Location = new System.Drawing.Point(6, 108);
             this.dtpDenNgay.Name = "dtpDenNgay";
             this.dtpDenNgay.Size = new System.Drawing.Size(155, 20);
             this.dtpDenNgay.TabIndex = 24;
+            this.dtpDenNgay.Value = new System.DateTime(2025, 12, 31, 9, 23, 0, 0);
             // 
             // btnLoc
             // 
-            this.btnLoc.Location = new System.Drawing.Point(42, 143);
+            this.btnLoc.Location = new System.Drawing.Point(550, 39);
             this.btnLoc.Name = "btnLoc";
             this.btnLoc.Size = new System.Drawing.Size(83, 23);
             this.btnLoc.TabIndex = 13;
-            this.btnLoc.Text = "Lọc";
+            this.btnLoc.Text = "Tìm";
             this.btnLoc.UseVisualStyleBackColor = true;
             this.btnLoc.Click += new System.EventHandler(this.btnLoc_Click);
             // 
@@ -279,12 +280,13 @@
             // 
             // dtpTuNgay
             // 
-            this.dtpTuNgay.CustomFormat = "dd/MM/yyyy";
+            this.dtpTuNgay.CustomFormat = "MM/dd/yyyy";
             this.dtpTuNgay.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpTuNgay.Location = new System.Drawing.Point(6, 51);
             this.dtpTuNgay.Name = "dtpTuNgay";
             this.dtpTuNgay.Size = new System.Drawing.Size(155, 20);
             this.dtpTuNgay.TabIndex = 21;
+            this.dtpTuNgay.Value = new System.DateTime(2025, 1, 1, 9, 23, 0, 0);
             // 
             // lbHinhThuc
             // 
@@ -320,9 +322,9 @@
             // 
             // btnTaiLai
             // 
-            this.btnTaiLai.Location = new System.Drawing.Point(23, 27);
+            this.btnTaiLai.Location = new System.Drawing.Point(59, 301);
             this.btnTaiLai.Name = "btnTaiLai";
-            this.btnTaiLai.Size = new System.Drawing.Size(50, 47);
+            this.btnTaiLai.Size = new System.Drawing.Size(78, 31);
             this.btnTaiLai.TabIndex = 10;
             this.btnTaiLai.Text = "Tải lại";
             this.btnTaiLai.UseVisualStyleBackColor = true;
@@ -332,7 +334,7 @@
             // 
             this.groupBox1.Controls.Add(this.cbTimTheo);
             this.groupBox1.Controls.Add(this.tbTimKiem);
-            this.groupBox1.Location = new System.Drawing.Point(120, 16);
+            this.groupBox1.Location = new System.Drawing.Point(26, 13);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(506, 62);
             this.groupBox1.TabIndex = 9;
@@ -345,7 +347,7 @@
             this.tbTimKiem.Name = "tbTimKiem";
             this.tbTimKiem.Size = new System.Drawing.Size(262, 20);
             this.tbTimKiem.TabIndex = 2;
-            this.tbTimKiem.Text = "Nhập hàng ";
+            this.tbTimKiem.Text = "Nhập thông tin";
             this.tbTimKiem.TextChanged += new System.EventHandler(this.tbTimKiem_TextChanged);
             // 
             // lbTongTien
@@ -461,8 +463,8 @@
             // 
             this.panel3.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.panel3.Controls.Add(this.label13);
+            this.panel3.Controls.Add(this.btnLoc);
             this.panel3.Controls.Add(this.btnXuatExcel);
-            this.panel3.Controls.Add(this.btnTaiLai);
             this.panel3.Controls.Add(this.groupBox1);
             this.panel3.Controls.Add(this.dgvDanhSachHoaDon);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -474,9 +476,9 @@
             // 
             // btnXuatExcel
             // 
-            this.btnXuatExcel.Location = new System.Drawing.Point(679, 28);
+            this.btnXuatExcel.Location = new System.Drawing.Point(654, 36);
             this.btnXuatExcel.Name = "btnXuatExcel";
-            this.btnXuatExcel.Size = new System.Drawing.Size(50, 47);
+            this.btnXuatExcel.Size = new System.Drawing.Size(80, 28);
             this.btnXuatExcel.TabIndex = 10;
             this.btnXuatExcel.Text = "Xuất Excel";
             this.btnXuatExcel.UseVisualStyleBackColor = true;

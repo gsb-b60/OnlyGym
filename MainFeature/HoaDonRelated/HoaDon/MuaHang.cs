@@ -25,6 +25,7 @@ namespace GymManagerment_MVP.MainFeature.HoaDonRelated.HoaDon
             LoadDanhMuc();
             LoadNhanVien();
             TaoTextInput();
+            HienThiHinhThuc(null, null);
             dgvDSHang.Columns["MaNhom"].Visible = false;
 
         }
@@ -158,7 +159,7 @@ namespace GymManagerment_MVP.MainFeature.HoaDonRelated.HoaDon
             tbKhachDua.LostFocus += HienThiTien;
             cbHinhThuc.LostFocus += HienThiHinhThuc;
 
-            tbTimKiem.Text = "Nhập hàng";
+            tbTimKiem.Text = "Nhập tên hàng";
 
             tbTimKiem.GotFocus += TbTimKiemOnGotFocus;
             tbTimKiem.LostFocus += TbTimKiemOnLostFocus;
@@ -166,7 +167,7 @@ namespace GymManagerment_MVP.MainFeature.HoaDonRelated.HoaDon
 
         private void TbTimKiemOnLostFocus(object sender, EventArgs e)
         {
-            tbTimKiem.Text = "Nhập hàng";
+            tbTimKiem.Text = "Nhập tên hàng";
         }
 
         private void TbTimKiemOnGotFocus(object sender, EventArgs e)
@@ -176,8 +177,10 @@ namespace GymManagerment_MVP.MainFeature.HoaDonRelated.HoaDon
 
         private void HienThiHinhThuc(object sender, EventArgs e)
         {
-            if (cbHinhThuc.Text == "Chuyển khoản")
+            
+            if (cbHinhThuc.Text == "Chuyển khoản" || string.IsNullOrEmpty(cbHinhThuc.Text))
             {
+                tbKhachDua.Text = "0";
                 tbKhachDua.Enabled = false;
                 btnChuyenKhoan.Enabled = true;
             }
@@ -188,17 +191,6 @@ namespace GymManagerment_MVP.MainFeature.HoaDonRelated.HoaDon
             }
         }
 
-        private void cbTimTheo_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (cbTimTheo.Text == "Tìm theo")
-            {
-                tbTimKiem.Enabled = false;
-            }
-            else
-            {
-                tbTimKiem.Enabled = true;
-            }
-        }
 
         private void TimKiem()
         {
@@ -208,18 +200,7 @@ namespace GymManagerment_MVP.MainFeature.HoaDonRelated.HoaDon
             SqlConnection sqlConnection = new SqlConnection(connectionString);
             SqlCommand cmd = sqlConnection.CreateCommand();
             string text = "";
-
-            if (cbTimTheo.Text == "Theo mã hàng")
-            {
-                text = "Select * from TimKiemHangTheoMa(N'" + timKiem + "')";
-
-            }
-            else if (cbTimTheo.Text == "Theo tên hàng")
-            {
-                text = "Select * from TimKiemHangTheoTen(N'" + timKiem + "')";
-
-
-            }
+            text = "Select * from TimKiemHangTheoTen(N'" + timKiem + "')";            
             cmd.CommandText = text;
 
             DataTable table = new DataTable();
@@ -235,16 +216,9 @@ namespace GymManagerment_MVP.MainFeature.HoaDonRelated.HoaDon
         private void tbTimKiem_TextChanged(object sender, EventArgs e)
         {
 
-            if (cbTimTheo.Text != "Tìm theo")
-            {
-                tbTimKiem.Enabled = true;
-            }
-            else
-            {
-                tbTimKiem.Enabled = false;
-            }
+    
             string timKiem = tbTimKiem.Text;
-            if (string.IsNullOrWhiteSpace(timKiem) || timKiem == "Nhập hàng")
+            if (string.IsNullOrWhiteSpace(timKiem) || timKiem == "Nhập tên hàng")
             {
                 LoadHangTheoNhom("Tất cả");
             }
@@ -893,6 +867,20 @@ VALUES (@MaHD, @MaMuaHang, @TenKhachHang, @SDT, @NgayBan, @NhanVien, @TongTien, 
             frm.ShowDialog();
         }
 
-
+        private void cbHinhThuc_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+            if (cbHinhThuc.Text == "Chuyển khoản" || string.IsNullOrEmpty(cbHinhThuc.Text))
+            {
+                tbKhachDua.Text = "0";
+                tbKhachDua.Enabled = false;
+                btnChuyenKhoan.Enabled = true;
+            }
+            else
+            {
+                tbKhachDua.Enabled = true;
+                btnChuyenKhoan.Enabled = false;
+            }
+        }
     }
 }

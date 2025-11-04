@@ -88,13 +88,12 @@
             this.label14 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label18 = new System.Windows.Forms.Label();
+            this.tbTimKiem = new System.Windows.Forms.TextBox();
             this.btnThemDM = new System.Windows.Forms.Button();
             this.btnThemHang = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.tbTimDanhMuc = new System.Windows.Forms.TextBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.cbTimTheo = new System.Windows.Forms.ComboBox();
-            this.tbTimKiem = new System.Windows.Forms.TextBox();
             this.label19 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.cmsDsHangMua.SuspendLayout();
@@ -105,7 +104,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.nudGiamGia)).BeginInit();
             this.panel2.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // chIDHang
@@ -313,6 +311,8 @@
             this.cbHinhThuc.Name = "cbHinhThuc";
             this.cbHinhThuc.Size = new System.Drawing.Size(205, 24);
             this.cbHinhThuc.TabIndex = 5;
+            this.cbHinhThuc.Text = "Chọn hình thức";
+            this.cbHinhThuc.SelectedIndexChanged += new System.EventHandler(this.cbHinhThuc_SelectedIndexChanged);
             // 
             // cbNhanVienLap
             // 
@@ -652,10 +652,11 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.label18);
+            this.panel2.Controls.Add(this.tbTimKiem);
             this.panel2.Controls.Add(this.btnThemDM);
             this.panel2.Controls.Add(this.btnThemHang);
             this.panel2.Controls.Add(this.groupBox2);
-            this.panel2.Controls.Add(this.groupBox1);
             this.panel2.Controls.Add(this.label19);
             this.panel2.Controls.Add(this.label12);
             this.panel2.Controls.Add(this.flpDanhMuc);
@@ -664,6 +665,24 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(757, 351);
             this.panel2.TabIndex = 0;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(260, 27);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(96, 13);
+            this.label18.TabIndex = 10;
+            this.label18.Text = "Tìm kiếm mặt hàng";
+            // 
+            // tbTimKiem
+            // 
+            this.tbTimKiem.Location = new System.Drawing.Point(362, 24);
+            this.tbTimKiem.Name = "tbTimKiem";
+            this.tbTimKiem.Size = new System.Drawing.Size(251, 20);
+            this.tbTimKiem.TabIndex = 2;
+            this.tbTimKiem.Text = "Nhập tên hàng ";
+            this.tbTimKiem.TextChanged += new System.EventHandler(this.tbTimKiem_TextChanged);
             // 
             // btnThemDM
             // 
@@ -704,40 +723,6 @@
             this.tbTimDanhMuc.Text = "Nhập danh mục";
             this.tbTimDanhMuc.TextChanged += new System.EventHandler(this.tbTimDanhMuc_TextChanged);
             // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.cbTimTheo);
-            this.groupBox1.Controls.Add(this.tbTimKiem);
-            this.groupBox1.Location = new System.Drawing.Point(295, 5);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(459, 46);
-            this.groupBox1.TabIndex = 8;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Tìm kiếm mặt hàng";
-            // 
-            // cbTimTheo
-            // 
-            this.cbTimTheo.FormattingEnabled = true;
-            this.cbTimTheo.Items.AddRange(new object[] {
-            "Tìm theo",
-            "Theo mã hàng",
-            "Theo tên hàng"});
-            this.cbTimTheo.Location = new System.Drawing.Point(6, 18);
-            this.cbTimTheo.Name = "cbTimTheo";
-            this.cbTimTheo.Size = new System.Drawing.Size(179, 21);
-            this.cbTimTheo.TabIndex = 1;
-            this.cbTimTheo.Text = "Tìm theo";
-            this.cbTimTheo.SelectedIndexChanged += new System.EventHandler(this.cbTimTheo_SelectedIndexChanged);
-            // 
-            // tbTimKiem
-            // 
-            this.tbTimKiem.Location = new System.Drawing.Point(191, 18);
-            this.tbTimKiem.Name = "tbTimKiem";
-            this.tbTimKiem.Size = new System.Drawing.Size(262, 20);
-            this.tbTimKiem.TabIndex = 2;
-            this.tbTimKiem.Text = "Nhập hàng ";
-            this.tbTimKiem.TextChanged += new System.EventHandler(this.tbTimKiem_TextChanged);
-            // 
             // label19
             // 
             this.label19.AutoSize = true;
@@ -770,8 +755,6 @@
             this.panel2.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -826,8 +809,6 @@
         private System.Windows.Forms.Button btnThemDM;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.TextBox tbTimDanhMuc;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.ComboBox cbTimTheo;
         private System.Windows.Forms.TextBox tbTimKiem;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.MaskedTextBox mtbSDT;
@@ -845,5 +826,6 @@
         private System.Windows.Forms.NumericUpDown nudGiamGia;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Button btnThoat;
+        private System.Windows.Forms.Label label18;
     }
 }

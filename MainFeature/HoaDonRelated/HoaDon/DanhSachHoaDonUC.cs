@@ -1,6 +1,7 @@
 ﻿using GymManagerment_MVP.MainFeature.HoaDonRelated;
 using GymManagerment_MVP.MainFeature.HoaDonRelated.HoaDon;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -19,7 +20,7 @@ namespace GymManagerment_MVP
         string connectionString = Config.connection;
         public DanhSachHoaDonUC()
         {
-            
+
             InitializeComponent();
 
         }
@@ -69,13 +70,14 @@ namespace GymManagerment_MVP
             rdChuyenKhoan.Checked = false;
             rdTienMat.Checked = false;
             cbTimTheo.Text = "Tìm theo";
-            tbTimKiem.Text = "Nhập hàng";
+            tbTimKiem.Text = "Nhập thông tin";
+            dtpTuNgay.Value = DateTime.Parse("1/1/2025");
+            dtpDenNgay.Value = DateTime.Parse("12/31/2025");
         }
 
         public void DoTogether()
-        {if (tbTimKiem.Text != "" || tbTimKiem.Text !="Nhập hàng" || rdChuyenKhoan.Checked||rdTienMat.Checked||dtpTuNgay.Value<dtpDenNgay.Value)
+        {
 
-            ApplyAllFilters();
         }
 
 
@@ -114,28 +116,29 @@ namespace GymManagerment_MVP
 
         private void btnLoc_Click(object sender, EventArgs e)
         {
-            if(dtpDenNgay.Value <= dtpTuNgay.Value)
-            {
-                MessageBox.Show("Ngày kết thúc phải lớn hơn hoặc bằng ngày bắt đầu.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            var ngayBD = dtpTuNgay.Value.ToString("dd/MM/yyyy");
-            var ngayKT = dtpDenNgay.Value.ToString("dd/MM/yyyy");
-            SqlConnection sqlConnection = new SqlConnection(connectionString);
+            //if (dtpDenNgay.Value <= dtpTuNgay.Value)
+            //{
+            //    MessageBox.Show("Ngày kết thúc phải lớn hơn hoặc bằng ngày bắt đầu.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    return;
+            //}
+            //var ngayBD = dtpTuNgay.Value.ToString("dd/MM/yyyy");
+            //var ngayKT = dtpDenNgay.Value.ToString("dd/MM/yyyy");
+            //SqlConnection sqlConnection = new SqlConnection(connectionString);
 
-            SqlCommand cmd = sqlConnection.CreateCommand();
-            cmd.CommandText = "Select * from TimTheoNgay('" + ngayBD + "', '" + ngayKT + "')";
+            //SqlCommand cmd = sqlConnection.CreateCommand();
+            //cmd.CommandText = "Select * from TimTheoNgay('" + ngayBD + "', '" + ngayKT + "')";
 
-            DataTable table = new DataTable("TimTheoNgay");
-            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+            //DataTable table = new DataTable("TimTheoNgay");
+            //SqlDataAdapter adapter = new SqlDataAdapter(cmd);
 
-            sqlConnection.Open();
-            adapter.Fill(table);
+            //sqlConnection.Open();
+            //adapter.Fill(table);
 
-            sqlConnection.Close();
-            sqlConnection.Dispose();
+            //sqlConnection.Close();
+            //sqlConnection.Dispose();
 
-            dgvDanhSachHoaDon.DataSource = table;
+            //dgvDanhSachHoaDon.DataSource = table;
+            TimVaLoc();
         }
 
         private void TimKiem()
@@ -171,6 +174,7 @@ namespace GymManagerment_MVP
 
         private void tbTimKiem_TextChanged(object sender, EventArgs e)
         {
+            tbTimKiem.LostFocus -= TbTimKiemOnLostFocus;
             if (cbTimTheo.Text != "Tìm theo")
             {
                 tbTimKiem.Enabled = true;
@@ -180,21 +184,25 @@ namespace GymManagerment_MVP
                 tbTimKiem.Enabled = false;
             }
             string timKiem = tbTimKiem.Text;
-            if (string.IsNullOrWhiteSpace(timKiem) || timKiem == "Nhập hàng")
+            if (string.IsNullOrWhiteSpace(timKiem) || timKiem == "Nhập thông tin")
             {
                 LoadDanhSachHoaDon();
             }
             else
-            {
-                TimKiem();
-            }
+                //{
+                //    if(!rdChuyenKhoan.Checked || !rdTienMat.Checked || dtpTuNgay.Value == dtpDenNgay.Value)
+                //    TimKiem();
+                //    else
+                TimVaLoc();
+
+                //}
         }
 
         private void TaoTextInput()
         {
 
 
-            tbTimKiem.Text = "Nhập hàng";
+            tbTimKiem.Text = "Nhập thông tin";
 
             tbTimKiem.GotFocus += TbTimKiemOnGotFocus;
             tbTimKiem.LostFocus += TbTimKiemOnLostFocus;
@@ -202,67 +210,12 @@ namespace GymManagerment_MVP
 
         private void TbTimKiemOnLostFocus(object sender, EventArgs e)
         {
-            tbTimKiem.Text = "Nhập hàng";
+            tbTimKiem.Text = "Nhập thông tin";
         }
 
         private void TbTimKiemOnGotFocus(object sender, EventArgs e)
         {
             tbTimKiem.Text = "";
-        }
-
-        private void ApplyAllFilters()
-        {
-            string query = "SELECT * FROM DanhSachHoaDon WHERE 1=1";
-            var parameters = new List<SqlParameter>();
-
-            // Date filter
-            DateTime tuNgay = dtpTuNgay.Value.Date;
-            DateTime denNgay = dtpDenNgay.Value.Date;
-            query += " AND NgayTao >= @TuNgay AND NgayTao <= @DenNgay";
-            parameters.Add(new SqlParameter("@TuNgay", tuNgay));
-            parameters.Add(new SqlParameter("@DenNgay", denNgay));
-
-            // Payment method filter
-            if (rdChuyenKhoan.Checked)
-            {
-                query += " AND HinhThuc = @HinhThuc";
-                parameters.Add(new SqlParameter("@HinhThuc", "Chuyển khoản"));
-            }
-            else if (rdTienMat.Checked)
-            {
-                query += " AND HinhThuc = @HinhThuc";
-                parameters.Add(new SqlParameter("@HinhThuc", "Tiền mặt"));
-            }
-
-            // Search filter
-            string timKiem = tbTimKiem.Text.Trim();
-            if (!string.IsNullOrWhiteSpace(timKiem) && timKiem != "Nhập hàng" && cbTimTheo.Text != "Tìm theo")
-            {
-                if (cbTimTheo.Text == "Theo mã hóa đơn")
-                {
-                    query += " AND MaHD LIKE @TimKiem";
-                    parameters.Add(new SqlParameter("@TimKiem", "%" + timKiem + "%"));
-                }
-                else if (cbTimTheo.Text == "Theo khách hàng")
-                {
-                    query += " AND TenKhachHang LIKE @TimKiem";
-                    parameters.Add(new SqlParameter("@TimKiem", "%" + timKiem + "%"));
-                }
-            }
-
-            using (SqlConnection sqlConnection = new SqlConnection(connectionString))
-            using (SqlCommand cmd = new SqlCommand(query, sqlConnection))
-            {
-                cmd.Parameters.AddRange(parameters.ToArray());
-                DataTable table = new DataTable();
-                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-                sqlConnection.Open();
-                adapter.Fill(table);
-                sqlConnection.Close();
-                dgvDanhSachHoaDon.DataSource = table;
-                if (dgvDanhSachHoaDon.Columns.Contains("IDHocVien"))
-                    dgvDanhSachHoaDon.Columns["IDHocVien"].Visible = false;
-            }
         }
 
         private void LocHinhThuc()
@@ -297,12 +250,19 @@ namespace GymManagerment_MVP
 
         private void rdTienMat_CheckedChanged(object sender, EventArgs e)
         {
-            LocHinhThuc();
+            //if (dtpDenNgay.Value == dtpTuNgay.Value || tbTimKiem.Text != "" || tbTimKiem.Text != "Nhập thông tin")
+            //    LocHinhThuc();
+            //else
+            //TimVaLoc();
+
         }
 
         private void rdChuyenKhoan_CheckedChanged(object sender, EventArgs e)
         {
-            LocHinhThuc();
+            //if (dtpDenNgay.Value == dtpTuNgay.Value || tbTimKiem.Text != "" || tbTimKiem.Text != "Nhập thông tin")
+            //    LocHinhThuc();
+            //else
+            //TimVaLoc();
         }
 
         private void cbTimTheo_SelectedIndexChanged(object sender, EventArgs e)
@@ -463,6 +423,57 @@ namespace GymManagerment_MVP
                 MessageBox.Show("Lỗi khi tải chi tiết hóa đơn: " + ex.Message);
             }
 
+        }
+        public void TimVaLoc()
+        {
+            // --- Xử lý trạng thái ---
+            object hinhthuc = DBNull.Value;
+            if (rdTienMat.Checked && !rdChuyenKhoan.Checked)
+                hinhthuc = "Tiền mặt"; // Hoạt động
+            else if (!rdTienMat.Checked && rdChuyenKhoan.Checked)
+                hinhthuc = "Chuyển khoản"; // Không hoạt động
+
+            // --- Xử lý tiêu chí tìm kiếm chính ---
+            string mahd = null, tenkh = null;
+            if (cbTimTheo.Text == "Theo mã hóa đơn")
+                mahd = tbTimKiem.Text.Trim();
+            else if (cbTimTheo.Text == "Theo khách hàng")
+                tenkh = tbTimKiem.Text.Trim();
+
+
+            using (SqlConnection con = new SqlConnection(connectionString))
+            using (SqlCommand cmd = new SqlCommand("TimVaLoc", con))
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                // --- Thêm tham số ---
+                cmd.Parameters.AddWithValue("@mahd", (object)mahd ?? DBNull.Value);
+                cmd.Parameters.AddWithValue("@tenkh", (object)tenkh ?? DBNull.Value);
+                cmd.Parameters.AddWithValue("@hinhthuc", hinhthuc);
+
+                //Kiểm tra logic ngày(nếu cả hai đều chọn)
+                    if (dtpTuNgay.Checked && dtpDenNgay.Checked && dtpTuNgay.Value > dtpDenNgay.Value)
+                {
+                    MessageBox.Show("Ngày bắt đầu không được lớn hơn ngày kết thúc!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                cmd.Parameters.AddWithValue("@ngaymin",
+                        dtpTuNgay.Checked ? dtpTuNgay.Value.Date : (object)DBNull.Value);
+                    cmd.Parameters.AddWithValue("@ngaymax",
+                        dtpDenNgay.Checked ? dtpDenNgay.Value.Date : (object)DBNull.Value);
+                
+                    // Không tìm theo ngày sinh → truyền NULL
+                    //cmd.Parameters.AddWithValue("@ngaymin", DBNull.Value);
+                    //cmd.Parameters.AddWithValue("@ngaymax", DBNull.Value);
+                
+
+                // --- Thực thi và hiển thị ---
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                DataTable table = new DataTable();
+                adapter.Fill(table);
+                dgvDanhSachHoaDon.DataSource = table;
+            }
         }
     }
 }
