@@ -30,11 +30,14 @@
         {
             this.components = new System.ComponentModel.Container();
             this.pnThongTin = new System.Windows.Forms.Panel();
+            this.lblCatchHo = new System.Windows.Forms.Label();
+            this.lblCatchSDT = new System.Windows.Forms.Label();
+            this.lblCatchTen = new System.Windows.Forms.Label();
+            this.mtbSDT = new System.Windows.Forms.MaskedTextBox();
+            this.tbTenLot = new System.Windows.Forms.TextBox();
+            this.lblH = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dgvLichTuanNay = new System.Windows.Forms.DataGridView();
-            this.chgKhach = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.chgSDTKhach = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lbChuyenMon = new System.Windows.Forms.ListBox();
             this.cmsChuyenMon = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.thêmChuyênMônToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -99,12 +102,16 @@
             this.chChuaHoanThanh = new System.Windows.Forms.CheckBox();
             this.cbHoanThanh = new System.Windows.Forms.CheckBox();
             this.lblTrangThai = new System.Windows.Forms.Label();
-            this.tbTenLot = new System.Windows.Forms.TextBox();
-            this.lblH = new System.Windows.Forms.Label();
-            this.mtbSDT = new System.Windows.Forms.MaskedTextBox();
-            this.lblCatchSDT = new System.Windows.Forms.Label();
-            this.lblCatchTen = new System.Windows.Forms.Label();
-            this.lblCatchHo = new System.Windows.Forms.Label();
+            this.chgKhach = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.chgSDTKhach = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IDHopDong = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TGBatDau = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TrangThai = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ThoiGianTao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ThoiGianHuy = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LyDoHuy = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnThongTin.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLichTuanNay)).BeginInit();
@@ -156,6 +163,64 @@
             this.pnThongTin.Size = new System.Drawing.Size(1264, 301);
             this.pnThongTin.TabIndex = 2;
             // 
+            // lblCatchHo
+            // 
+            this.lblCatchHo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCatchHo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lblCatchHo.Location = new System.Drawing.Point(263, 6);
+            this.lblCatchHo.Name = "lblCatchHo";
+            this.lblCatchHo.Size = new System.Drawing.Size(293, 23);
+            this.lblCatchHo.TabIndex = 104;
+            this.lblCatchHo.Text = "label1";
+            this.lblCatchHo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lblCatchSDT
+            // 
+            this.lblCatchSDT.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCatchSDT.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lblCatchSDT.Location = new System.Drawing.Point(263, 103);
+            this.lblCatchSDT.Name = "lblCatchSDT";
+            this.lblCatchSDT.Size = new System.Drawing.Size(293, 16);
+            this.lblCatchSDT.TabIndex = 103;
+            this.lblCatchSDT.Text = "label4";
+            this.lblCatchSDT.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lblCatchTen
+            // 
+            this.lblCatchTen.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCatchTen.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lblCatchTen.Location = new System.Drawing.Point(263, 53);
+            this.lblCatchTen.Name = "lblCatchTen";
+            this.lblCatchTen.Size = new System.Drawing.Size(293, 23);
+            this.lblCatchTen.TabIndex = 102;
+            this.lblCatchTen.Text = "label1";
+            this.lblCatchTen.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblCatchTen.Click += new System.EventHandler(this.label8_Click);
+            // 
+            // mtbSDT
+            // 
+            this.mtbSDT.Location = new System.Drawing.Point(266, 122);
+            this.mtbSDT.Mask = "0000-000-000";
+            this.mtbSDT.Name = "mtbSDT";
+            this.mtbSDT.Size = new System.Drawing.Size(290, 20);
+            this.mtbSDT.TabIndex = 57;
+            // 
+            // tbTenLot
+            // 
+            this.tbTenLot.Location = new System.Drawing.Point(266, 32);
+            this.tbTenLot.Name = "tbTenLot";
+            this.tbTenLot.Size = new System.Drawing.Size(290, 20);
+            this.tbTenLot.TabIndex = 56;
+            // 
+            // lblH
+            // 
+            this.lblH.AutoSize = true;
+            this.lblH.Location = new System.Drawing.Point(188, 35);
+            this.lblH.Name = "lblH";
+            this.lblH.Size = new System.Drawing.Size(44, 13);
+            this.lblH.TabIndex = 55;
+            this.lblH.Text = "Tên Lót";
+            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.dgvLichTuanNay);
@@ -173,28 +238,19 @@
             this.dgvLichTuanNay.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.chgKhach,
             this.chgSDTKhach,
-            this.cTime});
+            this.cTime,
+            this.ID,
+            this.IDHopDong,
+            this.TGBatDau,
+            this.TrangThai,
+            this.ThoiGianTao,
+            this.ThoiGianHuy,
+            this.LyDoHuy});
             this.dgvLichTuanNay.Dock = System.Windows.Forms.DockStyle.Right;
             this.dgvLichTuanNay.Location = new System.Drawing.Point(11, 16);
             this.dgvLichTuanNay.Name = "dgvLichTuanNay";
             this.dgvLichTuanNay.Size = new System.Drawing.Size(522, 280);
             this.dgvLichTuanNay.TabIndex = 55;
-            // 
-            // chgKhach
-            // 
-            this.chgKhach.HeaderText = "Tên Khách Hàng";
-            this.chgKhach.Name = "chgKhach";
-            // 
-            // chgSDTKhach
-            // 
-            this.chgSDTKhach.HeaderText = "SDT Khách";
-            this.chgSDTKhach.Name = "chgSDTKhach";
-            // 
-            // cTime
-            // 
-            this.cTime.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.cTime.HeaderText = "Thời Gian";
-            this.cTime.Name = "cTime";
             // 
             // lbChuyenMon
             // 
@@ -827,63 +883,66 @@
             this.lblTrangThai.TabIndex = 21;
             this.lblTrangThai.Text = "Trạng Thái";
             // 
-            // tbTenLot
+            // chgKhach
             // 
-            this.tbTenLot.Location = new System.Drawing.Point(266, 32);
-            this.tbTenLot.Name = "tbTenLot";
-            this.tbTenLot.Size = new System.Drawing.Size(290, 20);
-            this.tbTenLot.TabIndex = 56;
+            this.chgKhach.HeaderText = "Tên Khách Hàng";
+            this.chgKhach.Name = "chgKhach";
+            this.chgKhach.Visible = false;
             // 
-            // lblH
+            // chgSDTKhach
             // 
-            this.lblH.AutoSize = true;
-            this.lblH.Location = new System.Drawing.Point(188, 35);
-            this.lblH.Name = "lblH";
-            this.lblH.Size = new System.Drawing.Size(44, 13);
-            this.lblH.TabIndex = 55;
-            this.lblH.Text = "Tên Lót";
+            this.chgSDTKhach.HeaderText = "SDT Khách";
+            this.chgSDTKhach.Name = "chgSDTKhach";
+            this.chgSDTKhach.Visible = false;
             // 
-            // mtbSDT
+            // cTime
             // 
-            this.mtbSDT.Location = new System.Drawing.Point(266, 122);
-            this.mtbSDT.Mask = "0000-000-000";
-            this.mtbSDT.Name = "mtbSDT";
-            this.mtbSDT.Size = new System.Drawing.Size(290, 20);
-            this.mtbSDT.TabIndex = 57;
+            this.cTime.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.cTime.HeaderText = "Thời Gian";
+            this.cTime.Name = "cTime";
+            this.cTime.Visible = false;
             // 
-            // lblCatchSDT
+            // ID
             // 
-            this.lblCatchSDT.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCatchSDT.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblCatchSDT.Location = new System.Drawing.Point(263, 103);
-            this.lblCatchSDT.Name = "lblCatchSDT";
-            this.lblCatchSDT.Size = new System.Drawing.Size(293, 16);
-            this.lblCatchSDT.TabIndex = 103;
-            this.lblCatchSDT.Text = "label4";
-            this.lblCatchSDT.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.ID.DataPropertyName = "ID";
+            this.ID.HeaderText = "ID";
+            this.ID.Name = "ID";
             // 
-            // lblCatchTen
+            // IDHopDong
             // 
-            this.lblCatchTen.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCatchTen.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblCatchTen.Location = new System.Drawing.Point(263, 53);
-            this.lblCatchTen.Name = "lblCatchTen";
-            this.lblCatchTen.Size = new System.Drawing.Size(293, 23);
-            this.lblCatchTen.TabIndex = 102;
-            this.lblCatchTen.Text = "label1";
-            this.lblCatchTen.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.lblCatchTen.Click += new System.EventHandler(this.label8_Click);
+            this.IDHopDong.DataPropertyName = "IDHopDong";
+            this.IDHopDong.HeaderText = "IDHopDong";
+            this.IDHopDong.Name = "IDHopDong";
             // 
-            // lblCatchHo
+            // TGBatDau
             // 
-            this.lblCatchHo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCatchHo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblCatchHo.Location = new System.Drawing.Point(263, 6);
-            this.lblCatchHo.Name = "lblCatchHo";
-            this.lblCatchHo.Size = new System.Drawing.Size(293, 23);
-            this.lblCatchHo.TabIndex = 104;
-            this.lblCatchHo.Text = "label1";
-            this.lblCatchHo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.TGBatDau.DataPropertyName = "TGBatDau";
+            this.TGBatDau.HeaderText = "TGBatDau";
+            this.TGBatDau.Name = "TGBatDau";
+            // 
+            // TrangThai
+            // 
+            this.TrangThai.DataPropertyName = "TrangThai";
+            this.TrangThai.HeaderText = "TrangThai";
+            this.TrangThai.Name = "TrangThai";
+            // 
+            // ThoiGianTao
+            // 
+            this.ThoiGianTao.DataPropertyName = "ThoiGianTao";
+            this.ThoiGianTao.HeaderText = "ThoiGianTao";
+            this.ThoiGianTao.Name = "ThoiGianTao";
+            // 
+            // ThoiGianHuy
+            // 
+            this.ThoiGianHuy.DataPropertyName = "ThoiGianHuy";
+            this.ThoiGianHuy.HeaderText = "ThoiGianHuy";
+            this.ThoiGianHuy.Name = "ThoiGianHuy";
+            // 
+            // LyDoHuy
+            // 
+            this.LyDoHuy.DataPropertyName = "LyDoHuy";
+            this.LyDoHuy.HeaderText = "LyDoHuy";
+            this.LyDoHuy.Name = "LyDoHuy";
             // 
             // ThongTinPT
             // 
@@ -968,9 +1027,6 @@
         private System.Windows.Forms.ContextMenuStrip cmsChuyenMon;
         private System.Windows.Forms.ToolStripMenuItem thêmChuyênMônToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem xóaChuyênMônToolStripMenuItem;
-        private System.Windows.Forms.DataGridViewTextBoxColumn chgKhach;
-        private System.Windows.Forms.DataGridViewTextBoxColumn chgSDTKhach;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cTime;
         private System.Windows.Forms.CheckBox cbCancel;
         private System.Windows.Forms.CheckBox cbPending;
         private System.Windows.Forms.CheckBox chChuaHoanThanh;
@@ -995,5 +1051,15 @@
         private System.Windows.Forms.Label lblCatchSDT;
         private System.Windows.Forms.Label lblCatchTen;
         private System.Windows.Forms.Label lblCatchHo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn chgKhach;
+        private System.Windows.Forms.DataGridViewTextBoxColumn chgSDTKhach;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cTime;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IDHopDong;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TGBatDau;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TrangThai;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ThoiGianTao;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ThoiGianHuy;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LyDoHuy;
     }
 }

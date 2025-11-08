@@ -14,8 +14,9 @@ namespace GymManagerment_MVP.MainFeature.Main
 {
     public partial class LOGIN : Form
     {
+        public User user;
         // kết nối database
-        private  string connectionString = Config.connection;
+        private string connectionString = Config.connection;
         public LOGIN()
         {
             InitializeComponent();
@@ -34,7 +35,7 @@ namespace GymManagerment_MVP.MainFeature.Main
             string username = txtTenTK.Text;
             string password = txtMatKhau.Text;
 
-            string query= "SELECT ID, MatKhau, TrangThai FROM Users WHERE TenTK = @TenTK_Parameter";
+            string query = "SELECT ID, MatKhau, TrangThai FROM Users WHERE TenTK = @TenTK_Parameter";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -154,14 +155,16 @@ namespace GymManagerment_MVP.MainFeature.Main
 
         private void button1_Click(object sender, EventArgs e)
         {
-            User user = new User {
-                TenTK="Teamate",
-                TrangThai=TrangThaiTK.Admin,
-                Create_At=DateTime.Now
+            User user = new User
+            {
+                TenTK = "Teamate",
+                TrangThai = TrangThaiTK.Admin,
+                Create_At = DateTime.Now
             };
-            Mainfrm mainForm = new Mainfrm(user);
-            mainForm.Show();
-            this.Hide();
+            this.user = user;
+
+            this.DialogResult = DialogResult.OK;
+            this.Close();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -172,9 +175,11 @@ namespace GymManagerment_MVP.MainFeature.Main
                 TrangThai = TrangThaiTK.Cashier,
                 Create_At = DateTime.Now
             };
-            Mainfrm mainForm = new Mainfrm(user);
-            mainForm.Show();
-            this.Hide();
+            this.user = user;
+
+            this.DialogResult = DialogResult.OK;
+            this.Close();
+
         }
     }
 }

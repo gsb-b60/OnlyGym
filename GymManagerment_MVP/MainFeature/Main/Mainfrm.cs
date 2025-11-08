@@ -191,9 +191,8 @@ namespace GymManagerment_MVP
 
         private void btnLogOut_Click(object sender, EventArgs e)
         {
+            this.DialogResult= DialogResult.Retry;
             this.Close();
-            LOGIN frm = new LOGIN();
-            frm.ShowDialog();
         }
     }
 }

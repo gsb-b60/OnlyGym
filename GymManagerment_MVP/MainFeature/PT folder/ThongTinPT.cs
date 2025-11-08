@@ -1,4 +1,5 @@
-﻿using GymManagerment_MVP.Business;
+﻿using Business;
+using GymManagerment_MVP.Business;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -24,6 +25,7 @@ namespace GymManagerment_MVP.MainFeature.HoaDonRelated.PT
         public ThongTinPT(Business.PT pt)
         {
             InitializeComponent();
+            this.pt = pt;
             SetUpPT(pt);
             lblCatchSDT.Text = "";
             lblCatchTen.Text = "";
@@ -35,11 +37,11 @@ namespace GymManagerment_MVP.MainFeature.HoaDonRelated.PT
             lblCatchSDT.Text = "";
             lblCatchTen.Text = "";
             lblCatchHo.Text = "";
-            tbTenLot.Text = pt.tenLot??"";
+            tbTenLot.Text = pt.tenLot ?? "";
             mtbSDT.Text = pt.sDT;
             tbDuongDan.Text = pt.AvatarUrl;
             tbPTTen.Text = pt.name;
-            cbPTTrangThai.SelectedIndex = pt.trangThai == State.Inactive? 1 : 0;
+            cbPTTrangThai.SelectedIndex = pt.trangThai == State.Inactive ? 1 : 0;
             if (pt.thoiGianXoa.HasValue)
             {
                 dtpXoa.Value = pt.thoiGianXoa.Value;
@@ -96,6 +98,9 @@ namespace GymManagerment_MVP.MainFeature.HoaDonRelated.PT
             {
                 lbChuyenMon.Items.Add(sp);
             }
+            SessionBL sess = new SessionBL();
+
+            dgvLichTuanNay.DataSource = sess.GetByIDPT(pt.id);
         }
         private void contextMenuStrip1_Opening(object sender, CancelEventArgs e)
         {
@@ -104,8 +109,8 @@ namespace GymManagerment_MVP.MainFeature.HoaDonRelated.PT
 
         private void btnCapNhat_Click(object sender, EventArgs e)
         {
-            Business.PT updatept= checkInput();
-            if(updatept!=null) UpdatePT(updatept);
+            Business.PT updatept = checkInput();
+            if (updatept != null) UpdatePT(updatept);
 
         }
 
@@ -179,7 +184,7 @@ namespace GymManagerment_MVP.MainFeature.HoaDonRelated.PT
                 gioiTinh = rdNam.Checked ? Gender.Male : Gender.Female,
                 AvatarUrl = tbDuongDan.Text,
                 trangThai = cbPTTrangThai.SelectedIndex == 0 ? State.Active : State.Inactive,
-                thoiGianXoa = dtpXoa.Checked?dtpXoa.Value:(DateTime?)null
+                thoiGianXoa = dtpXoa.Checked ? dtpXoa.Value : (DateTime?)null
             };
             return addPT;
         }
@@ -207,7 +212,7 @@ namespace GymManagerment_MVP.MainFeature.HoaDonRelated.PT
 
         public void UpdatePT(Business.PT ptPara)
         {
-            using(SqlConnection connection=new SqlConnection(Config.connection))
+            using (SqlConnection connection = new SqlConnection(Config.connection))
             {
                 string query = "update PT " +
                     "set Ho=@Ho ," +
@@ -220,27 +225,27 @@ namespace GymManagerment_MVP.MainFeature.HoaDonRelated.PT
                     "AvartarUrl=@AvatarUrl " +
                     "where ID=@ID";
 
-                using(SqlCommand cmd=new SqlCommand(query,connection))
+                using (SqlCommand cmd = new SqlCommand(query, connection))
                 {
                     cmd.Parameters.AddWithValue("@Ho", ptPara.tenLot);
                     cmd.Parameters.AddWithValue("@Ten", ptPara.name);
                     cmd.Parameters.AddWithValue("@SDT", ptPara.sDT);
-                    cmd.Parameters.AddWithValue("@TrangThai", ptPara.trangThai==State.Active?1:0);
-                    cmd.Parameters.AddWithValue("@ThoiGianXoa", ptPara.thoiGianXoa??(object)DBNull.Value);
-                    cmd.Parameters.AddWithValue("@GioiTinh", ptPara.gioiTinh==Gender.Male?1:0);
-                    cmd.Parameters.AddWithValue("@NgaySinh", ptPara.ngaySinh??(object)DBNull.Value);
-                    cmd.Parameters.AddWithValue("@AvatarUrl", ptPara.AvatarUrl??(object)DBNull.Value);
+                    cmd.Parameters.AddWithValue("@TrangThai", ptPara.trangThai == State.Active ? 1 : 0);
+                    cmd.Parameters.AddWithValue("@ThoiGianXoa", ptPara.thoiGianXoa ?? (object)DBNull.Value);
+                    cmd.Parameters.AddWithValue("@GioiTinh", ptPara.gioiTinh == Gender.Male ? 1 : 0);
+                    cmd.Parameters.AddWithValue("@NgaySinh", ptPara.ngaySinh ?? (object)DBNull.Value);
+                    cmd.Parameters.AddWithValue("@AvatarUrl", ptPara.AvatarUrl ?? (object)DBNull.Value);
                     cmd.Parameters.AddWithValue("@ID", ptPara.id);
 
                     connection.Open();
-                    int check=cmd.ExecuteNonQuery();
+                    int check = cmd.ExecuteNonQuery();
                     if (check == 1)
                     {
                         MessageBox.Show("cap nhat thanh cong");
                     }
                 }
             }
-            
+
         }
     }
 }
