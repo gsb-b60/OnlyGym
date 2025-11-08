@@ -13,6 +13,7 @@ using GymManagerment_MVP.Business;
 using System.Diagnostics;
 using DataAccess;
 using Business;
+using DataAccess.Object;
 
 namespace GymManagerment_MVP.MainFeature.Main
 {
@@ -226,22 +227,7 @@ namespace GymManagerment_MVP.MainFeature.Main
 
         }
 
-        private void btnThem_Click(object sender, EventArgs e)
-        {
-            ThemPTfrm frm = new ThemPTfrm();
-
-            DialogResult re = frm.ShowDialog();
-            if (re == DialogResult.OK)
-            {
-                MessageBox.Show(frm.addPT.ToString());
-                AddPTDB(frm.addPT);
-                LoadDBPT();
-            }
-            else
-            {
-                MessageBox.Show("Huy Them PT");
-            }
-        }
+        
 
 
         private void AddPTDB(PT ptPara)
@@ -432,6 +418,38 @@ namespace GymManagerment_MVP.MainFeature.Main
         private void dgvDSPT_DoubleClick(object sender, EventArgs e)
         {
             pnInfor.Visible = true;
+        }
+
+        private void dgvDSPT_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            var row = dgvDSPT.Rows[e.RowIndex].DataBoundItem as PT;
+            if(row!=null&& row.thoiGianXoa!=(DateTime?)null)
+            {
+                dgvDSPT.Rows[e.RowIndex].DefaultCellStyle.ForeColor = Color.DarkGray;
+                dgvDSPT.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.LightGray;
+            }
+            else
+            {
+                dgvDSPT.Rows[e.RowIndex].DefaultCellStyle.ForeColor = Color.Black;
+                dgvDSPT.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.White;
+            }
+        }
+
+        private void btnThem_Click_1(object sender, EventArgs e)
+        {
+            ThemPTfrm frm = new ThemPTfrm();
+
+            DialogResult re = frm.ShowDialog();
+            if (re == DialogResult.OK)
+            {
+                MessageBox.Show(frm.addPT.ToString());
+                AddPTDB(frm.addPT);
+                LoadDBPT();
+            }
+            else
+            {
+                MessageBox.Show("Huy Them PT");
+            }
         }
     }
 }

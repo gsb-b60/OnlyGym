@@ -245,16 +245,16 @@
     <Compile Include="MainFeature\PT folder\HopDongPT\ThongTinHopDongPTUC.Designer.cs">
       <DependentUpon>ThongTinHopDongPTUC.cs</DependentUpon>
     </Compile>
-    <Compile Include="MainFeature\PT folder\ThemPTfrm.cs">
+    <Compile Include="MainFeature\PT folder\ListPTRelate\ThemPTfrm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MainFeature\PT folder\ThemPTfrm.Designer.cs">
+    <Compile Include="MainFeature\PT folder\ListPTRelate\ThemPTfrm.Designer.cs">
       <DependentUpon>ThemPTfrm.cs</DependentUpon>
     </Compile>
-    <Compile Include="MainFeature\PT folder\ThongTinPT.cs">
+    <Compile Include="MainFeature\PT folder\ListPTRelate\ThongTinPT.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="MainFeature\PT folder\ThongTinPT.Designer.cs">
+    <Compile Include="MainFeature\PT folder\ListPTRelate\ThongTinPT.Designer.cs">
       <DependentUpon>ThongTinPT.cs</DependentUpon>
     </Compile>
     <Compile Include="MainFeature\HoaDonRelated\SanPhamUC.cs">
@@ -263,16 +263,16 @@
     <Compile Include="MainFeature\HoaDonRelated\SanPhamUC.Designer.cs">
       <DependentUpon>SanPhamUC.cs</DependentUpon>
     </Compile>
-    <Compile Include="MainFeature\PT folder\DanhSachPTUC.cs">
+    <Compile Include="MainFeature\PT folder\ListPTRelate\DanhSachPTUC.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="MainFeature\PT folder\DanhSachPTUC.Designer.cs">
+    <Compile Include="MainFeature\PT folder\ListPTRelate\DanhSachPTUC.Designer.cs">
       <DependentUpon>DanhSachPTUC.cs</DependentUpon>
     </Compile>
-    <Compile Include="MainFeature\PT folder\ThongTinChuyenMonUC.cs">
+    <Compile Include="MainFeature\PT folder\ListPTRelate\ThongTinChuyenMonUC.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="MainFeature\PT folder\ThongTinChuyenMonUC.Designer.cs">
+    <Compile Include="MainFeature\PT folder\ListPTRelate\ThongTinChuyenMonUC.Designer.cs">
       <DependentUpon>ThongTinChuyenMonUC.cs</DependentUpon>
     </Compile>
     <Compile Include="MainFeature\ThanhToanRelated\DangKyGoiTap.cs">
@@ -469,19 +469,19 @@
     <EmbeddedResource Include="MainFeature\PT folder\HopDongPT\ThongTinHopDongPTUC.resx">
       <DependentUpon>ThongTinHopDongPTUC.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainFeature\PT folder\ThemPTfrm.resx">
+    <EmbeddedResource Include="MainFeature\PT folder\ListPTRelate\ThemPTfrm.resx">
       <DependentUpon>ThemPTfrm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainFeature\PT folder\ThongTinChuyenMonUC.resx">
+    <EmbeddedResource Include="MainFeature\PT folder\ListPTRelate\ThongTinChuyenMonUC.resx">
       <DependentUpon>ThongTinChuyenMonUC.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainFeature\PT folder\ThongTinPT.resx">
+    <EmbeddedResource Include="MainFeature\PT folder\ListPTRelate\ThongTinPT.resx">
       <DependentUpon>ThongTinPT.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainFeature\HoaDonRelated\SanPhamUC.resx">
       <DependentUpon>SanPhamUC.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainFeature\PT folder\DanhSachPTUC.resx">
+    <EmbeddedResource Include="MainFeature\PT folder\ListPTRelate\DanhSachPTUC.resx">
       <DependentUpon>DanhSachPTUC.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainFeature\ThanhToanRelated\DangKyGoiTap.resx">
