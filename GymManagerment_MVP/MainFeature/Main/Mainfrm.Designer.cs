@@ -40,6 +40,7 @@
             this.hướngDẫnSửDụngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.thôngTinChuyênMônToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pnlMenu = new System.Windows.Forms.Panel();
+            this.btnTaiKhoan = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
@@ -49,7 +50,6 @@
             this.btnCheckin = new System.Windows.Forms.Button();
             this.btnQuanLyNhanVien = new System.Windows.Forms.Button();
             this.pnlContent = new System.Windows.Forms.Panel();
-            this.btnTaiKhoan = new System.Windows.Forms.Button();
             this.pnlHome.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.pnlMenu.SuspendLayout();
@@ -79,7 +79,7 @@
             // lblAccName
             // 
             this.lblAccName.AutoSize = true;
-            this.lblAccName.Location = new System.Drawing.Point(941, 9);
+            this.lblAccName.Location = new System.Drawing.Point(984, 9);
             this.lblAccName.Name = "lblAccName";
             this.lblAccName.Size = new System.Drawing.Size(94, 13);
             this.lblAccName.TabIndex = 6;
@@ -168,6 +168,18 @@
             this.pnlMenu.Size = new System.Drawing.Size(1264, 31);
             this.pnlMenu.TabIndex = 1;
             this.pnlMenu.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlMenu_Paint);
+            // 
+            // btnTaiKhoan
+            // 
+            this.btnTaiKhoan.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnTaiKhoan.Location = new System.Drawing.Point(965, 0);
+            this.btnTaiKhoan.Name = "btnTaiKhoan";
+            this.btnTaiKhoan.Size = new System.Drawing.Size(139, 31);
+            this.btnTaiKhoan.TabIndex = 14;
+            this.btnTaiKhoan.Text = "Tai Khoan";
+            this.btnTaiKhoan.UseVisualStyleBackColor = true;
+            this.btnTaiKhoan.Visible = false;
+            this.btnTaiKhoan.Click += new System.EventHandler(this.btnTaiKhoan_Click);
             // 
             // button3
             // 
@@ -265,17 +277,6 @@
             this.pnlContent.Size = new System.Drawing.Size(1264, 624);
             this.pnlContent.TabIndex = 2;
             this.pnlContent.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlContent_Paint);
-            // 
-            // btnTaiKhoan
-            // 
-            this.btnTaiKhoan.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnTaiKhoan.Location = new System.Drawing.Point(965, 0);
-            this.btnTaiKhoan.Name = "btnTaiKhoan";
-            this.btnTaiKhoan.Size = new System.Drawing.Size(139, 31);
-            this.btnTaiKhoan.TabIndex = 14;
-            this.btnTaiKhoan.Text = "Tai Khoan";
-            this.btnTaiKhoan.UseVisualStyleBackColor = true;
-            this.btnTaiKhoan.Click += new System.EventHandler(this.btnTaiKhoan_Click);
             // 
             // Mainfrm
             // 

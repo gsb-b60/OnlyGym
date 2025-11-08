@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using DataAccess.Object;
 
 namespace GymManagerment_MVP.MainFeature.Main
 {
@@ -153,7 +154,25 @@ namespace GymManagerment_MVP.MainFeature.Main
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Mainfrm mainForm = new Mainfrm();
+            User user = new User {
+                TenTK="Teamate",
+                TrangThai=TrangThaiTK.Admin,
+                Create_At=DateTime.Now
+            };
+            Mainfrm mainForm = new Mainfrm(user);
+            mainForm.Show();
+            this.Hide();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            User user = new User
+            {
+                TenTK = "Teamate",
+                TrangThai = TrangThaiTK.Cashier,
+                Create_At = DateTime.Now
+            };
+            Mainfrm mainForm = new Mainfrm(user);
             mainForm.Show();
             this.Hide();
         }

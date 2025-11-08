@@ -1,4 +1,5 @@
-﻿using GymManagerment_MVP.Business;
+﻿using DataAccess.Object;
+using GymManagerment_MVP.Business;
 using GymManagerment_MVP.MainFeature.HoaDonRelated.PT;
 using GymManagerment_MVP.MainFeature.HoaDonRelated.PT._4stepdk;
 using GymManagerment_MVP.MainFeature.HoaDonRelated.PT.HopDongPT;
@@ -25,6 +26,19 @@ namespace GymManagerment_MVP
             this.MinimumSize = new Size(1280, 800);
             loadUserControl(new MuaHang());
             // Test Form
+        }
+        public Mainfrm(User user)
+        {
+            InitializeComponent();
+            this.MinimumSize = new Size(1280, 800);
+            loadUserControl(new MuaHang());
+            // Test Form
+            lblAccName.Text = user.TenTK;
+            lblChucVu.Text = user.TrangThai.ToString();
+            if(user.TrangThai==TrangThaiTK.Admin)
+            {
+                btnTaiKhoan.Visible = true;
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
