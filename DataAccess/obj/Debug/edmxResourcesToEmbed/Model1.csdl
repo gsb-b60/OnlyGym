@@ -1,0 +1,369 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="GymManagement_1Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="buoiTapPT">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_HopDong" Type="Int32" Nullable="false" />
+    <Property Name="tg_BatDau" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="tg_KetThuc" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="trangThai" Type="Int32" Nullable="false" />
+    <Property Name="tgTao" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="tg_Huy" Type="DateTime" Precision="0" />
+    <Property Name="lyDoHuy" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="HopDongPT" Relationship="Self.FK_buoiTapPT_HopDong" FromRole="buoiTapPT" ToRole="HopDongPT" />
+  </EntityType>
+  <EntityType Name="GoiPT">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenGoi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="SoBuoi" Type="Int32" Nullable="false" />
+    <Property Name="TrangThai" Type="Boolean" Nullable="false" />
+    <Property Name="GiaTien" Type="Decimal" Precision="12" Scale="3" Nullable="false" />
+    <Property Name="Discount" Type="Decimal" Precision="12" Scale="3" />
+    <NavigationProperty Name="HopDongPT" Relationship="Self.FK_hopDongPT_PTPackage" FromRole="GoiPT" ToRole="HopDongPT" />
+  </EntityType>
+  <EntityType Name="GoiTap">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenGoi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LoaiGoi" Type="Int32" Nullable="false" />
+    <Property Name="ThoiHanNgay" Type="Int32" />
+    <Property Name="ThoiHanBuoi" Type="Int32" />
+    <Property Name="GiaTien" Type="Decimal" Precision="12" Scale="3" Nullable="false" />
+    <Property Name="ThongTin" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="HoatDong" Type="Boolean" Nullable="false" />
+    <Property Name="Discount" Type="Decimal" Precision="12" Scale="3" Nullable="false" />
+    <Property Name="StartSellingDate" Type="DateTime" Precision="3" />
+    <Property Name="EndSellingDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="HocVien">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ten" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="sdt" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ngaySinh" Type="DateTime" Precision="0" />
+    <Property Name="gioiTinh" Type="Boolean" />
+    <Property Name="avatarUrl" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="tag" Type="Int32" />
+    <Property Name="ghiChu" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="thoiGianTao" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="thoiGianSua" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ngayXoa" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="HopDongPT" Relationship="Self.FK_hopDongPT_HocVien" FromRole="HocVien" ToRole="HopDongPT" />
+  </EntityType>
+  <EntityType Name="HopDongPT">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_HocVien" Type="Int32" Nullable="false" />
+    <Property Name="id_pt" Type="Int32" Nullable="false" />
+    <Property Name="id_pt_package" Type="Int32" Nullable="false" />
+    <Property Name="tongBuoi" Type="Int32" Nullable="false" />
+    <Property Name="conBuoi" Type="Int32" Nullable="false" />
+    <Property Name="trangThai" Type="Int32" Nullable="false" />
+    <Property Name="ngayTao" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="buoiTapPT" Relationship="Self.FK_buoiTapPT_HopDong" FromRole="HopDongPT" ToRole="buoiTapPT" />
+    <NavigationProperty Name="GoiPT" Relationship="Self.FK_hopDongPT_PTPackage" FromRole="HopDongPT" ToRole="GoiPT" />
+    <NavigationProperty Name="HocVien" Relationship="Self.FK_hopDongPT_HocVien" FromRole="HopDongPT" ToRole="HocVien" />
+    <NavigationProperty Name="PT" Relationship="Self.FK_hopDongPT_PT" FromRole="HopDongPT" ToRole="PT" />
+  </EntityType>
+  <EntityType Name="PT">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Ho" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Ten" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="SDT" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TrangThai" Type="Boolean" Nullable="false" />
+    <Property Name="ThoiGianXoa" Type="DateTime" Precision="3" />
+    <Property Name="GioiTinh" Type="Boolean" />
+    <Property Name="NgaySinh" Type="DateTime" Precision="3" />
+    <Property Name="AvartarUrl" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="HopDongPT" Relationship="Self.FK_hopDongPT_PT" FromRole="PT" ToRole="HopDongPT" />
+    <NavigationProperty Name="PTSpecialties" Relationship="Self.FK__PTSpecial__PT_ID__71D1E811" FromRole="PT" ToRole="PTSpecialties" />
+  </EntityType>
+  <EntityType Name="PTSpecialties">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PT_ID" Type="Int32" Nullable="false" />
+    <Property Name="Specialties_ID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="PT" Relationship="Self.FK__PTSpecial__PT_ID__71D1E811" FromRole="PTSpecialties" ToRole="PT" />
+    <NavigationProperty Name="Specialties" Relationship="Self.FK__PTSpecial__Speci__72C60C4A" FromRole="PTSpecialties" ToRole="Specialties" />
+  </EntityType>
+  <EntityType Name="Specialties">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Specialties1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="notes" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="PTSpecialties" Relationship="Self.FK__PTSpecial__Speci__72C60C4A" FromRole="Specialties" ToRole="PTSpecialties" />
+  </EntityType>
+  <EntityType Name="v_BuoiTapPT_ChiTiet">
+    <Key>
+      <PropertyRef Name="BuoiTap_ID" />
+      <PropertyRef Name="HopDong_ID" />
+      <PropertyRef Name="TenHocVien" />
+      <PropertyRef Name="TenPT" />
+      <PropertyRef Name="tg_BatDau" />
+      <PropertyRef Name="tg_KetThuc" />
+      <PropertyRef Name="TrangThaiBuoi" />
+      <PropertyRef Name="TrangThaiHopDong" />
+      <PropertyRef Name="tgTao" />
+    </Key>
+    <Property Name="BuoiTap_ID" Type="Int32" Nullable="false" />
+    <Property Name="HopDong_ID" Type="Int32" Nullable="false" />
+    <Property Name="TenHocVien" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="TenPT" Type="String" MaxLength="201" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="tg_BatDau" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="tg_KetThuc" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="TrangThaiBuoi" Type="Int32" Nullable="false" />
+    <Property Name="TrangThaiHopDong" Type="Int32" Nullable="false" />
+    <Property Name="tgTao" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="tg_Huy" Type="DateTime" Precision="0" />
+    <Property Name="lyDoHuy" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="v_DoanhThuPT">
+    <Key>
+      <PropertyRef Name="PT_ID" />
+      <PropertyRef Name="TenPT" />
+    </Key>
+    <Property Name="PT_ID" Type="Int32" Nullable="false" />
+    <Property Name="TenPT" Type="String" MaxLength="201" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="SoHopDong" Type="Int32" />
+    <Property Name="TongDoanhThu" Type="Decimal" Precision="38" Scale="3" />
+    <Property Name="TongSoBuoi" Type="Int32" />
+  </EntityType>
+  <EntityType Name="v_HocVienInfo">
+    <Key>
+      <PropertyRef Name="HocVien_ID" />
+      <PropertyRef Name="TenHocVien" />
+      <PropertyRef Name="sdt" />
+      <PropertyRef Name="thoiGianTao" />
+    </Key>
+    <Property Name="HocVien_ID" Type="Int32" Nullable="false" />
+    <Property Name="TenHocVien" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="sdt" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ngaySinh" Type="DateTime" Precision="0" />
+    <Property Name="gioiTinh" Type="Boolean" />
+    <Property Name="avatarUrl" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="thoiGianTao" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="HopDong_ID" Type="Int32" />
+    <Property Name="GoiPT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TenPT" Type="String" MaxLength="201" FixedLength="false" Unicode="true" />
+    <Property Name="trangThai" Type="Int32" />
+  </EntityType>
+  <EntityType Name="v_HopDongPT_ChiTiet">
+    <Key>
+      <PropertyRef Name="HopDong_ID" />
+      <PropertyRef Name="TenHocVien" />
+      <PropertyRef Name="TenPT" />
+      <PropertyRef Name="GoiPT" />
+      <PropertyRef Name="SoBuoi" />
+      <PropertyRef Name="GiaTien" />
+      <PropertyRef Name="tongBuoi" />
+      <PropertyRef Name="conBuoi" />
+      <PropertyRef Name="trangThai" />
+      <PropertyRef Name="ngayTao" />
+    </Key>
+    <Property Name="HopDong_ID" Type="Int32" Nullable="false" />
+    <Property Name="TenHocVien" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="TenPT" Type="String" MaxLength="201" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="GoiPT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="SoBuoi" Type="Int32" Nullable="false" />
+    <Property Name="GiaTien" Type="Decimal" Precision="12" Scale="3" Nullable="false" />
+    <Property Name="Discount" Type="Decimal" Precision="12" Scale="3" />
+    <Property Name="TongTienSauGiam" Type="Decimal" Precision="13" Scale="3" />
+    <Property Name="tongBuoi" Type="Int32" Nullable="false" />
+    <Property Name="conBuoi" Type="Int32" Nullable="false" />
+    <Property Name="trangThai" Type="Int32" Nullable="false" />
+    <Property Name="ngayTao" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="v_LichPT">
+    <Key>
+      <PropertyRef Name="PT_ID" />
+      <PropertyRef Name="TenPT" />
+      <PropertyRef Name="TenHocVien" />
+      <PropertyRef Name="tg_BatDau" />
+      <PropertyRef Name="tg_KetThuc" />
+      <PropertyRef Name="trangThai" />
+    </Key>
+    <Property Name="PT_ID" Type="Int32" Nullable="false" />
+    <Property Name="TenPT" Type="String" MaxLength="201" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="TenHocVien" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="tg_BatDau" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="tg_KetThuc" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="trangThai" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="v_TienTrinhHocVien">
+    <Key>
+      <PropertyRef Name="HocVien_ID" />
+      <PropertyRef Name="TenHocVien" />
+      <PropertyRef Name="tongBuoi" />
+      <PropertyRef Name="conBuoi" />
+    </Key>
+    <Property Name="HocVien_ID" Type="Int32" Nullable="false" />
+    <Property Name="TenHocVien" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="TongBuoiTap" Type="Int32" />
+    <Property Name="SoBuoiHoanThanh" Type="Int32" />
+    <Property Name="tongBuoi" Type="Int32" Nullable="false" />
+    <Property Name="conBuoi" Type="Int32" Nullable="false" />
+    <Property Name="PhanTramHoanThanh" Type="Decimal" Precision="5" Scale="2" />
+  </EntityType>
+  <EntityType Name="v_TrangThaiHopDongPT">
+    <Key>
+      <PropertyRef Name="trangThai" />
+    </Key>
+    <Property Name="trangThai" Type="Int32" Nullable="false" />
+    <Property Name="SoLuongHopDong" Type="Int32" />
+  </EntityType>
+  <Association Name="FK_buoiTapPT_HopDong">
+    <End Role="HopDongPT" Type="Self.HopDongPT" Multiplicity="1" />
+    <End Role="buoiTapPT" Type="Self.buoiTapPT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HopDongPT">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="buoiTapPT">
+        <PropertyRef Name="id_HopDong" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_hopDongPT_PTPackage">
+    <End Role="GoiPT" Type="Self.GoiPT" Multiplicity="1" />
+    <End Role="HopDongPT" Type="Self.HopDongPT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GoiPT">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="HopDongPT">
+        <PropertyRef Name="id_pt_package" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_hopDongPT_HocVien">
+    <End Role="HocVien" Type="Self.HocVien" Multiplicity="1" />
+    <End Role="HopDongPT" Type="Self.HopDongPT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HocVien">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="HopDongPT">
+        <PropertyRef Name="id_HocVien" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_hopDongPT_PT">
+    <End Role="PT" Type="Self.PT" Multiplicity="1" />
+    <End Role="HopDongPT" Type="Self.HopDongPT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PT">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="HopDongPT">
+        <PropertyRef Name="id_pt" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PTSpecial__PT_ID__71D1E811">
+    <End Role="PT" Type="Self.PT" Multiplicity="1" />
+    <End Role="PTSpecialties" Type="Self.PTSpecialties" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PT">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="PTSpecialties">
+        <PropertyRef Name="PT_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PTSpecial__Speci__72C60C4A">
+    <End Role="Specialties" Type="Self.Specialties" Multiplicity="1" />
+    <End Role="PTSpecialties" Type="Self.PTSpecialties" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Specialties">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="PTSpecialties">
+        <PropertyRef Name="Specialties_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="GymEntity" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="buoiTapPT" EntityType="Self.buoiTapPT" />
+    <EntitySet Name="GoiPT" EntityType="Self.GoiPT" />
+    <EntitySet Name="GoiTap" EntityType="Self.GoiTap" />
+    <EntitySet Name="HocVien" EntityType="Self.HocVien" />
+    <EntitySet Name="HopDongPT" EntityType="Self.HopDongPT" />
+    <EntitySet Name="PT" EntityType="Self.PT" />
+    <EntitySet Name="PTSpecialties" EntityType="Self.PTSpecialties" />
+    <EntitySet Name="Specialties" EntityType="Self.Specialties" />
+    <EntitySet Name="v_BuoiTapPT_ChiTiet" EntityType="Self.v_BuoiTapPT_ChiTiet" />
+    <EntitySet Name="v_DoanhThuPT" EntityType="Self.v_DoanhThuPT" />
+    <EntitySet Name="v_HocVienInfo" EntityType="Self.v_HocVienInfo" />
+    <EntitySet Name="v_HopDongPT_ChiTiet" EntityType="Self.v_HopDongPT_ChiTiet" />
+    <EntitySet Name="v_LichPT" EntityType="Self.v_LichPT" />
+    <EntitySet Name="v_TienTrinhHocVien" EntityType="Self.v_TienTrinhHocVien" />
+    <EntitySet Name="v_TrangThaiHopDongPT" EntityType="Self.v_TrangThaiHopDongPT" />
+    <AssociationSet Name="FK_buoiTapPT_HopDong" Association="Self.FK_buoiTapPT_HopDong">
+      <End Role="HopDongPT" EntitySet="HopDongPT" />
+      <End Role="buoiTapPT" EntitySet="buoiTapPT" />
+    </AssociationSet>
+    <AssociationSet Name="FK_hopDongPT_PTPackage" Association="Self.FK_hopDongPT_PTPackage">
+      <End Role="GoiPT" EntitySet="GoiPT" />
+      <End Role="HopDongPT" EntitySet="HopDongPT" />
+    </AssociationSet>
+    <AssociationSet Name="FK_hopDongPT_HocVien" Association="Self.FK_hopDongPT_HocVien">
+      <End Role="HocVien" EntitySet="HocVien" />
+      <End Role="HopDongPT" EntitySet="HopDongPT" />
+    </AssociationSet>
+    <AssociationSet Name="FK_hopDongPT_PT" Association="Self.FK_hopDongPT_PT">
+      <End Role="PT" EntitySet="PT" />
+      <End Role="HopDongPT" EntitySet="HopDongPT" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PTSpecial__PT_ID__71D1E811" Association="Self.FK__PTSpecial__PT_ID__71D1E811">
+      <End Role="PT" EntitySet="PT" />
+      <End Role="PTSpecialties" EntitySet="PTSpecialties" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PTSpecial__Speci__72C60C4A" Association="Self.FK__PTSpecial__Speci__72C60C4A">
+      <End Role="Specialties" EntitySet="Specialties" />
+      <End Role="PTSpecialties" EntitySet="PTSpecialties" />
+    </AssociationSet>
+    <FunctionImport Name="sp_ActivateHopDong">
+      <Parameter Name="HopDong_ID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_CreateHopDong">
+      <Parameter Name="ThanhVien_ID" Mode="In" Type="Int32" />
+      <Parameter Name="PT_ID" Mode="In" Type="Int32" />
+      <Parameter Name="GoiPT_ID" Mode="In" Type="Int32" />
+      <Parameter Name="NgayBatDau" Mode="In" Type="DateTime" />
+      <Parameter Name="GhiChu" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_ExpireHopDong" />
+    <FunctionImport Name="sp_PauseHopDong">
+      <Parameter Name="HopDong_ID" Mode="In" Type="Int32" />
+      <Parameter Name="LyDo" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_ScheduleSessions">
+      <Parameter Name="HopDong_ID" Mode="In" Type="Int32" />
+      <Parameter Name="Pattern" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_UpdateSessionState">
+      <Parameter Name="BuoiTap_ID" Mode="In" Type="Int32" />
+      <Parameter Name="TrangThai" Mode="In" Type="String" />
+    </FunctionImport>
+  </EntityContainer>
+</Schema>

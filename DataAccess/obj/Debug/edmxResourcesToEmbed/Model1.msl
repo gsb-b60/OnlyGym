@@ -1,0 +1,215 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="GymManagement_1ModelStoreContainer" CdmEntityContainer="GymEntity">
+    <EntitySetMapping Name="buoiTapPT">
+      <EntityTypeMapping TypeName="GymManagement_1Model.buoiTapPT">
+        <MappingFragment StoreEntitySet="buoiTapPT">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="id_HopDong" ColumnName="id_HopDong" />
+          <ScalarProperty Name="tg_BatDau" ColumnName="tg_BatDau" />
+          <ScalarProperty Name="tg_KetThuc" ColumnName="tg_KetThuc" />
+          <ScalarProperty Name="trangThai" ColumnName="trangThai" />
+          <ScalarProperty Name="tgTao" ColumnName="tgTao" />
+          <ScalarProperty Name="tg_Huy" ColumnName="tg_Huy" />
+          <ScalarProperty Name="lyDoHuy" ColumnName="lyDoHuy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GoiPT">
+      <EntityTypeMapping TypeName="GymManagement_1Model.GoiPT">
+        <MappingFragment StoreEntitySet="GoiPT">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="TenGoi" ColumnName="TenGoi" />
+          <ScalarProperty Name="SoBuoi" ColumnName="SoBuoi" />
+          <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
+          <ScalarProperty Name="GiaTien" ColumnName="GiaTien" />
+          <ScalarProperty Name="Discount" ColumnName="Discount" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GoiTap">
+      <EntityTypeMapping TypeName="GymManagement_1Model.GoiTap">
+        <MappingFragment StoreEntitySet="GoiTap">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="TenGoi" ColumnName="TenGoi" />
+          <ScalarProperty Name="LoaiGoi" ColumnName="LoaiGoi" />
+          <ScalarProperty Name="ThoiHanNgay" ColumnName="ThoiHanNgay" />
+          <ScalarProperty Name="ThoiHanBuoi" ColumnName="ThoiHanBuoi" />
+          <ScalarProperty Name="GiaTien" ColumnName="GiaTien" />
+          <ScalarProperty Name="ThongTin" ColumnName="ThongTin" />
+          <ScalarProperty Name="HoatDong" ColumnName="HoatDong" />
+          <ScalarProperty Name="Discount" ColumnName="Discount" />
+          <ScalarProperty Name="StartSellingDate" ColumnName="StartSellingDate" />
+          <ScalarProperty Name="EndSellingDate" ColumnName="EndSellingDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HocVien">
+      <EntityTypeMapping TypeName="GymManagement_1Model.HocVien">
+        <MappingFragment StoreEntitySet="HocVien">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="code" ColumnName="code" />
+          <ScalarProperty Name="ten" ColumnName="ten" />
+          <ScalarProperty Name="sdt" ColumnName="sdt" />
+          <ScalarProperty Name="ngaySinh" ColumnName="ngaySinh" />
+          <ScalarProperty Name="gioiTinh" ColumnName="gioiTinh" />
+          <ScalarProperty Name="avatarUrl" ColumnName="avatarUrl" />
+          <ScalarProperty Name="tag" ColumnName="tag" />
+          <ScalarProperty Name="ghiChu" ColumnName="ghiChu" />
+          <ScalarProperty Name="thoiGianTao" ColumnName="thoiGianTao" />
+          <ScalarProperty Name="thoiGianSua" ColumnName="thoiGianSua" />
+          <ScalarProperty Name="ngayXoa" ColumnName="ngayXoa" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HopDongPT">
+      <EntityTypeMapping TypeName="GymManagement_1Model.HopDongPT">
+        <MappingFragment StoreEntitySet="HopDongPT">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="id_HocVien" ColumnName="id_HocVien" />
+          <ScalarProperty Name="id_pt" ColumnName="id_pt" />
+          <ScalarProperty Name="id_pt_package" ColumnName="id_pt_package" />
+          <ScalarProperty Name="tongBuoi" ColumnName="tongBuoi" />
+          <ScalarProperty Name="conBuoi" ColumnName="conBuoi" />
+          <ScalarProperty Name="trangThai" ColumnName="trangThai" />
+          <ScalarProperty Name="ngayTao" ColumnName="ngayTao" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PT">
+      <EntityTypeMapping TypeName="GymManagement_1Model.PT">
+        <MappingFragment StoreEntitySet="PT">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Ho" ColumnName="Ho" />
+          <ScalarProperty Name="Ten" ColumnName="Ten" />
+          <ScalarProperty Name="SDT" ColumnName="SDT" />
+          <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
+          <ScalarProperty Name="ThoiGianXoa" ColumnName="ThoiGianXoa" />
+          <ScalarProperty Name="GioiTinh" ColumnName="GioiTinh" />
+          <ScalarProperty Name="NgaySinh" ColumnName="NgaySinh" />
+          <ScalarProperty Name="AvartarUrl" ColumnName="AvartarUrl" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PTSpecialties">
+      <EntityTypeMapping TypeName="GymManagement_1Model.PTSpecialties">
+        <MappingFragment StoreEntitySet="PTSpecialties">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="PT_ID" ColumnName="PT_ID" />
+          <ScalarProperty Name="Specialties_ID" ColumnName="Specialties_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Specialties">
+      <EntityTypeMapping TypeName="GymManagement_1Model.Specialties">
+        <MappingFragment StoreEntitySet="Specialties">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Specialties1" ColumnName="Specialties" />
+          <ScalarProperty Name="notes" ColumnName="notes" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="v_BuoiTapPT_ChiTiet">
+      <EntityTypeMapping TypeName="GymManagement_1Model.v_BuoiTapPT_ChiTiet">
+        <MappingFragment StoreEntitySet="v_BuoiTapPT_ChiTiet">
+          <ScalarProperty Name="BuoiTap_ID" ColumnName="BuoiTap_ID" />
+          <ScalarProperty Name="HopDong_ID" ColumnName="HopDong_ID" />
+          <ScalarProperty Name="TenHocVien" ColumnName="TenHocVien" />
+          <ScalarProperty Name="TenPT" ColumnName="TenPT" />
+          <ScalarProperty Name="tg_BatDau" ColumnName="tg_BatDau" />
+          <ScalarProperty Name="tg_KetThuc" ColumnName="tg_KetThuc" />
+          <ScalarProperty Name="TrangThaiBuoi" ColumnName="TrangThaiBuoi" />
+          <ScalarProperty Name="TrangThaiHopDong" ColumnName="TrangThaiHopDong" />
+          <ScalarProperty Name="tgTao" ColumnName="tgTao" />
+          <ScalarProperty Name="tg_Huy" ColumnName="tg_Huy" />
+          <ScalarProperty Name="lyDoHuy" ColumnName="lyDoHuy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="v_DoanhThuPT">
+      <EntityTypeMapping TypeName="GymManagement_1Model.v_DoanhThuPT">
+        <MappingFragment StoreEntitySet="v_DoanhThuPT">
+          <ScalarProperty Name="PT_ID" ColumnName="PT_ID" />
+          <ScalarProperty Name="TenPT" ColumnName="TenPT" />
+          <ScalarProperty Name="SoHopDong" ColumnName="SoHopDong" />
+          <ScalarProperty Name="TongDoanhThu" ColumnName="TongDoanhThu" />
+          <ScalarProperty Name="TongSoBuoi" ColumnName="TongSoBuoi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="v_HocVienInfo">
+      <EntityTypeMapping TypeName="GymManagement_1Model.v_HocVienInfo">
+        <MappingFragment StoreEntitySet="v_HocVienInfo">
+          <ScalarProperty Name="HocVien_ID" ColumnName="HocVien_ID" />
+          <ScalarProperty Name="TenHocVien" ColumnName="TenHocVien" />
+          <ScalarProperty Name="sdt" ColumnName="sdt" />
+          <ScalarProperty Name="ngaySinh" ColumnName="ngaySinh" />
+          <ScalarProperty Name="gioiTinh" ColumnName="gioiTinh" />
+          <ScalarProperty Name="avatarUrl" ColumnName="avatarUrl" />
+          <ScalarProperty Name="thoiGianTao" ColumnName="thoiGianTao" />
+          <ScalarProperty Name="HopDong_ID" ColumnName="HopDong_ID" />
+          <ScalarProperty Name="GoiPT" ColumnName="GoiPT" />
+          <ScalarProperty Name="TenPT" ColumnName="TenPT" />
+          <ScalarProperty Name="trangThai" ColumnName="trangThai" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="v_HopDongPT_ChiTiet">
+      <EntityTypeMapping TypeName="GymManagement_1Model.v_HopDongPT_ChiTiet">
+        <MappingFragment StoreEntitySet="v_HopDongPT_ChiTiet">
+          <ScalarProperty Name="HopDong_ID" ColumnName="HopDong_ID" />
+          <ScalarProperty Name="TenHocVien" ColumnName="TenHocVien" />
+          <ScalarProperty Name="TenPT" ColumnName="TenPT" />
+          <ScalarProperty Name="GoiPT" ColumnName="GoiPT" />
+          <ScalarProperty Name="SoBuoi" ColumnName="SoBuoi" />
+          <ScalarProperty Name="GiaTien" ColumnName="GiaTien" />
+          <ScalarProperty Name="Discount" ColumnName="Discount" />
+          <ScalarProperty Name="TongTienSauGiam" ColumnName="TongTienSauGiam" />
+          <ScalarProperty Name="tongBuoi" ColumnName="tongBuoi" />
+          <ScalarProperty Name="conBuoi" ColumnName="conBuoi" />
+          <ScalarProperty Name="trangThai" ColumnName="trangThai" />
+          <ScalarProperty Name="ngayTao" ColumnName="ngayTao" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="v_LichPT">
+      <EntityTypeMapping TypeName="GymManagement_1Model.v_LichPT">
+        <MappingFragment StoreEntitySet="v_LichPT">
+          <ScalarProperty Name="PT_ID" ColumnName="PT_ID" />
+          <ScalarProperty Name="TenPT" ColumnName="TenPT" />
+          <ScalarProperty Name="TenHocVien" ColumnName="TenHocVien" />
+          <ScalarProperty Name="tg_BatDau" ColumnName="tg_BatDau" />
+          <ScalarProperty Name="tg_KetThuc" ColumnName="tg_KetThuc" />
+          <ScalarProperty Name="trangThai" ColumnName="trangThai" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="v_TienTrinhHocVien">
+      <EntityTypeMapping TypeName="GymManagement_1Model.v_TienTrinhHocVien">
+        <MappingFragment StoreEntitySet="v_TienTrinhHocVien">
+          <ScalarProperty Name="HocVien_ID" ColumnName="HocVien_ID" />
+          <ScalarProperty Name="TenHocVien" ColumnName="TenHocVien" />
+          <ScalarProperty Name="TongBuoiTap" ColumnName="TongBuoiTap" />
+          <ScalarProperty Name="SoBuoiHoanThanh" ColumnName="SoBuoiHoanThanh" />
+          <ScalarProperty Name="tongBuoi" ColumnName="tongBuoi" />
+          <ScalarProperty Name="conBuoi" ColumnName="conBuoi" />
+          <ScalarProperty Name="PhanTramHoanThanh" ColumnName="PhanTramHoanThanh" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="v_TrangThaiHopDongPT">
+      <EntityTypeMapping TypeName="GymManagement_1Model.v_TrangThaiHopDongPT">
+        <MappingFragment StoreEntitySet="v_TrangThaiHopDongPT">
+          <ScalarProperty Name="trangThai" ColumnName="trangThai" />
+          <ScalarProperty Name="SoLuongHopDong" ColumnName="SoLuongHopDong" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="sp_ActivateHopDong" FunctionName="GymManagement_1Model.Store.sp_ActivateHopDong" />
+    <FunctionImportMapping FunctionImportName="sp_CreateHopDong" FunctionName="GymManagement_1Model.Store.sp_CreateHopDong" />
+    <FunctionImportMapping FunctionImportName="sp_ExpireHopDong" FunctionName="GymManagement_1Model.Store.sp_ExpireHopDong" />
+    <FunctionImportMapping FunctionImportName="sp_PauseHopDong" FunctionName="GymManagement_1Model.Store.sp_PauseHopDong" />
+    <FunctionImportMapping FunctionImportName="sp_ScheduleSessions" FunctionName="GymManagement_1Model.Store.sp_ScheduleSessions" />
+    <FunctionImportMapping FunctionImportName="sp_UpdateSessionState" FunctionName="GymManagement_1Model.Store.sp_UpdateSessionState" />
+  </EntityContainerMapping>
+</Mapping>

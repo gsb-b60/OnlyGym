@@ -1,0 +1,15 @@
+D:\UNI\nam3-hk1\DESKTOP\Business\bin\Debug\Business.dll.config
+D:\UNI\nam3-hk1\DESKTOP\Business\bin\Debug\Business.dll
+D:\UNI\nam3-hk1\DESKTOP\Business\bin\Debug\Business.pdb
+D:\UNI\nam3-hk1\DESKTOP\Business\bin\Debug\DataAccess.dll
+D:\UNI\nam3-hk1\DESKTOP\Business\bin\Debug\EntityFramework.dll
+D:\UNI\nam3-hk1\DESKTOP\Business\bin\Debug\EntityFramework.SqlServer.dll
+D:\UNI\nam3-hk1\DESKTOP\Business\bin\Debug\DataAccess.pdb
+D:\UNI\nam3-hk1\DESKTOP\Business\bin\Debug\DataAccess.dll.config
+D:\UNI\nam3-hk1\DESKTOP\Business\bin\Debug\EntityFramework.xml
+D:\UNI\nam3-hk1\DESKTOP\Business\bin\Debug\EntityFramework.SqlServer.xml
+D:\UNI\nam3-hk1\DESKTOP\Business\obj\Debug\Business.csproj.AssemblyReference.cache
+D:\UNI\nam3-hk1\DESKTOP\Business\obj\Debug\Business.csproj.CoreCompileInputs.cache
+D:\UNI\nam3-hk1\DESKTOP\Business\obj\Debug\Business.csproj.Up2Date
+D:\UNI\nam3-hk1\DESKTOP\Business\obj\Debug\Business.dll
+D:\UNI\nam3-hk1\DESKTOP\Business\obj\Debug\Business.pdb

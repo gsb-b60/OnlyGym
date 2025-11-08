@@ -1,0 +1,455 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="GymManagement_1Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="buoiTapPT">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_HopDong" Type="int" Nullable="false" />
+    <Property Name="tg_BatDau" Type="datetime" Nullable="false" />
+    <Property Name="tg_KetThuc" Type="date" Nullable="false" />
+    <Property Name="trangThai" Type="int" Nullable="false" />
+    <Property Name="tgTao" Type="date" Nullable="false" />
+    <Property Name="tg_Huy" Type="date" />
+    <Property Name="lyDoHuy" Type="nvarchar" MaxLength="1000" />
+  </EntityType>
+  <EntityType Name="GoiPT">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TenGoi" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="SoBuoi" Type="int" Nullable="false" />
+    <Property Name="TrangThai" Type="bit" Nullable="false" />
+    <Property Name="GiaTien" Type="decimal" Precision="12" Scale="3" Nullable="false" />
+    <Property Name="Discount" Type="decimal" Precision="12" Scale="3" />
+  </EntityType>
+  <EntityType Name="GoiTap">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TenGoi" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="LoaiGoi" Type="int" Nullable="false" />
+    <Property Name="ThoiHanNgay" Type="int" />
+    <Property Name="ThoiHanBuoi" Type="int" />
+    <Property Name="GiaTien" Type="decimal" Precision="12" Scale="3" Nullable="false" />
+    <Property Name="ThongTin" Type="nvarchar" MaxLength="1000" />
+    <Property Name="HoatDong" Type="bit" Nullable="false" />
+    <Property Name="Discount" Type="decimal" Precision="12" Scale="3" Nullable="false" />
+    <Property Name="StartSellingDate" Type="datetime" />
+    <Property Name="EndSellingDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="HocVien">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="code" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ten" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="sdt" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="ngaySinh" Type="date" />
+    <Property Name="gioiTinh" Type="bit" />
+    <Property Name="avatarUrl" Type="nvarchar" MaxLength="50" />
+    <Property Name="tag" Type="int" />
+    <Property Name="ghiChu" Type="nvarchar" MaxLength="1000" Nullable="false" />
+    <Property Name="thoiGianTao" Type="datetime" Nullable="false" />
+    <Property Name="thoiGianSua" Type="datetime" Nullable="false" />
+    <Property Name="ngayXoa" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="HopDongPT">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_HocVien" Type="int" Nullable="false" />
+    <Property Name="id_pt" Type="int" Nullable="false" />
+    <Property Name="id_pt_package" Type="int" Nullable="false" />
+    <Property Name="tongBuoi" Type="int" Nullable="false" />
+    <Property Name="conBuoi" Type="int" Nullable="false" />
+    <Property Name="trangThai" Type="int" Nullable="false" />
+    <Property Name="ngayTao" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PT">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Ho" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Ten" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="SDT" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="TrangThai" Type="bit" Nullable="false" />
+    <Property Name="ThoiGianXoa" Type="datetime" />
+    <Property Name="GioiTinh" Type="bit" />
+    <Property Name="NgaySinh" Type="datetime" />
+    <Property Name="AvartarUrl" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="PTSpecialties">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PT_ID" Type="int" Nullable="false" />
+    <Property Name="Specialties_ID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Specialties">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Specialties" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="notes" Type="nvarchar" MaxLength="1000" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'GymManagement_1.dbo.v_BuoiTapPT_ChiTiet' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="v_BuoiTapPT_ChiTiet">
+    <Key>
+      <PropertyRef Name="BuoiTap_ID" />
+      <PropertyRef Name="HopDong_ID" />
+      <PropertyRef Name="TenHocVien" />
+      <PropertyRef Name="TenPT" />
+      <PropertyRef Name="tg_BatDau" />
+      <PropertyRef Name="tg_KetThuc" />
+      <PropertyRef Name="TrangThaiBuoi" />
+      <PropertyRef Name="TrangThaiHopDong" />
+      <PropertyRef Name="tgTao" />
+    </Key>
+    <Property Name="BuoiTap_ID" Type="int" Nullable="false" />
+    <Property Name="HopDong_ID" Type="int" Nullable="false" />
+    <Property Name="TenHocVien" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="TenPT" Type="nvarchar" MaxLength="201" Nullable="false" />
+    <Property Name="tg_BatDau" Type="datetime" Nullable="false" />
+    <Property Name="tg_KetThuc" Type="date" Nullable="false" />
+    <Property Name="TrangThaiBuoi" Type="int" Nullable="false" />
+    <Property Name="TrangThaiHopDong" Type="int" Nullable="false" />
+    <Property Name="tgTao" Type="date" Nullable="false" />
+    <Property Name="tg_Huy" Type="date" />
+    <Property Name="lyDoHuy" Type="nvarchar" MaxLength="1000" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'GymManagement_1.dbo.v_DashboardGym' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="v_DashboardGym">
+          <Property Name="TongHocVien" Type="int" />
+          <Property Name="TongPT" Type="int" />
+          <Property Name="HopDongHoatDong" Type="int" />
+          <Property Name="BuoiChuaTap" Type="int" />
+          <Property Name="BuoiHoanThanh" Type="int" />
+        </EntityType>-->
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'GymManagement_1.dbo.v_DoanhThuPT' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="v_DoanhThuPT">
+    <Key>
+      <PropertyRef Name="PT_ID" />
+      <PropertyRef Name="TenPT" />
+    </Key>
+    <Property Name="PT_ID" Type="int" Nullable="false" />
+    <Property Name="TenPT" Type="nvarchar" MaxLength="201" Nullable="false" />
+    <Property Name="SoHopDong" Type="int" />
+    <Property Name="TongDoanhThu" Type="decimal" Precision="38" Scale="3" />
+    <Property Name="TongSoBuoi" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'GymManagement_1.dbo.v_HocVienInfo' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="v_HocVienInfo">
+    <Key>
+      <PropertyRef Name="HocVien_ID" />
+      <PropertyRef Name="TenHocVien" />
+      <PropertyRef Name="sdt" />
+      <PropertyRef Name="thoiGianTao" />
+    </Key>
+    <Property Name="HocVien_ID" Type="int" Nullable="false" />
+    <Property Name="TenHocVien" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="sdt" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="ngaySinh" Type="date" />
+    <Property Name="gioiTinh" Type="bit" />
+    <Property Name="avatarUrl" Type="nvarchar" MaxLength="50" />
+    <Property Name="thoiGianTao" Type="datetime" Nullable="false" />
+    <Property Name="HopDong_ID" Type="int" />
+    <Property Name="GoiPT" Type="nvarchar" MaxLength="50" />
+    <Property Name="TenPT" Type="nvarchar" MaxLength="201" />
+    <Property Name="trangThai" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'GymManagement_1.dbo.v_HopDongPT_ChiTiet' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="v_HopDongPT_ChiTiet">
+    <Key>
+      <PropertyRef Name="HopDong_ID" />
+      <PropertyRef Name="TenHocVien" />
+      <PropertyRef Name="TenPT" />
+      <PropertyRef Name="GoiPT" />
+      <PropertyRef Name="SoBuoi" />
+      <PropertyRef Name="GiaTien" />
+      <PropertyRef Name="tongBuoi" />
+      <PropertyRef Name="conBuoi" />
+      <PropertyRef Name="trangThai" />
+      <PropertyRef Name="ngayTao" />
+    </Key>
+    <Property Name="HopDong_ID" Type="int" Nullable="false" />
+    <Property Name="TenHocVien" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="TenPT" Type="nvarchar" MaxLength="201" Nullable="false" />
+    <Property Name="GoiPT" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="SoBuoi" Type="int" Nullable="false" />
+    <Property Name="GiaTien" Type="decimal" Precision="12" Scale="3" Nullable="false" />
+    <Property Name="Discount" Type="decimal" Precision="12" Scale="3" />
+    <Property Name="TongTienSauGiam" Type="decimal" Precision="13" Scale="3" />
+    <Property Name="tongBuoi" Type="int" Nullable="false" />
+    <Property Name="conBuoi" Type="int" Nullable="false" />
+    <Property Name="trangThai" Type="int" Nullable="false" />
+    <Property Name="ngayTao" Type="datetime" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'GymManagement_1.dbo.v_LichPT' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="v_LichPT">
+    <Key>
+      <PropertyRef Name="PT_ID" />
+      <PropertyRef Name="TenPT" />
+      <PropertyRef Name="TenHocVien" />
+      <PropertyRef Name="tg_BatDau" />
+      <PropertyRef Name="tg_KetThuc" />
+      <PropertyRef Name="trangThai" />
+    </Key>
+    <Property Name="PT_ID" Type="int" Nullable="false" />
+    <Property Name="TenPT" Type="nvarchar" MaxLength="201" Nullable="false" />
+    <Property Name="TenHocVien" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="tg_BatDau" Type="datetime" Nullable="false" />
+    <Property Name="tg_KetThuc" Type="date" Nullable="false" />
+    <Property Name="trangThai" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'GymManagement_1.dbo.v_TienTrinhHocVien' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="v_TienTrinhHocVien">
+    <Key>
+      <PropertyRef Name="HocVien_ID" />
+      <PropertyRef Name="TenHocVien" />
+      <PropertyRef Name="tongBuoi" />
+      <PropertyRef Name="conBuoi" />
+    </Key>
+    <Property Name="HocVien_ID" Type="int" Nullable="false" />
+    <Property Name="TenHocVien" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="TongBuoiTap" Type="int" />
+    <Property Name="SoBuoiHoanThanh" Type="int" />
+    <Property Name="tongBuoi" Type="int" Nullable="false" />
+    <Property Name="conBuoi" Type="int" Nullable="false" />
+    <Property Name="PhanTramHoanThanh" Type="decimal" Precision="5" Scale="2" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'GymManagement_1.dbo.v_TrangThaiHopDongPT' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="v_TrangThaiHopDongPT">
+    <Key>
+      <PropertyRef Name="trangThai" />
+    </Key>
+    <Property Name="trangThai" Type="int" Nullable="false" />
+    <Property Name="SoLuongHopDong" Type="int" />
+  </EntityType>
+  <Association Name="FK__PTSpecial__PT_ID__71D1E811">
+    <End Role="PT" Type="Self.PT" Multiplicity="1" />
+    <End Role="PTSpecialties" Type="Self.PTSpecialties" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PT">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="PTSpecialties">
+        <PropertyRef Name="PT_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PTSpecial__Speci__72C60C4A">
+    <End Role="Specialties" Type="Self.Specialties" Multiplicity="1" />
+    <End Role="PTSpecialties" Type="Self.PTSpecialties" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Specialties">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="PTSpecialties">
+        <PropertyRef Name="Specialties_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_buoiTapPT_HopDong">
+    <End Role="HopDongPT" Type="Self.HopDongPT" Multiplicity="1" />
+    <End Role="buoiTapPT" Type="Self.buoiTapPT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HopDongPT">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="buoiTapPT">
+        <PropertyRef Name="id_HopDong" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_hopDongPT_HocVien">
+    <End Role="HocVien" Type="Self.HocVien" Multiplicity="1" />
+    <End Role="HopDongPT" Type="Self.HopDongPT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HocVien">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="HopDongPT">
+        <PropertyRef Name="id_HocVien" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_hopDongPT_PT">
+    <End Role="PT" Type="Self.PT" Multiplicity="1" />
+    <End Role="HopDongPT" Type="Self.HopDongPT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PT">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="HopDongPT">
+        <PropertyRef Name="id_pt" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_hopDongPT_PTPackage">
+    <End Role="GoiPT" Type="Self.GoiPT" Multiplicity="1" />
+    <End Role="HopDongPT" Type="Self.HopDongPT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GoiPT">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="HopDongPT">
+        <PropertyRef Name="id_pt_package" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="sp_ActivateHopDong" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="HopDong_ID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_CreateHopDong" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ThanhVien_ID" Type="int" Mode="In" />
+    <Parameter Name="PT_ID" Type="int" Mode="In" />
+    <Parameter Name="GoiPT_ID" Type="int" Mode="In" />
+    <Parameter Name="NgayBatDau" Type="date" Mode="In" />
+    <Parameter Name="GhiChu" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_ExpireHopDong" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="sp_PauseHopDong" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="HopDong_ID" Type="int" Mode="In" />
+    <Parameter Name="LyDo" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_ScheduleSessions" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="HopDong_ID" Type="int" Mode="In" />
+    <Parameter Name="Pattern" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_UpdateSessionState" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="BuoiTap_ID" Type="int" Mode="In" />
+    <Parameter Name="TrangThai" Type="nvarchar" Mode="In" />
+  </Function>
+  <EntityContainer Name="GymManagement_1ModelStoreContainer">
+    <EntitySet Name="buoiTapPT" EntityType="Self.buoiTapPT" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GoiPT" EntityType="Self.GoiPT" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GoiTap" EntityType="Self.GoiTap" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HocVien" EntityType="Self.HocVien" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HopDongPT" EntityType="Self.HopDongPT" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PT" EntityType="Self.PT" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PTSpecialties" EntityType="Self.PTSpecialties" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Specialties" EntityType="Self.Specialties" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="v_BuoiTapPT_ChiTiet" EntityType="Self.v_BuoiTapPT_ChiTiet" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [v_BuoiTapPT_ChiTiet].[BuoiTap_ID] AS [BuoiTap_ID], 
+    [v_BuoiTapPT_ChiTiet].[HopDong_ID] AS [HopDong_ID], 
+    [v_BuoiTapPT_ChiTiet].[TenHocVien] AS [TenHocVien], 
+    [v_BuoiTapPT_ChiTiet].[TenPT] AS [TenPT], 
+    [v_BuoiTapPT_ChiTiet].[tg_BatDau] AS [tg_BatDau], 
+    [v_BuoiTapPT_ChiTiet].[tg_KetThuc] AS [tg_KetThuc], 
+    [v_BuoiTapPT_ChiTiet].[TrangThaiBuoi] AS [TrangThaiBuoi], 
+    [v_BuoiTapPT_ChiTiet].[TrangThaiHopDong] AS [TrangThaiHopDong], 
+    [v_BuoiTapPT_ChiTiet].[tgTao] AS [tgTao], 
+    [v_BuoiTapPT_ChiTiet].[tg_Huy] AS [tg_Huy], 
+    [v_BuoiTapPT_ChiTiet].[lyDoHuy] AS [lyDoHuy]
+    FROM [dbo].[v_BuoiTapPT_ChiTiet] AS [v_BuoiTapPT_ChiTiet]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="v_DoanhThuPT" EntityType="Self.v_DoanhThuPT" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [v_DoanhThuPT].[PT_ID] AS [PT_ID], 
+    [v_DoanhThuPT].[TenPT] AS [TenPT], 
+    [v_DoanhThuPT].[SoHopDong] AS [SoHopDong], 
+    [v_DoanhThuPT].[TongDoanhThu] AS [TongDoanhThu], 
+    [v_DoanhThuPT].[TongSoBuoi] AS [TongSoBuoi]
+    FROM [dbo].[v_DoanhThuPT] AS [v_DoanhThuPT]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="v_HocVienInfo" EntityType="Self.v_HocVienInfo" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [v_HocVienInfo].[HocVien_ID] AS [HocVien_ID], 
+    [v_HocVienInfo].[TenHocVien] AS [TenHocVien], 
+    [v_HocVienInfo].[sdt] AS [sdt], 
+    [v_HocVienInfo].[ngaySinh] AS [ngaySinh], 
+    [v_HocVienInfo].[gioiTinh] AS [gioiTinh], 
+    [v_HocVienInfo].[avatarUrl] AS [avatarUrl], 
+    [v_HocVienInfo].[thoiGianTao] AS [thoiGianTao], 
+    [v_HocVienInfo].[HopDong_ID] AS [HopDong_ID], 
+    [v_HocVienInfo].[GoiPT] AS [GoiPT], 
+    [v_HocVienInfo].[TenPT] AS [TenPT], 
+    [v_HocVienInfo].[trangThai] AS [trangThai]
+    FROM [dbo].[v_HocVienInfo] AS [v_HocVienInfo]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="v_HopDongPT_ChiTiet" EntityType="Self.v_HopDongPT_ChiTiet" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [v_HopDongPT_ChiTiet].[HopDong_ID] AS [HopDong_ID], 
+    [v_HopDongPT_ChiTiet].[TenHocVien] AS [TenHocVien], 
+    [v_HopDongPT_ChiTiet].[TenPT] AS [TenPT], 
+    [v_HopDongPT_ChiTiet].[GoiPT] AS [GoiPT], 
+    [v_HopDongPT_ChiTiet].[SoBuoi] AS [SoBuoi], 
+    [v_HopDongPT_ChiTiet].[GiaTien] AS [GiaTien], 
+    [v_HopDongPT_ChiTiet].[Discount] AS [Discount], 
+    [v_HopDongPT_ChiTiet].[TongTienSauGiam] AS [TongTienSauGiam], 
+    [v_HopDongPT_ChiTiet].[tongBuoi] AS [tongBuoi], 
+    [v_HopDongPT_ChiTiet].[conBuoi] AS [conBuoi], 
+    [v_HopDongPT_ChiTiet].[trangThai] AS [trangThai], 
+    [v_HopDongPT_ChiTiet].[ngayTao] AS [ngayTao]
+    FROM [dbo].[v_HopDongPT_ChiTiet] AS [v_HopDongPT_ChiTiet]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="v_LichPT" EntityType="Self.v_LichPT" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [v_LichPT].[PT_ID] AS [PT_ID], 
+    [v_LichPT].[TenPT] AS [TenPT], 
+    [v_LichPT].[TenHocVien] AS [TenHocVien], 
+    [v_LichPT].[tg_BatDau] AS [tg_BatDau], 
+    [v_LichPT].[tg_KetThuc] AS [tg_KetThuc], 
+    [v_LichPT].[trangThai] AS [trangThai]
+    FROM [dbo].[v_LichPT] AS [v_LichPT]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="v_TienTrinhHocVien" EntityType="Self.v_TienTrinhHocVien" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [v_TienTrinhHocVien].[HocVien_ID] AS [HocVien_ID], 
+    [v_TienTrinhHocVien].[TenHocVien] AS [TenHocVien], 
+    [v_TienTrinhHocVien].[TongBuoiTap] AS [TongBuoiTap], 
+    [v_TienTrinhHocVien].[SoBuoiHoanThanh] AS [SoBuoiHoanThanh], 
+    [v_TienTrinhHocVien].[tongBuoi] AS [tongBuoi], 
+    [v_TienTrinhHocVien].[conBuoi] AS [conBuoi], 
+    [v_TienTrinhHocVien].[PhanTramHoanThanh] AS [PhanTramHoanThanh]
+    FROM [dbo].[v_TienTrinhHocVien] AS [v_TienTrinhHocVien]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="v_TrangThaiHopDongPT" EntityType="Self.v_TrangThaiHopDongPT" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [v_TrangThaiHopDongPT].[trangThai] AS [trangThai], 
+    [v_TrangThaiHopDongPT].[SoLuongHopDong] AS [SoLuongHopDong]
+    FROM [dbo].[v_TrangThaiHopDongPT] AS [v_TrangThaiHopDongPT]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK__PTSpecial__PT_ID__71D1E811" Association="Self.FK__PTSpecial__PT_ID__71D1E811">
+      <End Role="PT" EntitySet="PT" />
+      <End Role="PTSpecialties" EntitySet="PTSpecialties" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PTSpecial__Speci__72C60C4A" Association="Self.FK__PTSpecial__Speci__72C60C4A">
+      <End Role="Specialties" EntitySet="Specialties" />
+      <End Role="PTSpecialties" EntitySet="PTSpecialties" />
+    </AssociationSet>
+    <AssociationSet Name="FK_buoiTapPT_HopDong" Association="Self.FK_buoiTapPT_HopDong">
+      <End Role="HopDongPT" EntitySet="HopDongPT" />
+      <End Role="buoiTapPT" EntitySet="buoiTapPT" />
+    </AssociationSet>
+    <AssociationSet Name="FK_hopDongPT_HocVien" Association="Self.FK_hopDongPT_HocVien">
+      <End Role="HocVien" EntitySet="HocVien" />
+      <End Role="HopDongPT" EntitySet="HopDongPT" />
+    </AssociationSet>
+    <AssociationSet Name="FK_hopDongPT_PT" Association="Self.FK_hopDongPT_PT">
+      <End Role="PT" EntitySet="PT" />
+      <End Role="HopDongPT" EntitySet="HopDongPT" />
+    </AssociationSet>
+    <AssociationSet Name="FK_hopDongPT_PTPackage" Association="Self.FK_hopDongPT_PTPackage">
+      <End Role="GoiPT" EntitySet="GoiPT" />
+      <End Role="HopDongPT" EntitySet="HopDongPT" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
