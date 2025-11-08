@@ -1,4 +1,6 @@
-﻿using GymManagerment_MVP.Business;
+﻿using Business;
+using DataAccess.Object;
+using GymManagerment_MVP.Business;
 using GymManagerment_MVP.MainFeature.HoaDonRelated;
 using GymManagerment_MVP.MainFeature.HoaDonRelated.PT;
 using System;
@@ -16,7 +18,7 @@ namespace GymManagerment_MVP
 {
     public partial class MuaHang : UserControl
     {
-
+        List<PTSession> bookedList;
         public MuaHang()
         {
             InitializeComponent();
@@ -50,9 +52,34 @@ namespace GymManagerment_MVP
             dangKyPT2.Dock = DockStyle.Fill;
             pnPTV2.Controls.Add(dangKyPT2);
             dangKyPT.BringToFront();
-
+            dangKyPT2.ReturnList += DangKyPT2_ReturnList;
             dangKyPT2.SetForBuy += DangKyPT2_SetForBuy;
+            dangKyPT2.HopDong += DangKyPT2_HopDong;
+        }
 
+        private void DangKyPT2_HopDong(HopDong obj)
+        {
+            HopDongBL hdbl=new HopDongBL();
+            HopDong hopDong=obj;
+            hopDong.IDHocVien = 1;
+            hdbl.SetUpHopDong(hopDong, bookedList);
+        }
+
+        private void DangKyPT2_ReturnList(List<PTSession> obj)
+        {
+            if(obj!=null)
+            {
+                bookedList = obj;
+                foreach (var session in obj)
+                {
+                    Debug.WriteLine(
+                        $"Start: {session.TGBatDau:dd/MM/yyyy HH:mm}, " +
+                        $"End: {session.TGKetThuc:dd/MM/yyyy HH:mm}, " +
+                        $"TrangThai: {session.TrangThai}, " +
+                        $"LyDoHuy(Key): {session.LyDoHuy}"
+                    );
+                }
+            }
         }
 
         private void DangKyPT2_SetForBuy(GoiPT obj)
@@ -130,6 +157,11 @@ namespace GymManagerment_MVP
             lblTongTienHang.Text = string.Format("{0:N0} đ", price);
             lblDiscount.Text = string.Format("{0:N0} đ", discount);
             lblTongThanhToan.Text= string.Format("{0:N0} đ", price-discount);
+        }
+
+        private void btnThanhToan_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

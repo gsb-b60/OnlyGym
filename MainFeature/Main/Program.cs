@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GymManagerment_MVP.MainFeature.Main;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,7 +17,7 @@ namespace GymManagerment_MVP
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Mainfrm());
+            Application.Run(new LOGIN());
         }
     }
 }

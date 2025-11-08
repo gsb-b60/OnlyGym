@@ -33,6 +33,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=16.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Office.Interop.Excel.16.0.18925.20022\lib\net40\Microsoft.Office.Interop.Excel.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.DirectoryServices" />
@@ -48,44 +52,72 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Business\DSPT.cs" />
-    <Compile Include="Business\DSSpecialties.cs" />
-    <Compile Include="Business\GoiPT.cs" />
-    <Compile Include="Business\GoiTap.cs" />
-    <Compile Include="Business\HocVien.cs" />
-    <Compile Include="Business\ItemBase.cs" />
-    <Compile Include="Business\PT.cs" />
-    <Compile Include="Business\Specialties.cs" />
     <Compile Include="Config.cs" />
-    <Compile Include="MainFeature\HoaDonRelated\GoiTapFolder\BanGoi.cs">
+    <Compile Include="MainFeature\HoaDonRelated\GoiTapFolder\mainScreen\BanGoi.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="MainFeature\HoaDonRelated\GoiTapFolder\BanGoi.Designer.cs">
+    <Compile Include="MainFeature\HoaDonRelated\GoiTapFolder\mainScreen\BanGoi.Designer.cs">
       <DependentUpon>BanGoi.cs</DependentUpon>
     </Compile>
-    <Compile Include="MainFeature\HoaDonRelated\GoiTapFolder\ChangePackagefrm.cs">
+    <Compile Include="MainFeature\HoaDonRelated\GoiTapFolder\side\ChangePackagefrm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MainFeature\HoaDonRelated\GoiTapFolder\ChangePackagefrm.Designer.cs">
+    <Compile Include="MainFeature\HoaDonRelated\GoiTapFolder\side\ChangePackagefrm.Designer.cs">
       <DependentUpon>ChangePackagefrm.cs</DependentUpon>
     </Compile>
-    <Compile Include="MainFeature\HoaDonRelated\GoiTapFolder\DurationThangUC.cs">
+    <Compile Include="MainFeature\HoaDonRelated\GoiTapFolder\side\DurationThangUC.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="MainFeature\HoaDonRelated\GoiTapFolder\DurationThangUC.Designer.cs">
+    <Compile Include="MainFeature\HoaDonRelated\GoiTapFolder\side\DurationThangUC.Designer.cs">
       <DependentUpon>DurationThangUC.cs</DependentUpon>
     </Compile>
-    <Compile Include="MainFeature\HoaDonRelated\GoiTapFolder\GoiTapUC.cs">
+    <Compile Include="MainFeature\HoaDonRelated\GoiTapFolder\side\GoiTapUC.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="MainFeature\HoaDonRelated\GoiTapFolder\GoiTapUC.Designer.cs">
+    <Compile Include="MainFeature\HoaDonRelated\GoiTapFolder\side\GoiTapUC.Designer.cs">
       <DependentUpon>GoiTapUC.cs</DependentUpon>
     </Compile>
-    <Compile Include="MainFeature\HoaDonRelated\GoiTapFolder\ThemGoiTapfrm.cs">
+    <Compile Include="MainFeature\HoaDonRelated\GoiTapFolder\side\ThemGoiTapfrm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MainFeature\HoaDonRelated\GoiTapFolder\ThemGoiTapfrm.Designer.cs">
+    <Compile Include="MainFeature\HoaDonRelated\GoiTapFolder\side\ThemGoiTapfrm.Designer.cs">
       <DependentUpon>ThemGoiTapfrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainFeature\HoaDonRelated\hoadon\DanhSachHoaDonUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MainFeature\HoaDonRelated\hoadon\DanhSachHoaDonUC.Designer.cs">
+      <DependentUpon>DanhSachHoaDonUC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainFeature\HoaDonRelated\hoadon\HoaDon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainFeature\HoaDonRelated\hoadon\HoaDon.Designer.cs">
+      <DependentUpon>HoaDon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainFeature\HoaDonRelated\hoadon\MuaHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainFeature\HoaDonRelated\hoadon\MuaHang.Designer.cs">
+      <DependentUpon>MuaHang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainFeature\HoaDonRelated\hoadon\ThanhToanChuyenKhoan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainFeature\HoaDonRelated\hoadon\ThanhToanChuyenKhoan.Designer.cs">
+      <DependentUpon>ThanhToanChuyenKhoan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainFeature\HoaDonRelated\hoadon\ThemDanhMuc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainFeature\HoaDonRelated\hoadon\ThemDanhMuc.Designer.cs">
+      <DependentUpon>ThemDanhMuc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainFeature\HoaDonRelated\hoadon\ThemHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainFeature\HoaDonRelated\hoadon\ThemHang.Designer.cs">
+      <DependentUpon>ThemHang.cs</DependentUpon>
     </Compile>
     <Compile Include="MainFeature\HoaDonRelated\MuaGoiTap.cs">
       <SubType>Form</SubType>
@@ -93,70 +125,136 @@
     <Compile Include="MainFeature\HoaDonRelated\MuaGoiTap.Designer.cs">
       <DependentUpon>MuaGoiTap.cs</DependentUpon>
     </Compile>
-    <Compile Include="MainFeature\HoaDonRelated\PT folder\4stepdk\DangKyPTVer2.cs">
+    <Compile Include="MainFeature\hocvienrelated\CheckinKhachVaoUC.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="MainFeature\HoaDonRelated\PT folder\4stepdk\DangKyPTVer2.Designer.cs">
+    <Compile Include="MainFeature\hocvienrelated\CheckinKhachVaoUC.Designer.cs">
+      <DependentUpon>CheckinKhachVaoUC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainFeature\hocvienrelated\DanhSachHocVienUC_v2.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MainFeature\hocvienrelated\DanhSachHocVienUC_v2.Designer.cs">
+      <DependentUpon>DanhSachHocVienUC_v2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainFeature\hocvienrelated\ThemHocVienfrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainFeature\hocvienrelated\ThemHocVienfrm.Designer.cs">
+      <DependentUpon>ThemHocVienfrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainFeature\hocvienrelated\ThongTinCheckInUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MainFeature\hocvienrelated\ThongTinCheckInUC.Designer.cs">
+      <DependentUpon>ThongTinCheckInUC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainFeature\hocvienrelated\ThongTinGoiTapPTUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MainFeature\hocvienrelated\ThongTinGoiTapPTUC.Designer.cs">
+      <DependentUpon>ThongTinGoiTapPTUC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainFeature\hocvienrelated\ThongTinGoiTapUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MainFeature\hocvienrelated\ThongTinGoiTapUC.Designer.cs">
+      <DependentUpon>ThongTinGoiTapUC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainFeature\hocvienrelated\ThongTinHoaDonUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MainFeature\hocvienrelated\ThongTinHoaDonUC.Designer.cs">
+      <DependentUpon>ThongTinHoaDonUC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainFeature\hocvienrelated\ThongTinHocVien.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MainFeature\hocvienrelated\ThongTinHocVien.Designer.cs">
+      <DependentUpon>ThongTinHocVien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainFeature\loginrelated\LOGIN.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainFeature\loginrelated\LOGIN.Designer.cs">
+      <DependentUpon>LOGIN.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainFeature\loginrelated\QLTaiKhoanUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MainFeature\loginrelated\QLTaiKhoanUC.Designer.cs">
+      <DependentUpon>QLTaiKhoanUC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainFeature\loginrelated\UserCreationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainFeature\loginrelated\UserCreationForm.Designer.cs">
+      <DependentUpon>UserCreationForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainFeature\PT folder\4stepdk\DangKyPTVer2.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MainFeature\PT folder\4stepdk\DangKyPTVer2.Designer.cs">
       <DependentUpon>DangKyPTVer2.cs</DependentUpon>
     </Compile>
-    <Compile Include="MainFeature\HoaDonRelated\PT folder\HopDongPT\DanhSachHopDongPTUC.cs">
+    <Compile Include="MainFeature\PT folder\HopDongPT\DanhSachHopDongPTUC.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="MainFeature\HoaDonRelated\PT folder\HopDongPT\DanhSachHopDongPTUC.Designer.cs">
+    <Compile Include="MainFeature\PT folder\HopDongPT\DanhSachHopDongPTUC.Designer.cs">
       <DependentUpon>DanhSachHopDongPTUC.cs</DependentUpon>
     </Compile>
-    <Compile Include="MainFeature\HoaDonRelated\PT folder\4stepdk\GoiPTUC.cs">
+    <Compile Include="MainFeature\PT folder\4stepdk\GoiPTUC.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="MainFeature\HoaDonRelated\PT folder\4stepdk\GoiPTUC.Designer.cs">
+    <Compile Include="MainFeature\PT folder\4stepdk\GoiPTUC.Designer.cs">
       <DependentUpon>GoiPTUC.cs</DependentUpon>
     </Compile>
-    <Compile Include="MainFeature\HoaDonRelated\PT folder\4stepdk\HienThiLichPTfrm.cs">
+    <Compile Include="MainFeature\PT folder\4stepdk\HienThiLichPTfrm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MainFeature\HoaDonRelated\PT folder\4stepdk\HienThiLichPTfrm.Designer.cs">
+    <Compile Include="MainFeature\PT folder\4stepdk\HienThiLichPTfrm.Designer.cs">
       <DependentUpon>HienThiLichPTfrm.cs</DependentUpon>
     </Compile>
-    <Compile Include="MainFeature\HoaDonRelated\PT folder\4stepdk\Step1.cs">
+    <Compile Include="MainFeature\PT folder\4stepdk\Step1.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="MainFeature\HoaDonRelated\PT folder\4stepdk\Step1.Designer.cs">
+    <Compile Include="MainFeature\PT folder\4stepdk\Step1.Designer.cs">
       <DependentUpon>Step1.cs</DependentUpon>
     </Compile>
-    <Compile Include="MainFeature\HoaDonRelated\PT folder\4stepdk\Step2.cs">
+    <Compile Include="MainFeature\PT folder\4stepdk\Step2.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="MainFeature\HoaDonRelated\PT folder\4stepdk\Step2.Designer.cs">
+    <Compile Include="MainFeature\PT folder\4stepdk\Step2.Designer.cs">
       <DependentUpon>Step2.cs</DependentUpon>
     </Compile>
-    <Compile Include="MainFeature\HoaDonRelated\PT folder\4stepdk\Step3.cs">
+    <Compile Include="MainFeature\PT folder\4stepdk\Step3.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="MainFeature\HoaDonRelated\PT folder\4stepdk\Step3.Designer.cs">
+    <Compile Include="MainFeature\PT folder\4stepdk\Step3.Designer.cs">
       <DependentUpon>Step3.cs</DependentUpon>
     </Compile>
-    <Compile Include="MainFeature\HoaDonRelated\PT folder\4stepdk\Step4.cs">
+    <Compile Include="MainFeature\PT folder\4stepdk\Step4.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="MainFeature\HoaDonRelated\PT folder\4stepdk\Step4.Designer.cs">
+    <Compile Include="MainFeature\PT folder\4stepdk\Step4.Designer.cs">
       <DependentUpon>Step4.cs</DependentUpon>
     </Compile>
-    <Compile Include="MainFeature\HoaDonRelated\PT folder\HopDongPT\ThongTinHopDongPTUC.cs">
+    <Compile Include="MainFeature\PT folder\HopDongPT\ThongTinHopDongPTUC.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="MainFeature\HoaDonRelated\PT folder\HopDongPT\ThongTinHopDongPTUC.Designer.cs">
+    <Compile Include="MainFeature\PT folder\HopDongPT\ThongTinHopDongPTUC.Designer.cs">
       <DependentUpon>ThongTinHopDongPTUC.cs</DependentUpon>
     </Compile>
-    <Compile Include="MainFeature\HoaDonRelated\PT folder\ThemPTfrm.cs">
+    <Compile Include="MainFeature\PT folder\ThemPTfrm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MainFeature\HoaDonRelated\PT folder\ThemPTfrm.Designer.cs">
+    <Compile Include="MainFeature\PT folder\ThemPTfrm.Designer.cs">
       <DependentUpon>ThemPTfrm.cs</DependentUpon>
     </Compile>
-    <Compile Include="MainFeature\HoaDonRelated\PT folder\ThongTinPT.cs">
+    <Compile Include="MainFeature\PT folder\ThongTinPT.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="MainFeature\HoaDonRelated\PT folder\ThongTinPT.Designer.cs">
+    <Compile Include="MainFeature\PT folder\ThongTinPT.Designer.cs">
       <DependentUpon>ThongTinPT.cs</DependentUpon>
     </Compile>
     <Compile Include="MainFeature\HoaDonRelated\SanPhamUC.cs">
@@ -165,59 +263,23 @@
     <Compile Include="MainFeature\HoaDonRelated\SanPhamUC.Designer.cs">
       <DependentUpon>SanPhamUC.cs</DependentUpon>
     </Compile>
-    <Compile Include="MainFeature\HocVienRelated\CheckinKhachVaoUC.cs">
+    <Compile Include="MainFeature\PT folder\DanhSachPTUC.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="MainFeature\HocVienRelated\CheckinKhachVaoUC.Designer.cs">
-      <DependentUpon>CheckinKhachVaoUC.cs</DependentUpon>
-    </Compile>
-    <Compile Include="MainFeature\HoaDonRelated\PT folder\DanhSachPTUC.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="MainFeature\HoaDonRelated\PT folder\DanhSachPTUC.Designer.cs">
+    <Compile Include="MainFeature\PT folder\DanhSachPTUC.Designer.cs">
       <DependentUpon>DanhSachPTUC.cs</DependentUpon>
     </Compile>
-    <Compile Include="MainFeature\HoaDonRelated\PT folder\ThongTinChuyenMonUC.cs">
+    <Compile Include="MainFeature\PT folder\ThongTinChuyenMonUC.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="MainFeature\HoaDonRelated\PT folder\ThongTinChuyenMonUC.Designer.cs">
+    <Compile Include="MainFeature\PT folder\ThongTinChuyenMonUC.Designer.cs">
       <DependentUpon>ThongTinChuyenMonUC.cs</DependentUpon>
-    </Compile>
-    <Compile Include="MainFeature\HocVienRelated\ThongTinCheckInUC.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="MainFeature\HocVienRelated\ThongTinCheckInUC.Designer.cs">
-      <DependentUpon>ThongTinCheckInUC.cs</DependentUpon>
-    </Compile>
-    <Compile Include="MainFeature\HocVienRelated\ThongTinGoiTapPTUC.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="MainFeature\HocVienRelated\ThongTinGoiTapPTUC.Designer.cs">
-      <DependentUpon>ThongTinGoiTapPTUC.cs</DependentUpon>
-    </Compile>
-    <Compile Include="MainFeature\HocVienRelated\ThongTinGoiTapUC.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="MainFeature\HocVienRelated\ThongTinGoiTapUC.Designer.cs">
-      <DependentUpon>ThongTinGoiTapUC.cs</DependentUpon>
-    </Compile>
-    <Compile Include="MainFeature\HocVienRelated\ThongTinHoaDonUC.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="MainFeature\HocVienRelated\ThongTinHoaDonUC.Designer.cs">
-      <DependentUpon>ThongTinHoaDonUC.cs</DependentUpon>
     </Compile>
     <Compile Include="MainFeature\ThanhToanRelated\DangKyGoiTap.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="MainFeature\ThanhToanRelated\DangKyGoiTap.Designer.cs">
       <DependentUpon>DangKyGoiTap.cs</DependentUpon>
-    </Compile>
-    <Compile Include="MainFeature\HoaDonRelated\HoaDon\DanhSachHoaDonUC.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="MainFeature\HoaDonRelated\HoaDon\DanhSachHoaDonUC.Designer.cs">
-      <DependentUpon>DanhSachHoaDonUC.cs</DependentUpon>
     </Compile>
     <Compile Include="Storage\DangKyPT.cs">
       <SubType>UserControl</SubType>
@@ -230,12 +292,6 @@
     </Compile>
     <Compile Include="Storage\DanhSachHocVienUC.Designer.cs">
       <DependentUpon>DanhSachHocVienUC.cs</DependentUpon>
-    </Compile>
-    <Compile Include="MainFeature\HocVienRelated\DanhSachHocVienUC_v2.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="MainFeature\HocVienRelated\DanhSachHocVienUC_v2.Designer.cs">
-      <DependentUpon>DanhSachHocVienUC_v2.cs</DependentUpon>
     </Compile>
     <Compile Include="SideFeature\DanhSachThietBiUC.cs">
       <SubType>UserControl</SubType>
@@ -299,23 +355,11 @@
     <Compile Include="MainFeature\ThanhToanRelated\ThanhToanTienMatUCcs.Designer.cs">
       <DependentUpon>ThanhToanTienMatUCcs.cs</DependentUpon>
     </Compile>
-    <Compile Include="MainFeature\HocVienRelated\ThemHocVienfrm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="MainFeature\HocVienRelated\ThemHocVienfrm.Designer.cs">
-      <DependentUpon>ThemHocVienfrm.cs</DependentUpon>
-    </Compile>
     <Compile Include="SideFeature\ThongKeDoanhThuUC.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="SideFeature\ThongKeDoanhThuUC.Designer.cs">
       <DependentUpon>ThongKeDoanhThuUC.cs</DependentUpon>
-    </Compile>
-    <Compile Include="MainFeature\HocVienRelated\ThongTinHocVien.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="MainFeature\HocVienRelated\ThongTinHocVien.Designer.cs">
-      <DependentUpon>ThongTinHocVien.cs</DependentUpon>
     </Compile>
     <Compile Include="Storage\UserControl1.cs">
       <SubType>UserControl</SubType>
@@ -329,95 +373,126 @@
     <Compile Include="Storage\XuatHoaDonUC.Designer.cs">
       <DependentUpon>XuatHoaDonUC.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="MainFeature\HoaDonRelated\GoiTapFolder\BanGoi.resx">
+    <EmbeddedResource Include="MainFeature\HoaDonRelated\GoiTapFolder\mainScreen\BanGoi.resx">
       <DependentUpon>BanGoi.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainFeature\HoaDonRelated\GoiTapFolder\ChangePackagefrm.resx">
+    <EmbeddedResource Include="MainFeature\HoaDonRelated\GoiTapFolder\side\ChangePackagefrm.resx">
       <DependentUpon>ChangePackagefrm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainFeature\HoaDonRelated\GoiTapFolder\DurationThangUC.resx">
+    <EmbeddedResource Include="MainFeature\HoaDonRelated\GoiTapFolder\side\DurationThangUC.resx">
       <DependentUpon>DurationThangUC.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainFeature\HoaDonRelated\GoiTapFolder\GoiTapUC.resx">
+    <EmbeddedResource Include="MainFeature\HoaDonRelated\GoiTapFolder\side\GoiTapUC.resx">
       <DependentUpon>GoiTapUC.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainFeature\HoaDonRelated\GoiTapFolder\ThemGoiTapfrm.resx">
+    <EmbeddedResource Include="MainFeature\HoaDonRelated\GoiTapFolder\side\ThemGoiTapfrm.resx">
       <DependentUpon>ThemGoiTapfrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainFeature\HoaDonRelated\hoadon\DanhSachHoaDonUC.resx">
+      <DependentUpon>DanhSachHoaDonUC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainFeature\HoaDonRelated\hoadon\HoaDon.resx">
+      <DependentUpon>HoaDon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainFeature\HoaDonRelated\hoadon\MuaHang.resx">
+      <DependentUpon>MuaHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainFeature\HoaDonRelated\hoadon\ThanhToanChuyenKhoan.resx">
+      <DependentUpon>ThanhToanChuyenKhoan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainFeature\HoaDonRelated\hoadon\ThemDanhMuc.resx">
+      <DependentUpon>ThemDanhMuc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainFeature\HoaDonRelated\hoadon\ThemHang.resx">
+      <DependentUpon>ThemHang.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainFeature\HoaDonRelated\MuaGoiTap.resx">
       <DependentUpon>MuaGoiTap.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainFeature\HoaDonRelated\PT folder\4stepdk\DangKyPTVer2.resx">
+    <EmbeddedResource Include="MainFeature\hocvienrelated\CheckinKhachVaoUC.resx">
+      <DependentUpon>CheckinKhachVaoUC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainFeature\hocvienrelated\DanhSachHocVienUC_v2.resx">
+      <DependentUpon>DanhSachHocVienUC_v2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainFeature\hocvienrelated\ThemHocVienfrm.resx">
+      <DependentUpon>ThemHocVienfrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainFeature\hocvienrelated\ThongTinCheckInUC.resx">
+      <DependentUpon>ThongTinCheckInUC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainFeature\hocvienrelated\ThongTinGoiTapPTUC.resx">
+      <DependentUpon>ThongTinGoiTapPTUC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainFeature\hocvienrelated\ThongTinGoiTapUC.resx">
+      <DependentUpon>ThongTinGoiTapUC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainFeature\hocvienrelated\ThongTinHoaDonUC.resx">
+      <DependentUpon>ThongTinHoaDonUC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainFeature\hocvienrelated\ThongTinHocVien.resx">
+      <DependentUpon>ThongTinHocVien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainFeature\loginrelated\LOGIN.resx">
+      <DependentUpon>LOGIN.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainFeature\loginrelated\QLTaiKhoanUC.resx">
+      <DependentUpon>QLTaiKhoanUC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainFeature\loginrelated\UserCreationForm.resx">
+      <DependentUpon>UserCreationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainFeature\PT folder\4stepdk\DangKyPTVer2.resx">
       <DependentUpon>DangKyPTVer2.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainFeature\HoaDonRelated\PT folder\HopDongPT\DanhSachHopDongPTUC.resx">
+    <EmbeddedResource Include="MainFeature\PT folder\HopDongPT\DanhSachHopDongPTUC.resx">
       <DependentUpon>DanhSachHopDongPTUC.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainFeature\HoaDonRelated\PT folder\4stepdk\GoiPTUC.resx">
+    <EmbeddedResource Include="MainFeature\PT folder\4stepdk\GoiPTUC.resx">
       <DependentUpon>GoiPTUC.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainFeature\HoaDonRelated\PT folder\4stepdk\HienThiLichPTfrm.resx">
+    <EmbeddedResource Include="MainFeature\PT folder\4stepdk\HienThiLichPTfrm.resx">
       <DependentUpon>HienThiLichPTfrm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainFeature\HoaDonRelated\PT folder\4stepdk\Step1.resx">
+    <EmbeddedResource Include="MainFeature\PT folder\4stepdk\Step1.resx">
       <DependentUpon>Step1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainFeature\HoaDonRelated\PT folder\4stepdk\Step2.resx">
+    <EmbeddedResource Include="MainFeature\PT folder\4stepdk\Step2.resx">
       <DependentUpon>Step2.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainFeature\HoaDonRelated\PT folder\4stepdk\Step3.resx">
+    <EmbeddedResource Include="MainFeature\PT folder\4stepdk\Step3.resx">
       <DependentUpon>Step3.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainFeature\HoaDonRelated\PT folder\4stepdk\Step4.resx">
+    <EmbeddedResource Include="MainFeature\PT folder\4stepdk\Step4.resx">
       <DependentUpon>Step4.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainFeature\HoaDonRelated\PT folder\HopDongPT\ThongTinHopDongPTUC.resx">
+    <EmbeddedResource Include="MainFeature\PT folder\HopDongPT\ThongTinHopDongPTUC.resx">
       <DependentUpon>ThongTinHopDongPTUC.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainFeature\HoaDonRelated\PT folder\ThemPTfrm.resx">
+    <EmbeddedResource Include="MainFeature\PT folder\ThemPTfrm.resx">
       <DependentUpon>ThemPTfrm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainFeature\HoaDonRelated\PT folder\ThongTinChuyenMonUC.resx">
+    <EmbeddedResource Include="MainFeature\PT folder\ThongTinChuyenMonUC.resx">
       <DependentUpon>ThongTinChuyenMonUC.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainFeature\HoaDonRelated\PT folder\ThongTinPT.resx">
+    <EmbeddedResource Include="MainFeature\PT folder\ThongTinPT.resx">
       <DependentUpon>ThongTinPT.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainFeature\HoaDonRelated\SanPhamUC.resx">
       <DependentUpon>SanPhamUC.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainFeature\HocVienRelated\CheckinKhachVaoUC.resx">
-      <DependentUpon>CheckinKhachVaoUC.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MainFeature\HoaDonRelated\PT folder\DanhSachPTUC.resx">
+    <EmbeddedResource Include="MainFeature\PT folder\DanhSachPTUC.resx">
       <DependentUpon>DanhSachPTUC.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MainFeature\HocVienRelated\ThongTinCheckInUC.resx">
-      <DependentUpon>ThongTinCheckInUC.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MainFeature\HocVienRelated\ThongTinGoiTapPTUC.resx">
-      <DependentUpon>ThongTinGoiTapPTUC.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MainFeature\HocVienRelated\ThongTinGoiTapUC.resx">
-      <DependentUpon>ThongTinGoiTapUC.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MainFeature\HocVienRelated\ThongTinHoaDonUC.resx">
-      <DependentUpon>ThongTinHoaDonUC.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainFeature\ThanhToanRelated\DangKyGoiTap.resx">
       <DependentUpon>DangKyGoiTap.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainFeature\HoaDonRelated\HoaDon\DanhSachHoaDonUC.resx">
-      <DependentUpon>DanhSachHoaDonUC.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Storage\DangKyPT.resx">
       <DependentUpon>DangKyPT.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Storage\DanhSachHocVienUC.resx">
       <DependentUpon>DanhSachHocVienUC.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MainFeature\HocVienRelated\DanhSachHocVienUC_v2.resx">
-      <DependentUpon>DanhSachHocVienUC_v2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SideFeature\DanhSachThietBiUC.resx">
       <DependentUpon>DanhSachThietBiUC.cs</DependentUpon>
@@ -455,14 +530,8 @@
     <EmbeddedResource Include="MainFeature\ThanhToanRelated\ThanhToanTienMatUCcs.resx">
       <DependentUpon>ThanhToanTienMatUCcs.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainFeature\HocVienRelated\ThemHocVienfrm.resx">
-      <DependentUpon>ThemHocVienfrm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="SideFeature\ThongKeDoanhThuUC.resx">
       <DependentUpon>ThongKeDoanhThuUC.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MainFeature\HocVienRelated\ThongTinHocVien.resx">
-      <DependentUpon>ThongTinHocVien.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Storage\UserControl1.resx">
       <DependentUpon>UserControl1.cs</DependentUpon>
@@ -470,6 +539,7 @@
     <EmbeddedResource Include="Storage\XuatHoaDonUC.resx">
       <DependentUpon>XuatHoaDonUC.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -500,6 +570,10 @@
     <ProjectReference Include="..\Business\Business.csproj">
       <Project>{9173303d-98c4-4eba-a93a-f5e61c2f05d0}</Project>
       <Name>Business</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DataAccess\DataAccess.csproj">
+      <Project>{2827205d-2506-41c2-85ea-e7579c5883b7}</Project>
+      <Name>DataAccess</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
