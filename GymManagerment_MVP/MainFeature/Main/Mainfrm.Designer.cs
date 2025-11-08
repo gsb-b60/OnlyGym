@@ -46,10 +46,10 @@
             this.button1 = new System.Windows.Forms.Button();
             this.btnDSPT = new System.Windows.Forms.Button();
             this.btnDanhSachKH = new System.Windows.Forms.Button();
-            this.btnThongTinKH = new System.Windows.Forms.Button();
             this.btnCheckin = new System.Windows.Forms.Button();
             this.btnQuanLyNhanVien = new System.Windows.Forms.Button();
             this.pnlContent = new System.Windows.Forms.Panel();
+            this.btnLogOut = new System.Windows.Forms.Button();
             this.pnlHome.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.pnlMenu.SuspendLayout();
@@ -58,6 +58,7 @@
             // pnlHome
             // 
             this.pnlHome.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.pnlHome.Controls.Add(this.btnLogOut);
             this.pnlHome.Controls.Add(this.lblChucVu);
             this.pnlHome.Controls.Add(this.lblAccName);
             this.pnlHome.Controls.Add(this.menuStrip1);
@@ -70,7 +71,7 @@
             // lblChucVu
             // 
             this.lblChucVu.AutoSize = true;
-            this.lblChucVu.Location = new System.Drawing.Point(1121, 9);
+            this.lblChucVu.Location = new System.Drawing.Point(978, 9);
             this.lblChucVu.Name = "lblChucVu";
             this.lblChucVu.Size = new System.Drawing.Size(60, 13);
             this.lblChucVu.TabIndex = 7;
@@ -79,7 +80,7 @@
             // lblAccName
             // 
             this.lblAccName.AutoSize = true;
-            this.lblAccName.Location = new System.Drawing.Point(984, 9);
+            this.lblAccName.Location = new System.Drawing.Point(878, 9);
             this.lblAccName.Name = "lblAccName";
             this.lblAccName.Size = new System.Drawing.Size(94, 13);
             this.lblAccName.TabIndex = 6;
@@ -159,7 +160,6 @@
             this.pnlMenu.Controls.Add(this.button1);
             this.pnlMenu.Controls.Add(this.btnDSPT);
             this.pnlMenu.Controls.Add(this.btnDanhSachKH);
-            this.pnlMenu.Controls.Add(this.btnThongTinKH);
             this.pnlMenu.Controls.Add(this.btnCheckin);
             this.pnlMenu.Controls.Add(this.btnQuanLyNhanVien);
             this.pnlMenu.Dock = System.Windows.Forms.DockStyle.Top;
@@ -172,7 +172,7 @@
             // btnTaiKhoan
             // 
             this.btnTaiKhoan.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnTaiKhoan.Location = new System.Drawing.Point(965, 0);
+            this.btnTaiKhoan.Location = new System.Drawing.Point(783, 0);
             this.btnTaiKhoan.Name = "btnTaiKhoan";
             this.btnTaiKhoan.Size = new System.Drawing.Size(139, 31);
             this.btnTaiKhoan.TabIndex = 14;
@@ -184,7 +184,7 @@
             // button3
             // 
             this.button3.Dock = System.Windows.Forms.DockStyle.Left;
-            this.button3.Location = new System.Drawing.Point(881, 0);
+            this.button3.Location = new System.Drawing.Point(699, 0);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(84, 31);
             this.button3.TabIndex = 13;
@@ -195,7 +195,7 @@
             // button2
             // 
             this.button2.Dock = System.Windows.Forms.DockStyle.Left;
-            this.button2.Location = new System.Drawing.Point(785, 0);
+            this.button2.Location = new System.Drawing.Point(603, 0);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(96, 31);
             this.button2.TabIndex = 12;
@@ -206,7 +206,7 @@
             // button1
             // 
             this.button1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.button1.Location = new System.Drawing.Point(646, 0);
+            this.button1.Location = new System.Drawing.Point(464, 0);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(139, 31);
             this.button1.TabIndex = 11;
@@ -217,7 +217,7 @@
             // btnDSPT
             // 
             this.btnDSPT.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnDSPT.Location = new System.Drawing.Point(507, 0);
+            this.btnDSPT.Location = new System.Drawing.Point(325, 0);
             this.btnDSPT.Name = "btnDSPT";
             this.btnDSPT.Size = new System.Drawing.Size(139, 31);
             this.btnDSPT.TabIndex = 9;
@@ -228,7 +228,7 @@
             // btnDanhSachKH
             // 
             this.btnDanhSachKH.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnDanhSachKH.Location = new System.Drawing.Point(368, 0);
+            this.btnDanhSachKH.Location = new System.Drawing.Point(186, 0);
             this.btnDanhSachKH.Name = "btnDanhSachKH";
             this.btnDanhSachKH.Size = new System.Drawing.Size(139, 31);
             this.btnDanhSachKH.TabIndex = 8;
@@ -236,21 +236,10 @@
             this.btnDanhSachKH.UseVisualStyleBackColor = true;
             this.btnDanhSachKH.Click += new System.EventHandler(this.button2_Click);
             // 
-            // btnThongTinKH
-            // 
-            this.btnThongTinKH.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnThongTinKH.Location = new System.Drawing.Point(229, 0);
-            this.btnThongTinKH.Name = "btnThongTinKH";
-            this.btnThongTinKH.Size = new System.Drawing.Size(139, 31);
-            this.btnThongTinKH.TabIndex = 7;
-            this.btnThongTinKH.Text = "Thông Tin Khách Hàng";
-            this.btnThongTinKH.UseVisualStyleBackColor = true;
-            this.btnThongTinKH.Click += new System.EventHandler(this.button1_Click_1);
-            // 
             // btnCheckin
             // 
             this.btnCheckin.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnCheckin.Location = new System.Drawing.Point(131, 0);
+            this.btnCheckin.Location = new System.Drawing.Point(88, 0);
             this.btnCheckin.Name = "btnCheckin";
             this.btnCheckin.Size = new System.Drawing.Size(98, 31);
             this.btnCheckin.TabIndex = 5;
@@ -263,7 +252,7 @@
             this.btnQuanLyNhanVien.Dock = System.Windows.Forms.DockStyle.Left;
             this.btnQuanLyNhanVien.Location = new System.Drawing.Point(0, 0);
             this.btnQuanLyNhanVien.Name = "btnQuanLyNhanVien";
-            this.btnQuanLyNhanVien.Size = new System.Drawing.Size(131, 31);
+            this.btnQuanLyNhanVien.Size = new System.Drawing.Size(88, 31);
             this.btnQuanLyNhanVien.TabIndex = 3;
             this.btnQuanLyNhanVien.Text = "Mua Gói";
             this.btnQuanLyNhanVien.UseVisualStyleBackColor = true;
@@ -277,6 +266,16 @@
             this.pnlContent.Size = new System.Drawing.Size(1264, 624);
             this.pnlContent.TabIndex = 2;
             this.pnlContent.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlContent_Paint);
+            // 
+            // btnLogOut
+            // 
+            this.btnLogOut.Location = new System.Drawing.Point(1044, 3);
+            this.btnLogOut.Name = "btnLogOut";
+            this.btnLogOut.Size = new System.Drawing.Size(75, 21);
+            this.btnLogOut.TabIndex = 8;
+            this.btnLogOut.Text = "log out";
+            this.btnLogOut.UseVisualStyleBackColor = true;
+            this.btnLogOut.Click += new System.EventHandler(this.btnLogOut_Click);
             // 
             // Mainfrm
             // 
@@ -307,7 +306,6 @@
         private System.Windows.Forms.Label lblChucVu;
         private System.Windows.Forms.Label lblAccName;
         private System.Windows.Forms.Button btnCheckin;
-        private System.Windows.Forms.Button btnThongTinKH;
         private System.Windows.Forms.Button btnDanhSachKH;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem thôngTinGóiTậpToolStripMenuItem;
@@ -322,5 +320,6 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button btnTaiKhoan;
+        private System.Windows.Forms.Button btnLogOut;
     }
 }

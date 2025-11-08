@@ -188,5 +188,12 @@ namespace GymManagerment_MVP
         {
             loadUserControl(new QLTaiKhoanUC());
         }
+
+        private void btnLogOut_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            LOGIN frm = new LOGIN();
+            frm.ShowDialog();
+        }
     }
 }

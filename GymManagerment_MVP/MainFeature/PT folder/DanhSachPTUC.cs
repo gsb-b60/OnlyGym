@@ -44,7 +44,7 @@ namespace GymManagerment_MVP.MainFeature.Main
 
             DisplayList(pTs);
             DisplayAnalist();
-
+            pnInfor.Visible=false;
         }
         private void DisplayAnalist()
         {
@@ -353,6 +353,7 @@ namespace GymManagerment_MVP.MainFeature.Main
                     lbChuyenMon.Items.Add(sp);
                 }
                 btnChiTiet.Tag = pt;
+                
             }
 
         }
@@ -421,6 +422,16 @@ namespace GymManagerment_MVP.MainFeature.Main
                 dgvDSPT.DataSource = pTs.OrderByDescending(pt => pt.name).ToList();
                 dgvDSPT.Columns["chgTen"].HeaderCell.Style.ForeColor = Color.Red;
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            pnInfor.Visible = false;
+        }
+
+        private void dgvDSPT_DoubleClick(object sender, EventArgs e)
+        {
+            pnInfor.Visible = true;
         }
     }
 }
