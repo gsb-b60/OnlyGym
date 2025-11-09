@@ -11,6 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace GymManagerment_MVP.MainFeature.HoaDonRelated.PT._4stepdk
 {
@@ -48,7 +49,7 @@ namespace GymManagerment_MVP.MainFeature.HoaDonRelated.PT._4stepdk
         
         private void LoadWeekData(DateTime startOfWeek)
         {
-            var lichTapList = GenerateLichTapList(list, startOfWeek);
+            var lichTapList = GenerateLichTapList(list, startOfWeek,BookList);
             dgvLichPT.DataSource = lichTapList;
             LoadTile(currentWeekStart); 
         }
@@ -93,10 +94,27 @@ namespace GymManagerment_MVP.MainFeature.HoaDonRelated.PT._4stepdk
             {
                 foreach (DataGridViewCell cell in row.Cells)
                 {
-                    if (cell.Value is bool && (bool)cell.Value)
+                    if (cell.ColumnIndex == 0) continue; // bỏ cột khung giờ
+
+                    if (cell.Value is BookState status)
                     {
-                        cell.ReadOnly = true;
-                        cell.Style.BackColor = Color.Red;
+                        switch (status)
+                        {
+                            case BookState.Booked:
+                                cell.Style.BackColor = Color.Red;
+                                cell.ReadOnly = true;
+                                break;
+
+                            case BookState.Set:
+                                cell.Style.BackColor = Color.LightGreen;
+                                cell.ReadOnly = false;
+                                break;
+
+                            case BookState.Free:
+                                cell.Style.BackColor = Color.White;
+                                cell.ReadOnly = false;
+                                break;
+                        }
                     }
                 }
             }
@@ -107,7 +125,7 @@ namespace GymManagerment_MVP.MainFeature.HoaDonRelated.PT._4stepdk
             HienThiLichPTfrm frm = new HienThiLichPTfrm();
             frm.ShowDialog();
         }
-        private List<LichTap> GenerateLichTapList(List<PTSession> sessions, DateTime startOfWeek)
+        private List<LichTap> GenerateLichTapList(List<PTSession> sessions, DateTime startOfWeek,List<PTSession> setList)
         {
             var khungGioList = new List<(TimeSpan start, TimeSpan end)>
     {
@@ -129,10 +147,10 @@ namespace GymManagerment_MVP.MainFeature.HoaDonRelated.PT._4stepdk
                 for (int i = 0; i < 7; i++)
                 {
                     DateTime day = startOfWeek.AddDays(i);
-                    bool isBusy = sessions.Any(s =>
+                    BookState isBusy = sessions.Any(s =>
                  s.TGBatDau.HasValue &&
                  s.TGBatDau.Value.Date == day.Date &&
-                 s.TGBatDau.Value.TimeOfDay == khung.start);
+                 s.TGBatDau.Value.TimeOfDay == khung.start)?BookState.Booked:BookState.Free;
 
                     switch (i)
                     {
@@ -147,45 +165,59 @@ namespace GymManagerment_MVP.MainFeature.HoaDonRelated.PT._4stepdk
                 }
                 lichTapList.Add(lich);
             }
-
+            //string str = "";
+            //foreach(var i in lichTapList)
+            //{
+            //    str+=i.Thu2.ToString()+"\\\\";
+                
+            //}
+            //MessageBox.Show(str);
             return lichTapList;
         }
 
 
         private void dgvLichPT_CellValueChanged_1(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex < 0 || e.ColumnIndex < 1) return; // bỏ qua cột khung giờ
+            if (e.RowIndex < 0 || e.ColumnIndex < 1) return;
 
             var cell = dgvLichPT.Rows[e.RowIndex].Cells[e.ColumnIndex];
+            if (cell.ReadOnly) return; // bỏ qua ô bị khóa
+
             var lichTap = (LichTap)dgvLichPT.Rows[e.RowIndex].DataBoundItem;
+            var startOfWeek = currentWeekStart;
 
-
-            var startOfWeek = currentWeekStart; // biến global
             DateTime day = startOfWeek.AddDays(e.ColumnIndex - 1);
-
             var khung = lichTap.KhungGio.Split('-');
             var start = DateTime.Parse($"{day:yyyy-MM-dd} {khung[0].Trim()}");
             var end = DateTime.Parse($"{day:yyyy-MM-dd} {khung[1].Trim()}");
-            if ((bool?)cell.Value == true)
+
+            // Lấy status hiện tại
+            if (cell.Value == null || !(cell.Value is BookState))
+                return;
+
+            var status = (BookState)cell.Value;
+            MessageBox.Show("my value is" + status.ToString());
+
+            // Nếu đang là Free → chuyển sang TempBooked
+            if (status == BookState.Free)
             {
-                if(SoBuoiConLai==0)
+                if (SoBuoiConLai == 0)
                 {
-                    cell.Value = false;
                     MessageBox.Show("Bạn đã chọn đủ số buổi cho phép!", "Giới hạn", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
-                
-                string key = GenerateKey(start);
-                // Lấy thời gian thực tế
-                cell.Style.BackColor = Color.LightGreen;
 
+                string key = GenerateKey(start);
+
+                // tạo session tạm
                 PTSession sess = createSess(start, end);
                 sess.LyDoHuy = key;
-
                 BookList.Add(sess);
 
-                setDGVChon();
+                // đổi trạng thái
+                SetCellStatus(cell, BookState.Set);
             }
+            // Nếu đang là TempBooked → bỏ chọn
             else
             {
                 string key = GenerateKey(start);
@@ -193,11 +225,42 @@ namespace GymManagerment_MVP.MainFeature.HoaDonRelated.PT._4stepdk
                 var removeSess = BookList.FirstOrDefault(s => s.LyDoHuy == key);
                 if (removeSess != null) BookList.Remove(removeSess);
 
-                setDGVChon();
+                // đổi trạng thái về Free
+                SetCellStatus(cell, BookState.Free);
+            }
 
-                cell.Style.BackColor = Color.White;
+            setDGVChon();
+        }
+        private void SetCellStatus(DataGridViewCell cell, BookState status)
+        {
+            dgvLichPT.CellValueChanged -= dgvLichPT_CellValueChanged_1;
+
+            cell.Value = status;
+
+            dgvLichPT.CellValueChanged += dgvLichPT_CellValueChanged_1;
+            cell.Value = status;
+            switch (status)
+            {
+                case BookState.Booked:
+                    cell.Style.BackColor = Color.Red;
+                    cell.ReadOnly = true;
+                    //MessageBox.Show("Im change to set");
+                    break;
+
+                case BookState.Set:
+                    cell.Style.BackColor = Color.LightGreen;
+                    cell.ReadOnly = false;
+                    MessageBox.Show("Im change to set");
+                    break;
+
+                case BookState.Free:
+                    cell.Style.BackColor = Color.White;
+                    cell.ReadOnly = false;
+                    MessageBox.Show("Im change to free");
+                    break;
             }
         }
+
         private void setDGVChon()
         {
             dgvBuoiChon.DataSource = null;
@@ -319,17 +382,66 @@ namespace GymManagerment_MVP.MainFeature.HoaDonRelated.PT._4stepdk
                 MessageBox.Show("Con Buoi Chua Chon");
             }
         }
+
+        private void dgvLichPT_CellParsing(object sender, DataGridViewCellParsingEventArgs e)
+        {
+            if (e.RowIndex < 0 || e.ColumnIndex == 0) return;
+
+            if (e.Value is bool b)
+            {
+                // true → Set (người đang chọn)
+                // false → Free
+                e.Value = b ? BookState.Set : BookState.Free;
+                e.ParsingApplied = true;
+            }
+        }
+
+
+        private void dgvLichPT_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (e.RowIndex < 0 || e.ColumnIndex == 0) return; // bỏ cột khung giờ
+
+            if (dgvLichPT.Rows[e.RowIndex].DataBoundItem is LichTap lich)
+            {
+                BookState state = GetThuStatusByColumnIndex(lich, e.ColumnIndex);
+
+                // Checkbox true nếu Booked hoặc Set
+                e.Value = (state == BookState.Booked || state == BookState.Set);
+                e.FormattingApplied = true;
+            }
+        }
+        private BookState GetThuStatusByColumnIndex(LichTap lich, int colIndex)
+        {
+            switch (colIndex)
+            {
+                case 1: return lich.Thu2;
+                case 2: return lich.Thu3;
+                case 3: return lich.Thu4;
+                case 4: return lich.Thu5;
+                case 5: return lich.Thu6;
+                case 6: return lich.Thu7;
+                case 7: return lich.CN;
+                default: return BookState.Free;
+            }
+        }
+
+
     }
+    public enum BookState {
+        Free=0,
+        Booked,
+        Set
+    };
     public class LichTap
     {
         public string KhungGio { get; set; }
-        public bool Thu2 { get; set; }
-        public bool Thu3 { get; set; }
-        public bool Thu4 { get; set; }
-        public bool Thu5 { get; set; }
-        public bool Thu6 { get; set; }
-        public bool Thu7 { get; set; }
-        public bool CN { get; set; }
+        public BookState Thu2 { get; set; }
+        public BookState Thu3 { get; set; }
+        public BookState Thu4 { get; set; }
+        public BookState Thu5 { get; set; }
+        public BookState Thu6 { get; set; }
+        public BookState Thu7 { get; set; }
+        public BookState CN { get; set; }
 
         public LichTap(string khungGio)
         {
@@ -337,3 +449,44 @@ namespace GymManagerment_MVP.MainFeature.HoaDonRelated.PT._4stepdk
         }
     }
 }
+
+//if (e.RowIndex < 0 || e.ColumnIndex < 1) return; // bỏ qua cột khung giờ
+
+//var cell = dgvLichPT.Rows[e.RowIndex].Cells[e.ColumnIndex];
+//var lichTap = (LichTap)dgvLichPT.Rows[e.RowIndex].DataBoundItem;
+//var startOfWeek = currentWeekStart; // biến global
+//DateTime day = startOfWeek.AddDays(e.ColumnIndex - 1);
+
+//var khung = lichTap.KhungGio.Split('-');
+//var start = DateTime.Parse($"{day:yyyy-MM-dd} {khung[0].Trim()}");
+//var end = DateTime.Parse($"{day:yyyy-MM-dd} {khung[1].Trim()}");
+//if ((bool?)cell.Value == true)
+//{
+//    if(SoBuoiConLai==0)
+//    {
+//        cell.Value = false;
+//        MessageBox.Show("Bạn đã chọn đủ số buổi cho phép!", "Giới hạn", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+//        return;
+//    }
+
+//    string key = GenerateKey(start);
+//    // Lấy thời gian thực tế
+//    cell.Style.BackColor = Color.LightGreen;
+
+//    PTSession sess = createSess(start, end);
+//    sess.LyDoHuy = key;
+
+//    BookList.Add(sess);
+//    setDGVChon();
+//}
+//else
+//{
+//    string key = GenerateKey(start);
+
+//    var removeSess = BookList.FirstOrDefault(s => s.LyDoHuy == key);
+//    if (removeSess != null) BookList.Remove(removeSess);
+
+//    setDGVChon();
+
+//    cell.Style.BackColor = Color.White;
+//}

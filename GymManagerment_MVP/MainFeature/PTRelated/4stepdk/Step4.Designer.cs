@@ -59,7 +59,6 @@
             this.lblSoBuoiConLai = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dgvBuoiChon = new System.Windows.Forms.DataGridView();
-            this.btnXacNhan = new System.Windows.Forms.Button();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.chgGio = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -68,6 +67,7 @@
             this.ThoiGianTao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ThoiGianHuy = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.LyDoHuy = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnXacNhan = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbAvartar)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -271,6 +271,8 @@
             this.dgvLichPT.Name = "dgvLichPT";
             this.dgvLichPT.Size = new System.Drawing.Size(493, 307);
             this.dgvLichPT.TabIndex = 4;
+            this.dgvLichPT.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvLichPT_CellFormatting);
+            this.dgvLichPT.CellParsing += new System.Windows.Forms.DataGridViewCellParsingEventHandler(this.dgvLichPT_CellParsing);
             this.dgvLichPT.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLichPT_CellValueChanged_1);
             this.dgvLichPT.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dataGridView4_DataBindingComplete);
             // 
@@ -406,16 +408,6 @@
             this.dgvBuoiChon.Size = new System.Drawing.Size(398, 266);
             this.dgvBuoiChon.TabIndex = 6;
             // 
-            // btnXacNhan
-            // 
-            this.btnXacNhan.Location = new System.Drawing.Point(346, 502);
-            this.btnXacNhan.Name = "btnXacNhan";
-            this.btnXacNhan.Size = new System.Drawing.Size(75, 23);
-            this.btnXacNhan.TabIndex = 4;
-            this.btnXacNhan.Text = "Xác Nhận";
-            this.btnXacNhan.UseVisualStyleBackColor = true;
-            this.btnXacNhan.Click += new System.EventHandler(this.btnXacNhan_Click);
-            // 
             // Column2
             // 
             this.Column2.DataPropertyName = "TGBatDau";
@@ -472,6 +464,16 @@
             this.LyDoHuy.HeaderText = "LyDoHuy";
             this.LyDoHuy.Name = "LyDoHuy";
             this.LyDoHuy.Visible = false;
+            // 
+            // btnXacNhan
+            // 
+            this.btnXacNhan.Location = new System.Drawing.Point(346, 502);
+            this.btnXacNhan.Name = "btnXacNhan";
+            this.btnXacNhan.Size = new System.Drawing.Size(75, 23);
+            this.btnXacNhan.TabIndex = 4;
+            this.btnXacNhan.Text = "Xác Nhận";
+            this.btnXacNhan.UseVisualStyleBackColor = true;
+            this.btnXacNhan.Click += new System.EventHandler(this.btnXacNhan_Click);
             // 
             // Step4
             // 
