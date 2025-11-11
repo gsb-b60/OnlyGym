@@ -52,6 +52,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GoiTapBL.cs" />
+    <Compile Include="HocVienBL.cs" />
     <Compile Include="HopDongBL.cs" />
     <Compile Include="IPTRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

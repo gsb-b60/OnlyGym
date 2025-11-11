@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MuaHang));
             this.pnlDanhSach = new System.Windows.Forms.Panel();
             this.tpMuaHang = new System.Windows.Forms.TabControl();
@@ -61,7 +61,6 @@
             this.lblSex = new System.Windows.Forms.Label();
             this.btnChiTiet = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.lblPFGoiHT = new System.Windows.Forms.Label();
             this.lblPFTrangThai = new System.Windows.Forms.Label();
             this.lblPFSDT = new System.Windows.Forms.Label();
             this.lblPFTen = new System.Windows.Forms.Label();
@@ -215,7 +214,6 @@
             this.pnThongTinMuaHang.Controls.Add(this.lblSex);
             this.pnThongTinMuaHang.Controls.Add(this.btnChiTiet);
             this.pnThongTinMuaHang.Controls.Add(this.pictureBox1);
-            this.pnThongTinMuaHang.Controls.Add(this.lblPFGoiHT);
             this.pnThongTinMuaHang.Controls.Add(this.lblPFTrangThai);
             this.pnThongTinMuaHang.Controls.Add(this.lblPFSDT);
             this.pnThongTinMuaHang.Controls.Add(this.lblPFTen);
@@ -257,10 +255,10 @@
             // ctt
             // 
             this.ctt.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle2.Format = "C0";
-            dataGridViewCellStyle2.NullValue = null;
-            this.ctt.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle1.Format = "C0";
+            dataGridViewCellStyle1.NullValue = null;
+            this.ctt.DefaultCellStyle = dataGridViewCellStyle1;
             this.ctt.HeaderText = "Thành Tiền";
             this.ctt.Name = "ctt";
             this.ctt.ReadOnly = true;
@@ -337,7 +335,7 @@
             // btnThanhToan
             // 
             this.btnThanhToan.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnThanhToan.Location = new System.Drawing.Point(206, 575);
+            this.btnThanhToan.Location = new System.Drawing.Point(210, 575);
             this.btnThanhToan.Name = "btnThanhToan";
             this.btnThanhToan.Size = new System.Drawing.Size(101, 32);
             this.btnThanhToan.TabIndex = 33;
@@ -374,7 +372,7 @@
             // 
             // btnChiTiet
             // 
-            this.btnChiTiet.Location = new System.Drawing.Point(155, 166);
+            this.btnChiTiet.Location = new System.Drawing.Point(236, 166);
             this.btnChiTiet.Name = "btnChiTiet";
             this.btnChiTiet.Size = new System.Drawing.Size(75, 23);
             this.btnChiTiet.TabIndex = 26;
@@ -392,19 +390,10 @@
             this.pictureBox1.TabIndex = 19;
             this.pictureBox1.TabStop = false;
             // 
-            // lblPFGoiHT
-            // 
-            this.lblPFGoiHT.AutoSize = true;
-            this.lblPFGoiHT.Location = new System.Drawing.Point(136, 126);
-            this.lblPFGoiHT.Name = "lblPFGoiHT";
-            this.lblPFGoiHT.Size = new System.Drawing.Size(68, 13);
-            this.lblPFGoiHT.TabIndex = 13;
-            this.lblPFGoiHT.Text = "Gói : 1 tháng";
-            // 
             // lblPFTrangThai
             // 
             this.lblPFTrangThai.AutoSize = true;
-            this.lblPFTrangThai.Location = new System.Drawing.Point(136, 139);
+            this.lblPFTrangThai.Location = new System.Drawing.Point(136, 137);
             this.lblPFTrangThai.Name = "lblPFTrangThai";
             this.lblPFTrangThai.Size = new System.Drawing.Size(47, 13);
             this.lblPFTrangThai.TabIndex = 12;
@@ -495,7 +484,6 @@
         private System.Windows.Forms.Label lblSex;
         private System.Windows.Forms.Button btnChiTiet;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label lblPFGoiHT;
         private System.Windows.Forms.Label lblPFTrangThai;
         private System.Windows.Forms.Label lblPFSDT;
         private System.Windows.Forms.Label lblPFTen;

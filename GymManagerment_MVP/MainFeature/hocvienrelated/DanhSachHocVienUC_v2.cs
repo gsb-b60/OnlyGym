@@ -307,5 +307,27 @@ namespace GymManagerment_MVP
         {
 
         }
+
+        private void btnMuaHang_Click(object sender, EventArgs e)
+        {
+            if (dgvHocVien.SelectedRows.Count > 0)
+            {
+                DataGridViewRow selectedRow = dgvHocVien.SelectedRows[0];
+                string code = selectedRow.Cells["chgCode"].Value?.ToString();
+
+                if (code != null)
+                {
+                    Mainfrm main = Application.OpenForms.OfType<Mainfrm>().FirstOrDefault();
+                    if (main != null)
+                    {
+                        main.OpenMuaHang(code);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Không tìm thấy form chính (Mainfrm).", "Lỗi");
+                    }
+                }
+            }
+        }
     }
 }

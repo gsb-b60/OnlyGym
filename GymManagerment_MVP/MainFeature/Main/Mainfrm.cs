@@ -183,6 +183,10 @@ namespace GymManagerment_MVP
                 thongTinUC.DisplayThoTinHocVien(code);
             }
         }
+        public void OpenMuaHang(string code)
+        {
+            loadUserControl(new MuaHang(code));
+        }
 
         private void btnTaiKhoan_Click(object sender, EventArgs e)
         {

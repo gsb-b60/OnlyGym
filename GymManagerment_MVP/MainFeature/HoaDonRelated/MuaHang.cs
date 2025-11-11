@@ -19,12 +19,27 @@ namespace GymManagerment_MVP
     public partial class MuaHang : UserControl
     {
         List<PTSession> bookedList;
+        HocVien hv;
         public MuaHang()
         {
             InitializeComponent();
 
         }
+        public MuaHang(string code)
+        {
+            InitializeComponent();
+            HocVienBL hvbl= new HocVienBL();
+            hv=hvbl.GetByCode(code);
+            SetProfile(hv);
+        }
+        private void SetProfile(HocVien hv)
+        {
+            lblPFTen.Text = hv.Ten;
+            lblSex.Text = hv.GioiTinh ? "Nam" : "Nu";
+            lblPFSDT.Text = $"SDT: {hv.SDT}";
+            lblPFTrangThai.Text = hv.TrangThai;
 
+        }
         private void flpMain_Paint(object sender, PaintEventArgs e)
         {
 

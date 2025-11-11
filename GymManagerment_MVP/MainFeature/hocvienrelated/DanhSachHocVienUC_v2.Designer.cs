@@ -88,6 +88,7 @@
             this.lblTrangThai = new System.Windows.Forms.Label();
             this.pnlNav = new System.Windows.Forms.Panel();
             this.btnDanhSach = new System.Windows.Forms.Button();
+            this.btnMuaHang = new System.Windows.Forms.Button();
             this.pnlDanhSach.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHocVien)).BeginInit();
@@ -122,7 +123,7 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel3.Location = new System.Drawing.Point(172, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Padding = new System.Windows.Forms.Padding(20, 20, 20, 20);
+            this.panel3.Padding = new System.Windows.Forms.Padding(20);
             this.panel3.Size = new System.Drawing.Size(811, 603);
             this.panel3.TabIndex = 30;
             // 
@@ -276,13 +277,14 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel2.Location = new System.Drawing.Point(983, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Padding = new System.Windows.Forms.Padding(19, 19, 19, 19);
+            this.panel2.Padding = new System.Windows.Forms.Padding(19);
             this.panel2.Size = new System.Drawing.Size(279, 603);
             this.panel2.TabIndex = 29;
             // 
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.Azure;
+            this.panel4.Controls.Add(this.btnMuaHang);
             this.panel4.Controls.Add(this.lblTuoi);
             this.panel4.Controls.Add(this.lblKyHieu);
             this.panel4.Controls.Add(this.lblGioiTinh);
@@ -347,7 +349,7 @@
             // 
             // btnChiTiet
             // 
-            this.btnChiTiet.Location = new System.Drawing.Point(155, 166);
+            this.btnChiTiet.Location = new System.Drawing.Point(139, 428);
             this.btnChiTiet.Name = "btnChiTiet";
             this.btnChiTiet.Size = new System.Drawing.Size(75, 23);
             this.btnChiTiet.TabIndex = 26;
@@ -360,7 +362,7 @@
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(14, 8);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Padding = new System.Windows.Forms.Padding(10, 10, 10, 10);
+            this.pictureBox1.Padding = new System.Windows.Forms.Padding(10);
             this.pictureBox1.Size = new System.Drawing.Size(116, 181);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 19;
@@ -445,7 +447,7 @@
             this.pnlLoc.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnlLoc.Location = new System.Drawing.Point(0, 0);
             this.pnlLoc.Name = "pnlLoc";
-            this.pnlLoc.Padding = new System.Windows.Forms.Padding(20, 20, 20, 20);
+            this.pnlLoc.Padding = new System.Windows.Forms.Padding(20);
             this.pnlLoc.Size = new System.Drawing.Size(172, 603);
             this.pnlLoc.TabIndex = 28;
             // 
@@ -609,7 +611,7 @@
             // 
             this.cbCheck.AutoSize = true;
             this.cbCheck.Location = new System.Drawing.Point(13, 29);
-            this.cbCheck.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbCheck.Margin = new System.Windows.Forms.Padding(2);
             this.cbCheck.Name = "cbCheck";
             this.cbCheck.Size = new System.Drawing.Size(57, 17);
             this.cbCheck.TabIndex = 4;
@@ -700,6 +702,16 @@
             this.btnDanhSach.Text = "Danh Sách Học Viên";
             this.btnDanhSach.UseVisualStyleBackColor = true;
             // 
+            // btnMuaHang
+            // 
+            this.btnMuaHang.Location = new System.Drawing.Point(55, 428);
+            this.btnMuaHang.Name = "btnMuaHang";
+            this.btnMuaHang.Size = new System.Drawing.Size(75, 23);
+            this.btnMuaHang.TabIndex = 32;
+            this.btnMuaHang.Text = "Mua Hang";
+            this.btnMuaHang.UseVisualStyleBackColor = true;
+            this.btnMuaHang.Click += new System.EventHandler(this.btnMuaHang_Click);
+            // 
             // DanhSachHocVienUC_v2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -787,5 +799,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn tthai;
         private System.Windows.Forms.DataGridViewTextBoxColumn TenGT;
         private System.Windows.Forms.CheckBox cbCheck;
+        private System.Windows.Forms.Button btnMuaHang;
     }
 }
