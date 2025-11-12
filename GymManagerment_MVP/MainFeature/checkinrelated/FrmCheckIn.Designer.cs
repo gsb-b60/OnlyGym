@@ -38,6 +38,7 @@
             this.nXoa = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tthai = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TenGT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnCheckIn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHocVien)).BeginInit();
             this.SuspendLayout();
             // 
@@ -55,12 +56,12 @@
             this.nXoa,
             this.tthai,
             this.TenGT});
-            this.dgvHocVien.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dgvHocVien.Location = new System.Drawing.Point(0, 51);
+            this.dgvHocVien.Dock = System.Windows.Forms.DockStyle.Top;
+            this.dgvHocVien.Location = new System.Drawing.Point(0, 0);
             this.dgvHocVien.Name = "dgvHocVien";
             this.dgvHocVien.RowHeadersWidth = 62;
             this.dgvHocVien.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvHocVien.Size = new System.Drawing.Size(562, 515);
+            this.dgvHocVien.Size = new System.Drawing.Size(562, 325);
             this.dgvHocVien.TabIndex = 1;
             this.dgvHocVien.SelectionChanged += new System.EventHandler(this.dgvHocVien_SelectionChanged);
             this.dgvHocVien.DoubleClick += new System.EventHandler(this.dgvHocVien_DoubleClick);
@@ -138,11 +139,22 @@
             this.TenGT.Name = "TenGT";
             this.TenGT.Width = 150;
             // 
+            // btnCheckIn
+            // 
+            this.btnCheckIn.Location = new System.Drawing.Point(475, 341);
+            this.btnCheckIn.Name = "btnCheckIn";
+            this.btnCheckIn.Size = new System.Drawing.Size(75, 23);
+            this.btnCheckIn.TabIndex = 2;
+            this.btnCheckIn.Text = "Check In";
+            this.btnCheckIn.UseVisualStyleBackColor = true;
+            this.btnCheckIn.Click += new System.EventHandler(this.btnCheckIn_Click);
+            // 
             // FrmCheckIn
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(562, 566);
+            this.ClientSize = new System.Drawing.Size(562, 376);
+            this.Controls.Add(this.btnCheckIn);
             this.Controls.Add(this.dgvHocVien);
             this.Name = "FrmCheckIn";
             this.Text = "FrmCheckIn";
@@ -163,5 +175,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn nXoa;
         private System.Windows.Forms.DataGridViewTextBoxColumn tthai;
         private System.Windows.Forms.DataGridViewTextBoxColumn TenGT;
+        private System.Windows.Forms.Button btnCheckIn;
     }
 }

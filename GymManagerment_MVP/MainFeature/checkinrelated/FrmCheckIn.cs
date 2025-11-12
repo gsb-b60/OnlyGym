@@ -61,5 +61,16 @@ namespace GymManagerment_MVP.MainFeature.Main
         {
            
         }
+
+        private void btnCheckIn_Click(object sender, EventArgs e)
+        {
+            if (dgvHocVien.CurrentRow == null) return;
+
+            // Lấy code học viên từ dòng đang chọn
+            string code = dgvHocVien.CurrentRow.Cells["chgCode"].Value?.ToString();
+            if (string.IsNullOrEmpty(code)) return;
+
+            _uc.DisplayHocVien(code);
+        }
     }
 }

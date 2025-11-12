@@ -191,10 +191,10 @@
     <Compile Include="MainFeature\loginrelated\UserCreationForm.Designer.cs">
       <DependentUpon>UserCreationForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="MainFeature\Main\FrmCheckIn.cs">
+    <Compile Include="MainFeature\checkinrelated\FrmCheckIn.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MainFeature\Main\FrmCheckIn.Designer.cs">
+    <Compile Include="MainFeature\checkinrelated\FrmCheckIn.Designer.cs">
       <DependentUpon>FrmCheckIn.cs</DependentUpon>
     </Compile>
     <Compile Include="MainFeature\PTRelated\4stepdk\DangKyPTVer2.cs">
@@ -448,7 +448,7 @@
     <EmbeddedResource Include="MainFeature\loginrelated\UserCreationForm.resx">
       <DependentUpon>UserCreationForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainFeature\Main\FrmCheckIn.resx">
+    <EmbeddedResource Include="MainFeature\checkinrelated\FrmCheckIn.resx">
       <DependentUpon>FrmCheckIn.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainFeature\PTRelated\4stepdk\DangKyPTVer2.resx">

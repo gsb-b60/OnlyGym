@@ -1,4 +1,5 @@
 ﻿using Business;
+using DataAccess.Object;
 using GymManagerment_MVP.Business;
 using GymManagerment_MVP.MainFeature.Main;
 using System;
@@ -64,6 +65,7 @@ namespace GymManagerment_MVP
             HocVienBL hvbl=new HocVienBL();
             hv=hvbl.GetByCode(code);
             HienThiHocVien(hv);
+            
         }
         private void HienThiHocVien(HocVien hvPara)
         {
@@ -72,6 +74,16 @@ namespace GymManagerment_MVP
             lblStatus.Text = hvPara.TrangThai;
             btnChiTiet.Tag = hvPara.code;
             dtpVao.Value = DateTime.Now;
+            CheckIn cv = new CheckIn
+            {
+                HocVien = hv,
+                ThoiGianCheckIn = DateTime.Now,
+                LyDo = CheckInState.allow,
+                GhiChu = ""
+            };
+            CheckInBL cibl = new CheckInBL();
+            int lancheckin = cibl.InsertCheckIn(cv);
+            lblCheckintimes.Text=lancheckin.ToString();
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)

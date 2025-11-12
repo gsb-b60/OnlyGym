@@ -103,6 +103,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Object\CheckIn.cs" />
     <Compile Include="Object\GoiTapHocVien.cs" />
     <Compile Include="Object\HopDong.cs" />
     <Compile Include="Object\DSPT.cs" />
@@ -117,6 +118,7 @@
     <Compile Include="Class1.cs" />
     <Compile Include="Object\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repo\CheckInDA.cs" />
     <Compile Include="Repo\GoiTapDA.cs" />
     <Compile Include="Repo\HocVienDA.cs" />
     <Compile Include="Repo\HopDongRepoDA.cs" />

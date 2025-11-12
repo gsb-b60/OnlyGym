@@ -15,5 +15,7 @@ namespace DataAccess.Ultilities
 
         public static string InsertHopDong= "InsertHopDongPT";
         public static string InsertSession = "InsertBuoiTapPT";
+
+        public static string InserCheckIn = "insertCheckIn";
     }
 }

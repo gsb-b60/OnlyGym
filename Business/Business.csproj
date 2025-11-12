@@ -51,6 +51,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CheckInBL.cs" />
     <Compile Include="GoiTapBL.cs" />
     <Compile Include="HocVienBL.cs" />
     <Compile Include="HopDongBL.cs" />

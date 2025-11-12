@@ -55,6 +55,7 @@
             this.lblName = new System.Windows.Forms.Label();
             this.dtpVao = new System.Windows.Forms.DateTimePicker();
             this.gbKetQuaCheckin = new System.Windows.Forms.GroupBox();
+            this.btnFakeCheckin = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -62,7 +63,6 @@
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.lblGhiChu = new System.Windows.Forms.Label();
             this.btnGiaHan = new System.Windows.Forms.Button();
-            this.btnDkPT = new System.Windows.Forms.Button();
             this.btnChiTiet = new System.Windows.Forms.Button();
             this.lblGoiToi = new System.Windows.Forms.Label();
             this.lblGioVao = new System.Windows.Forms.Label();
@@ -93,7 +93,7 @@
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chLyDo = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chLanCheckIn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.btnFakeCheckin = new System.Windows.Forms.Button();
+            this.lblCheckintimes = new System.Windows.Forms.Label();
             this.groupThongTin.SuspendLayout();
             this.panel2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -279,7 +279,6 @@
             this.panel1.Controls.Add(this.dtpVao);
             this.panel1.Controls.Add(this.gbKetQuaCheckin);
             this.panel1.Controls.Add(this.btnGiaHan);
-            this.panel1.Controls.Add(this.btnDkPT);
             this.panel1.Controls.Add(this.btnChiTiet);
             this.panel1.Controls.Add(this.lblGoiToi);
             this.panel1.Controls.Add(this.lblGioVao);
@@ -353,6 +352,7 @@
             // 
             // gbKetQuaCheckin
             // 
+            this.gbKetQuaCheckin.Controls.Add(this.lblCheckintimes);
             this.gbKetQuaCheckin.Controls.Add(this.btnFakeCheckin);
             this.gbKetQuaCheckin.Controls.Add(this.label3);
             this.gbKetQuaCheckin.Controls.Add(this.label2);
@@ -368,14 +368,24 @@
             this.gbKetQuaCheckin.TabStop = false;
             this.gbKetQuaCheckin.Text = "kết quả check in";
             // 
+            // btnFakeCheckin
+            // 
+            this.btnFakeCheckin.Location = new System.Drawing.Point(390, 52);
+            this.btnFakeCheckin.Name = "btnFakeCheckin";
+            this.btnFakeCheckin.Size = new System.Drawing.Size(115, 23);
+            this.btnFakeCheckin.TabIndex = 47;
+            this.btnFakeCheckin.Text = "Fake checkin";
+            this.btnFakeCheckin.UseVisualStyleBackColor = true;
+            this.btnFakeCheckin.Click += new System.EventHandler(this.btnFakeCheckin_Click);
+            // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(29, 52);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(100, 13);
+            this.label3.Size = new System.Drawing.Size(93, 13);
             this.label3.TabIndex = 46;
-            this.label3.Text = "Lần CheckIn Thứ X";
+            this.label3.Text = "Lần CheckIn Thứ ";
             // 
             // label2
             // 
@@ -425,22 +435,13 @@
             // 
             // btnGiaHan
             // 
-            this.btnGiaHan.Location = new System.Drawing.Point(390, 242);
+            this.btnGiaHan.Location = new System.Drawing.Point(403, 242);
             this.btnGiaHan.Name = "btnGiaHan";
-            this.btnGiaHan.Size = new System.Drawing.Size(137, 23);
+            this.btnGiaHan.Size = new System.Drawing.Size(124, 23);
             this.btnGiaHan.TabIndex = 9;
-            this.btnGiaHan.Text = "Gia Hạn";
+            this.btnGiaHan.Text = "Shopping";
             this.btnGiaHan.UseVisualStyleBackColor = true;
             this.btnGiaHan.Click += new System.EventHandler(this.btnGiaHan_Click);
-            // 
-            // btnDkPT
-            // 
-            this.btnDkPT.Location = new System.Drawing.Point(247, 242);
-            this.btnDkPT.Name = "btnDkPT";
-            this.btnDkPT.Size = new System.Drawing.Size(137, 23);
-            this.btnDkPT.TabIndex = 10;
-            this.btnDkPT.Text = "Đăng ký PT";
-            this.btnDkPT.UseVisualStyleBackColor = true;
             // 
             // btnChiTiet
             // 
@@ -723,15 +724,13 @@
             this.chLanCheckIn.Text = "Lan CheckIn";
             this.chLanCheckIn.Width = 232;
             // 
-            // btnFakeCheckin
+            // lblCheckintimes
             // 
-            this.btnFakeCheckin.Location = new System.Drawing.Point(390, 52);
-            this.btnFakeCheckin.Name = "btnFakeCheckin";
-            this.btnFakeCheckin.Size = new System.Drawing.Size(115, 23);
-            this.btnFakeCheckin.TabIndex = 47;
-            this.btnFakeCheckin.Text = "Fake checkin";
-            this.btnFakeCheckin.UseVisualStyleBackColor = true;
-            this.btnFakeCheckin.Click += new System.EventHandler(this.btnFakeCheckin_Click);
+            this.lblCheckintimes.Location = new System.Drawing.Point(128, 47);
+            this.lblCheckintimes.Name = "lblCheckintimes";
+            this.lblCheckintimes.Size = new System.Drawing.Size(71, 23);
+            this.lblCheckintimes.TabIndex = 48;
+            this.lblCheckintimes.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // CheckinKhachVaoUC
             // 
@@ -767,7 +766,6 @@
 
         private System.Windows.Forms.Splitter splitter1;
         private System.Windows.Forms.GroupBox groupThongTin;
-        private System.Windows.Forms.Button btnDkPT;
         private System.Windows.Forms.Button btnGiaHan;
         private System.Windows.Forms.GroupBox gbKetQuaCheckin;
         private System.Windows.Forms.Panel panel1;
@@ -830,5 +828,6 @@
         private System.Windows.Forms.Label lblPhone;
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.Button btnFakeCheckin;
+        private System.Windows.Forms.Label lblCheckintimes;
     }
 }
