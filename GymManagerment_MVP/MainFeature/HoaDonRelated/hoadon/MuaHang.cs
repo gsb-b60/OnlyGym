@@ -682,33 +682,49 @@ VALUES (@MaHD, @MaMuaHang, @TenKhachHang, @SDT, @NgayBan, @NhanVien, @TongTien, 
 
         public void XoaDanhMuc()
         {
-            if (MessageBox.Show("Bạn muốn xóa?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            var selectedBtn = flpDanhMuc.Controls.OfType<Button>().FirstOrDefault(b => b.Focused);
+
+            int maNhom = int.Parse(selectedBtn.Tag.ToString());
+
+            foreach (DataGridViewRow row in dgvDSHang.Rows)
             {
-                var selectedBtn = flpDanhMuc.Controls.OfType<Button>().FirstOrDefault(b => b.Focused);
-                if (selectedBtn != null)
+                //if (row.IsNewRow) continue;
+                if (row.Cells["MaNhom"].Value != null && int.Parse(row.Cells["MaNhom"].Value.ToString()) == maNhom)
                 {
-                    string tenNhom = selectedBtn.Text;
-                    using (SqlConnection conn = new SqlConnection(connectionString))
+                    MessageBox.Show("Vẫn còn hàng trong danh mục", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                else
+                {
+                    if (MessageBox.Show("Bạn muốn xóa?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+
                     {
-                        conn.Open();
-                        string query = "DELETE FROM NhomHang WHERE TenNhom = @TenNhom";
-                        using (SqlCommand cmd = new SqlCommand(query, conn))
+
+                        string tenNhom = selectedBtn.Text;
+                        using (SqlConnection conn = new SqlConnection(connectionString))
                         {
-                            cmd.Parameters.AddWithValue("@TenNhom", tenNhom);
-                            cmd.ExecuteNonQuery();
+                            conn.Open();
+                            string query = "DELETE FROM NhomHang WHERE TenNhom = @TenNhom";
+                            using (SqlCommand cmd = new SqlCommand(query, conn))
+                            {
+                                cmd.Parameters.AddWithValue("@TenNhom", tenNhom);
+                                cmd.ExecuteNonQuery();
+                            }
+                            // Call ResetStt_NhomHang after deletion
+                            using (SqlCommand cmd = new SqlCommand("ResetStt_NhomHang", conn))
+                            {
+                                cmd.CommandType = CommandType.StoredProcedure;
+                                cmd.ExecuteNonQuery();
+                            }
                         }
-                        // Call ResetStt_NhomHang after deletion
-                        using (SqlCommand cmd = new SqlCommand("ResetStt_NhomHang", conn))
-                        {
-                            cmd.CommandType = CommandType.StoredProcedure;
-                            cmd.ExecuteNonQuery();
-                        }
+                        MessageBox.Show("Xóa danh mục thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        flpDanhMuc.Controls.Remove(selectedBtn);
+                        LoadDanhMuc(); // Reload categories
                     }
-                    MessageBox.Show("Xóa danh mục thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    flpDanhMuc.Controls.Remove(selectedBtn);
-                    LoadDanhMuc(); // Reload categories
+
                 }
             }
+
         }
         public void XoaHang()
         {
