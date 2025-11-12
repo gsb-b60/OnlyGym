@@ -15,6 +15,7 @@ namespace GymManagerment_MVP
 {
     public partial class CheckinKhachVaoUC : UserControl
     {
+        HocVien hv=null;
         public CheckinKhachVaoUC()
         {
             InitializeComponent();
@@ -58,16 +59,19 @@ namespace GymManagerment_MVP
         }
         public void DisplayHocVien(string code)
         {
+            hv = null;
+            
             HocVienBL hvbl=new HocVienBL();
-            HocVien hv=hvbl.GetByCode(code);
+            hv=hvbl.GetByCode(code);
             HienThiHocVien(hv);
         }
-        private void HienThiHocVien(HocVien hv)
+        private void HienThiHocVien(HocVien hvPara)
         {
-            lblName.Text=hv.Ten;
-            lblPhone.Text=hv.SDT;
-            lblStatus.Text = hv.TrangThai;
-            btnChiTiet.Tag = hv.code;
+            lblName.Text=hvPara.Ten;
+            lblPhone.Text= hvPara.SDT;
+            lblStatus.Text = hvPara.TrangThai;
+            btnChiTiet.Tag = hvPara.code;
+            dtpVao.Value = DateTime.Now;
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -89,6 +93,23 @@ namespace GymManagerment_MVP
                     MessageBox.Show("Không tìm thấy form chính (Mainfrm).", "Lỗi");
                 }
             }
+        }
+
+        private void btnGiaHan_Click(object sender, EventArgs e)
+        {
+            if(hv !=null)
+            {
+                Mainfrm main = Application.OpenForms.OfType<Mainfrm>().FirstOrDefault();
+                if (main != null)
+                {
+                    main.OpenMuaHang(hv.code);
+                }
+                else
+                {
+                    MessageBox.Show("Không tìm thấy form chính (Mainfrm).", "Lỗi");
+                }
+            }
+            
         }
     }
 }

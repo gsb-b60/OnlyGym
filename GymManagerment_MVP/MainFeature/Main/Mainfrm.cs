@@ -20,6 +20,7 @@ namespace GymManagerment_MVP
     public partial class Mainfrm : Form
     {
         private FrmCheckIn frm;
+        public User user=new User();
 
         public Mainfrm()
         {
@@ -31,6 +32,7 @@ namespace GymManagerment_MVP
         public Mainfrm(User user)
         {
             InitializeComponent();
+            this.user= user;
             this.MinimumSize = new Size(1280, 800);
             loadUserControl(new MuaHang());
             // Test Form
@@ -198,7 +200,7 @@ namespace GymManagerment_MVP
         }
         public void OpenMuaHang(string code)
         {
-            loadUserControl(new MuaHang(code));
+            loadUserControl(new MuaHang(code,user));
         }
 
         private void btnTaiKhoan_Click(object sender, EventArgs e)

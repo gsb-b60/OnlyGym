@@ -563,6 +563,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="MainFeature\HoaDonRelated\HoaDonGoi-PT\" />
     <Folder Include="MainFeature\HoaDonRelated\SanPham\" />
     <Folder Include="MainFeature\ThongKeRelated\" />
   </ItemGroup>

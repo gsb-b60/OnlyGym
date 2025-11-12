@@ -344,7 +344,7 @@
             // 
             // dtpVao
             // 
-            this.dtpVao.CustomFormat = "dd/MM/yyyy";
+            this.dtpVao.CustomFormat = "HH:mm dd/MM/yyyy";
             this.dtpVao.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpVao.Location = new System.Drawing.Point(315, 169);
             this.dtpVao.Name = "dtpVao";
@@ -410,7 +410,7 @@
             // 
             this.richTextBox1.Location = new System.Drawing.Point(73, 83);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(432, 82);
+            this.richTextBox1.Size = new System.Drawing.Size(442, 70);
             this.richTextBox1.TabIndex = 14;
             this.richTextBox1.Text = "";
             // 
@@ -431,6 +431,7 @@
             this.btnGiaHan.TabIndex = 9;
             this.btnGiaHan.Text = "Gia Hạn";
             this.btnGiaHan.UseVisualStyleBackColor = true;
+            this.btnGiaHan.Click += new System.EventHandler(this.btnGiaHan_Click);
             // 
             // btnDkPT
             // 

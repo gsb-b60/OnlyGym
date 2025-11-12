@@ -32,6 +32,7 @@ namespace DataAccess.Repo
                         string tthai = row["TrangThai"].ToString();
                         hv = new HocVien
                         {
+                            id=Convert.ToInt32( row["id"]),
                             code = code,
                             Ten = row["TenHV"].ToString(),
                             SDT = row["sdt"].ToString(),

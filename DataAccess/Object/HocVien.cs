@@ -10,6 +10,7 @@ namespace GymManagerment_MVP.Business
 {
     public class HocVien
     {
+        public int id { get; set; }
         public string code { get; set; }
         public string Ten { get; set; }
         public string SDT { get; set; }
