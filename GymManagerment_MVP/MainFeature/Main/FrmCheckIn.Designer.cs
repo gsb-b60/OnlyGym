@@ -62,6 +62,8 @@
             this.dgvHocVien.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvHocVien.Size = new System.Drawing.Size(562, 515);
             this.dgvHocVien.TabIndex = 1;
+            this.dgvHocVien.SelectionChanged += new System.EventHandler(this.dgvHocVien_SelectionChanged);
+            this.dgvHocVien.DoubleClick += new System.EventHandler(this.dgvHocVien_DoubleClick);
             // 
             // chgCode
             // 

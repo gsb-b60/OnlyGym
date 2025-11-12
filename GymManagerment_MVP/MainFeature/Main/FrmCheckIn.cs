@@ -15,10 +15,17 @@ namespace GymManagerment_MVP.MainFeature.Main
 {
     public partial class FrmCheckIn : Form
     {
+        CheckinKhachVaoUC _uc;
         public FrmCheckIn()
         {
             InitializeComponent();
 
+            LoadData();
+        }
+        public FrmCheckIn(CheckinKhachVaoUC _uc)
+        {
+            InitializeComponent();
+            this._uc = _uc;
             LoadData();
         }
         private void LoadData()
@@ -37,6 +44,22 @@ namespace GymManagerment_MVP.MainFeature.Main
             con.Dispose();
 
             dgvHocVien.DataSource = table;
+        }
+
+        private void dgvHocVien_DoubleClick(object sender, EventArgs e)
+        {
+            if (dgvHocVien.CurrentRow == null) return;
+
+            // Lấy code học viên từ dòng đang chọn
+            string code = dgvHocVien.CurrentRow.Cells["chgCode"].Value?.ToString();
+            if (string.IsNullOrEmpty(code)) return;
+
+            _uc.DisplayHocVien(code);
+        }
+
+        private void dgvHocVien_SelectionChanged(object sender, EventArgs e)
+        {
+           
         }
     }
 }

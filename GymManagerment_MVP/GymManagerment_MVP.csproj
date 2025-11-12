@@ -125,10 +125,10 @@
     <Compile Include="MainFeature\HoaDonRelated\MuaGoiTap.Designer.cs">
       <DependentUpon>MuaGoiTap.cs</DependentUpon>
     </Compile>
-    <Compile Include="MainFeature\hocvienrelated\CheckinKhachVaoUC.cs">
+    <Compile Include="MainFeature\checkinrelated\CheckinKhachVaoUC.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="MainFeature\hocvienrelated\CheckinKhachVaoUC.Designer.cs">
+    <Compile Include="MainFeature\checkinrelated\CheckinKhachVaoUC.Designer.cs">
       <DependentUpon>CheckinKhachVaoUC.cs</DependentUpon>
     </Compile>
     <Compile Include="MainFeature\hocvienrelated\DanhSachHocVienUC_v2.cs">
@@ -415,7 +415,7 @@
     <EmbeddedResource Include="MainFeature\HoaDonRelated\MuaGoiTap.resx">
       <DependentUpon>MuaGoiTap.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainFeature\hocvienrelated\CheckinKhachVaoUC.resx">
+    <EmbeddedResource Include="MainFeature\checkinrelated\CheckinKhachVaoUC.resx">
       <DependentUpon>CheckinKhachVaoUC.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainFeature\hocvienrelated\DanhSachHocVienUC_v2.resx">
