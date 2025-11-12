@@ -19,7 +19,7 @@ namespace DataAccess.Object
 
         public string TenHocVien => HocVien.Ten;
         public string CodeHocVien => HocVien.code;
-        public int idhocvien => HocVien.id;
+
     }
     public enum CheckInState
     {
