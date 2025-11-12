@@ -12,6 +12,35 @@ namespace DataAccess.Repo
 {
     public class HocVienDA
     {
+        public List<HocVien> GetHocVien()
+        {
+            List<HocVien> list=new List<HocVien>();
+            using (SqlConnection con =new SqlConnection(Ultilities.Ultilities.ConnectionString))
+            {
+                string query = "select * from HocVien";
+                using (SqlCommand cmd= new SqlCommand(query,con))
+                {
+                    con.Open();
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            HocVien hv= new HocVien {
+                                id = reader.GetInt32(reader.GetOrdinal("id")),
+                                code = reader.GetString(reader.GetOrdinal("code")),
+                                Ten = reader.GetString(reader.GetOrdinal("ten")),
+                                SDT = reader.GetString(reader.GetOrdinal("sdt")),
+                                
+                                TrangThai = "Hoạt động",
+                                GioiTinh =reader.GetBoolean(reader.GetOrdinal("GioiTinh")),
+                            };
+                            list.Add(hv);
+                        }
+                    }
+                }
+            }
+            return list;
+        }
         public HocVien GetByCode(string code)
         {
             HocVien hv = new HocVien();

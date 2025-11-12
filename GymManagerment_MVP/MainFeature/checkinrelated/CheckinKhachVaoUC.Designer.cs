@@ -29,19 +29,12 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.splitter1 = new System.Windows.Forms.Splitter();
             this.groupThongTin = new System.Windows.Forms.GroupBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnTim = new System.Windows.Forms.Button();
             this.cbFindB = new System.Windows.Forms.ComboBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.chgKhach = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.chgSDTKhach = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cPT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cSDTPT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.bắtĐầuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.hủyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -74,7 +67,6 @@
             this.lblGoiTap = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
             this.chEND = new System.Windows.Forms.CheckBox();
             this.cbH = new System.Windows.Forms.CheckBox();
             this.lblTrangThai = new System.Windows.Forms.Label();
@@ -86,18 +78,26 @@
             this.dtpTuCheckin = new System.Windows.Forms.DateTimePicker();
             this.btnXoa = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.listView1 = new System.Windows.Forms.ListView();
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.cTen = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.chLyDo = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.chLanCheckIn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.lblCheckintimes = new System.Windows.Forms.Label();
+            this.cTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cSDTPT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cPT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.chgSDTKhach = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.chgKhach = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvCheckIns = new System.Windows.Forms.DataGridView();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupThongTin.SuspendLayout();
             this.panel2.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.gbKetQuaCheckin.SuspendLayout();
@@ -105,24 +105,18 @@
             this.panel3.SuspendLayout();
             this.gbLastCheck.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCheckIns)).BeginInit();
             this.SuspendLayout();
-            // 
-            // splitter1
-            // 
-            this.splitter1.Location = new System.Drawing.Point(0, 0);
-            this.splitter1.Name = "splitter1";
-            this.splitter1.Size = new System.Drawing.Size(3, 703);
-            this.splitter1.TabIndex = 6;
-            this.splitter1.TabStop = false;
             // 
             // groupThongTin
             // 
             this.groupThongTin.Controls.Add(this.panel2);
             this.groupThongTin.Controls.Add(this.panel1);
             this.groupThongTin.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupThongTin.Location = new System.Drawing.Point(3, 0);
+            this.groupThongTin.Location = new System.Drawing.Point(0, 0);
             this.groupThongTin.Name = "groupThongTin";
-            this.groupThongTin.Size = new System.Drawing.Size(1261, 507);
+            this.groupThongTin.Size = new System.Drawing.Size(1264, 507);
             this.groupThongTin.TabIndex = 7;
             this.groupThongTin.TabStop = false;
             this.groupThongTin.Text = "Thông tin học viên";
@@ -134,7 +128,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(539, 16);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(719, 488);
+            this.panel2.Size = new System.Drawing.Size(722, 488);
             this.panel2.TabIndex = 10;
             // 
             // groupBox1
@@ -146,7 +140,7 @@
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(717, 486);
+            this.groupBox1.Size = new System.Drawing.Size(720, 486);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Ca Tập Tiếp Theo";
@@ -180,58 +174,6 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(357, 20);
             this.textBox1.TabIndex = 4;
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.chgKhach,
-            this.chgSDTKhach,
-            this.cPT,
-            this.cSDTPT,
-            this.cTime});
-            this.dataGridView1.ContextMenuStrip = this.contextMenuStrip1;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 64);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 62;
-            this.dataGridView1.Size = new System.Drawing.Size(711, 419);
-            this.dataGridView1.TabIndex = 0;
-            // 
-            // chgKhach
-            // 
-            this.chgKhach.HeaderText = "Tên Khách Hàng";
-            this.chgKhach.MinimumWidth = 8;
-            this.chgKhach.Name = "chgKhach";
-            this.chgKhach.Width = 150;
-            // 
-            // chgSDTKhach
-            // 
-            this.chgSDTKhach.HeaderText = "SDT Khách";
-            this.chgSDTKhach.MinimumWidth = 8;
-            this.chgSDTKhach.Name = "chgSDTKhach";
-            this.chgSDTKhach.Width = 150;
-            // 
-            // cPT
-            // 
-            this.cPT.HeaderText = "Tên PT";
-            this.cPT.MinimumWidth = 8;
-            this.cPT.Name = "cPT";
-            this.cPT.Width = 150;
-            // 
-            // cSDTPT
-            // 
-            this.cSDTPT.HeaderText = "SDT PT";
-            this.cSDTPT.MinimumWidth = 8;
-            this.cSDTPT.Name = "cSDTPT";
-            this.cSDTPT.Width = 150;
-            // 
-            // cTime
-            // 
-            this.cTime.HeaderText = "Thời Gian";
-            this.cTime.MinimumWidth = 8;
-            this.cTime.Name = "cTime";
-            this.cTime.Width = 150;
             // 
             // contextMenuStrip1
             // 
@@ -361,16 +303,16 @@
             this.gbKetQuaCheckin.Controls.Add(this.richTextBox1);
             this.gbKetQuaCheckin.Controls.Add(this.lblGhiChu);
             this.gbKetQuaCheckin.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.gbKetQuaCheckin.Location = new System.Drawing.Point(0, 300);
+            this.gbKetQuaCheckin.Location = new System.Drawing.Point(0, 271);
             this.gbKetQuaCheckin.Name = "gbKetQuaCheckin";
-            this.gbKetQuaCheckin.Size = new System.Drawing.Size(534, 186);
+            this.gbKetQuaCheckin.Size = new System.Drawing.Size(534, 215);
             this.gbKetQuaCheckin.TabIndex = 8;
             this.gbKetQuaCheckin.TabStop = false;
             this.gbKetQuaCheckin.Text = "kết quả check in";
             // 
             // btnFakeCheckin
             // 
-            this.btnFakeCheckin.Location = new System.Drawing.Point(390, 52);
+            this.btnFakeCheckin.Location = new System.Drawing.Point(412, 15);
             this.btnFakeCheckin.Name = "btnFakeCheckin";
             this.btnFakeCheckin.Size = new System.Drawing.Size(115, 23);
             this.btnFakeCheckin.TabIndex = 47;
@@ -445,7 +387,7 @@
             // 
             // btnChiTiet
             // 
-            this.btnChiTiet.Location = new System.Drawing.Point(29, 271);
+            this.btnChiTiet.Location = new System.Drawing.Point(260, 242);
             this.btnChiTiet.Name = "btnChiTiet";
             this.btnChiTiet.Size = new System.Drawing.Size(137, 23);
             this.btnChiTiet.TabIndex = 43;
@@ -537,7 +479,6 @@
             // panel3
             // 
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel3.Controls.Add(this.button1);
             this.panel3.Controls.Add(this.chEND);
             this.panel3.Controls.Add(this.cbH);
             this.panel3.Controls.Add(this.lblTrangThai);
@@ -545,21 +486,12 @@
             this.panel3.Controls.Add(this.btnXoa);
             this.panel3.Controls.Add(this.groupBox2);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(3, 507);
+            this.panel3.Location = new System.Drawing.Point(0, 507);
             this.panel3.Name = "panel3";
             this.panel3.Padding = new System.Windows.Forms.Padding(100, 0, 100, 0);
-            this.panel3.Size = new System.Drawing.Size(1261, 196);
+            this.panel3.Size = new System.Drawing.Size(1264, 196);
             this.panel3.TabIndex = 8;
             this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(1163, 16);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(89, 23);
-            this.button1.TabIndex = 57;
-            this.button1.Text = "Đăng Ký";
-            this.button1.UseVisualStyleBackColor = true;
             // 
             // chEND
             // 
@@ -660,69 +592,14 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.listView1);
+            this.groupBox2.Controls.Add(this.dgvCheckIns);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.groupBox2.Location = new System.Drawing.Point(207, 0);
+            this.groupBox2.Location = new System.Drawing.Point(210, 0);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(950, 192);
             this.groupBox2.TabIndex = 49;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Lich Su Tap";
-            // 
-            // listView1
-            // 
-            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader1,
-            this.cTen,
-            this.columnHeader2,
-            this.columnHeader3,
-            this.chLyDo,
-            this.chLanCheckIn});
-            this.listView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listView1.GridLines = true;
-            this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(3, 16);
-            this.listView1.Margin = new System.Windows.Forms.Padding(0);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(944, 173);
-            this.listView1.TabIndex = 0;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.Details;
-            // 
-            // columnHeader1
-            // 
-            this.columnHeader1.Text = "Thời gian";
-            this.columnHeader1.Width = 117;
-            // 
-            // cTen
-            // 
-            this.cTen.DisplayIndex = 5;
-            this.cTen.Text = "Tên Khách Hàng";
-            this.cTen.Width = 107;
-            // 
-            // columnHeader2
-            // 
-            this.columnHeader2.DisplayIndex = 1;
-            this.columnHeader2.Text = "Kết Quả";
-            this.columnHeader2.Width = 66;
-            // 
-            // columnHeader3
-            // 
-            this.columnHeader3.DisplayIndex = 2;
-            this.columnHeader3.Text = "Ghi Chú";
-            this.columnHeader3.Width = 233;
-            // 
-            // chLyDo
-            // 
-            this.chLyDo.DisplayIndex = 3;
-            this.chLyDo.Text = "Lý Do";
-            this.chLyDo.Width = 142;
-            // 
-            // chLanCheckIn
-            // 
-            this.chLanCheckIn.DisplayIndex = 4;
-            this.chLanCheckIn.Text = "Lan CheckIn";
-            this.chLanCheckIn.Width = 232;
             // 
             // lblCheckintimes
             // 
@@ -732,13 +609,150 @@
             this.lblCheckintimes.TabIndex = 48;
             this.lblCheckintimes.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
+            // cTime
+            // 
+            this.cTime.HeaderText = "Thời Gian";
+            this.cTime.MinimumWidth = 8;
+            this.cTime.Name = "cTime";
+            this.cTime.Width = 150;
+            // 
+            // cSDTPT
+            // 
+            this.cSDTPT.HeaderText = "SDT PT";
+            this.cSDTPT.MinimumWidth = 8;
+            this.cSDTPT.Name = "cSDTPT";
+            this.cSDTPT.Width = 150;
+            // 
+            // cPT
+            // 
+            this.cPT.HeaderText = "Tên PT";
+            this.cPT.MinimumWidth = 8;
+            this.cPT.Name = "cPT";
+            this.cPT.Width = 150;
+            // 
+            // chgSDTKhach
+            // 
+            this.chgSDTKhach.HeaderText = "SDT Khách";
+            this.chgSDTKhach.MinimumWidth = 8;
+            this.chgSDTKhach.Name = "chgSDTKhach";
+            this.chgSDTKhach.Width = 150;
+            // 
+            // chgKhach
+            // 
+            this.chgKhach.HeaderText = "Tên Khách Hàng";
+            this.chgKhach.MinimumWidth = 8;
+            this.chgKhach.Name = "chgKhach";
+            this.chgKhach.Width = 150;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.chgKhach,
+            this.chgSDTKhach,
+            this.cPT,
+            this.cSDTPT,
+            this.cTime});
+            this.dataGridView1.ContextMenuStrip = this.contextMenuStrip1;
+            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.dataGridView1.Location = new System.Drawing.Point(3, 64);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidth = 62;
+            this.dataGridView1.Size = new System.Drawing.Size(714, 419);
+            this.dataGridView1.TabIndex = 0;
+            // 
+            // dgvCheckIns
+            // 
+            this.dgvCheckIns.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCheckIns.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ID,
+            this.Column7,
+            this.Column1,
+            this.Column2,
+            this.Column3,
+            this.Column4,
+            this.Column5,
+            this.Column6,
+            this.Column8});
+            this.dgvCheckIns.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvCheckIns.Location = new System.Drawing.Point(3, 16);
+            this.dgvCheckIns.Name = "dgvCheckIns";
+            this.dgvCheckIns.Size = new System.Drawing.Size(944, 173);
+            this.dgvCheckIns.TabIndex = 0;
+            // 
+            // ID
+            // 
+            this.ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.ID.DataPropertyName = "ID";
+            this.ID.HeaderText = "ID";
+            this.ID.Name = "ID";
+            this.ID.Width = 43;
+            // 
+            // Column7
+            // 
+            this.Column7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.Column7.DataPropertyName = "CodeHocVien";
+            this.Column7.HeaderText = "Code HV";
+            this.Column7.Name = "Column7";
+            this.Column7.Width = 75;
+            // 
+            // Column1
+            // 
+            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column1.DataPropertyName = "TenHocVien";
+            this.Column1.HeaderText = "Ten Hoc Vien";
+            this.Column1.Name = "Column1";
+            // 
+            // Column2
+            // 
+            this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column2.DataPropertyName = "ThoiGianCheckIn";
+            this.Column2.HeaderText = "Thoi Gian Check In";
+            this.Column2.Name = "Column2";
+            // 
+            // Column3
+            // 
+            this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.Column3.DataPropertyName = "HopLe";
+            this.Column3.HeaderText = "Hop Le";
+            this.Column3.Name = "Column3";
+            this.Column3.Width = 67;
+            // 
+            // Column4
+            // 
+            this.Column4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.Column4.DataPropertyName = "LyDo";
+            this.Column4.HeaderText = "Ly Do";
+            this.Column4.Name = "Column4";
+            this.Column4.Width = 60;
+            // 
+            // Column5
+            // 
+            this.Column5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.Column5.DataPropertyName = "LanCheckIn";
+            this.Column5.HeaderText = "Lan Check In";
+            this.Column5.Name = "Column5";
+            this.Column5.Width = 96;
+            // 
+            // Column6
+            // 
+            this.Column6.DataPropertyName = "GhiChu";
+            this.Column6.HeaderText = "Ghi Chu";
+            this.Column6.Name = "Column6";
+            // 
+            // Column8
+            // 
+            this.Column8.DataPropertyName = "HocVien";
+            this.Column8.HeaderText = "hv";
+            this.Column8.Name = "Column8";
+            this.Column8.Visible = false;
+            // 
             // CheckinKhachVaoUC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.groupThongTin);
-            this.Controls.Add(this.splitter1);
             this.Name = "CheckinKhachVaoUC";
             this.Size = new System.Drawing.Size(1264, 703);
             this.Load += new System.EventHandler(this.CheckinKhachVaoUC_Load);
@@ -746,7 +760,6 @@
             this.panel2.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -758,13 +771,13 @@
             this.gbLastCheck.ResumeLayout(false);
             this.gbLastCheck.PerformLayout();
             this.groupBox2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCheckIns)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Splitter splitter1;
         private System.Windows.Forms.GroupBox groupThongTin;
         private System.Windows.Forms.Button btnGiaHan;
         private System.Windows.Forms.GroupBox gbKetQuaCheckin;
@@ -788,12 +801,6 @@
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn chgKhach;
-        private System.Windows.Forms.DataGridViewTextBoxColumn chgSDTKhach;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cPT;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cSDTPT;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cTime;
         private System.Windows.Forms.Button btnTim;
         private System.Windows.Forms.ComboBox cbFindB;
         private System.Windows.Forms.TextBox textBox1;
@@ -804,12 +811,6 @@
         private System.Windows.Forms.ToolStripMenuItem kháchTrễToolStripMenuItem;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.ListView listView1;
-        private System.Windows.Forms.ColumnHeader columnHeader1;
-        private System.Windows.Forms.ColumnHeader columnHeader2;
-        private System.Windows.Forms.ColumnHeader columnHeader3;
-        private System.Windows.Forms.ColumnHeader chLyDo;
-        private System.Windows.Forms.ColumnHeader chLanCheckIn;
         private System.Windows.Forms.CheckBox chEND;
         private System.Windows.Forms.CheckBox cbH;
         private System.Windows.Forms.Label lblTrangThai;
@@ -820,8 +821,6 @@
         private System.Windows.Forms.Label lblTu;
         private System.Windows.Forms.DateTimePicker dtpTuCheckin;
         private System.Windows.Forms.Button btnXoa;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.ColumnHeader cTen;
         private System.Windows.Forms.Label lblDateDu;
         private System.Windows.Forms.Label lblStatus;
         private System.Windows.Forms.Label lblTapG;
@@ -829,5 +828,21 @@
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.Button btnFakeCheckin;
         private System.Windows.Forms.Label lblCheckintimes;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn chgKhach;
+        private System.Windows.Forms.DataGridViewTextBoxColumn chgSDTKhach;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cPT;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cSDTPT;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cTime;
+        private System.Windows.Forms.DataGridView dgvCheckIns;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
     }
 }

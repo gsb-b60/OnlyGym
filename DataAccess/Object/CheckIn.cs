@@ -16,6 +16,10 @@ namespace DataAccess.Object
         public CheckInState LyDo { get; set; }
         public int LanCheckIn { get; set; }
         public string GhiChu { get; set; }
+
+        public string TenHocVien => HocVien.Ten;
+        public string CodeHocVien => HocVien.code;
+        public int idhocvien => HocVien.id;
     }
     public enum CheckInState
     {

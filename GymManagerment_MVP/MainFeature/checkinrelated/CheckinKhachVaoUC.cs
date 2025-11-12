@@ -17,6 +17,7 @@ namespace GymManagerment_MVP
     public partial class CheckinKhachVaoUC : UserControl
     {
         HocVien hv=null;
+        List<CheckIn> list;
         public CheckinKhachVaoUC()
         {
             InitializeComponent();
@@ -30,9 +31,14 @@ namespace GymManagerment_MVP
 
         private void CheckinKhachVaoUC_Load(object sender, EventArgs e)
         {
-
+            LoadCheckIn();
         }
-
+        private void LoadCheckIn()
+        {
+            CheckInBL cibl=new CheckInBL();
+            list= cibl.GetCheckIns();
+            dgvCheckIns.DataSource = list.OrderByDescending(c => c.ThoiGianCheckIn).ToList();
+        }
         private void pictureBox1_Click(object sender, EventArgs e)
         {
 
@@ -84,6 +90,7 @@ namespace GymManagerment_MVP
             CheckInBL cibl = new CheckInBL();
             int lancheckin = cibl.InsertCheckIn(cv);
             lblCheckintimes.Text=lancheckin.ToString();
+            LoadCheckIn();
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
