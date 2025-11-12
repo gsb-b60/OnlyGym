@@ -19,6 +19,7 @@ namespace GymManagerment_MVP
     
     public partial class Mainfrm : Form
     {
+        private FrmCheckIn frm;
 
         public Mainfrm()
         {
@@ -39,6 +40,18 @@ namespace GymManagerment_MVP
             {
                 btnTaiKhoan.Visible = true;
             }
+            //FrmCheckIn frm = new FrmCheckIn();
+            ////frm.Show();
+
+            //if (frm== null || frm.IsDisposed)
+            //{
+            //    frm = frm = new FrmCheckIn();
+            //    frm.Show();// Not blocking
+            //}
+            //else
+            //{
+            //    frm.Focus(); // Bring to front if already open
+            //}
         }
 
         private void button1_Click(object sender, EventArgs e)

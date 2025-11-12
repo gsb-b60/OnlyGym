@@ -329,5 +329,10 @@ namespace GymManagerment_MVP
                 }
             }
         }
+
+        private void dgvHocVien_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

@@ -54,20 +54,11 @@ namespace GymManagerment_MVP
             banGoi.BringToFront();
 
             banGoi.SetToBill += BanGoi_SetToBill;
-
-
-            DangKyPT dangKyPT = new DangKyPT();
-            dangKyPT.Dock = DockStyle.Fill;
-            pnPT.Controls.Add(dangKyPT);
-            dangKyPT.BringToFront();
-
            
-
             DangKyPTVer2 dangKyPT2 = new DangKyPTVer2();
             dangKyPT2.Dock = DockStyle.Fill;
             pnPTV2.Controls.Add(dangKyPT2);
-            dangKyPT.BringToFront();
-            dangKyPT2.ReturnList += DangKyPT2_ReturnList;
+            dangKyPT2.BringToFront();
             dangKyPT2.SetForBuy += DangKyPT2_SetForBuy;
             dangKyPT2.HopDong += DangKyPT2_HopDong;
         }
@@ -78,23 +69,6 @@ namespace GymManagerment_MVP
             HopDong hopDong=obj;
             hopDong.IDHocVien = 1;
             hdbl.SetUpHopDong(hopDong, bookedList);
-        }
-
-        private void DangKyPT2_ReturnList(List<PTSession> obj)
-        {
-            if(obj!=null)
-            {
-                bookedList = obj;
-                foreach (var session in obj)
-                {
-                    Debug.WriteLine(
-                        $"Start: {session.TGBatDau:dd/MM/yyyy HH:mm}, " +
-                        $"End: {session.TGKetThuc:dd/MM/yyyy HH:mm}, " +
-                        $"TrangThai: {session.TrangThai}, " +
-                        $"LyDoHuy(Key): {session.LyDoHuy}"
-                    );
-                }
-            }
         }
 
         private void DangKyPT2_SetForBuy(GoiPT obj)

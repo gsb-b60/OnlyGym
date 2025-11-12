@@ -164,6 +164,7 @@ namespace GymManagerment_MVP.MainFeature.Main
             this.user = user;
 
             this.DialogResult = DialogResult.OK;
+
             this.Close();
         }
 

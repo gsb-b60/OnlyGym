@@ -49,6 +49,7 @@
             this.xóaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.btnMuaHang = new System.Windows.Forms.Button();
             this.lblTuoi = new System.Windows.Forms.Label();
             this.lblKyHieu = new System.Windows.Forms.Label();
             this.lblGioiTinh = new System.Windows.Forms.Label();
@@ -88,7 +89,6 @@
             this.lblTrangThai = new System.Windows.Forms.Label();
             this.pnlNav = new System.Windows.Forms.Panel();
             this.btnDanhSach = new System.Windows.Forms.Button();
-            this.btnMuaHang = new System.Windows.Forms.Button();
             this.pnlDanhSach.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHocVien)).BeginInit();
@@ -179,6 +179,7 @@
             this.dgvHocVien.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvHocVien.Size = new System.Drawing.Size(771, 515);
             this.dgvHocVien.TabIndex = 0;
+            this.dgvHocVien.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHocVien_CellContentClick);
             this.dgvHocVien.SelectionChanged += new System.EventHandler(this.dgvHocVien_SelectionChanged);
             // 
             // chgCode
@@ -301,6 +302,16 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(241, 472);
             this.panel4.TabIndex = 2;
+            // 
+            // btnMuaHang
+            // 
+            this.btnMuaHang.Location = new System.Drawing.Point(55, 428);
+            this.btnMuaHang.Name = "btnMuaHang";
+            this.btnMuaHang.Size = new System.Drawing.Size(75, 23);
+            this.btnMuaHang.TabIndex = 32;
+            this.btnMuaHang.Text = "Mua Hang";
+            this.btnMuaHang.UseVisualStyleBackColor = true;
+            this.btnMuaHang.Click += new System.EventHandler(this.btnMuaHang_Click);
             // 
             // lblTuoi
             // 
@@ -701,16 +712,6 @@
             this.btnDanhSach.TabIndex = 0;
             this.btnDanhSach.Text = "Danh Sách Học Viên";
             this.btnDanhSach.UseVisualStyleBackColor = true;
-            // 
-            // btnMuaHang
-            // 
-            this.btnMuaHang.Location = new System.Drawing.Point(55, 428);
-            this.btnMuaHang.Name = "btnMuaHang";
-            this.btnMuaHang.Size = new System.Drawing.Size(75, 23);
-            this.btnMuaHang.TabIndex = 32;
-            this.btnMuaHang.Text = "Mua Hang";
-            this.btnMuaHang.UseVisualStyleBackColor = true;
-            this.btnMuaHang.Click += new System.EventHandler(this.btnMuaHang_Click);
             // 
             // DanhSachHocVienUC_v2
             // 
