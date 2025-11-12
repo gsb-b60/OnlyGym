@@ -1,4 +1,5 @@
-﻿using DataAccess.Ultilities;
+﻿using DataAccess.Object;
+using DataAccess.Ultilities;
 using GymManagerment_MVP.Business;
 using System;
 using System.Collections.Generic;
@@ -15,6 +16,10 @@ namespace Business
         public List<GoiTap> GetPackage()
         {
             return goiDa.GetPackage();
+        }
+        public void addGoiTapHocVien(GoiTapHocVien gthv)
+        {
+            goiDa.InsertGoiTapHocVien(gthv);
         }
     }
 }

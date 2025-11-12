@@ -40,8 +40,7 @@ namespace GymManagerment_MVP
             lblPFTen.Text = hv.Ten;
             lblSex.Text = hv.GioiTinh ? "Nam" : "Nu";
             lblPFSDT.Text = $"SDT: {hv.SDT}";
-            lblPFTrangThai.Text = hv.TrangThai;
-            MessageBox.Show(hv.id.ToString());
+            lblPFTrangThai.Text = hv.TrangThai; 
         }
         private void flpMain_Paint(object sender, PaintEventArgs e)
         {
@@ -165,7 +164,13 @@ namespace GymManagerment_MVP
                 }
                     //bill.GoiPTs.Add(goiPT);
             }
-
+            GoiTapHocVien gthv = new GoiTapHocVien { 
+                HocVien=hv,
+                GoiTap = gois[0],
+                TrangThai=GoiTapState.active,
+            };
+            GoiTapBL goi = new GoiTapBL();
+            goi.addGoiTapHocVien(gthv);
             DisplayBill();
         }
         private void DisplayBill()

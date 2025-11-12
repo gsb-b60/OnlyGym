@@ -103,6 +103,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Object\GoiTapHocVien.cs" />
     <Compile Include="Object\HopDong.cs" />
     <Compile Include="Object\DSPT.cs" />
     <Compile Include="Object\DSSpecialties.cs" />

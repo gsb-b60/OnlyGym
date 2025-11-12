@@ -1,9 +1,12 @@
-﻿using DataAccess.Ultilities;
+﻿using DataAccess.Object;
+using DataAccess.Ultilities;
 using GymManagerment_MVP.Business;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -44,8 +47,39 @@ namespace Business
                         }
                     }
                 }
-            }
+           }
             return list;
+        }
+        public void InsertGoiTapHocVien(GoiTapHocVien gthv)
+        {
+            using (SqlConnection con=new SqlConnection(Ultilities.ConnectionString))
+            {
+                string query = "insert into GoiTapCuaHocVien(id_HocVien,id_GoiTap,ngayBatDau,ngayKetThuc,buoiConLai,tienTra,giamGia,ngayTao,TrangThai)\r\n" +
+                    "values(@idhocvien,@idgoi,@tgbd,@tgkt,@buoi,@tien,@dis,@ngaytao,@state);";
+                using (SqlCommand cmd =new SqlCommand(query,con))
+                {
+                    con.Open();
+                    cmd.Parameters.Add("@idhocvien",SqlDbType.Int).Value=gthv.HocVien.id;
+                    cmd.Parameters.Add("@idgoi", SqlDbType.Int).Value = gthv.GoiTap.id;
+                    if(gthv.GoiTap.loaiGoi==1)
+                    {
+                        cmd.Parameters.Add("@tgbd", SqlDbType.DateTime).Value = DateTime.Now;
+                        cmd.Parameters.Add("@tgkt", SqlDbType.DateTime).Value = DateTime.Now.AddDays(gthv.GoiTap.thoiHanNgay);
+                        cmd.Parameters.Add("@buoi", SqlDbType.Int).Value = DBNull.Value;
+                        
+                    }
+                    else
+                    {
+                        cmd.Parameters.Add("@tgbd", SqlDbType.DateTime).Value = DBNull.Value;
+                        cmd.Parameters.Add("@tgkt", SqlDbType.DateTime).Value = DBNull.Value;
+                    }
+                    cmd.Parameters.Add("@tien", SqlDbType.Decimal).Value = gthv.GoiTap.giaTien;
+                    cmd.Parameters.Add("@dis", SqlDbType.Decimal).Value = gthv.GoiTap.discount;
+                    cmd.Parameters.Add("@state", SqlDbType.Int).Value = (int)gthv.TrangThai;
+                    cmd.Parameters.Add("@ngaytao", SqlDbType.DateTime).Value = DateTime.Now;
+                    cmd.ExecuteNonQuery();
+                }
+            }
         }
     }
 }
