@@ -671,7 +671,7 @@ VALUES (@MaHD, @MaMuaHang, @TenKhachHang, @SDT, @NgayBan, @NhanVien, @TongTien, 
                 return;
             }
             // If an item in lvHangMua is selected, delete item
-            if (lvHangMua.SelectedItems.Count > 0)
+            else if (dgvDSHang.SelectedRows.Count> 0)
             {
                 XoaHang();
                 return;

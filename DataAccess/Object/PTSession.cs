@@ -28,8 +28,21 @@ namespace DataAccess.Object
 
         public HopDong hopDong { get; set; }
 
-        public string TenHocVien=> hopDong.TenHocVien;
-        public string TenGoi => hopDong.TenGoi;
-        public string TenPT => hopDong.TenPT;
+
+        // Null-safe computed properties
+        public string TenHocVien
+        {
+            get { return hopDong != null ? hopDong.TenHocVien : null; }
+        }
+
+        public string TenGoi
+        {
+            get { return hopDong != null ? hopDong.TenGoi : null; }
+        }
+
+        public string TenPT
+        {
+            get { return hopDong != null ? hopDong.TenPT : null; }
+        }
     }
 }
