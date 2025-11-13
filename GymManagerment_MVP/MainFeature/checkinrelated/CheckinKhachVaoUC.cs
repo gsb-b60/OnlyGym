@@ -18,6 +18,7 @@ namespace GymManagerment_MVP
     {
         HocVien hv=null;
         List<CheckIn> list;
+        List<PTSession> sessList;
         public CheckinKhachVaoUC()
         {
             InitializeComponent();
@@ -32,6 +33,13 @@ namespace GymManagerment_MVP
         private void CheckinKhachVaoUC_Load(object sender, EventArgs e)
         {
             LoadCheckIn();
+            LoadSession();
+        }
+        private void LoadSession()
+        {
+            SessionBL sbl = new SessionBL();
+            sessList=sbl.GetDaily();
+            dgvSession.DataSource= sessList;
         }
         private void LoadCheckIn()
         {

@@ -25,5 +25,11 @@ namespace DataAccess.Object
         public DateTime? ThoiGianTao { get; set; }
         public DateTime? ThoiGianHuy { get; set; }
         public string LyDoHuy { get; set; }
+
+        public HopDong hopDong { get; set; }
+
+        public string TenHocVien=> hopDong.TenHocVien;
+        public string TenGoi => hopDong.TenGoi;
+        public string TenPT => hopDong.TenPT;
     }
 }

@@ -11,9 +11,25 @@ namespace Business
     public class SessionBL
     {
         public SessionPTDA sessDa=new SessionPTDA();
+        public HopDongRepoDA hdda = new HopDongRepoDA();
         public List<PTSession> GetByIDPT(int id)
         {
             return sessDa.GetByPTID(id);
+        }
+        public List<PTSession> GetDaily()
+        {
+            List<HopDong> hds = hdda.GetAll();
+            List<PTSession> pTSessions= sessDa.GetDaily();
+            var hdDic = hds.ToDictionary(h => h.ID, h => h);
+            foreach (var s in pTSessions)
+            {
+                if(hdDic.TryGetValue(s.IDHopDong,out var hd))
+                {
+                    s.hopDong = hd;
+                }
+            }
+
+            return pTSessions;
         }
     }
 }
