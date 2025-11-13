@@ -72,7 +72,7 @@ namespace Business
                         {
                             PTSession session = new PTSession() 
                             {
-                                ID = reader.GetInt32(reader.GetOrdinal("id")),
+                                ID = reader.GetInt32(reader.GetOrdinal("pub")),
                                 IDHopDong = reader.GetInt32(reader.GetOrdinal("id_HopDong")),
                                 TGBatDau = reader.IsDBNull(reader.GetOrdinal("tg_BatDau"))
     ? (DateTime?)null

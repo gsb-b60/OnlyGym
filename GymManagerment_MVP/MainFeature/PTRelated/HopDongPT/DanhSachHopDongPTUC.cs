@@ -155,7 +155,7 @@ namespace GymManagerment_MVP.MainFeature.HoaDonRelated.PT
 
         private void btnClear_Click(object sender, EventArgs e)
         {
-            tbSearch.Text= string.Empty;
+            tbSearch.Text = string.Empty;
             ApplyAllFiltersAndSearch();
         }
 
@@ -164,7 +164,7 @@ namespace GymManagerment_MVP.MainFeature.HoaDonRelated.PT
             if (e.RowIndex >= 0)
             {
                 DataGridViewRow row = dgvDanhSachHopDong.Rows[e.RowIndex];
-                HopDong hd= row.DataBoundItem as HopDong;
+                HopDong hd = row.DataBoundItem as HopDong;
                 //lblID.Text = row.Cells["ID"].Value?.ToString();
                 lblIDHopDong.Text = row.Cells["IDHocVien"].Value?.ToString();
                 lblPTID.Text = row.Cells["IDPT"].Value?.ToString();
@@ -188,12 +188,12 @@ namespace GymManagerment_MVP.MainFeature.HoaDonRelated.PT
 
         private void btnChiTietHopDong_Click(object sender, EventArgs e)
         {
-            if(btnChiTietHopDong.Tag!=null)
+            if (btnChiTietHopDong.Tag != null)
             {
                 Mainfrm main = Application.OpenForms.OfType<Mainfrm>().FirstOrDefault();
                 if (main != null)
                 {
-                    main.loadUserControl(new ThongTinHopDongPTUC());
+                    main.loadUserControl(new ThongTinHopDongPTUC(btnChiTietHopDong.Tag as HopDong));
                 }
                 else
                 {

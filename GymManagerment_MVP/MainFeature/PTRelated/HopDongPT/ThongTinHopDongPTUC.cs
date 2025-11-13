@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Business;
+using DataAccess.Object;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +14,21 @@ namespace GymManagerment_MVP.MainFeature.HoaDonRelated.PT.HopDongPT
 {
     public partial class ThongTinHopDongPTUC : UserControl
     {
+        HopDong hd = new HopDong();
+        Business.PT pt = new Business.PT();
+        List<PTSession> sessions=new List<PTSession>();
         public ThongTinHopDongPTUC()
         {
             InitializeComponent();
+        }
+        public ThongTinHopDongPTUC(HopDong hd)
+        {
+
+            InitializeComponent();
+            this.hd = hd;
+            SessionBL sessionBL = new SessionBL();
+            sessions = sessionBL.GetByIDPT(hd.IDPT);
+            dgvDSBuoiTap.DataSource= sessions;
         }
 
         private void splitContainer1_Panel2_Paint(object sender, PaintEventArgs e)
