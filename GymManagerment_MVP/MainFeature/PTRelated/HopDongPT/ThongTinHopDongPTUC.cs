@@ -122,5 +122,33 @@ namespace GymManagerment_MVP.MainFeature.HoaDonRelated.PT.HopDongPT
                 }
             }
         }
+
+        private void dgvDSBuoiTap_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void dgvDSBuoiTap_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if(dgvDSBuoiTap.SelectedRows.Count>0)
+            {
+                PTSession sess= dgvDSBuoiTap.SelectedRows[0].DataBoundItem as PTSession;
+
+                lblTGBatDau.Text = sess.TGBatDau.ToString();
+                cbState.SelectedIndex = (int)sess.TrangThai;
+                lblThoiGianTao.Text = sess.ThoiGianTao.ToString();
+                lblThoiGianHuy.Text = sess.ThoiGianHuy.ToString();
+            }
+        }
+
+        private void label23_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label8_Click_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }
