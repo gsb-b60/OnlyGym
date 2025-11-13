@@ -52,6 +52,12 @@
             this.lỗiPTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.btnCapNhat = new System.Windows.Forms.Button();
+            this.lblThoiGianHuy = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.lblThoiGianTao = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.lblTGBatDau = new System.Windows.Forms.Label();
             this.cbState = new System.Windows.Forms.ComboBox();
             this.label26 = new System.Windows.Forms.Label();
@@ -59,13 +65,13 @@
             this.label24 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
             this.pnlLoc = new System.Windows.Forms.Panel();
-            this.checkBox4 = new System.Windows.Forms.CheckBox();
-            this.checkBox3 = new System.Windows.Forms.CheckBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.cbPTfault = new System.Windows.Forms.CheckBox();
+            this.cbCancel = new System.Windows.Forms.CheckBox();
+            this.cbNoShow = new System.Windows.Forms.CheckBox();
+            this.cbDone = new System.Windows.Forms.CheckBox();
             this.btnXoa = new System.Windows.Forms.Button();
-            this.chEND = new System.Windows.Forms.CheckBox();
-            this.cbH = new System.Windows.Forms.CheckBox();
+            this.cbCheckIn = new System.Windows.Forms.CheckBox();
+            this.cbBooked = new System.Windows.Forms.CheckBox();
             this.gbLastCheck = new System.Windows.Forms.GroupBox();
             this.dtpDenCheckin = new System.Windows.Forms.DateTimePicker();
             this.btnLoc = new System.Windows.Forms.Button();
@@ -105,12 +111,6 @@
             this.label18 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.lblThoiGianTao = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.lblThoiGianHuy = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.btnCapNhat = new System.Windows.Forms.Button();
             this.pnlDanhSach.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDSBuoiTap)).BeginInit();
@@ -335,6 +335,62 @@
             this.panel4.TabIndex = 2;
             this.panel4.Paint += new System.Windows.Forms.PaintEventHandler(this.panel4_Paint);
             // 
+            // btnCapNhat
+            // 
+            this.btnCapNhat.Location = new System.Drawing.Point(144, 514);
+            this.btnCapNhat.Name = "btnCapNhat";
+            this.btnCapNhat.Size = new System.Drawing.Size(75, 23);
+            this.btnCapNhat.TabIndex = 55;
+            this.btnCapNhat.Text = "Cap Nhat";
+            this.btnCapNhat.UseVisualStyleBackColor = true;
+            // 
+            // lblThoiGianHuy
+            // 
+            this.lblThoiGianHuy.AutoSize = true;
+            this.lblThoiGianHuy.Location = new System.Drawing.Point(118, 188);
+            this.lblThoiGianHuy.Name = "lblThoiGianHuy";
+            this.lblThoiGianHuy.Size = new System.Drawing.Size(101, 13);
+            this.lblThoiGianHuy.TabIndex = 81;
+            this.lblThoiGianHuy.Text = "Ngày 20 1h00-2h30";
+            this.lblThoiGianHuy.Click += new System.EventHandler(this.label8_Click_1);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(3, 188);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(75, 13);
+            this.label9.TabIndex = 80;
+            this.label9.Text = "Thời Gian Hủy";
+            // 
+            // lblThoiGianTao
+            // 
+            this.lblThoiGianTao.AutoSize = true;
+            this.lblThoiGianTao.Location = new System.Drawing.Point(118, 139);
+            this.lblThoiGianTao.Name = "lblThoiGianTao";
+            this.lblThoiGianTao.Size = new System.Drawing.Size(101, 13);
+            this.lblThoiGianTao.TabIndex = 79;
+            this.lblThoiGianTao.Text = "Ngày 20 1h00-2h30";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(3, 139);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(75, 13);
+            this.label6.TabIndex = 77;
+            this.label6.Text = "Thời Gian Tạo";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(31, 12);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(164, 20);
+            this.label3.TabIndex = 75;
+            this.label3.Text = "Thong Tin Buoi Tap";
+            // 
             // lblTGBatDau
             // 
             this.lblTGBatDau.AutoSize = true;
@@ -401,13 +457,13 @@
             this.pnlLoc.AutoScroll = true;
             this.pnlLoc.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.pnlLoc.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnlLoc.Controls.Add(this.checkBox4);
-            this.pnlLoc.Controls.Add(this.checkBox3);
-            this.pnlLoc.Controls.Add(this.checkBox2);
-            this.pnlLoc.Controls.Add(this.checkBox1);
+            this.pnlLoc.Controls.Add(this.cbPTfault);
+            this.pnlLoc.Controls.Add(this.cbCancel);
+            this.pnlLoc.Controls.Add(this.cbNoShow);
+            this.pnlLoc.Controls.Add(this.cbDone);
             this.pnlLoc.Controls.Add(this.btnXoa);
-            this.pnlLoc.Controls.Add(this.chEND);
-            this.pnlLoc.Controls.Add(this.cbH);
+            this.pnlLoc.Controls.Add(this.cbCheckIn);
+            this.pnlLoc.Controls.Add(this.cbBooked);
             this.pnlLoc.Controls.Add(this.gbLastCheck);
             this.pnlLoc.Controls.Add(this.lblTrangThai);
             this.pnlLoc.Dock = System.Windows.Forms.DockStyle.Left;
@@ -417,45 +473,49 @@
             this.pnlLoc.Size = new System.Drawing.Size(172, 588);
             this.pnlLoc.TabIndex = 28;
             // 
-            // checkBox4
+            // cbPTfault
             // 
-            this.checkBox4.AutoSize = true;
-            this.checkBox4.Location = new System.Drawing.Point(23, 249);
-            this.checkBox4.Name = "checkBox4";
-            this.checkBox4.Size = new System.Drawing.Size(57, 17);
-            this.checkBox4.TabIndex = 33;
-            this.checkBox4.Text = "Lỗi PT";
-            this.checkBox4.UseVisualStyleBackColor = true;
+            this.cbPTfault.AutoSize = true;
+            this.cbPTfault.Location = new System.Drawing.Point(23, 249);
+            this.cbPTfault.Name = "cbPTfault";
+            this.cbPTfault.Size = new System.Drawing.Size(57, 17);
+            this.cbPTfault.TabIndex = 33;
+            this.cbPTfault.Text = "Lỗi PT";
+            this.cbPTfault.UseVisualStyleBackColor = true;
+            this.cbPTfault.CheckedChanged += new System.EventHandler(this.cbPTfault_CheckedChanged);
             // 
-            // checkBox3
+            // cbCancel
             // 
-            this.checkBox3.AutoSize = true;
-            this.checkBox3.Location = new System.Drawing.Point(23, 205);
-            this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(59, 17);
-            this.checkBox3.TabIndex = 32;
-            this.checkBox3.Text = "Cancel";
-            this.checkBox3.UseVisualStyleBackColor = true;
+            this.cbCancel.AutoSize = true;
+            this.cbCancel.Location = new System.Drawing.Point(23, 205);
+            this.cbCancel.Name = "cbCancel";
+            this.cbCancel.Size = new System.Drawing.Size(59, 17);
+            this.cbCancel.TabIndex = 32;
+            this.cbCancel.Text = "Cancel";
+            this.cbCancel.UseVisualStyleBackColor = true;
+            this.cbCancel.CheckedChanged += new System.EventHandler(this.cbCancel_CheckedChanged);
             // 
-            // checkBox2
+            // cbNoShow
             // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(23, 160);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(70, 17);
-            this.checkBox2.TabIndex = 31;
-            this.checkBox2.Text = "No Show";
-            this.checkBox2.UseVisualStyleBackColor = true;
+            this.cbNoShow.AutoSize = true;
+            this.cbNoShow.Location = new System.Drawing.Point(23, 160);
+            this.cbNoShow.Name = "cbNoShow";
+            this.cbNoShow.Size = new System.Drawing.Size(70, 17);
+            this.cbNoShow.TabIndex = 31;
+            this.cbNoShow.Text = "No Show";
+            this.cbNoShow.UseVisualStyleBackColor = true;
+            this.cbNoShow.CheckedChanged += new System.EventHandler(this.cbNoShow_CheckedChanged);
             // 
-            // checkBox1
+            // cbDone
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(23, 120);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(52, 17);
-            this.checkBox1.TabIndex = 30;
-            this.checkBox1.Text = "Done";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.cbDone.AutoSize = true;
+            this.cbDone.Location = new System.Drawing.Point(23, 122);
+            this.cbDone.Name = "cbDone";
+            this.cbDone.Size = new System.Drawing.Size(52, 17);
+            this.cbDone.TabIndex = 30;
+            this.cbDone.Text = "Done";
+            this.cbDone.UseVisualStyleBackColor = true;
+            this.cbDone.CheckedChanged += new System.EventHandler(this.cbDone_CheckedChanged);
             // 
             // btnXoa
             // 
@@ -465,27 +525,29 @@
             this.btnXoa.TabIndex = 26;
             this.btnXoa.Text = "Xóa tất cả";
             this.btnXoa.UseVisualStyleBackColor = true;
+            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
-            // chEND
+            // cbCheckIn
             // 
-            this.chEND.AutoSize = true;
-            this.chEND.Location = new System.Drawing.Point(23, 85);
-            this.chEND.Name = "chEND";
-            this.chEND.Size = new System.Drawing.Size(69, 17);
-            this.chEND.TabIndex = 29;
-            this.chEND.Text = "Check In";
-            this.chEND.UseVisualStyleBackColor = true;
-            this.chEND.CheckedChanged += new System.EventHandler(this.chEND_CheckedChanged);
+            this.cbCheckIn.AutoSize = true;
+            this.cbCheckIn.Location = new System.Drawing.Point(23, 85);
+            this.cbCheckIn.Name = "cbCheckIn";
+            this.cbCheckIn.Size = new System.Drawing.Size(69, 17);
+            this.cbCheckIn.TabIndex = 29;
+            this.cbCheckIn.Text = "Check In";
+            this.cbCheckIn.UseVisualStyleBackColor = true;
+            this.cbCheckIn.CheckedChanged += new System.EventHandler(this.chEND_CheckedChanged);
             // 
-            // cbH
+            // cbBooked
             // 
-            this.cbH.AutoSize = true;
-            this.cbH.Location = new System.Drawing.Point(23, 50);
-            this.cbH.Name = "cbH";
-            this.cbH.Size = new System.Drawing.Size(63, 17);
-            this.cbH.TabIndex = 28;
-            this.cbH.Text = "Booked";
-            this.cbH.UseVisualStyleBackColor = true;
+            this.cbBooked.AutoSize = true;
+            this.cbBooked.Location = new System.Drawing.Point(23, 50);
+            this.cbBooked.Name = "cbBooked";
+            this.cbBooked.Size = new System.Drawing.Size(63, 17);
+            this.cbBooked.TabIndex = 28;
+            this.cbBooked.Text = "Booked";
+            this.cbBooked.UseVisualStyleBackColor = true;
+            this.cbBooked.CheckedChanged += new System.EventHandler(this.cbBooked_CheckedChanged);
             // 
             // gbLastCheck
             // 
@@ -879,62 +941,6 @@
             this.label22.TabIndex = 68;
             this.label22.Text = "Trạng Thái";
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(31, 12);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(164, 20);
-            this.label3.TabIndex = 75;
-            this.label3.Text = "Thong Tin Buoi Tap";
-            // 
-            // lblThoiGianTao
-            // 
-            this.lblThoiGianTao.AutoSize = true;
-            this.lblThoiGianTao.Location = new System.Drawing.Point(118, 139);
-            this.lblThoiGianTao.Name = "lblThoiGianTao";
-            this.lblThoiGianTao.Size = new System.Drawing.Size(101, 13);
-            this.lblThoiGianTao.TabIndex = 79;
-            this.lblThoiGianTao.Text = "Ngày 20 1h00-2h30";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(3, 139);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(75, 13);
-            this.label6.TabIndex = 77;
-            this.label6.Text = "Thời Gian Tạo";
-            // 
-            // lblThoiGianHuy
-            // 
-            this.lblThoiGianHuy.AutoSize = true;
-            this.lblThoiGianHuy.Location = new System.Drawing.Point(118, 188);
-            this.lblThoiGianHuy.Name = "lblThoiGianHuy";
-            this.lblThoiGianHuy.Size = new System.Drawing.Size(101, 13);
-            this.lblThoiGianHuy.TabIndex = 81;
-            this.lblThoiGianHuy.Text = "Ngày 20 1h00-2h30";
-            this.lblThoiGianHuy.Click += new System.EventHandler(this.label8_Click_1);
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(3, 188);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(75, 13);
-            this.label9.TabIndex = 80;
-            this.label9.Text = "Thời Gian Hủy";
-            // 
-            // btnCapNhat
-            // 
-            this.btnCapNhat.Location = new System.Drawing.Point(144, 514);
-            this.btnCapNhat.Name = "btnCapNhat";
-            this.btnCapNhat.Size = new System.Drawing.Size(75, 23);
-            this.btnCapNhat.TabIndex = 55;
-            this.btnCapNhat.Text = "Cap Nhat";
-            this.btnCapNhat.UseVisualStyleBackColor = true;
-            // 
             // ThongTinHopDongPTUC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -974,8 +980,8 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel pnlLoc;
         private System.Windows.Forms.Button btnXoa;
-        private System.Windows.Forms.CheckBox chEND;
-        private System.Windows.Forms.CheckBox cbH;
+        private System.Windows.Forms.CheckBox cbCheckIn;
+        private System.Windows.Forms.CheckBox cbBooked;
         private System.Windows.Forms.GroupBox gbLastCheck;
         private System.Windows.Forms.DateTimePicker dtpDenCheckin;
         private System.Windows.Forms.Button btnLoc;
@@ -988,9 +994,9 @@
         private System.Windows.Forms.RichTextBox rtbGhiChu;
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.CheckBox checkBox3;
-        private System.Windows.Forms.CheckBox checkBox2;
+        private System.Windows.Forms.CheckBox cbDone;
+        private System.Windows.Forms.CheckBox cbCancel;
+        private System.Windows.Forms.CheckBox cbNoShow;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem doneToolStripMenuItem;
@@ -998,7 +1004,7 @@
         private System.Windows.Forms.ToolStripMenuItem cancelToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem lỗiPTToolStripMenuItem;
         private System.Windows.Forms.Label lblTGBatDau;
-        private System.Windows.Forms.CheckBox checkBox4;
+        private System.Windows.Forms.CheckBox cbPTfault;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn HopDong;
         private System.Windows.Forms.DataGridViewTextBoxColumn cNgay;

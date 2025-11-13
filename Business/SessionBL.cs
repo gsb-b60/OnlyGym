@@ -31,5 +31,14 @@ namespace Business
 
             return pTSessions;
         }
+        public List<PTSession> GetByHopDong(HopDong hd)
+        {
+            List<PTSession> list = sessDa.GetByHD((int)(hd.ID!=null?hd.ID:19));
+            foreach(var s in list)
+            {
+                s.hopDong=hd;
+            }
+            return list;
+        }
     }
 }

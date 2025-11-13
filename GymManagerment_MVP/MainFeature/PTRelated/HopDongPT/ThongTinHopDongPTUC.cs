@@ -29,7 +29,7 @@ namespace GymManagerment_MVP.MainFeature.HoaDonRelated.PT.HopDongPT
             InitializeComponent();
             this.hd = hd;
             SessionBL sessionBL = new SessionBL();
-            sessions = sessionBL.GetByIDPT(hd.IDPT);
+            sessions = sessionBL.GetByHopDong(hd);
             dgvDSBuoiTap.DataSource= sessions;
 
             PTRepositoryBL ptbl = new PTRepositoryBL();
@@ -73,7 +73,7 @@ namespace GymManagerment_MVP.MainFeature.HoaDonRelated.PT.HopDongPT
 
         private void chEND_CheckedChanged(object sender, EventArgs e)
         {
-
+            ApplyFilter();
         }
 
         private void label30_Click(object sender, EventArgs e)
@@ -140,7 +140,26 @@ namespace GymManagerment_MVP.MainFeature.HoaDonRelated.PT.HopDongPT
                 lblThoiGianHuy.Text = sess.ThoiGianHuy.ToString();
             }
         }
+        public void ApplyFilter()
+        {
+            List<PTSession> re = sessions;
+            List<TrangThaiBuoi> filterlist= new List<TrangThaiBuoi>();
 
+            if (cbBooked.Checked) filterlist.Add(TrangThaiBuoi.Booked);
+            if (cbCheckIn.Checked) filterlist.Add(TrangThaiBuoi.Checkedin);
+            if (cbDone.Checked) filterlist.Add(TrangThaiBuoi.Done);
+            if (cbNoShow.Checked) filterlist.Add(TrangThaiBuoi.NoShow);
+            if (cbPTfault.Checked) filterlist.Add(TrangThaiBuoi.PT_Fault);
+
+            if(filterlist.Count>0)
+            {
+                re = re.Where(r => filterlist.Contains(r.TrangThai)).ToList();
+            }
+            
+
+            dgvDSBuoiTap.DataSource = re;
+
+        }
         private void label23_Click(object sender, EventArgs e)
         {
 
@@ -149,6 +168,41 @@ namespace GymManagerment_MVP.MainFeature.HoaDonRelated.PT.HopDongPT
         private void label8_Click_1(object sender, EventArgs e)
         {
 
+        }
+
+        private void cbBooked_CheckedChanged(object sender, EventArgs e)
+        {
+            ApplyFilter();
+        }
+
+        private void cbDone_CheckedChanged(object sender, EventArgs e)
+        {
+            ApplyFilter();
+        }
+
+        private void cbNoShow_CheckedChanged(object sender, EventArgs e)
+        {
+            ApplyFilter();
+        }
+
+        private void cbCancel_CheckedChanged(object sender, EventArgs e)
+        {
+            ApplyFilter();
+        }
+
+        private void cbPTfault_CheckedChanged(object sender, EventArgs e)
+        {
+            ApplyFilter();
+        }
+
+        private void btnXoa_Click(object sender, EventArgs e)
+        {
+            cbBooked.Checked=false;
+            cbCheckIn.Checked=false;
+            cbDone.Checked=false;
+            cbNoShow.Checked=false;
+            cbPTfault.Checked = false;
+            ApplyFilter();
         }
     }
 }
