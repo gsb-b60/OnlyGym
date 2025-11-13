@@ -26,6 +26,7 @@ namespace GymManagerment_MVP.MainFeature.HoaDonRelated.PT
         {
             SetData();
             DisplayAnalist();
+            pnInfor.Visible = false;
         }
 
         public void SetData()
@@ -179,10 +180,17 @@ namespace GymManagerment_MVP.MainFeature.HoaDonRelated.PT
                 cbTrangThai.SelectedItem = row.Cells["trangThai"].Value?.ToString();
                 btnChiTietHopDong.Tag = hd;
 
+                cbTrangThai.SelectedIndex = (int)hd.trangThai;
+
                 //if (DateTime.TryParse(row.Cells["NgayTao"].Value?.ToString(), out DateTime ngayTao))
                 //{
                 //    dtpNgayTao.Value = ngayTao;
                 //}
+                pnInfor.Visible= true;
+
+                SessionBL cibl = new SessionBL();
+                List<PTSession> sesss= cibl.GetByHopDong(hd);
+                dgvDSLich.DataSource = sesss;
             }
         }
 
@@ -200,6 +208,11 @@ namespace GymManagerment_MVP.MainFeature.HoaDonRelated.PT
                     MessageBox.Show("Không tìm thấy form chính (Mainfrm).", "Lỗi");
                 }
             }
+        }
+
+        private void btnDisplay_Click(object sender, EventArgs e)
+        {
+            pnInfor.Visible = false;
         }
     }
 }

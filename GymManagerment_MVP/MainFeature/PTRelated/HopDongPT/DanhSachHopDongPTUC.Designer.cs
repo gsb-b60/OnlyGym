@@ -34,19 +34,8 @@
             this.cbFindB = new System.Windows.Forms.ComboBox();
             this.tbSearch = new System.Windows.Forms.TextBox();
             this.dgvDanhSachHopDong = new System.Windows.Forms.DataGridView();
-            this.chgCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TenHocVien = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TenPT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TongBuoi = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ConBuoi = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.trangThai = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cNgayTao = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TenGoi = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IDPT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ID_PT_Package = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IDhocvien = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.panel4 = new System.Windows.Forms.Panel();
+            this.pnInfor = new System.Windows.Forms.Panel();
+            this.pn4 = new System.Windows.Forms.Panel();
             this.cbTrangThai = new System.Windows.Forms.ComboBox();
             this.lblBuoi = new System.Windows.Forms.Label();
             this.lblIDPackage = new System.Windows.Forms.Label();
@@ -84,11 +73,23 @@
             this.label1 = new System.Windows.Forms.Label();
             this.lblTu = new System.Windows.Forms.Label();
             this.dtpTuCheckin = new System.Windows.Forms.DateTimePicker();
+            this.btnDisplay = new System.Windows.Forms.Button();
+            this.chgCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TenHocVien = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TenPT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TongBuoi = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ConBuoi = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.trangThai = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cNgayTao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TenGoi = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IDPT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ID_PT_Package = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IDhocvien = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlDanhSach.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDanhSachHopDong)).BeginInit();
-            this.panel2.SuspendLayout();
-            this.panel4.SuspendLayout();
+            this.pnInfor.SuspendLayout();
+            this.pn4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDSLich)).BeginInit();
             this.pnlLoc.SuspendLayout();
             this.gbLastCheck.SuspendLayout();
@@ -98,7 +99,7 @@
             // 
             this.pnlDanhSach.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlDanhSach.Controls.Add(this.panel3);
-            this.pnlDanhSach.Controls.Add(this.panel2);
+            this.pnlDanhSach.Controls.Add(this.pnInfor);
             this.pnlDanhSach.Controls.Add(this.pnlLoc);
             this.pnlDanhSach.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlDanhSach.Location = new System.Drawing.Point(0, 0);
@@ -175,128 +176,55 @@
             this.dgvDanhSachHopDong.TabIndex = 0;
             this.dgvDanhSachHopDong.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDanhSachHopDong_CellClick);
             // 
-            // chgCode
+            // pnInfor
             // 
-            this.chgCode.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.chgCode.DataPropertyName = "ID";
-            this.chgCode.HeaderText = "ID";
-            this.chgCode.Name = "chgCode";
-            this.chgCode.Width = 43;
+            this.pnInfor.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.pnInfor.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pnInfor.Controls.Add(this.btnDisplay);
+            this.pnInfor.Controls.Add(this.pn4);
+            this.pnInfor.Dock = System.Windows.Forms.DockStyle.Right;
+            this.pnInfor.Location = new System.Drawing.Point(983, 0);
+            this.pnInfor.Name = "pnInfor";
+            this.pnInfor.Padding = new System.Windows.Forms.Padding(19);
+            this.pnInfor.Size = new System.Drawing.Size(279, 701);
+            this.pnInfor.TabIndex = 29;
             // 
-            // TenHocVien
+            // pn4
             // 
-            this.TenHocVien.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.TenHocVien.DataPropertyName = "TenHocVien";
-            this.TenHocVien.HeaderText = "Tên Học Viên";
-            this.TenHocVien.Name = "TenHocVien";
-            // 
-            // TenPT
-            // 
-            this.TenPT.DataPropertyName = "TenPT";
-            this.TenPT.HeaderText = "Tên PT";
-            this.TenPT.Name = "TenPT";
-            // 
-            // TongBuoi
-            // 
-            this.TongBuoi.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.TongBuoi.DataPropertyName = "TongBuoi";
-            this.TongBuoi.HeaderText = "Tổng Buổi";
-            this.TongBuoi.Name = "TongBuoi";
-            this.TongBuoi.Width = 75;
-            // 
-            // ConBuoi
-            // 
-            this.ConBuoi.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.ConBuoi.DataPropertyName = "ConBuoi";
-            this.ConBuoi.HeaderText = "Buoi Con";
-            this.ConBuoi.Name = "ConBuoi";
-            this.ConBuoi.Width = 70;
-            // 
-            // trangThai
-            // 
-            this.trangThai.DataPropertyName = "trangThai";
-            this.trangThai.HeaderText = "Trạng Thái";
-            this.trangThai.Name = "trangThai";
-            // 
-            // cNgayTao
-            // 
-            this.cNgayTao.DataPropertyName = "NgayTao";
-            this.cNgayTao.HeaderText = "Ngày Tạo";
-            this.cNgayTao.Name = "cNgayTao";
-            // 
-            // TenGoi
-            // 
-            this.TenGoi.DataPropertyName = "TenGoi";
-            this.TenGoi.HeaderText = "Ten Goi";
-            this.TenGoi.Name = "TenGoi";
-            // 
-            // IDPT
-            // 
-            this.IDPT.DataPropertyName = "IDPT";
-            this.IDPT.HeaderText = "ID PT";
-            this.IDPT.Name = "IDPT";
-            this.IDPT.Visible = false;
-            // 
-            // ID_PT_Package
-            // 
-            this.ID_PT_Package.DataPropertyName = "ID_PT_Package";
-            this.ID_PT_Package.HeaderText = "ID_PT_Package";
-            this.ID_PT_Package.Name = "ID_PT_Package";
-            this.ID_PT_Package.Visible = false;
-            // 
-            // IDhocvien
-            // 
-            this.IDhocvien.DataPropertyName = "IDHocVien";
-            this.IDhocvien.HeaderText = "ID hoc vien";
-            this.IDhocvien.Name = "IDhocvien";
-            this.IDhocvien.Visible = false;
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.panel2.Controls.Add(this.panel4);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel2.Location = new System.Drawing.Point(983, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Padding = new System.Windows.Forms.Padding(19);
-            this.panel2.Size = new System.Drawing.Size(279, 701);
-            this.panel2.TabIndex = 29;
-            // 
-            // panel4
-            // 
-            this.panel4.BackColor = System.Drawing.Color.Azure;
-            this.panel4.Controls.Add(this.cbTrangThai);
-            this.panel4.Controls.Add(this.lblBuoi);
-            this.panel4.Controls.Add(this.lblIDPackage);
-            this.panel4.Controls.Add(this.lblIDHopDong);
-            this.panel4.Controls.Add(this.label6);
-            this.panel4.Controls.Add(this.lblTenGoi);
-            this.panel4.Controls.Add(this.label4);
-            this.panel4.Controls.Add(this.button2);
-            this.panel4.Controls.Add(this.btnChiTietHopDong);
-            this.panel4.Controls.Add(this.lblPTID);
-            this.panel4.Controls.Add(this.lblTenPT);
-            this.panel4.Controls.Add(this.label3);
-            this.panel4.Controls.Add(this.label2);
-            this.panel4.Controls.Add(this.dgvDSLich);
-            this.panel4.Controls.Add(this.lblID);
-            this.panel4.Controls.Add(this.btnChiTiet);
-            this.panel4.Controls.Add(this.lblTen);
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel4.Location = new System.Drawing.Point(19, 19);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(241, 663);
-            this.panel4.TabIndex = 2;
+            this.pn4.BackColor = System.Drawing.Color.LightCyan;
+            this.pn4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pn4.Controls.Add(this.cbTrangThai);
+            this.pn4.Controls.Add(this.lblBuoi);
+            this.pn4.Controls.Add(this.lblIDPackage);
+            this.pn4.Controls.Add(this.lblIDHopDong);
+            this.pn4.Controls.Add(this.label6);
+            this.pn4.Controls.Add(this.lblTenGoi);
+            this.pn4.Controls.Add(this.label4);
+            this.pn4.Controls.Add(this.button2);
+            this.pn4.Controls.Add(this.btnChiTietHopDong);
+            this.pn4.Controls.Add(this.lblPTID);
+            this.pn4.Controls.Add(this.lblTenPT);
+            this.pn4.Controls.Add(this.label3);
+            this.pn4.Controls.Add(this.label2);
+            this.pn4.Controls.Add(this.dgvDSLich);
+            this.pn4.Controls.Add(this.lblID);
+            this.pn4.Controls.Add(this.btnChiTiet);
+            this.pn4.Controls.Add(this.lblTen);
+            this.pn4.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.pn4.Location = new System.Drawing.Point(19, 46);
+            this.pn4.Name = "pn4";
+            this.pn4.Size = new System.Drawing.Size(237, 632);
+            this.pn4.TabIndex = 2;
             // 
             // cbTrangThai
             // 
             this.cbTrangThai.FormattingEnabled = true;
             this.cbTrangThai.Items.AddRange(new object[] {
-            "active,",
-            "paused,",
-            "completed,",
-            "cancelled,"});
-            this.cbTrangThai.Location = new System.Drawing.Point(8, 620);
+            "Đang Hoạt Động",
+            "Dừng",
+            "Hoàn Thành",
+            "Hủy"});
+            this.cbTrangThai.Location = new System.Drawing.Point(11, 585);
             this.cbTrangThai.Name = "cbTrangThai";
             this.cbTrangThai.Size = new System.Drawing.Size(94, 21);
             this.cbTrangThai.TabIndex = 49;
@@ -357,7 +285,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(163, 94);
+            this.button2.Location = new System.Drawing.Point(152, 96);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 42;
@@ -366,7 +294,7 @@
             // 
             // btnChiTietHopDong
             // 
-            this.btnChiTietHopDong.Location = new System.Drawing.Point(117, 618);
+            this.btnChiTietHopDong.Location = new System.Drawing.Point(120, 583);
             this.btnChiTietHopDong.Name = "btnChiTietHopDong";
             this.btnChiTietHopDong.Size = new System.Drawing.Size(107, 23);
             this.btnChiTietHopDong.TabIndex = 41;
@@ -417,9 +345,9 @@
             this.Column2,
             this.chgGio,
             this.cltrangThai});
-            this.dgvDSLich.Location = new System.Drawing.Point(0, 257);
+            this.dgvDSLich.Location = new System.Drawing.Point(0, 256);
             this.dgvDSLich.Name = "dgvDSLich";
-            this.dgvDSLich.Size = new System.Drawing.Size(241, 355);
+            this.dgvDSLich.Size = new System.Drawing.Size(238, 321);
             this.dgvDSLich.TabIndex = 32;
             // 
             // Column2
@@ -452,7 +380,7 @@
             // 
             // btnChiTiet
             // 
-            this.btnChiTiet.Location = new System.Drawing.Point(163, 27);
+            this.btnChiTiet.Location = new System.Drawing.Point(152, 26);
             this.btnChiTiet.Name = "btnChiTiet";
             this.btnChiTiet.Size = new System.Drawing.Size(75, 23);
             this.btnChiTiet.TabIndex = 26;
@@ -650,6 +578,94 @@
             this.dtpTuCheckin.TabIndex = 21;
             this.dtpTuCheckin.Value = new System.DateTime(1999, 1, 1, 0, 0, 0, 0);
             // 
+            // btnDisplay
+            // 
+            this.btnDisplay.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnDisplay.Location = new System.Drawing.Point(215, 19);
+            this.btnDisplay.Name = "btnDisplay";
+            this.btnDisplay.Size = new System.Drawing.Size(41, 27);
+            this.btnDisplay.TabIndex = 3;
+            this.btnDisplay.Text = "---";
+            this.btnDisplay.UseVisualStyleBackColor = true;
+            this.btnDisplay.Click += new System.EventHandler(this.btnDisplay_Click);
+            // 
+            // chgCode
+            // 
+            this.chgCode.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.chgCode.DataPropertyName = "ID";
+            this.chgCode.HeaderText = "ID";
+            this.chgCode.Name = "chgCode";
+            this.chgCode.Width = 43;
+            // 
+            // TenHocVien
+            // 
+            this.TenHocVien.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.TenHocVien.DataPropertyName = "TenHocVien";
+            this.TenHocVien.HeaderText = "Tên Học Viên";
+            this.TenHocVien.Name = "TenHocVien";
+            // 
+            // TenPT
+            // 
+            this.TenPT.DataPropertyName = "TenPT";
+            this.TenPT.HeaderText = "Tên PT";
+            this.TenPT.Name = "TenPT";
+            // 
+            // TongBuoi
+            // 
+            this.TongBuoi.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.TongBuoi.DataPropertyName = "TongBuoi";
+            this.TongBuoi.HeaderText = "Tổng Buổi";
+            this.TongBuoi.Name = "TongBuoi";
+            this.TongBuoi.Width = 81;
+            // 
+            // ConBuoi
+            // 
+            this.ConBuoi.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.ConBuoi.DataPropertyName = "ConBuoi";
+            this.ConBuoi.HeaderText = "Buoi Con";
+            this.ConBuoi.Name = "ConBuoi";
+            this.ConBuoi.Width = 75;
+            // 
+            // trangThai
+            // 
+            this.trangThai.DataPropertyName = "trangThai";
+            this.trangThai.HeaderText = "Trạng Thái";
+            this.trangThai.Name = "trangThai";
+            // 
+            // cNgayTao
+            // 
+            this.cNgayTao.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.cNgayTao.DataPropertyName = "NgayTao";
+            this.cNgayTao.HeaderText = "Ngày Tạo";
+            this.cNgayTao.Name = "cNgayTao";
+            // 
+            // TenGoi
+            // 
+            this.TenGoi.DataPropertyName = "TenGoi";
+            this.TenGoi.HeaderText = "Ten Goi";
+            this.TenGoi.Name = "TenGoi";
+            // 
+            // IDPT
+            // 
+            this.IDPT.DataPropertyName = "IDPT";
+            this.IDPT.HeaderText = "ID PT";
+            this.IDPT.Name = "IDPT";
+            this.IDPT.Visible = false;
+            // 
+            // ID_PT_Package
+            // 
+            this.ID_PT_Package.DataPropertyName = "ID_PT_Package";
+            this.ID_PT_Package.HeaderText = "ID_PT_Package";
+            this.ID_PT_Package.Name = "ID_PT_Package";
+            this.ID_PT_Package.Visible = false;
+            // 
+            // IDhocvien
+            // 
+            this.IDhocvien.DataPropertyName = "IDHocVien";
+            this.IDhocvien.HeaderText = "ID hoc vien";
+            this.IDhocvien.Name = "IDhocvien";
+            this.IDhocvien.Visible = false;
+            // 
             // DanhSachHopDongPTUC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -662,9 +678,9 @@
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDanhSachHopDong)).EndInit();
-            this.panel2.ResumeLayout(false);
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
+            this.pnInfor.ResumeLayout(false);
+            this.pn4.ResumeLayout(false);
+            this.pn4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDSLich)).EndInit();
             this.pnlLoc.ResumeLayout(false);
             this.pnlLoc.PerformLayout();
@@ -699,8 +715,8 @@
         private System.Windows.Forms.Label lblPending;
         private System.Windows.Forms.Label lblFinish;
         private System.Windows.Forms.Label lblActive;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Panel pnInfor;
+        private System.Windows.Forms.Panel pn4;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button btnChiTietHopDong;
         private System.Windows.Forms.Label lblPTID;
@@ -721,6 +737,7 @@
         private System.Windows.Forms.Label lblIDPackage;
         private System.Windows.Forms.Label lblBuoi;
         private System.Windows.Forms.ComboBox cbTrangThai;
+        private System.Windows.Forms.Button btnDisplay;
         private System.Windows.Forms.DataGridViewTextBoxColumn chgCode;
         private System.Windows.Forms.DataGridViewTextBoxColumn TenHocVien;
         private System.Windows.Forms.DataGridViewTextBoxColumn TenPT;

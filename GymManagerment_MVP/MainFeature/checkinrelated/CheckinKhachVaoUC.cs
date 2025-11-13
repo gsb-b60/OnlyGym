@@ -39,7 +39,7 @@ namespace GymManagerment_MVP
         {
             SessionBL sbl = new SessionBL();
             sessList=sbl.GetDaily();
-            dgvSession.DataSource= sessList;
+            dgvSession.DataSource= sessList.OrderBy(c=>c.TGBatDau).ToList();
         }
         private void LoadCheckIn()
         {
@@ -203,6 +203,24 @@ namespace GymManagerment_MVP
         private void btnXoa_Click(object sender, EventArgs e)
         {
             ApplyFilter();
+        }
+
+        private void dgvSession_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            var sess = dgvSession.Rows[e.RowIndex].DataBoundItem as PTSession;
+            DataGridViewRow row = dgvSession.Rows[e.RowIndex];
+            if(sess!=null)
+            {
+                if (sess.TGBatDau <= DateTime.Now.AddHours(1.5) && sess.TGBatDau > DateTime.Now)
+                {
+                    row.DefaultCellStyle.BackColor = Color.Green;
+                }
+                if(sess.TGBatDau > DateTime.Now)
+                {
+                    //row.= false;
+                }
+            }
+            
         }
     }
 }

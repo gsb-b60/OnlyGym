@@ -36,6 +36,18 @@
             this.cbFindB = new System.Windows.Forms.ComboBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.dgvSession = new System.Windows.Forms.DataGridView();
+            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.bắtĐầuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.hủyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -84,18 +96,8 @@
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.groupThongTin.SuspendLayout();
             this.panel2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -133,6 +135,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.radioButton2);
+            this.groupBox1.Controls.Add(this.radioButton1);
             this.groupBox1.Controls.Add(this.btnTim);
             this.groupBox1.Controls.Add(this.cbFindB);
             this.groupBox1.Controls.Add(this.textBox1);
@@ -193,11 +197,99 @@
             this.Column16});
             this.dgvSession.ContextMenuStrip = this.contextMenuStrip1;
             this.dgvSession.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dgvSession.Location = new System.Drawing.Point(3, 64);
+            this.dgvSession.Location = new System.Drawing.Point(3, 89);
             this.dgvSession.Name = "dgvSession";
             this.dgvSession.RowHeadersWidth = 62;
-            this.dgvSession.Size = new System.Drawing.Size(714, 419);
+            this.dgvSession.Size = new System.Drawing.Size(714, 394);
             this.dgvSession.TabIndex = 0;
+            this.dgvSession.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvSession_CellFormatting);
+            // 
+            // Column9
+            // 
+            this.Column9.DataPropertyName = "ID";
+            this.Column9.HeaderText = "ID";
+            this.Column9.Name = "Column9";
+            this.Column9.Visible = false;
+            // 
+            // Column19
+            // 
+            this.Column19.DataPropertyName = "hopDong";
+            this.Column19.HeaderText = "hopDong";
+            this.Column19.Name = "Column19";
+            this.Column19.Visible = false;
+            // 
+            // Column17
+            // 
+            this.Column17.DataPropertyName = "TenHocVien";
+            this.Column17.HeaderText = "TenHocVien";
+            this.Column17.Name = "Column17";
+            // 
+            // Column20
+            // 
+            this.Column20.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.Column20.DataPropertyName = "TenPT";
+            this.Column20.HeaderText = "TenPT";
+            this.Column20.Name = "Column20";
+            this.Column20.Width = 65;
+            // 
+            // Column18
+            // 
+            this.Column18.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.Column18.DataPropertyName = "TenGoi";
+            this.Column18.HeaderText = "TenGoi";
+            this.Column18.Name = "Column18";
+            this.Column18.Visible = false;
+            // 
+            // Column10
+            // 
+            this.Column10.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.Column10.DataPropertyName = "IDHopDong";
+            this.Column10.HeaderText = "IDHopDong";
+            this.Column10.Name = "Column10";
+            this.Column10.Width = 89;
+            // 
+            // Column11
+            // 
+            this.Column11.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column11.DataPropertyName = "TGBatDau";
+            this.Column11.HeaderText = "TGBatDau";
+            this.Column11.Name = "Column11";
+            // 
+            // Column12
+            // 
+            this.Column12.DataPropertyName = "TGKetThuc";
+            this.Column12.HeaderText = "TGKetThuc";
+            this.Column12.Name = "Column12";
+            this.Column12.Visible = false;
+            // 
+            // Column13
+            // 
+            this.Column13.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.Column13.DataPropertyName = "TrangThai";
+            this.Column13.HeaderText = "TrangThai";
+            this.Column13.Name = "Column13";
+            this.Column13.Width = 81;
+            // 
+            // Column14
+            // 
+            this.Column14.DataPropertyName = "ThoiGianTao";
+            this.Column14.HeaderText = "ThoiGianTao";
+            this.Column14.Name = "Column14";
+            this.Column14.Visible = false;
+            // 
+            // Column15
+            // 
+            this.Column15.DataPropertyName = "ThoiGianHuy";
+            this.Column15.HeaderText = "ThoiGianHuy";
+            this.Column15.Name = "Column15";
+            this.Column15.Visible = false;
+            // 
+            // Column16
+            // 
+            this.Column16.DataPropertyName = "LyDoHuy";
+            this.Column16.HeaderText = "LyDoHuy";
+            this.Column16.Name = "Column16";
+            this.Column16.Visible = false;
             // 
             // contextMenuStrip1
             // 
@@ -664,93 +756,27 @@
             this.Column8.Name = "Column8";
             this.Column8.Visible = false;
             // 
-            // Column9
+            // radioButton1
             // 
-            this.Column9.DataPropertyName = "ID";
-            this.Column9.HeaderText = "ID";
-            this.Column9.Name = "Column9";
-            this.Column9.Visible = false;
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.Location = new System.Drawing.Point(40, 64);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(101, 17);
+            this.radioButton1.TabIndex = 7;
+            this.radioButton1.TabStop = true;
+            this.radioButton1.Text = "Time Line Mode";
+            this.radioButton1.UseVisualStyleBackColor = true;
             // 
-            // Column19
+            // radioButton2
             // 
-            this.Column19.DataPropertyName = "hopDong";
-            this.Column19.HeaderText = "hopDong";
-            this.Column19.Name = "Column19";
-            this.Column19.Visible = false;
-            // 
-            // Column17
-            // 
-            this.Column17.DataPropertyName = "TenHocVien";
-            this.Column17.HeaderText = "TenHocVien";
-            this.Column17.Name = "Column17";
-            // 
-            // Column20
-            // 
-            this.Column20.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.Column20.DataPropertyName = "TenPT";
-            this.Column20.HeaderText = "TenPT";
-            this.Column20.Name = "Column20";
-            this.Column20.Width = 65;
-            // 
-            // Column18
-            // 
-            this.Column18.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.Column18.DataPropertyName = "TenGoi";
-            this.Column18.HeaderText = "TenGoi";
-            this.Column18.Name = "Column18";
-            this.Column18.Visible = false;
-            this.Column18.Width = 67;
-            // 
-            // Column10
-            // 
-            this.Column10.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.Column10.DataPropertyName = "IDHopDong";
-            this.Column10.HeaderText = "IDHopDong";
-            this.Column10.Name = "Column10";
-            this.Column10.Width = 89;
-            // 
-            // Column11
-            // 
-            this.Column11.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column11.DataPropertyName = "TGBatDau";
-            this.Column11.HeaderText = "TGBatDau";
-            this.Column11.Name = "Column11";
-            // 
-            // Column12
-            // 
-            this.Column12.DataPropertyName = "TGKetThuc";
-            this.Column12.HeaderText = "TGKetThuc";
-            this.Column12.Name = "Column12";
-            this.Column12.Visible = false;
-            // 
-            // Column13
-            // 
-            this.Column13.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.Column13.DataPropertyName = "TrangThai";
-            this.Column13.HeaderText = "TrangThai";
-            this.Column13.Name = "Column13";
-            this.Column13.Width = 81;
-            // 
-            // Column14
-            // 
-            this.Column14.DataPropertyName = "ThoiGianTao";
-            this.Column14.HeaderText = "ThoiGianTao";
-            this.Column14.Name = "Column14";
-            this.Column14.Visible = false;
-            // 
-            // Column15
-            // 
-            this.Column15.DataPropertyName = "ThoiGianHuy";
-            this.Column15.HeaderText = "ThoiGianHuy";
-            this.Column15.Name = "Column15";
-            this.Column15.Visible = false;
-            // 
-            // Column16
-            // 
-            this.Column16.DataPropertyName = "LyDoHuy";
-            this.Column16.HeaderText = "LyDoHuy";
-            this.Column16.Name = "Column16";
-            this.Column16.Visible = false;
+            this.radioButton2.AutoSize = true;
+            this.radioButton2.Location = new System.Drawing.Point(171, 64);
+            this.radioButton2.Name = "radioButton2";
+            this.radioButton2.Size = new System.Drawing.Size(103, 17);
+            this.radioButton2.TabIndex = 8;
+            this.radioButton2.TabStop = true;
+            this.radioButton2.Text = "Display All Mode";
+            this.radioButton2.UseVisualStyleBackColor = true;
             // 
             // CheckinKhachVaoUC
             // 
@@ -848,5 +874,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column14;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column15;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column16;
+        private System.Windows.Forms.RadioButton radioButton2;
+        private System.Windows.Forms.RadioButton radioButton1;
     }
 }
