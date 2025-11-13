@@ -67,29 +67,65 @@ namespace GymManagerment_MVP
         public void DisplayHocVien(string code)
         {
             hv = null;
-            
             HocVienBL hvbl=new HocVienBL();
             hv=hvbl.GetByCode(code);
+            
             HienThiHocVien(hv);
             
         }
         private void HienThiHocVien(HocVien hvPara)
         {
-            lblName.Text=hvPara.Ten;
+            HocVienBL hvbl = new HocVienBL();
+            CheckInBL cibl = new CheckInBL();
+            CheckIn cv;
+            bool allow = hvbl.VerifyCheckIn(hv.code);
+
+            if(allow)
+            {
+                cbAllow.Checked = true;
+                lblLyDo.Text = "Hop Le";
+                cv = new CheckIn
+                {
+                    HocVien = hv,
+                    ThoiGianCheckIn = DateTime.Now,
+                    LyDo = CheckInState.allow,
+                    GhiChu = "",
+                    HopLe = allow,
+
+                };
+                lblCheckintimes.ForeColor = Color.Black;
+                lblLyDo.ForeColor = Color.Black;
+            }
+            else
+            {
+                lblLyDo.Text = "Het Han Goi";
+                cbAllow.Checked = false;
+                cv = new CheckIn
+                {
+                    HocVien = hv,
+                    ThoiGianCheckIn = DateTime.Now,
+                    LyDo = CheckInState.runout,
+                    GhiChu = "",
+                    HopLe = allow,
+
+                };
+                lblCheckintimes.ForeColor = Color.Red;
+                lblLyDo.ForeColor = Color.Red;
+            }
+
+            lblName.Text = hvPara.Ten;
             lblPhone.Text= hvPara.SDT;
             lblStatus.Text = hvPara.TrangThai;
             btnChiTiet.Tag = hvPara.code;
             dtpVao.Value = DateTime.Now;
-            CheckIn cv = new CheckIn
-            {
-                HocVien = hv,
-                ThoiGianCheckIn = DateTime.Now,
-                LyDo = CheckInState.allow,
-                GhiChu = ""
-            };
-            CheckInBL cibl = new CheckInBL();
+           
+            
             int lancheckin = cibl.InsertCheckIn(cv);
             lblCheckintimes.Text=lancheckin.ToString();
+
+
+
+
             LoadCheckIn();
         }
 

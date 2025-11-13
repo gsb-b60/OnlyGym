@@ -119,10 +119,10 @@
     <Compile Include="MainFeature\HoaDonRelated\hoadon\ThemHang.Designer.cs">
       <DependentUpon>ThemHang.cs</DependentUpon>
     </Compile>
-    <Compile Include="MainFeature\HoaDonRelated\MuaGoiTap.cs">
+    <Compile Include="MainFeature\HoaDonRelated\HoaDonGoi-PT\MuaGoiTap.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MainFeature\HoaDonRelated\MuaGoiTap.Designer.cs">
+    <Compile Include="MainFeature\HoaDonRelated\HoaDonGoi-PT\MuaGoiTap.Designer.cs">
       <DependentUpon>MuaGoiTap.cs</DependentUpon>
     </Compile>
     <Compile Include="MainFeature\checkinrelated\CheckinKhachVaoUC.cs">
@@ -263,10 +263,10 @@
     <Compile Include="MainFeature\PTRelated\ListPTRelate\ThongTinPT.Designer.cs">
       <DependentUpon>ThongTinPT.cs</DependentUpon>
     </Compile>
-    <Compile Include="MainFeature\HoaDonRelated\SanPhamUC.cs">
+    <Compile Include="MainFeature\HoaDonRelated\HoaDonGoi-PT\SanPhamUC.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="MainFeature\HoaDonRelated\SanPhamUC.Designer.cs">
+    <Compile Include="MainFeature\HoaDonRelated\HoaDonGoi-PT\SanPhamUC.Designer.cs">
       <DependentUpon>SanPhamUC.cs</DependentUpon>
     </Compile>
     <Compile Include="MainFeature\PTRelated\ListPTRelate\DanhSachPTUC.cs">
@@ -335,10 +335,10 @@
     <Compile Include="MainFeature\Main\Mainfrm.Designer.cs">
       <DependentUpon>Mainfrm.cs</DependentUpon>
     </Compile>
-    <Compile Include="MainFeature\HoaDonRelated\MuaHang.cs">
+    <Compile Include="MainFeature\HoaDonRelated\HoaDonGoi-PT\MuaHang.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="MainFeature\HoaDonRelated\MuaHang.Designer.cs">
+    <Compile Include="MainFeature\HoaDonRelated\HoaDonGoi-PT\MuaHang.Designer.cs">
       <DependentUpon>MuaHang.cs</DependentUpon>
     </Compile>
     <Compile Include="MainFeature\Main\Program.cs" />
@@ -412,7 +412,7 @@
     <EmbeddedResource Include="MainFeature\HoaDonRelated\hoadon\ThemHang.resx">
       <DependentUpon>ThemHang.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainFeature\HoaDonRelated\MuaGoiTap.resx">
+    <EmbeddedResource Include="MainFeature\HoaDonRelated\HoaDonGoi-PT\MuaGoiTap.resx">
       <DependentUpon>MuaGoiTap.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainFeature\checkinrelated\CheckinKhachVaoUC.resx">
@@ -487,7 +487,7 @@
     <EmbeddedResource Include="MainFeature\PTRelated\ListPTRelate\ThongTinPT.resx">
       <DependentUpon>ThongTinPT.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainFeature\HoaDonRelated\SanPhamUC.resx">
+    <EmbeddedResource Include="MainFeature\HoaDonRelated\HoaDonGoi-PT\SanPhamUC.resx">
       <DependentUpon>SanPhamUC.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainFeature\PTRelated\ListPTRelate\DanhSachPTUC.resx">
@@ -518,7 +518,7 @@
     <EmbeddedResource Include="MainFeature\Main\Mainfrm.resx">
       <DependentUpon>Mainfrm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainFeature\HoaDonRelated\MuaHang.resx">
+    <EmbeddedResource Include="MainFeature\HoaDonRelated\HoaDonGoi-PT\MuaHang.resx">
       <DependentUpon>MuaHang.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -563,7 +563,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="MainFeature\HoaDonRelated\HoaDonGoi-PT\" />
     <Folder Include="MainFeature\HoaDonRelated\SanPham\" />
     <Folder Include="MainFeature\ThongKeRelated\" />
   </ItemGroup>

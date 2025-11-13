@@ -17,5 +17,7 @@ namespace DataAccess.Ultilities
         public static string InsertSession = "InsertBuoiTapPT";
 
         public static string InserCheckIn = "insertCheckIn";
+
+        public static string VarifyCheckIn = "sp_CheckHocVienGoiTapConHieuLuc";
     }
 }

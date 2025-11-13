@@ -15,5 +15,9 @@ namespace Business
         {
             return hvDA.GetByCode(code);
         }
+        public bool VerifyCheckIn(string code)
+        {
+            return hvDA.VarifyCheckIn(code);
+        }
     }
 }

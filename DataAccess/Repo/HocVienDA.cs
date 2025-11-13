@@ -12,6 +12,25 @@ namespace DataAccess.Repo
 {
     public class HocVienDA
     {
+        public bool VarifyCheckIn(string code)
+        {
+            bool allow = false;
+            using (SqlConnection con =new SqlConnection(Ultilities.Ultilities.ConnectionString))
+            {
+                using (SqlCommand cmd = new SqlCommand(Ultilities.Ultilities.VarifyCheckIn, con))
+                {
+                    
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    con.Open();
+                    cmd.Parameters.Add("@HocVienCode", SqlDbType.NVarChar).Value = code;
+                    cmd.Parameters.Add("@Allow",SqlDbType.Bit).Direction = ParameterDirection.Output;
+
+                    cmd.ExecuteNonQuery();
+                    allow = Convert.ToBoolean( cmd.Parameters["@Allow"].Value);
+                }
+            }
+            return allow;
+        }
         public List<HocVien> GetHocVien()
         {
             List<HocVien> list=new List<HocVien>();

@@ -62,7 +62,7 @@ namespace DataAccess.Repo
                     con.Open();
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.Add("@ID_HocVien", SqlDbType.Int).Value = checkIn.HocVien.id;
-                    cmd.Parameters.Add("@HopLe", SqlDbType.Bit).Value = true;
+                    cmd.Parameters.Add("@HopLe", SqlDbType.Bit).Value = checkIn.HopLe;
                     cmd.Parameters.Add("@LyDo", SqlDbType.Int).Value = (int)checkIn.LyDo;
                     cmd.Parameters.Add("@GhiChu", SqlDbType.NVarChar).Value = checkIn.GhiChu;
                     cmd.Parameters.Add("@LanCheckIn", SqlDbType.Int).Direction = ParameterDirection.Output;
