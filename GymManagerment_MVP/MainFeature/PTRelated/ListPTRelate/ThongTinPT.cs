@@ -1,6 +1,7 @@
 ﻿using Business;
 using DataAccess.Object;
 using GymManagerment_MVP.Business;
+using GymManagerment_MVP.MainFeature.HoaDonRelated.PT.HopDongPT;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,6 +10,7 @@ using System.Data.SqlClient;
 using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -263,12 +265,12 @@ namespace GymManagerment_MVP.MainFeature.HoaDonRelated.PT
         {
             if(dgvDSHD.SelectedRows.Count>0)
             {
+
                 DataGridViewRow row = dgvDSHD.SelectedRows[0];
                 int hocVienID = int.Parse( row.Cells["IDHocVien"].Value.ToString());
-                int idHopDong= int.Parse(row.Cells["ID"].Value.ToString());
                 HocVienBL hvbl = new HocVienBL();
                 HocVien hv=hvbl.GetByID(hocVienID);
-
+                HopDong hopDong = row.DataBoundItem as HopDong;
 
                 lblTenKhach.Text = hv.Ten;
                 lblCode.Text = hv.code;
@@ -277,7 +279,7 @@ namespace GymManagerment_MVP.MainFeature.HoaDonRelated.PT
                 GioiTinh.Text = hv.GioiTinh?"Nam":"Nu";
 
                 btnChiTiet.Tag = hv.code;
-                btnXemChiTietHD.Tag = idHopDong;
+                btnXemChiTietHD.Tag = hopDong;
             }
         }
         public void ApplyFilter()
@@ -361,7 +363,33 @@ namespace GymManagerment_MVP.MainFeature.HoaDonRelated.PT
 
         private void btnXemChiTietHD_Click(object sender, EventArgs e)
         {
+            if (btnXemChiTietHD.Tag != null)
+            {
+                Mainfrm main = Application.OpenForms.OfType<Mainfrm>().FirstOrDefault();
+                if (main != null)
+                {
+                    main.loadUserControl(new ThongTinHopDongPTUC(btnXemChiTietHD.Tag as HopDong));
+                }
+                else
+                {
+                    MessageBox.Show("Không tìm thấy form chính (Mainfrm).", "Lỗi");
+                }
+            }
+        }
 
+        private void button2_Click(object sender, EventArgs e)
+        {
+            pnInfor.Visible=false;
+        }
+
+        private void ThongTinPT_Load(object sender, EventArgs e)
+        {
+            pnInfor.Visible = false;
+        }
+
+        private void dgvDSHD_DoubleClick(object sender, EventArgs e)
+        {
+            pnInfor.Visible=true;
         }
     }
 }

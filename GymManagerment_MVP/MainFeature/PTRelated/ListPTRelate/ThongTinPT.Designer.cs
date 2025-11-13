@@ -91,7 +91,7 @@
             this.btnTim = new System.Windows.Forms.Button();
             this.cbFindB = new System.Windows.Forms.ComboBox();
             this.tbFind = new System.Windows.Forms.TextBox();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.pnInfor = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.GioiTinh = new System.Windows.Forms.Label();
             this.lblKhachHangState = new System.Windows.Forms.Label();
@@ -111,6 +111,7 @@
             this.chChuaHoanThanh = new System.Windows.Forms.CheckBox();
             this.cbHoanThanh = new System.Windows.Forms.CheckBox();
             this.lblTrangThai = new System.Windows.Forms.Label();
+            this.btnvisible = new System.Windows.Forms.Button();
             this.pnThongTin.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLichTuanNay)).BeginInit();
@@ -120,7 +121,7 @@
             this.pnlDanhSach.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDSHD)).BeginInit();
-            this.panel2.SuspendLayout();
+            this.pnInfor.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pnlLoc.SuspendLayout();
@@ -574,7 +575,7 @@
             // 
             this.pnlDanhSach.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlDanhSach.Controls.Add(this.panel3);
-            this.pnlDanhSach.Controls.Add(this.panel2);
+            this.pnlDanhSach.Controls.Add(this.pnInfor);
             this.pnlDanhSach.Controls.Add(this.pnlLoc);
             this.pnlDanhSach.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlDanhSach.Location = new System.Drawing.Point(0, 301);
@@ -620,6 +621,7 @@
             this.dgvDSHD.TabIndex = 31;
             this.dgvDSHD.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDSHD_CellClick);
             this.dgvDSHD.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDSHD_CellContentClick);
+            this.dgvDSHD.DoubleClick += new System.EventHandler(this.dgvDSHD_DoubleClick);
             // 
             // ID
             // 
@@ -734,16 +736,17 @@
             this.tbFind.Size = new System.Drawing.Size(357, 20);
             this.tbFind.TabIndex = 1;
             // 
-            // panel2
+            // pnInfor
             // 
-            this.panel2.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.panel2.Controls.Add(this.panel4);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel2.Location = new System.Drawing.Point(983, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Padding = new System.Windows.Forms.Padding(19);
-            this.panel2.Size = new System.Drawing.Size(279, 376);
-            this.panel2.TabIndex = 29;
+            this.pnInfor.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.pnInfor.Controls.Add(this.btnvisible);
+            this.pnInfor.Controls.Add(this.panel4);
+            this.pnInfor.Dock = System.Windows.Forms.DockStyle.Right;
+            this.pnInfor.Location = new System.Drawing.Point(983, 0);
+            this.pnInfor.Name = "pnInfor";
+            this.pnInfor.Padding = new System.Windows.Forms.Padding(19);
+            this.pnInfor.Size = new System.Drawing.Size(279, 376);
+            this.pnInfor.TabIndex = 29;
             // 
             // panel4
             // 
@@ -760,10 +763,10 @@
             this.panel4.Controls.Add(this.pictureBox1);
             this.panel4.Controls.Add(this.lblCode);
             this.panel4.Controls.Add(this.lblTenKhach);
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel4.Location = new System.Drawing.Point(19, 19);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel4.Location = new System.Drawing.Point(19, 52);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(241, 338);
+            this.panel4.Size = new System.Drawing.Size(241, 305);
             this.panel4.TabIndex = 2;
             // 
             // GioiTinh
@@ -792,7 +795,7 @@
             // 
             // btnXemChiTietHD
             // 
-            this.btnXemChiTietHD.Location = new System.Drawing.Point(153, 308);
+            this.btnXemChiTietHD.Location = new System.Drawing.Point(153, 255);
             this.btnXemChiTietHD.Name = "btnXemChiTietHD";
             this.btnXemChiTietHD.Size = new System.Drawing.Size(75, 23);
             this.btnXemChiTietHD.TabIndex = 33;
@@ -945,6 +948,17 @@
             this.lblTrangThai.TabIndex = 21;
             this.lblTrangThai.Text = "Trạng Thái";
             // 
+            // btnvisible
+            // 
+            this.btnvisible.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnvisible.Location = new System.Drawing.Point(185, 19);
+            this.btnvisible.Name = "btnvisible";
+            this.btnvisible.Size = new System.Drawing.Size(75, 33);
+            this.btnvisible.TabIndex = 3;
+            this.btnvisible.Text = "----";
+            this.btnvisible.UseVisualStyleBackColor = true;
+            this.btnvisible.Click += new System.EventHandler(this.button2_Click);
+            // 
             // ThongTinPT
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -953,6 +967,7 @@
             this.Controls.Add(this.pnThongTin);
             this.Name = "ThongTinPT";
             this.Size = new System.Drawing.Size(1264, 679);
+            this.Load += new System.EventHandler(this.ThongTinPT_Load);
             this.pnThongTin.ResumeLayout(false);
             this.pnThongTin.PerformLayout();
             this.groupBox1.ResumeLayout(false);
@@ -965,7 +980,7 @@
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDSHD)).EndInit();
-            this.panel2.ResumeLayout(false);
+            this.pnInfor.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -1004,7 +1019,7 @@
         private System.Windows.Forms.Button btnTim;
         private System.Windows.Forms.ComboBox cbFindB;
         private System.Windows.Forms.TextBox tbFind;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel pnInfor;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btnGiaHan;
@@ -1059,5 +1074,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.Button btnvisible;
     }
 }
