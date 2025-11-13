@@ -1,4 +1,5 @@
 ﻿using Business;
+using DataAccess.Object;
 using GymManagerment_MVP.Business;
 using System;
 using System.Collections.Generic;
@@ -18,6 +19,7 @@ namespace GymManagerment_MVP.MainFeature.HoaDonRelated.PT
     public partial class ThongTinPT : UserControl
     {
         Business.PT pt;
+        List<HopDong> listHopDong=new List<HopDong>();
         public ThongTinPT()
         {
             InitializeComponent();
@@ -101,6 +103,10 @@ namespace GymManagerment_MVP.MainFeature.HoaDonRelated.PT
             SessionBL sess = new SessionBL();
 
             dgvLichTuanNay.DataSource = sess.GetByIDPT(pt.id);
+
+            HopDongBL hdbl=new HopDongBL();
+            listHopDong = hdbl.GetAll().Where((hd) => hd.IDPT == pt.id).ToList();
+            dgvDSHD.DataSource = listHopDong;
         }
         private void contextMenuStrip1_Opening(object sender, CancelEventArgs e)
         {
