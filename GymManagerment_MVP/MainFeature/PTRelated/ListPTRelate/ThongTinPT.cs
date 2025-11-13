@@ -253,5 +253,115 @@ namespace GymManagerment_MVP.MainFeature.HoaDonRelated.PT
             }
 
         }
+
+        private void dgvDSHD_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void dgvDSHD_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if(dgvDSHD.SelectedRows.Count>0)
+            {
+                DataGridViewRow row = dgvDSHD.SelectedRows[0];
+                int hocVienID = int.Parse( row.Cells["IDHocVien"].Value.ToString());
+                int idHopDong= int.Parse(row.Cells["ID"].Value.ToString());
+                HocVienBL hvbl = new HocVienBL();
+                HocVien hv=hvbl.GetByID(hocVienID);
+
+
+                lblTenKhach.Text = hv.Ten;
+                lblCode.Text = hv.code;
+                lblSDT.Text = hv.SDT;
+                lblKhachHangState.Text = hv.TrangThai;
+                GioiTinh.Text = hv.GioiTinh?"Nam":"Nu";
+
+                btnChiTiet.Tag = hv.code;
+                btnXemChiTietHD.Tag = idHopDong;
+            }
+        }
+        public void ApplyFilter()
+        {
+            List<HopDong> re = listHopDong;
+
+            List<TrangThai> states = new List<TrangThai>();
+
+            if(cbHoanThanh.Checked)
+            {
+                states.Add(TrangThai.completed);
+            }
+            if(chChuaHoanThanh.Checked)
+            {
+                states.Add(TrangThai.active);
+            }
+            if(cbPending.Checked)
+            {
+                states.Add(TrangThai.paused);
+            }
+            if(cbCancel.Checked)
+            {
+                states.Add(TrangThai.cancelled);
+            }
+            if (states.Count > 0)
+            {
+                re = re.Where(hd => states.Contains(hd.trangThai)).ToList();
+            }
+            else
+            {
+                // optional: if no checkbox selected, return all
+                re = listHopDong;
+            }
+            dgvDSHD.DataSource = re;
+        }
+
+        private void cbHoanThanh_CheckedChanged(object sender, EventArgs e)
+        {
+            ApplyFilter();
+        }
+
+        private void chChuaHoanThanh_CheckedChanged(object sender, EventArgs e)
+        {
+            ApplyFilter();
+        }
+
+        private void cbPending_CheckedChanged(object sender, EventArgs e)
+        {
+            ApplyFilter();
+        }
+
+        private void cbCancel_CheckedChanged(object sender, EventArgs e)
+        {
+            ApplyFilter();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            cbHoanThanh.Checked = false;
+            cbPending.Checked=false;
+            cbCancel.Checked=false;
+            chChuaHoanThanh.Checked = false;
+            ApplyFilter();
+        }
+
+        private void btnChiTiet_Click(object sender, EventArgs e)
+        {
+            if(btnChiTiet.Tag!=null)
+            {
+                Mainfrm main = Application.OpenForms.OfType<Mainfrm>().FirstOrDefault();
+                if (main != null)
+                {
+                    main.OpenHocVienUC(btnChiTiet.Tag.ToString());
+                }
+                else
+                {
+                    MessageBox.Show("Không tìm thấy form chính (Mainfrm).", "Lỗi");
+                }
+            }
+        }
+
+        private void btnXemChiTietHD_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

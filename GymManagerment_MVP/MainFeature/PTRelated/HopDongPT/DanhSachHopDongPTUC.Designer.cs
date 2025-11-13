@@ -372,6 +372,7 @@
             this.btnChiTietHopDong.TabIndex = 41;
             this.btnChiTietHopDong.Text = "Chi Tiết Hợp Đồng";
             this.btnChiTietHopDong.UseVisualStyleBackColor = true;
+            this.btnChiTietHopDong.Click += new System.EventHandler(this.btnChiTietHopDong_Click);
             // 
             // lblPTID
             // 

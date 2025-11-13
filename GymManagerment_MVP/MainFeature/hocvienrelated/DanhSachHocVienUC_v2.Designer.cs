@@ -56,7 +56,6 @@
             this.btnGiaHan = new System.Windows.Forms.Button();
             this.btnPFDangKyPT = new System.Windows.Forms.Button();
             this.btnChiTiet = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblGoiTap = new System.Windows.Forms.Label();
             this.lblTThai = new System.Windows.Forms.Label();
             this.lblSDT = new System.Windows.Forms.Label();
@@ -89,16 +88,17 @@
             this.lblTrangThai = new System.Windows.Forms.Label();
             this.pnlNav = new System.Windows.Forms.Panel();
             this.btnDanhSach = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pnlDanhSach.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHocVien)).BeginInit();
             this.cmsXoa.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pnlLoc.SuspendLayout();
             this.gbLastCheck.SuspendLayout();
             this.pnlNav.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlDanhSach
@@ -367,17 +367,6 @@
             this.btnChiTiet.Text = "Chi tiết";
             this.btnChiTiet.UseVisualStyleBackColor = true;
             this.btnChiTiet.Click += new System.EventHandler(this.btnChiTiet_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(14, 8);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Padding = new System.Windows.Forms.Padding(10);
-            this.pictureBox1.Size = new System.Drawing.Size(116, 181);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 19;
-            this.pictureBox1.TabStop = false;
             // 
             // lblGoiTap
             // 
@@ -713,6 +702,17 @@
             this.btnDanhSach.Text = "Danh Sách Học Viên";
             this.btnDanhSach.UseVisualStyleBackColor = true;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(14, 6);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Padding = new System.Windows.Forms.Padding(10);
+            this.pictureBox1.Size = new System.Drawing.Size(116, 181);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 19;
+            this.pictureBox1.TabStop = false;
+            // 
             // DanhSachHocVienUC_v2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -730,12 +730,12 @@
             this.panel2.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.pnlLoc.ResumeLayout(false);
             this.pnlLoc.PerformLayout();
             this.gbLastCheck.ResumeLayout(false);
             this.gbLastCheck.PerformLayout();
             this.pnlNav.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -768,7 +768,6 @@
         private System.Windows.Forms.Label lblGoiHienCo;
         private System.Windows.Forms.Label lblThe;
         private System.Windows.Forms.Label lblTrangThai;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button btnChiTiet;
         private System.Windows.Forms.Label lblTuoi;
         private System.Windows.Forms.Label lblKyHieu;
@@ -801,5 +800,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn TenGT;
         private System.Windows.Forms.CheckBox cbCheck;
         private System.Windows.Forms.Button btnMuaHang;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

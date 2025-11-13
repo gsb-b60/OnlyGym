@@ -1,6 +1,7 @@
 ﻿using Business;
 using DataAccess.Object;
 using GymManagerment_MVP.Business;
+using GymManagerment_MVP.MainFeature.HoaDonRelated.PT.HopDongPT;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -163,7 +164,7 @@ namespace GymManagerment_MVP.MainFeature.HoaDonRelated.PT
             if (e.RowIndex >= 0)
             {
                 DataGridViewRow row = dgvDanhSachHopDong.Rows[e.RowIndex];
-
+                HopDong hd= row.DataBoundItem as HopDong;
                 //lblID.Text = row.Cells["ID"].Value?.ToString();
                 lblIDHopDong.Text = row.Cells["IDHocVien"].Value?.ToString();
                 lblPTID.Text = row.Cells["IDPT"].Value?.ToString();
@@ -176,11 +177,28 @@ namespace GymManagerment_MVP.MainFeature.HoaDonRelated.PT
                 lblBuoi.Text = row.Cells["TongBuoi"].Value?.ToString() + "/" + row.Cells["ConBuoi"].Value?.ToString();
 
                 cbTrangThai.SelectedItem = row.Cells["trangThai"].Value?.ToString();
+                btnChiTietHopDong.Tag = hd;
 
                 //if (DateTime.TryParse(row.Cells["NgayTao"].Value?.ToString(), out DateTime ngayTao))
                 //{
                 //    dtpNgayTao.Value = ngayTao;
                 //}
+            }
+        }
+
+        private void btnChiTietHopDong_Click(object sender, EventArgs e)
+        {
+            if(btnChiTietHopDong.Tag!=null)
+            {
+                Mainfrm main = Application.OpenForms.OfType<Mainfrm>().FirstOrDefault();
+                if (main != null)
+                {
+                    main.loadUserControl(new ThongTinHopDongPTUC());
+                }
+                else
+                {
+                    MessageBox.Show("Không tìm thấy form chính (Mainfrm).", "Lỗi");
+                }
             }
         }
     }

@@ -19,5 +19,9 @@ namespace Business
         {
             return hvDA.VarifyCheckIn(code);
         }
+        public HocVien GetByID(int id)
+        {
+            return hvDA.GetByID(id);    
+        }
     }
 }

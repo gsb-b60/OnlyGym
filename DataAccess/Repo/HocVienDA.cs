@@ -60,6 +60,37 @@ namespace DataAccess.Repo
             }
             return list;
         }
+        public HocVien GetByID(int id)
+        {
+            HocVien hv=new HocVien();
+            using (SqlConnection con = new SqlConnection(Ultilities.Ultilities.ConnectionString))
+            {
+                string query = "select * from HocVien where id=@ID";
+                using (SqlCommand cmd = new SqlCommand(query, con))
+                {
+                    con.Open();
+                    cmd.Parameters.Add("@ID",SqlDbType.Int).Value= id;
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            hv = new HocVien
+                            {
+                                id = reader.GetInt32(reader.GetOrdinal("id")),
+                                code = reader.GetString(reader.GetOrdinal("code")),
+                                Ten = reader.GetString(reader.GetOrdinal("ten")),
+                                SDT = reader.GetString(reader.GetOrdinal("sdt")),
+
+                                TrangThai = "Hoạt động",
+                                GioiTinh = reader.GetBoolean(reader.GetOrdinal("GioiTinh")),
+                            };
+                            
+                        }
+                    }
+                }
+            }
+            return hv;
+        }
         public HocVien GetByCode(string code)
         {
             HocVien hv = new HocVien();
