@@ -554,6 +554,7 @@
             this.chEND.TabIndex = 56;
             this.chEND.Text = "Từ Chối";
             this.chEND.UseVisualStyleBackColor = true;
+            this.chEND.CheckedChanged += new System.EventHandler(this.chEND_CheckedChanged);
             // 
             // cbH
             // 
@@ -564,6 +565,7 @@
             this.cbH.TabIndex = 55;
             this.cbH.Text = "Hợp Lệ";
             this.cbH.UseVisualStyleBackColor = true;
+            this.cbH.CheckedChanged += new System.EventHandler(this.cbH_CheckedChanged);
             // 
             // lblTrangThai
             // 
@@ -582,6 +584,7 @@
             this.btnXoa.TabIndex = 53;
             this.btnXoa.Text = "Xóa tất cả";
             this.btnXoa.UseVisualStyleBackColor = true;
+            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
             // groupBox2
             // 

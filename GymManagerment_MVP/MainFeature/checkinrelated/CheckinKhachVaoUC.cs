@@ -166,5 +166,35 @@ namespace GymManagerment_MVP
             }
             
         }
+
+        private void cbH_CheckedChanged(object sender, EventArgs e)
+        {
+            ApplyFilter();
+        }
+
+        private void chEND_CheckedChanged(object sender, EventArgs e)
+        {
+            ApplyFilter();
+        }
+        public void ApplyFilter()
+        {
+            List<CheckIn> re = list;
+
+            if(!cbH.Checked && chEND.Checked)
+            {
+                re=re.Where((cv)=>cv.HopLe==false).ToList();
+            }
+            else if(cbH.Checked && !chEND.Checked)
+            {
+                re = re.Where((cv) => cv.HopLe == true).ToList();
+            }
+
+            dgvCheckIns.DataSource = re.OrderByDescending(c => c.ThoiGianCheckIn).ToList();
+        }
+
+        private void btnXoa_Click(object sender, EventArgs e)
+        {
+            ApplyFilter();
+        }
     }
 }
