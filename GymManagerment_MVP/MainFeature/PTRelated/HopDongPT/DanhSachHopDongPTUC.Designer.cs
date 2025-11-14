@@ -31,7 +31,6 @@
             this.pnlDanhSach = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.btnClear = new System.Windows.Forms.Button();
-            this.cbFindB = new System.Windows.Forms.ComboBox();
             this.tbSearch = new System.Windows.Forms.TextBox();
             this.dgvDanhSachHopDong = new System.Windows.Forms.DataGridView();
             this.chgCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -75,12 +74,6 @@
             this.cbChuaHoanThanh = new System.Windows.Forms.CheckBox();
             this.cbH = new System.Windows.Forms.CheckBox();
             this.lbl1 = new System.Windows.Forms.Label();
-            this.gbLastCheck = new System.Windows.Forms.GroupBox();
-            this.dtpDenCheckin = new System.Windows.Forms.DateTimePicker();
-            this.btnLoc = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.lblTu = new System.Windows.Forms.Label();
-            this.dtpTuCheckin = new System.Windows.Forms.DateTimePicker();
             this.dgvSession = new System.Windows.Forms.DataGridView();
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -100,7 +93,6 @@
             this.pnInfor.SuspendLayout();
             this.pn4.SuspendLayout();
             this.pnlLoc.SuspendLayout();
-            this.gbLastCheck.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSession)).BeginInit();
             this.SuspendLayout();
             // 
@@ -120,7 +112,6 @@
             // 
             this.panel3.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.panel3.Controls.Add(this.btnClear);
-            this.panel3.Controls.Add(this.cbFindB);
             this.panel3.Controls.Add(this.tbSearch);
             this.panel3.Controls.Add(this.dgvDanhSachHopDong);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -140,24 +131,11 @@
             this.btnClear.UseVisualStyleBackColor = true;
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
-            // cbFindB
-            // 
-            this.cbFindB.FormattingEnabled = true;
-            this.cbFindB.Items.AddRange(new object[] {
-            "Tên học Viên",
-            "SDT học Viên",
-            "Tên PT",
-            "SDT PT"});
-            this.cbFindB.Location = new System.Drawing.Point(41, 15);
-            this.cbFindB.Name = "cbFindB";
-            this.cbFindB.Size = new System.Drawing.Size(121, 21);
-            this.cbFindB.TabIndex = 3;
-            // 
             // tbSearch
             // 
-            this.tbSearch.Location = new System.Drawing.Point(182, 15);
+            this.tbSearch.Location = new System.Drawing.Point(61, 15);
             this.tbSearch.Name = "tbSearch";
-            this.tbSearch.Size = new System.Drawing.Size(481, 20);
+            this.tbSearch.Size = new System.Drawing.Size(602, 20);
             this.tbSearch.TabIndex = 1;
             this.tbSearch.TextChanged += new System.EventHandler(this.tbSearch_TextChanged);
             // 
@@ -184,6 +162,7 @@
             this.dgvDanhSachHopDong.Size = new System.Drawing.Size(763, 631);
             this.dgvDanhSachHopDong.TabIndex = 0;
             this.dgvDanhSachHopDong.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDanhSachHopDong_CellClick);
+            this.dgvDanhSachHopDong.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvDanhSachHopDong_CellFormatting);
             // 
             // chgCode
             // 
@@ -478,7 +457,6 @@
             this.pnlLoc.Controls.Add(this.cbChuaHoanThanh);
             this.pnlLoc.Controls.Add(this.cbH);
             this.pnlLoc.Controls.Add(this.lbl1);
-            this.pnlLoc.Controls.Add(this.gbLastCheck);
             this.pnlLoc.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnlLoc.Location = new System.Drawing.Point(0, 0);
             this.pnlLoc.Name = "pnlLoc";
@@ -585,66 +563,6 @@
             this.lbl1.TabIndex = 53;
             this.lbl1.Text = "Trạng Thái";
             // 
-            // gbLastCheck
-            // 
-            this.gbLastCheck.Controls.Add(this.dtpDenCheckin);
-            this.gbLastCheck.Controls.Add(this.btnLoc);
-            this.gbLastCheck.Controls.Add(this.label1);
-            this.gbLastCheck.Controls.Add(this.lblTu);
-            this.gbLastCheck.Controls.Add(this.dtpTuCheckin);
-            this.gbLastCheck.Location = new System.Drawing.Point(18, 499);
-            this.gbLastCheck.Name = "gbLastCheck";
-            this.gbLastCheck.Size = new System.Drawing.Size(131, 131);
-            this.gbLastCheck.TabIndex = 52;
-            this.gbLastCheck.TabStop = false;
-            this.gbLastCheck.Text = "Thời Gian Tạo";
-            // 
-            // dtpDenCheckin
-            // 
-            this.dtpDenCheckin.CustomFormat = "dd/MM/yyyy";
-            this.dtpDenCheckin.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpDenCheckin.Location = new System.Drawing.Point(6, 90);
-            this.dtpDenCheckin.Name = "dtpDenCheckin";
-            this.dtpDenCheckin.Size = new System.Drawing.Size(105, 20);
-            this.dtpDenCheckin.TabIndex = 24;
-            // 
-            // btnLoc
-            // 
-            this.btnLoc.Location = new System.Drawing.Point(33, 135);
-            this.btnLoc.Name = "btnLoc";
-            this.btnLoc.Size = new System.Drawing.Size(83, 23);
-            this.btnLoc.TabIndex = 13;
-            this.btnLoc.Text = "Lọc";
-            this.btnLoc.UseVisualStyleBackColor = true;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 74);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(27, 13);
-            this.label1.TabIndex = 23;
-            this.label1.Text = "Đến";
-            // 
-            // lblTu
-            // 
-            this.lblTu.AutoSize = true;
-            this.lblTu.Location = new System.Drawing.Point(3, 35);
-            this.lblTu.Name = "lblTu";
-            this.lblTu.Size = new System.Drawing.Size(20, 13);
-            this.lblTu.TabIndex = 22;
-            this.lblTu.Text = "Từ";
-            // 
-            // dtpTuCheckin
-            // 
-            this.dtpTuCheckin.CustomFormat = "dd/MM/yyyy";
-            this.dtpTuCheckin.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpTuCheckin.Location = new System.Drawing.Point(6, 51);
-            this.dtpTuCheckin.Name = "dtpTuCheckin";
-            this.dtpTuCheckin.Size = new System.Drawing.Size(105, 20);
-            this.dtpTuCheckin.TabIndex = 21;
-            this.dtpTuCheckin.Value = new System.DateTime(1999, 1, 1, 0, 0, 0, 0);
-            // 
             // dgvSession
             // 
             this.dgvSession.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -666,6 +584,7 @@
             this.dgvSession.RowHeadersWidth = 62;
             this.dgvSession.Size = new System.Drawing.Size(237, 323);
             this.dgvSession.TabIndex = 50;
+            this.dgvSession.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvSession_CellFormatting);
             this.dgvSession.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dgvSession_RowPostPaint);
             // 
             // Column9
@@ -775,8 +694,6 @@
             this.pn4.PerformLayout();
             this.pnlLoc.ResumeLayout(false);
             this.pnlLoc.PerformLayout();
-            this.gbLastCheck.ResumeLayout(false);
-            this.gbLastCheck.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSession)).EndInit();
             this.ResumeLayout(false);
 
@@ -787,7 +704,6 @@
         private System.Windows.Forms.Panel pnlDanhSach;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button btnClear;
-        private System.Windows.Forms.ComboBox cbFindB;
         private System.Windows.Forms.TextBox tbSearch;
         private System.Windows.Forms.DataGridView dgvDanhSachHopDong;
         private System.Windows.Forms.Panel pnlLoc;
@@ -797,12 +713,6 @@
         private System.Windows.Forms.CheckBox cbChuaHoanThanh;
         private System.Windows.Forms.CheckBox cbH;
         private System.Windows.Forms.Label lbl1;
-        private System.Windows.Forms.GroupBox gbLastCheck;
-        private System.Windows.Forms.DateTimePicker dtpDenCheckin;
-        private System.Windows.Forms.Button btnLoc;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label lblTu;
-        private System.Windows.Forms.DateTimePicker dtpTuCheckin;
         private System.Windows.Forms.Label lblCancel;
         private System.Windows.Forms.Label lblPending;
         private System.Windows.Forms.Label lblFinish;

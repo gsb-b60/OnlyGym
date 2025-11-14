@@ -204,5 +204,37 @@ namespace GymManagerment_MVP.MainFeature.HoaDonRelated.PT.HopDongPT
             cbPTfault.Checked = false;
             ApplyFilter();
         }
+
+        private void dgvDSBuoiTap_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            PTSession sess = dgvDSBuoiTap.Rows[e.RowIndex].DataBoundItem as PTSession;
+            DataGridViewRow row = dgvDSBuoiTap.Rows[e.RowIndex];
+            if (sess == null) return;
+
+            Color color = Color.White; // default
+
+            var now = DateTime.Now;
+            var tgkt = sess.TGBatDau?.AddHours(1.5);
+            var untilStart = sess.TGBatDau - now;
+
+            // 1️⃣ Ưu tiên trạng thái đặc biệt
+            switch (sess.TrangThai)
+            {
+                case (TrangThaiBuoi)2: color = Color.Green; break;
+                case (TrangThaiBuoi)3: color = Color.LightGray; break; // đã kết thúc
+                case (TrangThaiBuoi)4: color = Color.OrangeRed; break;  // client not showing
+                case (TrangThaiBuoi)5: color = Color.Gray; break;       // cancelled
+                case (TrangThaiBuoi)6: color = Color.Purple; break;     // pt fault
+                default:
+                    // 2️⃣ Buổi đang diễn ra
+                    if (sess.TGBatDau <= now && now <= tgkt) color = Color.Green;
+
+                    // 3️⃣ Sắp bắt đầu trong 30 phút
+                    else if (untilStart?.TotalMinutes > 0 && untilStart?.TotalMinutes <= 30) color = Color.Gold;
+                    break;
+            }
+
+            row.DefaultCellStyle.BackColor = color;
+        }
     }
 }

@@ -115,6 +115,7 @@ namespace GymManagerment_MVP.MainFeature.HoaDonRelated.PT
                     .ToList();
             }
 
+
             DisplayList(result);
         }
 
@@ -223,6 +224,57 @@ namespace GymManagerment_MVP.MainFeature.HoaDonRelated.PT
                 e.Graphics.DrawString(rowNumber, e.InheritedRowStyle.Font, b,
                     e.RowBounds.Location.X + 15, e.RowBounds.Location.Y + 4);
             }
+        }
+
+        private void dgvSession_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            PTSession sess = dgvSession.Rows[e.RowIndex].DataBoundItem as PTSession;
+            DataGridViewRow row = dgvSession.Rows[e.RowIndex];
+            if (sess == null) return;
+
+            Color color = Color.White; // default
+
+            var now = DateTime.Now;
+            var tgkt = sess.TGBatDau?.AddHours(1.5);
+            var untilStart = sess.TGBatDau - now;
+
+            // 1️⃣ Ưu tiên trạng thái đặc biệt
+            switch (sess.TrangThai)
+            {
+                case (TrangThaiBuoi)2: color = Color.Green; break;
+                case (TrangThaiBuoi)3: color = Color.LightGray; break; // đã kết thúc
+                case (TrangThaiBuoi)4: color = Color.OrangeRed; break;  // client not showing
+                case (TrangThaiBuoi)5: color = Color.Gray; break;       // cancelled
+                case (TrangThaiBuoi)6: color = Color.Purple; break;     // pt fault
+                default:
+                    // 2️⃣ Buổi đang diễn ra
+                    if (sess.TGBatDau <= now && now <= tgkt) color = Color.Green;
+
+                    // 3️⃣ Sắp bắt đầu trong 30 phút
+                    else if (untilStart?.TotalMinutes > 0 && untilStart?.TotalMinutes <= 30) color = Color.Gold;
+                    break;
+            }
+
+            row.DefaultCellStyle.BackColor = color;
+        }
+
+        private void dgvDanhSachHopDong_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            HopDong hdp = dgvDanhSachHopDong.Rows[e.RowIndex].DataBoundItem as HopDong;
+            DataGridViewRow row = dgvDanhSachHopDong.Rows[e.RowIndex];
+            if (hdp == null) return;
+
+            Color color = Color.White; // default
+
+            // 1️⃣ Ưu tiên trạng thái đặc biệt
+            switch (hdp.trangThai)
+            {
+                case (TrangThai)2: color = Color.Green; break;
+                case (TrangThai)3: color = Color.LightGray; break;
+                case (TrangThai)4: color = Color.OrangeRed; break;  
+            }
+
+            row.DefaultCellStyle.BackColor = color;
         }
     }
 }

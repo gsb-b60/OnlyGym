@@ -174,6 +174,7 @@
             this.dgvDSBuoiTap.TabIndex = 0;
             this.dgvDSBuoiTap.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDSBuoiTap_CellClick);
             this.dgvDSBuoiTap.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDSBuoiTap_CellContentClick);
+            this.dgvDSBuoiTap.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvDSBuoiTap_CellFormatting);
             // 
             // ID
             // 
