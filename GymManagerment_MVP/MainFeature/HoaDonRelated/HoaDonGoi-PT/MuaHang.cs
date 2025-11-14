@@ -10,6 +10,7 @@ using System.Data;
 using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Printing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -41,7 +42,7 @@ namespace GymManagerment_MVP
             lblPFTen.Text = hv.Ten;
             lblSex.Text = hv.GioiTinh ? "Nam" : "Nu";
             lblPFSDT.Text = $"SDT: {hv.SDT}";
-            lblPFTrangThai.Text = hv.TrangThai; 
+            lblPFTrangThai.Text = hv.TrangThai;
         }
         private void flpMain_Paint(object sender, PaintEventArgs e)
         {
@@ -70,17 +71,71 @@ namespace GymManagerment_MVP
         private void DangKyPT2_ReturnList(List<PTSession> obj)
         {
             HopDongBL hdbl = new HopDongBL();
-            hd.IDHocVien= 1;
-            if(obj.Count>0)
+            hd.IDHocVien = 1;
+            if (obj.Count > 0)
             {
-                MessageBox.Show(obj.Count.ToString());
                 hdbl.SetUpHopDong(hd, obj);
+                var result = MessageBox.Show(
+    " Booking finished successfully!\nDo you want to export it to a CSV file?",
+    " Booking Complete",
+    MessageBoxButtons.YesNo,
+    MessageBoxIcon.Information,
+    MessageBoxDefaultButton.Button1
+);
+                if (result == DialogResult.Yes)
+                {
+                    WriteCsv(obj);
+                    MessageBox.Show(
+    " successfully export it to a CSV file?",
+    " File Complete",
+    MessageBoxButtons.YesNo,
+    MessageBoxIcon.Information,
+    MessageBoxDefaultButton.Button1
+);
+                }
             }
             else
             {
                 MessageBox.Show("nothing here");
             }
             
+
+        }
+        public void WriteCsv(List<PTSession> list)
+        {
+            using (StreamWriter sw = new StreamWriter("khachhangx.csv", false, Encoding.UTF8))
+            {
+                // Header
+                sw.WriteLine("ID;IDHopDong;TGBatDau;TGKetThuc;TrangThai;ThoiGianTao;ThoiGianHuy;LyDoHuy;TenHocVien;TenGoi;TenPT");
+
+                foreach (var item in list)
+                {
+                    // Helper để escape CSV
+                    string Escape(string value)
+                    {
+                        if (string.IsNullOrEmpty(value)) return "";
+                        if (value.Contains(",") || value.Contains("\""))
+                            return "\"" + value.Replace("\"", "\"\"") + "\"";
+                        return value;
+                    }
+
+                    string line = string.Join(";",
+                        item.ID?.ToString() ?? "",
+                        item.IDHopDong?.ToString() ?? "",
+                        item.TGBatDau?.ToString("yyyy-MM-dd HH:mm") ?? "",
+                        item.TGKetThuc?.ToString("yyyy-MM-dd HH:mm") ?? "",
+                        Escape(item.TrangThai.ToString()),
+                        item.ThoiGianTao?.ToString("yyyy-MM-dd HH:mm") ?? "",
+                        item.ThoiGianHuy?.ToString("yyyy-MM-dd HH:mm") ?? "",
+                        Escape(item.LyDoHuy),
+                        Escape(item.TenHocVien),
+                        Escape(item.TenGoi),
+                        Escape(item.TenPT)
+                    );
+
+                    sw.WriteLine(line);
+                }
+            }
         }
 
         private void DangKyPT2_HopDong(HopDong obj)
@@ -177,12 +232,13 @@ namespace GymManagerment_MVP
                 {
 
                 }
-                    //bill.GoiPTs.Add(goiPT);
+                //bill.GoiPTs.Add(goiPT);
             }
-            GoiTapHocVien gthv = new GoiTapHocVien { 
-                HocVien=hv,
+            GoiTapHocVien gthv = new GoiTapHocVien
+            {
+                HocVien = hv,
                 GoiTap = gois[0],
-                TrangThai=GoiTapState.active,
+                TrangThai = GoiTapState.active,
             };
             GoiTapBL goi = new GoiTapBL();
             goi.addGoiTapHocVien(gthv);

@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.pnlHome = new System.Windows.Forms.Panel();
+            this.btnLogOut = new System.Windows.Forms.Button();
             this.lblChucVu = new System.Windows.Forms.Label();
             this.lblAccName = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
@@ -49,7 +50,6 @@
             this.btnCheckin = new System.Windows.Forms.Button();
             this.btnQuanLyNhanVien = new System.Windows.Forms.Button();
             this.pnlContent = new System.Windows.Forms.Panel();
-            this.btnLogOut = new System.Windows.Forms.Button();
             this.pnlHome.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.pnlMenu.SuspendLayout();
@@ -67,6 +67,16 @@
             this.pnlHome.Name = "pnlHome";
             this.pnlHome.Size = new System.Drawing.Size(1264, 27);
             this.pnlHome.TabIndex = 0;
+            // 
+            // btnLogOut
+            // 
+            this.btnLogOut.Location = new System.Drawing.Point(1044, 3);
+            this.btnLogOut.Name = "btnLogOut";
+            this.btnLogOut.Size = new System.Drawing.Size(75, 21);
+            this.btnLogOut.TabIndex = 8;
+            this.btnLogOut.Text = "log out";
+            this.btnLogOut.UseVisualStyleBackColor = true;
+            this.btnLogOut.Click += new System.EventHandler(this.btnLogOut_Click);
             // 
             // lblChucVu
             // 
@@ -136,6 +146,7 @@
             this.thôngTinChuyểnKhoảnToolStripMenuItem.Name = "thôngTinChuyểnKhoảnToolStripMenuItem";
             this.thôngTinChuyểnKhoảnToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
             this.thôngTinChuyểnKhoảnToolStripMenuItem.Text = "Thông Tin Chuyển Khoản";
+            this.thôngTinChuyểnKhoảnToolStripMenuItem.Click += new System.EventHandler(this.thôngTinChuyểnKhoảnToolStripMenuItem_Click);
             // 
             // hướngDẫnSửDụngToolStripMenuItem
             // 
@@ -266,16 +277,6 @@
             this.pnlContent.Size = new System.Drawing.Size(1264, 624);
             this.pnlContent.TabIndex = 2;
             this.pnlContent.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlContent_Paint);
-            // 
-            // btnLogOut
-            // 
-            this.btnLogOut.Location = new System.Drawing.Point(1044, 3);
-            this.btnLogOut.Name = "btnLogOut";
-            this.btnLogOut.Size = new System.Drawing.Size(75, 21);
-            this.btnLogOut.TabIndex = 8;
-            this.btnLogOut.Text = "log out";
-            this.btnLogOut.UseVisualStyleBackColor = true;
-            this.btnLogOut.Click += new System.EventHandler(this.btnLogOut_Click);
             // 
             // Mainfrm
             // 

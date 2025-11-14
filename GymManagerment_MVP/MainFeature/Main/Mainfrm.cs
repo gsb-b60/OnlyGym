@@ -213,5 +213,11 @@ namespace GymManagerment_MVP
             this.DialogResult= DialogResult.Retry;
             this.Close();
         }
+
+        private void thôngTinChuyểnKhoảnToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
+        }
+
     }
 }
