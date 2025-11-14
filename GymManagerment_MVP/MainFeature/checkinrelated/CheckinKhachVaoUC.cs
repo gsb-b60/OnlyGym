@@ -217,6 +217,7 @@ namespace GymManagerment_MVP
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
+            textBox2.Text = "";
             ApplyFilter();
         }
 
@@ -275,6 +276,20 @@ namespace GymManagerment_MVP
                     s.TGBatDau != null &&
                     s.TGBatDau.Value.AddHours(3) >= DateTime.Now
                 ).ToList();
+            }
+            if (textBox1.Text != "")
+            {
+                string keyword = textBox1.Text;
+                if (!string.IsNullOrEmpty(keyword))
+                {
+                    sess = sess.Where(s =>
+       (s.TenPT != null &&
+        s.TenPT.IndexOf(keyword, StringComparison.OrdinalIgnoreCase) >= 0)
+       ||
+       (s.TenHocVien != null &&
+        s.TenHocVien.IndexOf(keyword, StringComparison.OrdinalIgnoreCase) >= 0)
+   ).ToList();
+                }
             }
 
             dgvSession.DataSource = sess.OrderBy(c => c.TGBatDau).ToList();
@@ -372,6 +387,17 @@ namespace GymManagerment_MVP
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
             ApplyFilter();
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            Applylist();
+        }
+
+        private void btnTim_Click(object sender, EventArgs e)
+        {
+            textBox1.Text = "";
+            Applylist();
         }
     }
 }

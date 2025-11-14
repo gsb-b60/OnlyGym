@@ -37,7 +37,6 @@
             this.btnFakeCheckin = new System.Windows.Forms.Button();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.btnTim = new System.Windows.Forms.Button();
-            this.cbFindB = new System.Windows.Forms.ComboBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.dgvSession = new System.Windows.Forms.DataGridView();
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -140,7 +139,6 @@
             this.groupBox1.Controls.Add(this.btnFakeCheckin);
             this.groupBox1.Controls.Add(this.radioButton1);
             this.groupBox1.Controls.Add(this.btnTim);
-            this.groupBox1.Controls.Add(this.cbFindB);
             this.groupBox1.Controls.Add(this.textBox1);
             this.groupBox1.Controls.Add(this.dgvSession);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -201,29 +199,17 @@
             this.btnTim.Name = "btnTim";
             this.btnTim.Size = new System.Drawing.Size(75, 23);
             this.btnTim.TabIndex = 5;
-            this.btnTim.Text = "Tìm";
+            this.btnTim.Text = "Mặc Định";
             this.btnTim.UseVisualStyleBackColor = true;
-            // 
-            // cbFindB
-            // 
-            this.cbFindB.FormattingEnabled = true;
-            this.cbFindB.Items.AddRange(new object[] {
-            "Code",
-            "Họ",
-            "Tên",
-            "SDT",
-            ""});
-            this.cbFindB.Location = new System.Drawing.Point(40, 27);
-            this.cbFindB.Name = "cbFindB";
-            this.cbFindB.Size = new System.Drawing.Size(121, 21);
-            this.cbFindB.TabIndex = 6;
+            this.btnTim.Click += new System.EventHandler(this.btnTim_Click);
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(181, 27);
+            this.textBox1.Location = new System.Drawing.Point(40, 27);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(357, 20);
+            this.textBox1.Size = new System.Drawing.Size(498, 20);
             this.textBox1.TabIndex = 4;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // dgvSession
             // 
@@ -841,7 +827,6 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button btnTim;
-        private System.Windows.Forms.ComboBox cbFindB;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem bắtĐầuToolStripMenuItem;
