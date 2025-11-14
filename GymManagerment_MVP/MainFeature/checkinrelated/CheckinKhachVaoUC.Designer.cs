@@ -32,6 +32,8 @@
             this.groupThongTin = new System.Windows.Forms.GroupBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.btnTim = new System.Windows.Forms.Button();
             this.cbFindB = new System.Windows.Forms.ComboBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -53,7 +55,7 @@
             this.hủyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pTTrễToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.kháchTrễToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.pnCheckin = new System.Windows.Forms.Panel();
             this.lblDateDu = new System.Windows.Forms.Label();
             this.lblStatus = new System.Windows.Forms.Label();
             this.lblTapG = new System.Windows.Forms.Label();
@@ -96,14 +98,14 @@
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.btndisappear = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.groupThongTin.SuspendLayout();
             this.panel2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSession)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
-            this.panel1.SuspendLayout();
+            this.pnCheckin.SuspendLayout();
             this.gbKetQuaCheckin.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel3.SuspendLayout();
@@ -114,7 +116,7 @@
             // groupThongTin
             // 
             this.groupThongTin.Controls.Add(this.panel2);
-            this.groupThongTin.Controls.Add(this.panel1);
+            this.groupThongTin.Controls.Add(this.pnCheckin);
             this.groupThongTin.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupThongTin.Location = new System.Drawing.Point(0, 0);
             this.groupThongTin.Name = "groupThongTin";
@@ -135,7 +137,9 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.button2);
             this.groupBox1.Controls.Add(this.radioButton2);
+            this.groupBox1.Controls.Add(this.btnFakeCheckin);
             this.groupBox1.Controls.Add(this.radioButton1);
             this.groupBox1.Controls.Add(this.btnTim);
             this.groupBox1.Controls.Add(this.cbFindB);
@@ -148,6 +152,30 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Ca Tập Tiếp Theo";
+            // 
+            // radioButton2
+            // 
+            this.radioButton2.AutoSize = true;
+            this.radioButton2.Location = new System.Drawing.Point(171, 64);
+            this.radioButton2.Name = "radioButton2";
+            this.radioButton2.Size = new System.Drawing.Size(103, 17);
+            this.radioButton2.TabIndex = 8;
+            this.radioButton2.TabStop = true;
+            this.radioButton2.Text = "Display All Mode";
+            this.radioButton2.UseVisualStyleBackColor = true;
+            this.radioButton2.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged);
+            // 
+            // radioButton1
+            // 
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.Location = new System.Drawing.Point(40, 64);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(101, 17);
+            this.radioButton1.TabIndex = 7;
+            this.radioButton1.TabStop = true;
+            this.radioButton1.Text = "Time Line Mode";
+            this.radioButton1.UseVisualStyleBackColor = true;
+            this.radioButton1.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
             // 
             // btnTim
             // 
@@ -203,6 +231,7 @@
             this.dgvSession.Size = new System.Drawing.Size(714, 394);
             this.dgvSession.TabIndex = 0;
             this.dgvSession.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvSession_CellFormatting);
+            this.dgvSession.RowPrePaint += new System.Windows.Forms.DataGridViewRowPrePaintEventHandler(this.dgvSession_RowPrePaint);
             // 
             // Column9
             // 
@@ -326,33 +355,34 @@
             this.kháchTrễToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
             this.kháchTrễToolStripMenuItem.Text = "Khách Trễ";
             // 
-            // panel1
+            // pnCheckin
             // 
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.lblDateDu);
-            this.panel1.Controls.Add(this.lblStatus);
-            this.panel1.Controls.Add(this.lblTapG);
-            this.panel1.Controls.Add(this.lblPhone);
-            this.panel1.Controls.Add(this.lblName);
-            this.panel1.Controls.Add(this.dtpVao);
-            this.panel1.Controls.Add(this.gbKetQuaCheckin);
-            this.panel1.Controls.Add(this.btnGiaHan);
-            this.panel1.Controls.Add(this.btnChiTiet);
-            this.panel1.Controls.Add(this.lblGoiToi);
-            this.panel1.Controls.Add(this.lblGioVao);
-            this.panel1.Controls.Add(this.lblSoNgayCon);
-            this.panel1.Controls.Add(this.dtpGoiToi);
-            this.panel1.Controls.Add(this.lblTinhTrang);
-            this.panel1.Controls.Add(this.lblTen);
-            this.panel1.Controls.Add(this.lblSDT);
-            this.panel1.Controls.Add(this.lblGoiTap);
-            this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel1.Location = new System.Drawing.Point(3, 16);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(536, 488);
-            this.panel1.TabIndex = 9;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            this.pnCheckin.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnCheckin.Controls.Add(this.btndisappear);
+            this.pnCheckin.Controls.Add(this.lblDateDu);
+            this.pnCheckin.Controls.Add(this.lblStatus);
+            this.pnCheckin.Controls.Add(this.lblTapG);
+            this.pnCheckin.Controls.Add(this.lblPhone);
+            this.pnCheckin.Controls.Add(this.lblName);
+            this.pnCheckin.Controls.Add(this.dtpVao);
+            this.pnCheckin.Controls.Add(this.gbKetQuaCheckin);
+            this.pnCheckin.Controls.Add(this.btnGiaHan);
+            this.pnCheckin.Controls.Add(this.btnChiTiet);
+            this.pnCheckin.Controls.Add(this.lblGoiToi);
+            this.pnCheckin.Controls.Add(this.lblGioVao);
+            this.pnCheckin.Controls.Add(this.lblSoNgayCon);
+            this.pnCheckin.Controls.Add(this.dtpGoiToi);
+            this.pnCheckin.Controls.Add(this.lblTinhTrang);
+            this.pnCheckin.Controls.Add(this.lblTen);
+            this.pnCheckin.Controls.Add(this.lblSDT);
+            this.pnCheckin.Controls.Add(this.lblGoiTap);
+            this.pnCheckin.Controls.Add(this.pictureBox1);
+            this.pnCheckin.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pnCheckin.Location = new System.Drawing.Point(3, 16);
+            this.pnCheckin.Name = "pnCheckin";
+            this.pnCheckin.Size = new System.Drawing.Size(536, 488);
+            this.pnCheckin.TabIndex = 9;
+            this.pnCheckin.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // lblDateDu
             // 
@@ -411,7 +441,6 @@
             // gbKetQuaCheckin
             // 
             this.gbKetQuaCheckin.Controls.Add(this.lblCheckintimes);
-            this.gbKetQuaCheckin.Controls.Add(this.btnFakeCheckin);
             this.gbKetQuaCheckin.Controls.Add(this.label3);
             this.gbKetQuaCheckin.Controls.Add(this.lblLyDo);
             this.gbKetQuaCheckin.Controls.Add(this.label1);
@@ -436,7 +465,7 @@
             // 
             // btnFakeCheckin
             // 
-            this.btnFakeCheckin.Location = new System.Drawing.Point(412, 32);
+            this.btnFakeCheckin.Location = new System.Drawing.Point(347, 59);
             this.btnFakeCheckin.Name = "btnFakeCheckin";
             this.btnFakeCheckin.Size = new System.Drawing.Size(115, 23);
             this.btnFakeCheckin.TabIndex = 47;
@@ -756,27 +785,25 @@
             this.Column8.Name = "Column8";
             this.Column8.Visible = false;
             // 
-            // radioButton1
+            // btndisappear
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(40, 64);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(101, 17);
-            this.radioButton1.TabIndex = 7;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Time Line Mode";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.btndisappear.Location = new System.Drawing.Point(476, 3);
+            this.btndisappear.Name = "btndisappear";
+            this.btndisappear.Size = new System.Drawing.Size(53, 23);
+            this.btndisappear.TabIndex = 45;
+            this.btndisappear.Text = "---";
+            this.btndisappear.UseVisualStyleBackColor = true;
+            this.btndisappear.Click += new System.EventHandler(this.btndisappear_Click);
             // 
-            // radioButton2
+            // button2
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(171, 64);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(103, 17);
-            this.radioButton2.TabIndex = 8;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Display All Mode";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.button2.Location = new System.Drawing.Point(468, 60);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(29, 23);
+            this.button2.TabIndex = 49;
+            this.button2.Text = "+";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // CheckinKhachVaoUC
             // 
@@ -793,8 +820,8 @@
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSession)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.pnCheckin.ResumeLayout(false);
+            this.pnCheckin.PerformLayout();
             this.gbKetQuaCheckin.ResumeLayout(false);
             this.gbKetQuaCheckin.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -810,7 +837,7 @@
         private System.Windows.Forms.GroupBox groupThongTin;
         private System.Windows.Forms.Button btnGiaHan;
         private System.Windows.Forms.GroupBox gbKetQuaCheckin;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel pnCheckin;
         private System.Windows.Forms.DateTimePicker dtpVao;
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.Label lblGhiChu;
@@ -876,5 +903,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column16;
         private System.Windows.Forms.RadioButton radioButton2;
         private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.Button btndisappear;
+        private System.Windows.Forms.Button button2;
     }
 }

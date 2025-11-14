@@ -147,5 +147,18 @@ namespace Business
         {
 
         }
+        public void SetStateSesssion()
+        {
+            using (SqlConnection con=new SqlConnection(Ultilities.ConnectionString))
+            {
+                using (SqlCommand cmd=new SqlCommand("UpdateState",con))
+                {
+                    con.Open();
+                    cmd.CommandType= CommandType.StoredProcedure;
+                    cmd.ExecuteNonQuery();
+                }
+            }
+
+        }
     }
 }

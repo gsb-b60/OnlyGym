@@ -1,4 +1,5 @@
-﻿using DataAccess.Object;
+﻿using Business;
+using DataAccess.Object;
 using GymManagerment_MVP.MainFeature.Main;
 using System;
 using System.Collections.Generic;
@@ -19,7 +20,10 @@ namespace GymManagerment_MVP
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new LOGIN());
-            while(true)
+            System.Threading.Timer timer = new System.Threading.Timer(UpdateState, null, TimeSpan.Zero, TimeSpan.FromMinutes(5));
+
+
+            while (true)
             {
                 using (LOGIN login=new LOGIN())
                 {
@@ -44,6 +48,18 @@ namespace GymManagerment_MVP
                         break;
                     }
                 }
+            }
+        }
+        private static void UpdateState(object state)
+        {
+            try
+            {
+                SessionBL sesbl=new SessionBL();
+                sesbl.UpdateSessionState();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Lỗi khi chạy SP: {ex.Message}");
             }
         }
     }

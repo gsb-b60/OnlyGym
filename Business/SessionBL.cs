@@ -40,5 +40,9 @@ namespace Business
             }
             return list;
         }
+        public void UpdateSessionState()
+        {
+            sessDa.SetStateSesssion();
+        }
     }
 }
