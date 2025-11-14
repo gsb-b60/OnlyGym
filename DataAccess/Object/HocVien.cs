@@ -16,6 +16,7 @@ namespace GymManagerment_MVP.Business
         public string SDT { get; set; }
         public string TrangThai { get; set; }
         public bool GioiTinh { get; set; }
+        public string path { get; set; }
 
     }
 }

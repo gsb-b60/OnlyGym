@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CheckinKhachVaoUC));
             this.groupThongTin = new System.Windows.Forms.GroupBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -77,7 +78,7 @@
             this.lblTinhTrang = new System.Windows.Forms.Label();
             this.lblTen = new System.Windows.Forms.Label();
             this.lblSDT = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pbAvatar = new System.Windows.Forms.PictureBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.chEND = new System.Windows.Forms.CheckBox();
             this.cbH = new System.Windows.Forms.CheckBox();
@@ -106,7 +107,7 @@
             this.contextMenuStrip1.SuspendLayout();
             this.pnCheckin.SuspendLayout();
             this.gbKetQuaCheckin.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAvatar)).BeginInit();
             this.panel3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCheckIns)).BeginInit();
@@ -337,34 +338,34 @@
             this.thongTinPTToolStripMenuItem,
             this.thongTinKHToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 158);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(149, 136);
             this.contextMenuStrip1.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip1_Opening);
             // 
             // bắtĐầuToolStripMenuItem
             // 
             this.bắtĐầuToolStripMenuItem.Name = "bắtĐầuToolStripMenuItem";
-            this.bắtĐầuToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.bắtĐầuToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.bắtĐầuToolStripMenuItem.Text = "Bắt Đầu";
             this.bắtĐầuToolStripMenuItem.Click += new System.EventHandler(this.bắtĐầuToolStripMenuItem_Click);
             // 
             // hủyToolStripMenuItem
             // 
             this.hủyToolStripMenuItem.Name = "hủyToolStripMenuItem";
-            this.hủyToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.hủyToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.hủyToolStripMenuItem.Text = "Hủy";
             this.hủyToolStripMenuItem.Click += new System.EventHandler(this.hủyToolStripMenuItem_Click);
             // 
             // pTTrễToolStripMenuItem
             // 
             this.pTTrễToolStripMenuItem.Name = "pTTrễToolStripMenuItem";
-            this.pTTrễToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.pTTrễToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.pTTrễToolStripMenuItem.Text = "PT Trễ";
             this.pTTrễToolStripMenuItem.Click += new System.EventHandler(this.pTTrễToolStripMenuItem_Click);
             // 
             // kháchTrễToolStripMenuItem
             // 
             this.kháchTrễToolStripMenuItem.Name = "kháchTrễToolStripMenuItem";
-            this.kháchTrễToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.kháchTrễToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.kháchTrễToolStripMenuItem.Text = "Khách Trễ";
             this.kháchTrễToolStripMenuItem.Click += new System.EventHandler(this.kháchTrễToolStripMenuItem_Click);
             // 
@@ -385,7 +386,7 @@
             this.pnCheckin.Controls.Add(this.lblTinhTrang);
             this.pnCheckin.Controls.Add(this.lblTen);
             this.pnCheckin.Controls.Add(this.lblSDT);
-            this.pnCheckin.Controls.Add(this.pictureBox1);
+            this.pnCheckin.Controls.Add(this.pbAvatar);
             this.pnCheckin.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnCheckin.Location = new System.Drawing.Point(3, 16);
             this.pnCheckin.Name = "pnCheckin";
@@ -585,14 +586,16 @@
             this.lblSDT.TabIndex = 35;
             this.lblSDT.Text = "SDT";
             // 
-            // pictureBox1
+            // pbAvatar
             // 
-            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox1.Location = new System.Drawing.Point(29, 25);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(189, 240);
-            this.pictureBox1.TabIndex = 31;
-            this.pictureBox1.TabStop = false;
+            this.pbAvatar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pbAvatar.Image = ((System.Drawing.Image)(resources.GetObject("pbAvatar.Image")));
+            this.pbAvatar.Location = new System.Drawing.Point(29, 25);
+            this.pbAvatar.Name = "pbAvatar";
+            this.pbAvatar.Size = new System.Drawing.Size(189, 240);
+            this.pbAvatar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbAvatar.TabIndex = 31;
+            this.pbAvatar.TabStop = false;
             // 
             // panel3
             // 
@@ -785,14 +788,14 @@
             // thongTinPTToolStripMenuItem
             // 
             this.thongTinPTToolStripMenuItem.Name = "thongTinPTToolStripMenuItem";
-            this.thongTinPTToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.thongTinPTToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.thongTinPTToolStripMenuItem.Text = "Thong Tin PT";
             this.thongTinPTToolStripMenuItem.Click += new System.EventHandler(this.thongTinPTToolStripMenuItem_Click);
             // 
             // thongTinKHToolStripMenuItem
             // 
             this.thongTinKHToolStripMenuItem.Name = "thongTinKHToolStripMenuItem";
-            this.thongTinKHToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.thongTinKHToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.thongTinKHToolStripMenuItem.Text = "Thong Tin KH";
             this.thongTinKHToolStripMenuItem.Click += new System.EventHandler(this.thongTinKHToolStripMenuItem_Click);
             // 
@@ -815,7 +818,7 @@
             this.pnCheckin.PerformLayout();
             this.gbKetQuaCheckin.ResumeLayout(false);
             this.gbKetQuaCheckin.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAvatar)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -838,7 +841,7 @@
         private System.Windows.Forms.Label lblTinhTrang;
         private System.Windows.Forms.Label lblTen;
         private System.Windows.Forms.Label lblSDT;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pbAvatar;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label lblLyDo;
         private System.Windows.Forms.Label label1;

@@ -567,6 +567,12 @@
     <Folder Include="MainFeature\ThongKeRelated\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Media\HVPicture\NoShow.jpg" />
+    <Content Include="Media\HVPicture\pt1_m.jpg" />
+    <Content Include="Media\HVPicture\pt2_f.jpg" />
+    <Content Include="Media\HVPicture\pt3_f.jpg" />
+    <Content Include="Media\HVPicture\pt4_m.jpg" />
+    <Content Include="Media\HVPicture\pt5_f.jpg" />
     <Content Include="Media\PTPicture\NoShow.jpg" />
     <Content Include="Media\PTPicture\pt1_m.jpg" />
     <Content Include="Media\PTPicture\pt2_f.jpg" />

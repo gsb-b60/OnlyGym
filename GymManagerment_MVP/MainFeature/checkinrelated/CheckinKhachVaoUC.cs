@@ -9,6 +9,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -138,11 +139,30 @@ namespace GymManagerment_MVP
             lblCheckintimes.Text = lancheckin.ToString();
 
 
-
+            displayPicture(hvPara.path);
 
             LoadCheckIn();
         }
+        public void displayPicture(string path)
+        {
+            if (path != null)
+            {
 
+                if (File.Exists(@"PTPicture\" + path + ".jpg"))
+                {
+                    pbAvatar.Image = Image.FromFile(@"PTPicture\" + path + ".jpg");
+                }
+                else
+                {
+                    pbAvatar.Image = Image.FromFile("D:\\UNI\\nam3-hk1\\DESKTOP\\GymManagerment_MVP\\GymManagerment_MVP\\Media\\PTPicture\\NoShow.jpg");
+                }
+
+            }
+            else
+            {
+                pbAvatar.Image = Image.FromFile(@"HVPicture\" + "NoShow.jpg");
+            }
+        }
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 

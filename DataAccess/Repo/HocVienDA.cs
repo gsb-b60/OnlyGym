@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -44,14 +45,14 @@ namespace DataAccess.Repo
                     {
                         while (reader.Read())
                         {
-                            HocVien hv= new HocVien {
+                            HocVien hv = new HocVien {
                                 id = reader.GetInt32(reader.GetOrdinal("id")),
                                 code = reader.GetString(reader.GetOrdinal("code")),
                                 Ten = reader.GetString(reader.GetOrdinal("ten")),
                                 SDT = reader.GetString(reader.GetOrdinal("sdt")),
-                                
+                                path = reader.GetString(reader.GetOrdinal("FilePath")),
                                 TrangThai = "Hoạt động",
-                                GioiTinh =reader.GetBoolean(reader.GetOrdinal("GioiTinh")),
+                                GioiTinh = reader.GetBoolean(reader.GetOrdinal("GioiTinh")),
                             };
                             list.Add(hv);
                         }
@@ -80,7 +81,7 @@ namespace DataAccess.Repo
                                 code = reader.GetString(reader.GetOrdinal("code")),
                                 Ten = reader.GetString(reader.GetOrdinal("ten")),
                                 SDT = reader.GetString(reader.GetOrdinal("sdt")),
-
+                                path = reader.GetString(reader.GetOrdinal("FilePath")),
                                 TrangThai = "Hoạt động",
                                 GioiTinh = reader.GetBoolean(reader.GetOrdinal("GioiTinh")),
                             };
@@ -111,12 +112,13 @@ namespace DataAccess.Repo
                         string tthai = row["TrangThai"].ToString();
                         hv = new HocVien
                         {
-                            id=Convert.ToInt32( row["id"]),
+                            id = Convert.ToInt32(row["id"]),
                             code = code,
                             Ten = row["TenHV"].ToString(),
                             SDT = row["sdt"].ToString(),
                             TrangThai = tthai == "1" ? "Hoạt động" : "Ngừng hoạt động",
                             GioiTinh = row["GioiTinh"].ToString() == "Nam" ? true : false,
+                            path = row["FilePath"].ToString()
                         };
                     }
                 }
