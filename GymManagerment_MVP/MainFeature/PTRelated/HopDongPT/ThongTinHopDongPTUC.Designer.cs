@@ -31,7 +31,6 @@
             this.components = new System.ComponentModel.Container();
             this.pnlDanhSach = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.button4 = new System.Windows.Forms.Button();
             this.dgvDSBuoiTap = new System.Windows.Forms.DataGridView();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.HopDong = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -111,6 +110,7 @@
             this.label18 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
+            this.button4 = new System.Windows.Forms.Button();
             this.pnlDanhSach.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDSBuoiTap)).BeginInit();
@@ -148,15 +148,6 @@
             this.panel3.Padding = new System.Windows.Forms.Padding(20);
             this.panel3.Size = new System.Drawing.Size(811, 588);
             this.panel3.TabIndex = 30;
-            // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(668, 5);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(123, 23);
-            this.button4.TabIndex = 54;
-            this.button4.Text = "Hủy Hợp Đồng";
-            this.button4.UseVisualStyleBackColor = true;
             // 
             // dgvDSBuoiTap
             // 
@@ -941,6 +932,15 @@
             this.label22.TabIndex = 68;
             this.label22.Text = "Trạng Thái";
             // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(668, 5);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(123, 23);
+            this.button4.TabIndex = 54;
+            this.button4.Text = "Hủy Hợp Đồng";
+            this.button4.UseVisualStyleBackColor = true;
+            // 
             // ThongTinHopDongPTUC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -997,7 +997,6 @@
         private System.Windows.Forms.CheckBox cbDone;
         private System.Windows.Forms.CheckBox cbCancel;
         private System.Windows.Forms.CheckBox cbNoShow;
-        private System.Windows.Forms.Button button4;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem doneToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem noShowToolStripMenuItem;
@@ -1056,5 +1055,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button btnCapNhat;
         private System.Windows.Forms.ComboBox cbState;
+        private System.Windows.Forms.Button button4;
     }
 }

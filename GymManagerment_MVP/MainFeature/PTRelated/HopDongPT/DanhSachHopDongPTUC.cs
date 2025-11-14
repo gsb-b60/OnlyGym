@@ -190,7 +190,7 @@ namespace GymManagerment_MVP.MainFeature.HoaDonRelated.PT
 
                 SessionBL cibl = new SessionBL();
                 List<PTSession> sesss= cibl.GetByHopDong(hd);
-                dgvDSLich.DataSource = sesss;
+                dgvSession.DataSource = sesss;
             }
         }
 
@@ -213,6 +213,16 @@ namespace GymManagerment_MVP.MainFeature.HoaDonRelated.PT
         private void btnDisplay_Click(object sender, EventArgs e)
         {
             pnInfor.Visible = false;
+        }
+
+        private void dgvSession_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
+        {
+            using (SolidBrush b = new SolidBrush(dgvSession.RowHeadersDefaultCellStyle.ForeColor))
+            {
+                string rowNumber = (e.RowIndex + 1).ToString(); // +1 để bắt đầu từ 1
+                e.Graphics.DrawString(rowNumber, e.InheritedRowStyle.Font, b,
+                    e.RowBounds.Location.X + 15, e.RowBounds.Location.Y + 4);
+            }
         }
     }
 }
