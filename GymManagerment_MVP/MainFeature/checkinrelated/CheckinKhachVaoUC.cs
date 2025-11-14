@@ -275,5 +275,44 @@ namespace GymManagerment_MVP
         {
             pnCheckin.Visible = true;
         }
+
+        private void dgvCheckIns_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            
+        }
+
+        private void dgvCheckIns_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgvCheckIns.SelectedRows.Count > 0)
+            {
+                CheckIn cv = dgvCheckIns.SelectedRows[0].DataBoundItem as CheckIn;
+                if (cv != null)
+                {
+                    cbAllow.Checked = cv.HopLe;
+                    lblLyDo.Text =cv.HopLe? "Hop Le":"Het Han Goi";
+                    lblCheckintimes.ForeColor = cv.HopLe ? Color.Black:Color.Red;
+                    lblLyDo.ForeColor = cv.HopLe ? Color.Black : Color.Red;
+
+                    lblName.Text = cv.HocVien.Ten;
+                    lblPhone.Text = cv.HocVien.SDT;
+                    lblStatus.Text = cv.HocVien.TrangThai;
+                    btnChiTiet.Tag = cv.HocVien.code;
+                    dtpVao.Value = cv.ThoiGianCheckIn;
+
+
+                    lblCheckintimes.Text = cv.LanCheckIn.ToString();
+                    btnCapNhat.Tag = cv.ID;
+                    btnCapNhat.Enabled=true;
+                }
+            }
+        }
+
+        private void btnCapNhat_Click(object sender, EventArgs e)
+        {
+            if(btnCapNhat.Tag!=null)
+            {
+                MessageBox.Show(btnCapNhat.Tag.ToString());
+            }
+        }
     }
 }

@@ -32,7 +32,9 @@
             this.groupThongTin = new System.Windows.Forms.GroupBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button2 = new System.Windows.Forms.Button();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.btnFakeCheckin = new System.Windows.Forms.Button();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.btnTim = new System.Windows.Forms.Button();
             this.cbFindB = new System.Windows.Forms.ComboBox();
@@ -56,6 +58,7 @@
             this.pTTrễToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.kháchTrễToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pnCheckin = new System.Windows.Forms.Panel();
+            this.btndisappear = new System.Windows.Forms.Button();
             this.lblDateDu = new System.Windows.Forms.Label();
             this.lblStatus = new System.Windows.Forms.Label();
             this.lblTapG = new System.Windows.Forms.Label();
@@ -64,7 +67,6 @@
             this.dtpVao = new System.Windows.Forms.DateTimePicker();
             this.gbKetQuaCheckin = new System.Windows.Forms.GroupBox();
             this.lblCheckintimes = new System.Windows.Forms.Label();
-            this.btnFakeCheckin = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.lblLyDo = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -98,8 +100,7 @@
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btndisappear = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnCapNhat = new System.Windows.Forms.Button();
             this.groupThongTin.SuspendLayout();
             this.panel2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -153,6 +154,16 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Ca Tập Tiếp Theo";
             // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(468, 60);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(29, 23);
+            this.button2.TabIndex = 49;
+            this.button2.Text = "+";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // radioButton2
             // 
             this.radioButton2.AutoSize = true;
@@ -164,6 +175,16 @@
             this.radioButton2.Text = "Display All Mode";
             this.radioButton2.UseVisualStyleBackColor = true;
             this.radioButton2.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged);
+            // 
+            // btnFakeCheckin
+            // 
+            this.btnFakeCheckin.Location = new System.Drawing.Point(347, 59);
+            this.btnFakeCheckin.Name = "btnFakeCheckin";
+            this.btnFakeCheckin.Size = new System.Drawing.Size(115, 23);
+            this.btnFakeCheckin.TabIndex = 47;
+            this.btnFakeCheckin.Text = "Fake checkin";
+            this.btnFakeCheckin.UseVisualStyleBackColor = true;
+            this.btnFakeCheckin.Click += new System.EventHandler(this.btnFakeCheckin_Click);
             // 
             // radioButton1
             // 
@@ -384,6 +405,16 @@
             this.pnCheckin.TabIndex = 9;
             this.pnCheckin.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
+            // btndisappear
+            // 
+            this.btndisappear.Location = new System.Drawing.Point(476, 3);
+            this.btndisappear.Name = "btndisappear";
+            this.btndisappear.Size = new System.Drawing.Size(53, 23);
+            this.btndisappear.TabIndex = 45;
+            this.btndisappear.Text = "---";
+            this.btndisappear.UseVisualStyleBackColor = true;
+            this.btndisappear.Click += new System.EventHandler(this.btndisappear_Click);
+            // 
             // lblDateDu
             // 
             this.lblDateDu.AutoSize = true;
@@ -440,6 +471,7 @@
             // 
             // gbKetQuaCheckin
             // 
+            this.gbKetQuaCheckin.Controls.Add(this.btnCapNhat);
             this.gbKetQuaCheckin.Controls.Add(this.lblCheckintimes);
             this.gbKetQuaCheckin.Controls.Add(this.label3);
             this.gbKetQuaCheckin.Controls.Add(this.lblLyDo);
@@ -462,16 +494,6 @@
             this.lblCheckintimes.Size = new System.Drawing.Size(71, 23);
             this.lblCheckintimes.TabIndex = 48;
             this.lblCheckintimes.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // btnFakeCheckin
-            // 
-            this.btnFakeCheckin.Location = new System.Drawing.Point(347, 59);
-            this.btnFakeCheckin.Name = "btnFakeCheckin";
-            this.btnFakeCheckin.Size = new System.Drawing.Size(115, 23);
-            this.btnFakeCheckin.TabIndex = 47;
-            this.btnFakeCheckin.Text = "Fake checkin";
-            this.btnFakeCheckin.UseVisualStyleBackColor = true;
-            this.btnFakeCheckin.Click += new System.EventHandler(this.btnFakeCheckin_Click);
             // 
             // label3
             // 
@@ -515,7 +537,7 @@
             // 
             this.richTextBox1.Location = new System.Drawing.Point(73, 147);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(442, 62);
+            this.richTextBox1.Size = new System.Drawing.Size(442, 36);
             this.richTextBox1.TabIndex = 14;
             this.richTextBox1.Text = "";
             // 
@@ -715,6 +737,8 @@
             this.dgvCheckIns.Name = "dgvCheckIns";
             this.dgvCheckIns.Size = new System.Drawing.Size(944, 173);
             this.dgvCheckIns.TabIndex = 0;
+            this.dgvCheckIns.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCheckIns_CellClick);
+            this.dgvCheckIns.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCheckIns_CellContentClick);
             // 
             // ID
             // 
@@ -785,25 +809,16 @@
             this.Column8.Name = "Column8";
             this.Column8.Visible = false;
             // 
-            // btndisappear
+            // btnCapNhat
             // 
-            this.btndisappear.Location = new System.Drawing.Point(476, 3);
-            this.btndisappear.Name = "btndisappear";
-            this.btndisappear.Size = new System.Drawing.Size(53, 23);
-            this.btndisappear.TabIndex = 45;
-            this.btndisappear.Text = "---";
-            this.btndisappear.UseVisualStyleBackColor = true;
-            this.btndisappear.Click += new System.EventHandler(this.btndisappear_Click);
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(468, 60);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(29, 23);
-            this.button2.TabIndex = 49;
-            this.button2.Text = "+";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.btnCapNhat.Enabled = false;
+            this.btnCapNhat.Location = new System.Drawing.Point(440, 186);
+            this.btnCapNhat.Name = "btnCapNhat";
+            this.btnCapNhat.Size = new System.Drawing.Size(75, 23);
+            this.btnCapNhat.TabIndex = 49;
+            this.btnCapNhat.Text = "Cap Nhat";
+            this.btnCapNhat.UseVisualStyleBackColor = true;
+            this.btnCapNhat.Click += new System.EventHandler(this.btnCapNhat_Click);
             // 
             // CheckinKhachVaoUC
             // 
@@ -905,5 +920,6 @@
         private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.Button btndisappear;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnCapNhat;
     }
 }
