@@ -22,6 +22,7 @@ namespace GymManagerment_MVP
         List<PTSession> bookedList;
         HocVien hv;
         User user;
+        HopDong hd = new HopDong();
         public MuaHang()
         {
             InitializeComponent();
@@ -63,14 +64,28 @@ namespace GymManagerment_MVP
             dangKyPT2.BringToFront();
             dangKyPT2.SetForBuy += DangKyPT2_SetForBuy;
             dangKyPT2.HopDong += DangKyPT2_HopDong;
+            dangKyPT2.ReturnList += DangKyPT2_ReturnList;
+        }
+
+        private void DangKyPT2_ReturnList(List<PTSession> obj)
+        {
+            HopDongBL hdbl = new HopDongBL();
+            hd.IDHocVien= 1;
+            if(obj.Count>0)
+            {
+                MessageBox.Show(obj.Count.ToString());
+                hdbl.SetUpHopDong(hd, obj);
+            }
+            else
+            {
+                MessageBox.Show("nothing here");
+            }
+            
         }
 
         private void DangKyPT2_HopDong(HopDong obj)
         {
-            HopDongBL hdbl = new HopDongBL();
-            HopDong hopDong = obj;
-            hopDong.IDHocVien = 1;
-            hdbl.SetUpHopDong(hopDong, bookedList);
+            hd = obj;
         }
 
         private void DangKyPT2_SetForBuy(GoiPT obj)
@@ -349,59 +364,3 @@ namespace GymManagerment_MVP
 
     }
 }
-// Get datetime of check-in / bill creation
-//string checkinTime = DateTime.Now.ToString("HH:mm dd/MM/yyyy");
-
-//// Build bill header
-//StringBuilder sb = new StringBuilder();
-//sb.AppendLine("===== HÓA ĐƠN THANH TOÁN =====");
-//sb.AppendLine($"Thời gian: {checkinTime}");
-//sb.AppendLine("----------------------------------");
-//sb.AppendLine($"Học viên: {hv.Ten}");
-//sb.AppendLine($"Mã HV: {hv.code}");
-//sb.AppendLine($"SĐT: {hv.SDT}");
-//sb.AppendLine($"Giới tính: {(hv.GioiTinh ? "Nam" : "Nữ")}");
-//sb.AppendLine("----------------------------------");
-
-//long total = 0;
-//int count = 1;
-
-//// Loop through all rows in dgvBill
-//foreach (DataGridViewRow row in dgvBill.Rows)
-//{
-//    if (row.Tag == null) continue;
-//    object tag = row.Tag;
-
-//    if (tag is GoiTap goiTap)
-//    {
-//        long finalPrice = goiTap.giaTien - goiTap.discount;
-//        sb.AppendLine($"[{count++}] Gói tập: {goiTap.tenGoi}");
-//        sb.AppendLine($"  Giá: {goiTap.giaTien:n0} VNĐ");
-//        if (goiTap.discount > 0)
-//            sb.AppendLine($"  Giảm giá: {goiTap.discount:n0} VNĐ");
-//        sb.AppendLine($"  Tổng: {finalPrice:n0} VNĐ");
-//        sb.AppendLine("");
-//        total += finalPrice;
-//    }
-//    else if (tag is GoiPT goiPT)
-//    {
-//        long finalPrice = goiPT.giaTien - goiPT.discount;
-//        sb.AppendLine($"[{count++}] Gói PT: {goiPT.tenGoi}");
-//        sb.AppendLine($"  Số buổi: {goiPT.soBuoi}");
-//        sb.AppendLine($"  Giá: {goiPT.giaTien:n0} VNĐ");
-//        if (goiPT.discount > 0)
-//            sb.AppendLine($"  Giảm giá: {goiPT.discount:n0} VNĐ");
-//        sb.AppendLine($"  Tổng: {finalPrice:n0} VNĐ");
-//        sb.AppendLine("");
-//        total += finalPrice;
-//    }
-//}
-
-//sb.AppendLine("----------------------------------");
-//sb.AppendLine($"TỔNG THANH TOÁN: {total:n0} VNĐ");
-//sb.AppendLine("----------------------------------");
-//// sb.AppendLine($"Người lập hóa đơn: {nguoiDungDangNhap?.TenTK}");
-//sb.AppendLine($"Ngày tạo: {checkinTime}");
-//sb.AppendLine("==================================");
-
-//MessageBox.Show(sb.ToString(), "Hóa đơn thanh toán", MessageBoxButtons.OK, MessageBoxIcon.Information);

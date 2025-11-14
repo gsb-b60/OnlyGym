@@ -21,6 +21,8 @@ namespace GymManagerment_MVP.MainFeature.HoaDonRelated.PT
         public event Action<GoiPT> SetForBuy;
         public event Action<List<PTSession>> ReturnList;
         public event Action<HopDong> HopDong;
+
+        List<PTSession> list;   
         private GoiPT goi;
         public DangKyPTVer2()
         {
@@ -59,13 +61,14 @@ namespace GymManagerment_MVP.MainFeature.HoaDonRelated.PT
         private void Step4_SendHopDong(HopDong obj)
         {
             HopDong.Invoke(obj);
+            ReturnList.Invoke(list);
         }
 
         private void Step4_SetToBill1(List<DataAccess.Object.PTSession> obj)
         {
             if (goi != null&&obj!=null)
             {
-                ReturnList.Invoke(obj);
+                list = obj;
                 SetForBuy.Invoke(goi);
             }
         }

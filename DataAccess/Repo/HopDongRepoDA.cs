@@ -67,70 +67,60 @@ namespace DataAccess.Repo
             using (SqlConnection con = new SqlConnection(Ultilities.Ultilities.ConnectionString))
             {
                 con.Open();
-                SqlTransaction tran = con.BeginTransaction();
-                try
+                using (SqlCommand cmd = new SqlCommand(Ultilities.Ultilities.InsertHopDong, con))
                 {
-                    using (SqlCommand cmd = new SqlCommand(Ultilities.Ultilities.InsertHopDong, con,tran))
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    // Input parameters
+                    cmd.Parameters.Add("@id_HocVien", SqlDbType.Int).Value = hopDong.IDHocVien;
+                    cmd.Parameters.Add("@id_pt", SqlDbType.Int).Value = hopDong.IDPT;
+                    cmd.Parameters.Add("@id_pt_package", SqlDbType.Int).Value = hopDong.ID_PT_Package;
+                    cmd.Parameters.Add("@tongBuoi", SqlDbType.Int).Value = hopDong.TongBuoi;
+                    cmd.Parameters.Add("@conBuoi", SqlDbType.Int).Value = hopDong.ConBuoi;
+                    cmd.Parameters.Add("@trangThai", SqlDbType.Int).Value = (int)hopDong.trangThai;
+
+                    // Output parameter
+                    SqlParameter outputId = cmd.Parameters.Add("@ID", SqlDbType.Int);
+                    outputId.Direction = ParameterDirection.Output;
+
+
+                    cmd.ExecuteNonQuery();
+
+                    // Retrieve the output value
+                    id = (int)outputId.Value;
+                    if (id > 0)
+                    {
+                        Debug.WriteLine("done insertHopDong" + id);
+                    }
+                }
+                foreach (var sess in bookedList)
+                {
+                    using (SqlCommand cmd = new SqlCommand(Ultilities.Ultilities.InsertSession, con))
                     {
                         cmd.CommandType = CommandType.StoredProcedure;
 
                         // Input parameters
-                        cmd.Parameters.Add("@id_HocVien", SqlDbType.Int).Value = hopDong.IDHocVien;
-                        cmd.Parameters.Add("@id_pt", SqlDbType.Int).Value = hopDong.IDPT;
-                        cmd.Parameters.Add("@id_pt_package", SqlDbType.Int).Value = hopDong.ID_PT_Package;
-                        cmd.Parameters.Add("@tongBuoi", SqlDbType.Int).Value = hopDong.TongBuoi;
-                        cmd.Parameters.Add("@conBuoi", SqlDbType.Int).Value = hopDong.ConBuoi;
-                        cmd.Parameters.Add("@trangThai", SqlDbType.Int).Value = (int)hopDong.trangThai;
+                        cmd.Parameters.Add("@id_HopDong", SqlDbType.Int).Value = id;
+                        cmd.Parameters.Add("@tg_BatDau", SqlDbType.DateTime).Value = sess.TGBatDau;
+                        cmd.Parameters.Add("@tg_KetThuc", SqlDbType.Date).Value =  sess.TGBatDau?.AddHours(1.5);
+                        cmd.Parameters.Add("@trangThai", SqlDbType.Int).Value = 1;
+
+                        // Optional parameters
+                        cmd.Parameters.Add("@tg_Huy", SqlDbType.Date).Value = DBNull.Value;
+                        cmd.Parameters.Add("@lyDoHuy", SqlDbType.NVarChar, 1000).Value = DBNull.Value;
 
                         // Output parameter
                         SqlParameter outputId = cmd.Parameters.Add("@ID", SqlDbType.Int);
                         outputId.Direction = ParameterDirection.Output;
 
-
                         cmd.ExecuteNonQuery();
+                        Debug.WriteLine($"Inserted session: {sess.TGBatDau:dd/MM HH:mm} - {sess.TGKetThuc:HH:mm}");
 
                         // Retrieve the output value
-                        id = (int)outputId.Value;
-                        if (id > 0)
-                        {
-                            Debug.WriteLine("done insertHopDong"+id);
-                        }
                     }
-                    foreach (var sess in bookedList)
-                    {
-                        using (SqlCommand cmd = new SqlCommand(Ultilities.Ultilities.InsertSession, con,tran))
-                        {
-                            cmd.CommandType = CommandType.StoredProcedure;
-
-                            // Input parameters
-                            cmd.Parameters.Add("@id_HopDong", SqlDbType.Int).Value = id;
-                            cmd.Parameters.Add("@tg_BatDau", SqlDbType.DateTime).Value = sess.TGBatDau;
-                            cmd.Parameters.Add("@tg_KetThuc", SqlDbType.Date).Value = sess.TGKetThuc;
-                            cmd.Parameters.Add("@trangThai", SqlDbType.Int).Value = 1;
-
-                            // Optional parameters
-                            cmd.Parameters.Add("@tg_Huy", SqlDbType.Date).Value = DBNull.Value;
-                            cmd.Parameters.Add("@lyDoHuy", SqlDbType.NVarChar, 1000).Value = DBNull.Value;
-
-                            // Output parameter
-                            SqlParameter outputId = cmd.Parameters.Add("@ID", SqlDbType.Int);
-                            outputId.Direction = ParameterDirection.Output;
-
-                            cmd.ExecuteNonQuery();
-                            Debug.WriteLine($"Inserted session: {sess.TGBatDau:dd/MM HH:mm} - {sess.TGKetThuc:HH:mm}");
-
-                            // Retrieve the output value
-                        }
-                    }
-                } catch (Exception ex)
-                {
-                    // ❌ Rollback if any error happens
-                    tran.Rollback();
-                    Debug.WriteLine("❌ Transaction rolled back due to error: " + ex.Message);
-                    throw; // rethrow so caller knows
                 }
-                
-                
+
+
             }
         }
 

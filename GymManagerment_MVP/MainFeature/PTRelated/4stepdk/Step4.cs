@@ -49,10 +49,15 @@ namespace GymManagerment_MVP.MainFeature.HoaDonRelated.PT._4stepdk
 
         private void LoadWeekData(DateTime startOfWeek)
         {
+            dgvLichPT.CellValueChanged -= dgvLichPT_CellValueChanged_1;
+
             var lichTapList = GenerateLichTapList(list, startOfWeek, BookList);
             lichtapDatas = GenerateLichTapListData(list, startOfWeek, BookList);
             dgvLichPT.DataSource = lichtapDatas;
             LoadTile(currentWeekStart);
+
+            dgvLichPT.CellValueChanged += dgvLichPT_CellValueChanged_1;
+            
         }
 
         public void LoadTile(DateTime startOfWeek)
@@ -231,35 +236,6 @@ namespace GymManagerment_MVP.MainFeature.HoaDonRelated.PT._4stepdk
             LoadWeekData(currentWeekStart);
 
         }
-        private void SetCellStatus(DataGridViewCell cell, BookState status)
-        {
-            dgvLichPT.CellValueChanged -= dgvLichPT_CellValueChanged_1;
-
-            cell.Value = status;
-
-            dgvLichPT.CellValueChanged += dgvLichPT_CellValueChanged_1;
-            cell.Value = status;
-            switch (status)
-            {
-                case BookState.Booked:
-                    cell.Style.BackColor = Color.Red;
-                    cell.ReadOnly = true;
-                    //MessageBox.Show("Im change to set");
-                    break;
-
-                case BookState.Set:
-                    cell.Style.BackColor = Color.LightGreen;
-                    cell.ReadOnly = false;
-                    MessageBox.Show("Im change to set");
-                    break;
-
-                case BookState.Free:
-                    cell.Style.BackColor = Color.White;
-                    cell.ReadOnly = false;
-                    MessageBox.Show("Im change to free");
-                    break;
-            }
-        }
 
         private void setDGVChon()
         {
@@ -387,15 +363,7 @@ namespace GymManagerment_MVP.MainFeature.HoaDonRelated.PT._4stepdk
 
         private void dgvLichPT_CellParsing(object sender, DataGridViewCellParsingEventArgs e)
         {
-            //if (e.RowIndex < 0 || e.ColumnIndex == 0) return;
 
-            //if (e.Value is bool b)
-            //{
-            //    // true → Set (người đang chọn)
-            //    // false → Free
-            //    e.Value = b ? BookState.Set : BookState.Free;
-            //    e.ParsingApplied = true;
-            //}
         }
 
 
@@ -459,20 +427,6 @@ namespace GymManagerment_MVP.MainFeature.HoaDonRelated.PT._4stepdk
             catch (Exception ex)
             {
                 Debug.WriteLine(ex.Message);
-            }
-        }
-        private BookState GetThuStatusByColumnIndex(LichTap lich, int colIndex)
-        {
-            switch (colIndex)
-            {
-                case 1: return lich.Thu2;
-                case 2: return lich.Thu3;
-                case 3: return lich.Thu4;
-                case 4: return lich.Thu5;
-                case 5: return lich.Thu6;
-                case 6: return lich.Thu7;
-                case 7: return lich.CN;
-                default: return BookState.Free;
             }
         }
 
