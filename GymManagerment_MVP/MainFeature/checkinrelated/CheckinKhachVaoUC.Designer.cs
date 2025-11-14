@@ -57,6 +57,8 @@
             this.hủyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pTTrễToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.kháchTrễToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.thongTinPTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.thongTinKHToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pnCheckin = new System.Windows.Forms.Panel();
             this.btndisappear = new System.Windows.Forms.Button();
             this.lblDateDu = new System.Windows.Forms.Label();
@@ -65,6 +67,7 @@
             this.lblName = new System.Windows.Forms.Label();
             this.dtpVao = new System.Windows.Forms.DateTimePicker();
             this.gbKetQuaCheckin = new System.Windows.Forms.GroupBox();
+            this.btnCapNhat = new System.Windows.Forms.Button();
             this.lblCheckintimes = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.lblLyDo = new System.Windows.Forms.Label();
@@ -75,6 +78,7 @@
             this.btnGiaHan = new System.Windows.Forms.Button();
             this.btnChiTiet = new System.Windows.Forms.Button();
             this.lblGioVao = new System.Windows.Forms.Label();
+            this.lblSoNgayCon = new System.Windows.Forms.Label();
             this.lblTinhTrang = new System.Windows.Forms.Label();
             this.lblTen = new System.Windows.Forms.Label();
             this.lblSDT = new System.Windows.Forms.Label();
@@ -85,8 +89,8 @@
             this.lblTrangThai = new System.Windows.Forms.Label();
             this.btnXoa = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             this.dgvCheckIns = new System.Windows.Forms.DataGridView();
-            this.btnCapNhat = new System.Windows.Forms.Button();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -96,10 +100,7 @@
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lblSoNgayCon = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.thongTinPTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.thongTinKHToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.thongTinBuoiTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupThongTin.SuspendLayout();
             this.panel2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -336,38 +337,53 @@
             this.pTTrễToolStripMenuItem,
             this.kháchTrễToolStripMenuItem,
             this.thongTinPTToolStripMenuItem,
-            this.thongTinKHToolStripMenuItem});
+            this.thongTinKHToolStripMenuItem,
+            this.thongTinBuoiTToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(149, 136);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(188, 180);
             this.contextMenuStrip1.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip1_Opening);
             // 
             // bắtĐầuToolStripMenuItem
             // 
             this.bắtĐầuToolStripMenuItem.Name = "bắtĐầuToolStripMenuItem";
-            this.bắtĐầuToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.bắtĐầuToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.bắtĐầuToolStripMenuItem.Text = "Bắt Đầu";
             this.bắtĐầuToolStripMenuItem.Click += new System.EventHandler(this.bắtĐầuToolStripMenuItem_Click);
             // 
             // hủyToolStripMenuItem
             // 
             this.hủyToolStripMenuItem.Name = "hủyToolStripMenuItem";
-            this.hủyToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.hủyToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.hủyToolStripMenuItem.Text = "Hủy";
             this.hủyToolStripMenuItem.Click += new System.EventHandler(this.hủyToolStripMenuItem_Click);
             // 
             // pTTrễToolStripMenuItem
             // 
             this.pTTrễToolStripMenuItem.Name = "pTTrễToolStripMenuItem";
-            this.pTTrễToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.pTTrễToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.pTTrễToolStripMenuItem.Text = "PT Trễ";
             this.pTTrễToolStripMenuItem.Click += new System.EventHandler(this.pTTrễToolStripMenuItem_Click);
             // 
             // kháchTrễToolStripMenuItem
             // 
             this.kháchTrễToolStripMenuItem.Name = "kháchTrễToolStripMenuItem";
-            this.kháchTrễToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.kháchTrễToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.kháchTrễToolStripMenuItem.Text = "Khách Trễ";
             this.kháchTrễToolStripMenuItem.Click += new System.EventHandler(this.kháchTrễToolStripMenuItem_Click);
+            // 
+            // thongTinPTToolStripMenuItem
+            // 
+            this.thongTinPTToolStripMenuItem.Name = "thongTinPTToolStripMenuItem";
+            this.thongTinPTToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.thongTinPTToolStripMenuItem.Text = "Thong Tin PT";
+            this.thongTinPTToolStripMenuItem.Click += new System.EventHandler(this.thongTinPTToolStripMenuItem_Click);
+            // 
+            // thongTinKHToolStripMenuItem
+            // 
+            this.thongTinKHToolStripMenuItem.Name = "thongTinKHToolStripMenuItem";
+            this.thongTinKHToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.thongTinKHToolStripMenuItem.Text = "Thong Tin KH";
+            this.thongTinKHToolStripMenuItem.Click += new System.EventHandler(this.thongTinKHToolStripMenuItem_Click);
             // 
             // pnCheckin
             // 
@@ -467,6 +483,17 @@
             this.gbKetQuaCheckin.TabStop = false;
             this.gbKetQuaCheckin.Text = "kết quả check in";
             // 
+            // btnCapNhat
+            // 
+            this.btnCapNhat.Enabled = false;
+            this.btnCapNhat.Location = new System.Drawing.Point(440, 115);
+            this.btnCapNhat.Name = "btnCapNhat";
+            this.btnCapNhat.Size = new System.Drawing.Size(75, 23);
+            this.btnCapNhat.TabIndex = 49;
+            this.btnCapNhat.Text = "Cap Nhat";
+            this.btnCapNhat.UseVisualStyleBackColor = true;
+            this.btnCapNhat.Click += new System.EventHandler(this.btnCapNhat_Click);
+            // 
             // lblCheckintimes
             // 
             this.lblCheckintimes.Location = new System.Drawing.Point(224, 27);
@@ -558,6 +585,15 @@
             this.lblGioVao.Size = new System.Drawing.Size(45, 13);
             this.lblGioVao.TabIndex = 34;
             this.lblGioVao.Text = "Giờ Vào";
+            // 
+            // lblSoNgayCon
+            // 
+            this.lblSoNgayCon.AutoSize = true;
+            this.lblSoNgayCon.Location = new System.Drawing.Point(230, 115);
+            this.lblSoNgayCon.Name = "lblSoNgayCon";
+            this.lblSoNgayCon.Size = new System.Drawing.Size(70, 13);
+            this.lblSoNgayCon.TabIndex = 32;
+            this.lblSoNgayCon.Text = "Số Ngày Còn";
             // 
             // lblTinhTrang
             // 
@@ -666,6 +702,14 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Lich Su Tap";
             // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(107, 16);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(453, 20);
+            this.textBox2.TabIndex = 1;
+            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
+            // 
             // dgvCheckIns
             // 
             this.dgvCheckIns.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -686,17 +730,6 @@
             this.dgvCheckIns.TabIndex = 0;
             this.dgvCheckIns.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCheckIns_CellClick);
             this.dgvCheckIns.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCheckIns_CellContentClick);
-            // 
-            // btnCapNhat
-            // 
-            this.btnCapNhat.Enabled = false;
-            this.btnCapNhat.Location = new System.Drawing.Point(440, 115);
-            this.btnCapNhat.Name = "btnCapNhat";
-            this.btnCapNhat.Size = new System.Drawing.Size(75, 23);
-            this.btnCapNhat.TabIndex = 49;
-            this.btnCapNhat.Text = "Cap Nhat";
-            this.btnCapNhat.UseVisualStyleBackColor = true;
-            this.btnCapNhat.Click += new System.EventHandler(this.btnCapNhat_Click);
             // 
             // ID
             // 
@@ -768,36 +801,12 @@
             this.Column8.Name = "Column8";
             this.Column8.Visible = false;
             // 
-            // lblSoNgayCon
+            // thongTinBuoiTToolStripMenuItem
             // 
-            this.lblSoNgayCon.AutoSize = true;
-            this.lblSoNgayCon.Location = new System.Drawing.Point(230, 115);
-            this.lblSoNgayCon.Name = "lblSoNgayCon";
-            this.lblSoNgayCon.Size = new System.Drawing.Size(70, 13);
-            this.lblSoNgayCon.TabIndex = 32;
-            this.lblSoNgayCon.Text = "Số Ngày Còn";
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(107, 16);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(453, 20);
-            this.textBox2.TabIndex = 1;
-            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
-            // 
-            // thongTinPTToolStripMenuItem
-            // 
-            this.thongTinPTToolStripMenuItem.Name = "thongTinPTToolStripMenuItem";
-            this.thongTinPTToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
-            this.thongTinPTToolStripMenuItem.Text = "Thong Tin PT";
-            this.thongTinPTToolStripMenuItem.Click += new System.EventHandler(this.thongTinPTToolStripMenuItem_Click);
-            // 
-            // thongTinKHToolStripMenuItem
-            // 
-            this.thongTinKHToolStripMenuItem.Name = "thongTinKHToolStripMenuItem";
-            this.thongTinKHToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
-            this.thongTinKHToolStripMenuItem.Text = "Thong Tin KH";
-            this.thongTinKHToolStripMenuItem.Click += new System.EventHandler(this.thongTinKHToolStripMenuItem_Click);
+            this.thongTinBuoiTToolStripMenuItem.Name = "thongTinBuoiTToolStripMenuItem";
+            this.thongTinBuoiTToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
+            this.thongTinBuoiTToolStripMenuItem.Text = "Thong Tin Hop Dong";
+            this.thongTinBuoiTToolStripMenuItem.Click += new System.EventHandler(this.thongTinBuoiTToolStripMenuItem_Click);
             // 
             // CheckinKhachVaoUC
             // 
@@ -899,5 +908,6 @@
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.ToolStripMenuItem thongTinPTToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem thongTinKHToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem thongTinBuoiTToolStripMenuItem;
     }
 }

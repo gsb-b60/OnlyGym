@@ -61,7 +61,42 @@ namespace DataAccess.Repo
             }
             return list;
         }
-        public void InsertHopDong(HopDong hopDong,List<PTSession> bookedList)
+        public HopDong GetBuyID(int id)
+        {
+            HopDong hd = new HopDong();
+
+            using (SqlConnection con = new SqlConnection(Ultilities.Ultilities.ConnectionString))
+            {
+                con.Open();
+                string query = "select * \r\nfrom vw_HopDongPT2 where vw_HopDongPT2.id=@i";
+                using (SqlCommand cmd = new SqlCommand(query, con))
+                {
+                    cmd.Parameters.Add("@i", SqlDbType.Int).Value = id;
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            hd = new HopDong
+                            {
+                                ID = reader.GetInt32(reader.GetOrdinal("id")),
+                                IDHocVien = reader.GetInt32(reader.GetOrdinal("ID_HocVien")),
+                                IDPT = reader.GetInt32(reader.GetOrdinal("ID_PT")),
+                                ID_PT_Package = reader.GetInt32(reader.GetOrdinal("IDPackage")),
+                                TongBuoi = reader.GetInt32(reader.GetOrdinal("tongBuoi")),
+                                ConBuoi = reader.GetInt32(reader.GetOrdinal("conBuoi")),
+                                TenHocVien = reader.GetString(reader.GetOrdinal("TenHocVien")),
+                                TenPT = reader.GetString(reader.GetOrdinal("TenPT")),
+                                TenGoi = reader.GetString(reader.GetOrdinal("TenGoi")),
+                                NgayTao = reader.GetDateTime(reader.GetOrdinal("NgayTao")),
+                                trangThai = (TrangThai)reader.GetInt32(reader.GetOrdinal("trangThai"))
+                            };
+                        }
+                    }
+                }
+            }
+            return hd;
+        }
+        public void InsertHopDong(HopDong hopDong, List<PTSession> bookedList)
         {
             int id;
             using (SqlConnection con = new SqlConnection(Ultilities.Ultilities.ConnectionString))
@@ -102,7 +137,7 @@ namespace DataAccess.Repo
                         // Input parameters
                         cmd.Parameters.Add("@id_HopDong", SqlDbType.Int).Value = id;
                         cmd.Parameters.Add("@tg_BatDau", SqlDbType.DateTime).Value = sess.TGBatDau;
-                        cmd.Parameters.Add("@tg_KetThuc", SqlDbType.Date).Value =  sess.TGBatDau?.AddHours(1.5);
+                        cmd.Parameters.Add("@tg_KetThuc", SqlDbType.Date).Value = sess.TGBatDau?.AddHours(1.5);
                         cmd.Parameters.Add("@trangThai", SqlDbType.Int).Value = 1;
 
                         // Optional parameters
@@ -125,13 +160,13 @@ namespace DataAccess.Repo
         }
         public void CancelContract(int id)
         {
-            using (SqlConnection con=new SqlConnection(Ultilities.Ultilities.ConnectionString))
+            using (SqlConnection con = new SqlConnection(Ultilities.Ultilities.ConnectionString))
             {
-                using (SqlCommand cmd=new SqlCommand("sp_CancelHopDong",con))
+                using (SqlCommand cmd = new SqlCommand("sp_CancelHopDong", con))
                 {
                     con.Open();
                     cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.Add("@idHopDong",SqlDbType.Int).Value=id;
+                    cmd.Parameters.Add("@idHopDong", SqlDbType.Int).Value = id;
                     cmd.ExecuteNonQuery();
                 }
             }

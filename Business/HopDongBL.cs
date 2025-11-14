@@ -27,5 +27,13 @@ namespace Business
             }    
            
         }
+        public HopDong GetByID(int id)
+        {
+            if(id!=-1)
+            {
+                return hopdonDA.GetBuyID(id);
+            }
+            return null;
+        }
     }
 }

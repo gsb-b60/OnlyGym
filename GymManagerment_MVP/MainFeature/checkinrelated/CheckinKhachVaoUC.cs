@@ -2,6 +2,7 @@
 using DataAccess.Object;
 using GymManagerment_MVP.Business;
 using GymManagerment_MVP.MainFeature.HoaDonRelated.PT;
+using GymManagerment_MVP.MainFeature.HoaDonRelated.PT.HopDongPT;
 using GymManagerment_MVP.MainFeature.Main;
 using System;
 using System.Collections.Generic;
@@ -462,6 +463,26 @@ namespace GymManagerment_MVP
                         HocVienBL hvbl = new HocVienBL();
                         HocVien hv = hvbl.GetByID(pTSession.hopDong.IDHocVien);
                         main.OpenHocVienUC(hv.code);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Không tìm thấy form chính (Mainfrm).", "Lỗi");
+                    }
+                }
+            }
+        }
+
+        private void thongTinBuoiTToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (dgvSession.SelectedRows.Count > 0)
+            {
+                PTSession pTSession = dgvSession.SelectedRows[0].DataBoundItem as PTSession;
+                if (pTSession != null)
+                {
+                    Mainfrm main = Application.OpenForms.OfType<Mainfrm>().FirstOrDefault();
+                    if (main != null)
+                    {
+                        main.loadUserControl(new ThongTinHopDongPTUC(pTSession.hopDong));
                     }
                     else
                     {
