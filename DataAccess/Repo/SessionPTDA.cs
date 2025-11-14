@@ -151,7 +151,8 @@ namespace Business
         {
             using (SqlConnection con=new SqlConnection(Ultilities.ConnectionString))
             {
-                using (SqlCommand cmd=new SqlCommand("UpdateState",con))
+            
+                using (SqlCommand cmd=new SqlCommand("[dbo].[sp_UpdateState]", con))
                 {
                     con.Open();
                     cmd.CommandType= CommandType.StoredProcedure;
