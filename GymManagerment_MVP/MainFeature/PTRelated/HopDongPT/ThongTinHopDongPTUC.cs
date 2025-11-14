@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Printing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,8 +18,8 @@ namespace GymManagerment_MVP.MainFeature.HoaDonRelated.PT.HopDongPT
     {
         public HopDong hd = new HopDong();
         public Business.PT pt = new Business.PT();
-        public HocVien hv=new HocVien();
-        public List<PTSession> sessions=new List<PTSession>();
+        public HocVien hv = new HocVien();
+        public List<PTSession> sessions = new List<PTSession>();
         public ThongTinHopDongPTUC()
         {
             InitializeComponent();
@@ -28,14 +29,18 @@ namespace GymManagerment_MVP.MainFeature.HoaDonRelated.PT.HopDongPT
 
             InitializeComponent();
             this.hd = hd;
+            setupHopDongInfor();
+        }
+        private void setupHopDongInfor()
+        {
             SessionBL sessionBL = new SessionBL();
             sessions = sessionBL.GetByHopDong(hd);
-            dgvDSBuoiTap.DataSource= sessions;
+            dgvDSBuoiTap.DataSource = sessions;
 
             PTRepositoryBL ptbl = new PTRepositoryBL();
-            this.pt= ptbl.GetPTByID(hd.IDPT);
+            this.pt = ptbl.GetPTByID(hd.IDPT);
 
-            HocVienBL hocVienBL= new HocVienBL();
+            HocVienBL hocVienBL = new HocVienBL();
             this.hv = hocVienBL.GetByID(hd.IDHocVien);
 
             khTen.Text = hv.Ten;
@@ -43,24 +48,23 @@ namespace GymManagerment_MVP.MainFeature.HoaDonRelated.PT.HopDongPT
             khID.Text = hv.id.ToString();
             KhSDT.Text = hv.SDT;
             khTrangThai.Text = hv.TrangThai;
-            khGioiTinh.Text = hv.GioiTinh?"Nam":"Nu";
+            khGioiTinh.Text = hv.GioiTinh ? "Nam" : "Nu";
 
-            btnHV.Tag= hv;
+            btnHV.Tag = hv;
 
-            ptTen.Text = pt.tenLot+" "+pt.name;
+            ptTen.Text = pt.tenLot + " " + pt.name;
             ptSDT.Text = pt.sDT;
             ptGender.Text = pt.gioiTinh == Gender.Male ? "Nam" : "Nu";
-            ptTuoi.Text = pt.ngaySinh!=null? (DateTime.Now.Year - pt.ngaySinh?.Year).ToString():"";
-            ptState.Text=pt.trangThai==State.Active?"Nhan them hoc vien":"ngung nhan hoc vien";
+            ptTuoi.Text = pt.ngaySinh != null ? (DateTime.Now.Year - pt.ngaySinh?.Year).ToString() : "";
+            ptState.Text = pt.trangThai == State.Active ? "Nhan them hoc vien" : "ngung nhan hoc vien";
 
-            btnPT.Tag= pt;
+            btnPT.Tag = pt;
 
             hdTongBuoi.Text = hd.TongBuoi.ToString();
             hdBuoicon.Text = hd.ConBuoi.ToString();
-            hdTrangThai.Text=hd.trangThai.ToString();
-            hdNgayTao.Text= hd.NgayTao.ToString();
+            hdTrangThai.Text = hd.trangThai.ToString();
+            hdNgayTao.Text = hd.NgayTao.ToString();
         }
-
         private void splitContainer1_Panel2_Paint(object sender, PaintEventArgs e)
         {
 
@@ -93,7 +97,7 @@ namespace GymManagerment_MVP.MainFeature.HoaDonRelated.PT.HopDongPT
 
         private void btnHV_Click(object sender, EventArgs e)
         {
-            if(btnHV.Tag!=null)
+            if (btnHV.Tag != null)
             {
                 Mainfrm main = Application.OpenForms.OfType<Mainfrm>().FirstOrDefault();
                 if (main != null)
@@ -109,7 +113,7 @@ namespace GymManagerment_MVP.MainFeature.HoaDonRelated.PT.HopDongPT
 
         private void btnPT_Click(object sender, EventArgs e)
         {
-            if(btnPT.Tag!=null)
+            if (btnPT.Tag != null)
             {
                 Mainfrm main = Application.OpenForms.OfType<Mainfrm>().FirstOrDefault();
                 if (main != null)
@@ -130,9 +134,9 @@ namespace GymManagerment_MVP.MainFeature.HoaDonRelated.PT.HopDongPT
 
         private void dgvDSBuoiTap_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if(dgvDSBuoiTap.SelectedRows.Count>0)
+            if (dgvDSBuoiTap.SelectedRows.Count > 0)
             {
-                PTSession sess= dgvDSBuoiTap.SelectedRows[0].DataBoundItem as PTSession;
+                PTSession sess = dgvDSBuoiTap.SelectedRows[0].DataBoundItem as PTSession;
 
                 lblTGBatDau.Text = sess.TGBatDau.ToString();
                 cbState.SelectedIndex = (int)sess.TrangThai;
@@ -143,7 +147,7 @@ namespace GymManagerment_MVP.MainFeature.HoaDonRelated.PT.HopDongPT
         public void ApplyFilter()
         {
             List<PTSession> re = sessions;
-            List<TrangThaiBuoi> filterlist= new List<TrangThaiBuoi>();
+            List<TrangThaiBuoi> filterlist = new List<TrangThaiBuoi>();
 
             if (cbBooked.Checked) filterlist.Add(TrangThaiBuoi.Booked);
             if (cbCheckIn.Checked) filterlist.Add(TrangThaiBuoi.Checkedin);
@@ -151,11 +155,11 @@ namespace GymManagerment_MVP.MainFeature.HoaDonRelated.PT.HopDongPT
             if (cbNoShow.Checked) filterlist.Add(TrangThaiBuoi.NoShow);
             if (cbPTfault.Checked) filterlist.Add(TrangThaiBuoi.PT_Fault);
 
-            if(filterlist.Count>0)
+            if (filterlist.Count > 0)
             {
                 re = re.Where(r => filterlist.Contains(r.TrangThai)).ToList();
             }
-            
+
 
             dgvDSBuoiTap.DataSource = re;
 
@@ -197,10 +201,10 @@ namespace GymManagerment_MVP.MainFeature.HoaDonRelated.PT.HopDongPT
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
-            cbBooked.Checked=false;
-            cbCheckIn.Checked=false;
-            cbDone.Checked=false;
-            cbNoShow.Checked=false;
+            cbBooked.Checked = false;
+            cbCheckIn.Checked = false;
+            cbDone.Checked = false;
+            cbNoShow.Checked = false;
             cbPTfault.Checked = false;
             ApplyFilter();
         }
@@ -235,6 +239,44 @@ namespace GymManagerment_MVP.MainFeature.HoaDonRelated.PT.HopDongPT
             }
 
             row.DefaultCellStyle.BackColor = color;
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            var result = MessageBox.Show(
+                "Bạn chắc chắn muốn dừng hợp đồng này?\n\n⚠️ Hành động này không thể hoàn tác.",
+                "Xác nhận hủy hợp đồng",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Warning,
+                MessageBoxDefaultButton.Button2
+            );
+
+            if (result == DialogResult.Yes)
+            {
+                if(hd!=null)
+                {
+                    HopDongBL hdbl = new HopDongBL();
+                    hdbl.CancelContract(hd.ID??-1);
+                    setupHopDongInfor();
+                }
+            }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            var result = MessageBox.Show(
+                "Bạn chắc chắn muốn hủy hợp đồng này?\n\n⚠️ Hành động này không thể hoàn tác.",
+                "Xác nhận hủy hợp đồng",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Warning,
+                MessageBoxDefaultButton.Button2
+            );
+
+            if (result == DialogResult.Yes)
+            {
+                // TODO: cancel hopdong here
+            }
+
         }
     }
 }

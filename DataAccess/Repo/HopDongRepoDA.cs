@@ -123,6 +123,18 @@ namespace DataAccess.Repo
 
             }
         }
-
+        public void CancelContract(int id)
+        {
+            using (SqlConnection con=new SqlConnection(Ultilities.Ultilities.ConnectionString))
+            {
+                using (SqlCommand cmd=new SqlCommand("sp_CancelHopDong",con))
+                {
+                    con.Open();
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Add("@idHopDong",SqlDbType.Int).Value=id;
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
     }
 }

@@ -106,7 +106,6 @@
             this.hdTongBuoi = new System.Windows.Forms.Label();
             this.hdBuoicon = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
             this.label18 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
@@ -831,7 +830,6 @@
             this.panel6.Controls.Add(this.hdTongBuoi);
             this.panel6.Controls.Add(this.hdBuoicon);
             this.panel6.Controls.Add(this.label12);
-            this.panel6.Controls.Add(this.button3);
             this.panel6.Controls.Add(this.label18);
             this.panel6.Controls.Add(this.label20);
             this.panel6.Controls.Add(this.label22);
@@ -897,15 +895,6 @@
             this.label12.TabIndex = 69;
             this.label12.Text = "Thong Tin Hop Dong";
             // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(318, 12);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 64;
-            this.button3.Text = "Dừng Gói";
-            this.button3.UseVisualStyleBackColor = true;
-            // 
             // label18
             // 
             this.label18.AutoSize = true;
@@ -941,6 +930,7 @@
             this.button4.TabIndex = 54;
             this.button4.Text = "Hủy Hợp Đồng";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // ThongTinHopDongPTUC
             // 
@@ -1037,7 +1027,6 @@
         private System.Windows.Forms.Label ptState;
         private System.Windows.Forms.Label label31;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label22;

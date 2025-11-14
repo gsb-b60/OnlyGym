@@ -19,5 +19,13 @@ namespace Business
         {
             hopdonDA.InsertHopDong(hopDong, bookedList);
         }
+        public void CancelContract(int id)
+        {
+            if(id!=-1)
+            {
+                hopdonDA.CancelContract(id);
+            }    
+           
+        }
     }
 }
