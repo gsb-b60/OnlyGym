@@ -130,7 +130,7 @@ namespace GymManagerment_MVP
             lblStatus.Text = hvPara.TrangThai;
             btnChiTiet.Tag = hvPara.code;
             dtpVao.Value = DateTime.Now;
-
+            rtbNote.Text = "";
 
             int lancheckin = cibl.InsertCheckIn(cv);
             lblCheckintimes.Text = lancheckin.ToString();
@@ -288,6 +288,7 @@ namespace GymManagerment_MVP
                 CheckIn cv = dgvCheckIns.SelectedRows[0].DataBoundItem as CheckIn;
                 if (cv != null)
                 {
+                    pnCheckin.Visible = true;
                     cbAllow.Checked = cv.HopLe;
                     lblLyDo.Text =cv.HopLe? "Hop Le":"Het Han Goi";
                     lblCheckintimes.ForeColor = cv.HopLe ? Color.Black:Color.Red;
@@ -303,6 +304,7 @@ namespace GymManagerment_MVP
                     lblCheckintimes.Text = cv.LanCheckIn.ToString();
                     btnCapNhat.Tag = cv.ID;
                     btnCapNhat.Enabled=true;
+                    rtbNote.Text = cv.GhiChu;
                 }
             }
         }
@@ -311,7 +313,10 @@ namespace GymManagerment_MVP
         {
             if(btnCapNhat.Tag!=null)
             {
-                MessageBox.Show(btnCapNhat.Tag.ToString());
+                CheckInBL cibl = new CheckInBL();
+                int id = Convert.ToInt32(btnCapNhat.Tag);
+                cibl.UpdateNote(rtbNote.Text, id);
+                LoadCheckIn();
             }
         }
     }

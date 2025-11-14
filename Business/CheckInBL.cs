@@ -9,10 +9,15 @@ using System.Threading.Tasks;
 
 namespace Business
 {
+
     public class CheckInBL
     {
         CheckInDA ciDA = new CheckInDA();
         HocVienDA hocVienDA=new HocVienDA();
+        public void UpdateNote(string note, int id)
+        {
+            ciDA.UpdateNote(note, id);
+        }
         public int InsertCheckIn(CheckIn cv)
         {
             return ciDA.insertCheckIn(cv);

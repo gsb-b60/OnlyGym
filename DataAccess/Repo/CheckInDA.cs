@@ -110,5 +110,19 @@ namespace DataAccess.Repo
             }
             return lan;
         }
+        public void UpdateNote(string note, int id)
+        {
+            using (SqlConnection con = new SqlConnection(Ultilities.Ultilities.ConnectionString))
+            {
+                string query = "update CheckIn\r\nset ghiChu=@gc\r\nwhere ID=@ID";
+                using (SqlCommand cmd = new SqlCommand(query, con))
+                {
+                    con.Open();
+                    cmd.Parameters.Add("@ID", SqlDbType.Int).Value = id;
+                    cmd.Parameters.Add("@gc", SqlDbType.NVarChar).Value = note;
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
     }
 }

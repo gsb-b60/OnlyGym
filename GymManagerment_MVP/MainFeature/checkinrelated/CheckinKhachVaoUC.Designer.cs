@@ -61,7 +61,6 @@
             this.btndisappear = new System.Windows.Forms.Button();
             this.lblDateDu = new System.Windows.Forms.Label();
             this.lblStatus = new System.Windows.Forms.Label();
-            this.lblTapG = new System.Windows.Forms.Label();
             this.lblPhone = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
             this.dtpVao = new System.Windows.Forms.DateTimePicker();
@@ -71,18 +70,14 @@
             this.lblLyDo = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.cbAllow = new System.Windows.Forms.CheckBox();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.rtbNote = new System.Windows.Forms.RichTextBox();
             this.lblGhiChu = new System.Windows.Forms.Label();
             this.btnGiaHan = new System.Windows.Forms.Button();
             this.btnChiTiet = new System.Windows.Forms.Button();
-            this.lblGoiToi = new System.Windows.Forms.Label();
             this.lblGioVao = new System.Windows.Forms.Label();
-            this.lblSoNgayCon = new System.Windows.Forms.Label();
-            this.dtpGoiToi = new System.Windows.Forms.DateTimePicker();
             this.lblTinhTrang = new System.Windows.Forms.Label();
             this.lblTen = new System.Windows.Forms.Label();
             this.lblSDT = new System.Windows.Forms.Label();
-            this.lblGoiTap = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.chEND = new System.Windows.Forms.CheckBox();
@@ -91,6 +86,7 @@
             this.btnXoa = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dgvCheckIns = new System.Windows.Forms.DataGridView();
+            this.btnCapNhat = new System.Windows.Forms.Button();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -100,7 +96,7 @@
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnCapNhat = new System.Windows.Forms.Button();
+            this.lblSoNgayCon = new System.Windows.Forms.Label();
             this.groupThongTin.SuspendLayout();
             this.panel2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -382,21 +378,17 @@
             this.pnCheckin.Controls.Add(this.btndisappear);
             this.pnCheckin.Controls.Add(this.lblDateDu);
             this.pnCheckin.Controls.Add(this.lblStatus);
-            this.pnCheckin.Controls.Add(this.lblTapG);
             this.pnCheckin.Controls.Add(this.lblPhone);
             this.pnCheckin.Controls.Add(this.lblName);
             this.pnCheckin.Controls.Add(this.dtpVao);
             this.pnCheckin.Controls.Add(this.gbKetQuaCheckin);
             this.pnCheckin.Controls.Add(this.btnGiaHan);
             this.pnCheckin.Controls.Add(this.btnChiTiet);
-            this.pnCheckin.Controls.Add(this.lblGoiToi);
             this.pnCheckin.Controls.Add(this.lblGioVao);
             this.pnCheckin.Controls.Add(this.lblSoNgayCon);
-            this.pnCheckin.Controls.Add(this.dtpGoiToi);
             this.pnCheckin.Controls.Add(this.lblTinhTrang);
             this.pnCheckin.Controls.Add(this.lblTen);
             this.pnCheckin.Controls.Add(this.lblSDT);
-            this.pnCheckin.Controls.Add(this.lblGoiTap);
             this.pnCheckin.Controls.Add(this.pictureBox1);
             this.pnCheckin.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnCheckin.Location = new System.Drawing.Point(3, 16);
@@ -418,7 +410,7 @@
             // lblDateDu
             // 
             this.lblDateDu.AutoSize = true;
-            this.lblDateDu.Location = new System.Drawing.Point(312, 144);
+            this.lblDateDu.Location = new System.Drawing.Point(312, 115);
             this.lblDateDu.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblDateDu.Name = "lblDateDu";
             this.lblDateDu.Size = new System.Drawing.Size(0, 13);
@@ -427,20 +419,11 @@
             // lblStatus
             // 
             this.lblStatus.AutoSize = true;
-            this.lblStatus.Location = new System.Drawing.Point(312, 118);
+            this.lblStatus.Location = new System.Drawing.Point(312, 89);
             this.lblStatus.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblStatus.Name = "lblStatus";
             this.lblStatus.Size = new System.Drawing.Size(0, 13);
             this.lblStatus.TabIndex = 44;
-            // 
-            // lblTapG
-            // 
-            this.lblTapG.AutoSize = true;
-            this.lblTapG.Location = new System.Drawing.Point(312, 89);
-            this.lblTapG.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblTapG.Name = "lblTapG";
-            this.lblTapG.Size = new System.Drawing.Size(0, 13);
-            this.lblTapG.TabIndex = 44;
             // 
             // lblPhone
             // 
@@ -464,7 +447,7 @@
             // 
             this.dtpVao.CustomFormat = "HH:mm dd/MM/yyyy";
             this.dtpVao.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpVao.Location = new System.Drawing.Point(315, 169);
+            this.dtpVao.Location = new System.Drawing.Point(315, 142);
             this.dtpVao.Name = "dtpVao";
             this.dtpVao.Size = new System.Drawing.Size(200, 20);
             this.dtpVao.TabIndex = 38;
@@ -477,7 +460,7 @@
             this.gbKetQuaCheckin.Controls.Add(this.lblLyDo);
             this.gbKetQuaCheckin.Controls.Add(this.label1);
             this.gbKetQuaCheckin.Controls.Add(this.cbAllow);
-            this.gbKetQuaCheckin.Controls.Add(this.richTextBox1);
+            this.gbKetQuaCheckin.Controls.Add(this.rtbNote);
             this.gbKetQuaCheckin.Controls.Add(this.lblGhiChu);
             this.gbKetQuaCheckin.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.gbKetQuaCheckin.Location = new System.Drawing.Point(0, 271);
@@ -533,13 +516,13 @@
             this.cbAllow.Text = "Hợp Lệ";
             this.cbAllow.UseVisualStyleBackColor = true;
             // 
-            // richTextBox1
+            // rtbNote
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(73, 147);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(442, 36);
-            this.richTextBox1.TabIndex = 14;
-            this.richTextBox1.Text = "";
+            this.rtbNote.Location = new System.Drawing.Point(73, 147);
+            this.rtbNote.Name = "rtbNote";
+            this.rtbNote.Size = new System.Drawing.Size(442, 36);
+            this.rtbNote.TabIndex = 14;
+            this.rtbNote.Text = "";
             // 
             // lblGhiChu
             // 
@@ -570,46 +553,19 @@
             this.btnChiTiet.UseVisualStyleBackColor = true;
             this.btnChiTiet.Click += new System.EventHandler(this.btnChiTiet_Click_1);
             // 
-            // lblGoiToi
-            // 
-            this.lblGoiToi.AutoSize = true;
-            this.lblGoiToi.Location = new System.Drawing.Point(230, 198);
-            this.lblGoiToi.Name = "lblGoiToi";
-            this.lblGoiToi.Size = new System.Drawing.Size(41, 13);
-            this.lblGoiToi.TabIndex = 36;
-            this.lblGoiToi.Text = "Gói Tới";
-            // 
             // lblGioVao
             // 
             this.lblGioVao.AutoSize = true;
-            this.lblGioVao.Location = new System.Drawing.Point(230, 172);
+            this.lblGioVao.Location = new System.Drawing.Point(230, 145);
             this.lblGioVao.Name = "lblGioVao";
             this.lblGioVao.Size = new System.Drawing.Size(45, 13);
             this.lblGioVao.TabIndex = 34;
             this.lblGioVao.Text = "Giờ Vào";
             // 
-            // lblSoNgayCon
-            // 
-            this.lblSoNgayCon.AutoSize = true;
-            this.lblSoNgayCon.Location = new System.Drawing.Point(230, 144);
-            this.lblSoNgayCon.Name = "lblSoNgayCon";
-            this.lblSoNgayCon.Size = new System.Drawing.Size(70, 13);
-            this.lblSoNgayCon.TabIndex = 32;
-            this.lblSoNgayCon.Text = "Số Ngày Còn";
-            // 
-            // dtpGoiToi
-            // 
-            this.dtpGoiToi.CustomFormat = "dd/MM/yyyy";
-            this.dtpGoiToi.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpGoiToi.Location = new System.Drawing.Point(315, 195);
-            this.dtpGoiToi.Name = "dtpGoiToi";
-            this.dtpGoiToi.Size = new System.Drawing.Size(200, 20);
-            this.dtpGoiToi.TabIndex = 39;
-            // 
             // lblTinhTrang
             // 
             this.lblTinhTrang.AutoSize = true;
-            this.lblTinhTrang.Location = new System.Drawing.Point(230, 118);
+            this.lblTinhTrang.Location = new System.Drawing.Point(230, 89);
             this.lblTinhTrang.Name = "lblTinhTrang";
             this.lblTinhTrang.Size = new System.Drawing.Size(59, 13);
             this.lblTinhTrang.TabIndex = 33;
@@ -632,15 +588,6 @@
             this.lblSDT.Size = new System.Drawing.Size(29, 13);
             this.lblSDT.TabIndex = 35;
             this.lblSDT.Text = "SDT";
-            // 
-            // lblGoiTap
-            // 
-            this.lblGoiTap.AutoSize = true;
-            this.lblGoiTap.Location = new System.Drawing.Point(230, 89);
-            this.lblGoiTap.Name = "lblGoiTap";
-            this.lblGoiTap.Size = new System.Drawing.Size(50, 13);
-            this.lblGoiTap.TabIndex = 40;
-            this.lblGoiTap.Text = "GÓI TẬP";
             // 
             // pictureBox1
             // 
@@ -740,6 +687,17 @@
             this.dgvCheckIns.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCheckIns_CellClick);
             this.dgvCheckIns.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCheckIns_CellContentClick);
             // 
+            // btnCapNhat
+            // 
+            this.btnCapNhat.Enabled = false;
+            this.btnCapNhat.Location = new System.Drawing.Point(440, 186);
+            this.btnCapNhat.Name = "btnCapNhat";
+            this.btnCapNhat.Size = new System.Drawing.Size(75, 23);
+            this.btnCapNhat.TabIndex = 49;
+            this.btnCapNhat.Text = "Cap Nhat";
+            this.btnCapNhat.UseVisualStyleBackColor = true;
+            this.btnCapNhat.Click += new System.EventHandler(this.btnCapNhat_Click);
+            // 
             // ID
             // 
             this.ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
@@ -798,6 +756,7 @@
             // 
             // Column6
             // 
+            this.Column6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.Column6.DataPropertyName = "GhiChu";
             this.Column6.HeaderText = "Ghi Chu";
             this.Column6.Name = "Column6";
@@ -809,16 +768,14 @@
             this.Column8.Name = "Column8";
             this.Column8.Visible = false;
             // 
-            // btnCapNhat
+            // lblSoNgayCon
             // 
-            this.btnCapNhat.Enabled = false;
-            this.btnCapNhat.Location = new System.Drawing.Point(440, 186);
-            this.btnCapNhat.Name = "btnCapNhat";
-            this.btnCapNhat.Size = new System.Drawing.Size(75, 23);
-            this.btnCapNhat.TabIndex = 49;
-            this.btnCapNhat.Text = "Cap Nhat";
-            this.btnCapNhat.UseVisualStyleBackColor = true;
-            this.btnCapNhat.Click += new System.EventHandler(this.btnCapNhat_Click);
+            this.lblSoNgayCon.AutoSize = true;
+            this.lblSoNgayCon.Location = new System.Drawing.Point(230, 115);
+            this.lblSoNgayCon.Name = "lblSoNgayCon";
+            this.lblSoNgayCon.Size = new System.Drawing.Size(70, 13);
+            this.lblSoNgayCon.TabIndex = 32;
+            this.lblSoNgayCon.Text = "Số Ngày Còn";
             // 
             // CheckinKhachVaoUC
             // 
@@ -854,17 +811,13 @@
         private System.Windows.Forms.GroupBox gbKetQuaCheckin;
         private System.Windows.Forms.Panel pnCheckin;
         private System.Windows.Forms.DateTimePicker dtpVao;
-        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.RichTextBox rtbNote;
         private System.Windows.Forms.Label lblGhiChu;
         private System.Windows.Forms.Button btnChiTiet;
-        private System.Windows.Forms.Label lblGoiToi;
         private System.Windows.Forms.Label lblGioVao;
-        private System.Windows.Forms.Label lblSoNgayCon;
-        private System.Windows.Forms.DateTimePicker dtpGoiToi;
         private System.Windows.Forms.Label lblTinhTrang;
         private System.Windows.Forms.Label lblTen;
         private System.Windows.Forms.Label lblSDT;
-        private System.Windows.Forms.Label lblGoiTap;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label lblLyDo;
@@ -888,22 +841,12 @@
         private System.Windows.Forms.Button btnXoa;
         private System.Windows.Forms.Label lblDateDu;
         private System.Windows.Forms.Label lblStatus;
-        private System.Windows.Forms.Label lblTapG;
         private System.Windows.Forms.Label lblPhone;
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.Button btnFakeCheckin;
         private System.Windows.Forms.Label lblCheckintimes;
         private System.Windows.Forms.DataGridView dgvSession;
         private System.Windows.Forms.DataGridView dgvCheckIns;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column19;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column17;
@@ -921,5 +864,15 @@
         private System.Windows.Forms.Button btndisappear;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button btnCapNhat;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
+        private System.Windows.Forms.Label lblSoNgayCon;
     }
 }
