@@ -97,6 +97,7 @@
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblSoNgayCon = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             this.groupThongTin.SuspendLayout();
             this.panel2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -117,7 +118,7 @@
             this.groupThongTin.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupThongTin.Location = new System.Drawing.Point(0, 0);
             this.groupThongTin.Name = "groupThongTin";
-            this.groupThongTin.Size = new System.Drawing.Size(1264, 507);
+            this.groupThongTin.Size = new System.Drawing.Size(1264, 446);
             this.groupThongTin.TabIndex = 7;
             this.groupThongTin.TabStop = false;
             this.groupThongTin.Text = "Thông tin học viên";
@@ -129,7 +130,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(539, 16);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(722, 488);
+            this.panel2.Size = new System.Drawing.Size(722, 427);
             this.panel2.TabIndex = 10;
             // 
             // groupBox1
@@ -145,7 +146,7 @@
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(720, 486);
+            this.groupBox1.Size = new System.Drawing.Size(720, 425);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Ca Tập Tiếp Theo";
@@ -242,10 +243,10 @@
             this.Column16});
             this.dgvSession.ContextMenuStrip = this.contextMenuStrip1;
             this.dgvSession.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dgvSession.Location = new System.Drawing.Point(3, 89);
+            this.dgvSession.Location = new System.Drawing.Point(3, 99);
             this.dgvSession.Name = "dgvSession";
             this.dgvSession.RowHeadersWidth = 62;
-            this.dgvSession.Size = new System.Drawing.Size(714, 394);
+            this.dgvSession.Size = new System.Drawing.Size(714, 323);
             this.dgvSession.TabIndex = 0;
             this.dgvSession.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvSession_CellFormatting);
             this.dgvSession.RowPrePaint += new System.Windows.Forms.DataGridViewRowPrePaintEventHandler(this.dgvSession_RowPrePaint);
@@ -346,7 +347,7 @@
             this.pTTrễToolStripMenuItem,
             this.kháchTrễToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 114);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(127, 92);
             // 
             // bắtĐầuToolStripMenuItem
             // 
@@ -397,7 +398,7 @@
             this.pnCheckin.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnCheckin.Location = new System.Drawing.Point(3, 16);
             this.pnCheckin.Name = "pnCheckin";
-            this.pnCheckin.Size = new System.Drawing.Size(536, 488);
+            this.pnCheckin.Size = new System.Drawing.Size(536, 427);
             this.pnCheckin.TabIndex = 9;
             this.pnCheckin.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
@@ -467,16 +468,16 @@
             this.gbKetQuaCheckin.Controls.Add(this.rtbNote);
             this.gbKetQuaCheckin.Controls.Add(this.lblGhiChu);
             this.gbKetQuaCheckin.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.gbKetQuaCheckin.Location = new System.Drawing.Point(0, 271);
+            this.gbKetQuaCheckin.Location = new System.Drawing.Point(0, 276);
             this.gbKetQuaCheckin.Name = "gbKetQuaCheckin";
-            this.gbKetQuaCheckin.Size = new System.Drawing.Size(534, 215);
+            this.gbKetQuaCheckin.Size = new System.Drawing.Size(534, 149);
             this.gbKetQuaCheckin.TabIndex = 8;
             this.gbKetQuaCheckin.TabStop = false;
             this.gbKetQuaCheckin.Text = "kết quả check in";
             // 
             // lblCheckintimes
             // 
-            this.lblCheckintimes.Location = new System.Drawing.Point(125, 66);
+            this.lblCheckintimes.Location = new System.Drawing.Point(224, 27);
             this.lblCheckintimes.Name = "lblCheckintimes";
             this.lblCheckintimes.Size = new System.Drawing.Size(71, 23);
             this.lblCheckintimes.TabIndex = 48;
@@ -485,7 +486,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(26, 71);
+            this.label3.Location = new System.Drawing.Point(125, 32);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(93, 13);
             this.label3.TabIndex = 46;
@@ -494,7 +495,7 @@
             // lblLyDo
             // 
             this.lblLyDo.AutoSize = true;
-            this.lblLyDo.Location = new System.Drawing.Point(85, 108);
+            this.lblLyDo.Location = new System.Drawing.Point(99, 60);
             this.lblLyDo.Name = "lblLyDo";
             this.lblLyDo.Size = new System.Drawing.Size(190, 13);
             this.lblLyDo.TabIndex = 45;
@@ -503,7 +504,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(29, 108);
+            this.label1.Location = new System.Drawing.Point(43, 60);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(38, 13);
             this.label1.TabIndex = 44;
@@ -522,7 +523,7 @@
             // 
             // rtbNote
             // 
-            this.rtbNote.Location = new System.Drawing.Point(73, 147);
+            this.rtbNote.Location = new System.Drawing.Point(73, 76);
             this.rtbNote.Name = "rtbNote";
             this.rtbNote.Size = new System.Drawing.Size(442, 36);
             this.rtbNote.TabIndex = 14;
@@ -531,7 +532,7 @@
             // lblGhiChu
             // 
             this.lblGhiChu.AutoSize = true;
-            this.lblGhiChu.Location = new System.Drawing.Point(6, 147);
+            this.lblGhiChu.Location = new System.Drawing.Point(6, 76);
             this.lblGhiChu.Name = "lblGhiChu";
             this.lblGhiChu.Size = new System.Drawing.Size(45, 13);
             this.lblGhiChu.TabIndex = 13;
@@ -611,10 +612,10 @@
             this.panel3.Controls.Add(this.btnXoa);
             this.panel3.Controls.Add(this.groupBox2);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(0, 507);
+            this.panel3.Location = new System.Drawing.Point(0, 446);
             this.panel3.Name = "panel3";
             this.panel3.Padding = new System.Windows.Forms.Padding(100, 0, 100, 0);
-            this.panel3.Size = new System.Drawing.Size(1264, 196);
+            this.panel3.Size = new System.Drawing.Size(1264, 257);
             this.panel3.TabIndex = 8;
             this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
             // 
@@ -661,11 +662,12 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.textBox2);
             this.groupBox2.Controls.Add(this.dgvCheckIns);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Right;
             this.groupBox2.Location = new System.Drawing.Point(210, 0);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(950, 192);
+            this.groupBox2.Size = new System.Drawing.Size(950, 253);
             this.groupBox2.TabIndex = 49;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Lich Su Tap";
@@ -683,10 +685,10 @@
             this.Column5,
             this.Column6,
             this.Column8});
-            this.dgvCheckIns.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvCheckIns.Location = new System.Drawing.Point(3, 16);
+            this.dgvCheckIns.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.dgvCheckIns.Location = new System.Drawing.Point(3, 50);
             this.dgvCheckIns.Name = "dgvCheckIns";
-            this.dgvCheckIns.Size = new System.Drawing.Size(944, 173);
+            this.dgvCheckIns.Size = new System.Drawing.Size(944, 200);
             this.dgvCheckIns.TabIndex = 0;
             this.dgvCheckIns.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCheckIns_CellClick);
             this.dgvCheckIns.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCheckIns_CellContentClick);
@@ -694,7 +696,7 @@
             // btnCapNhat
             // 
             this.btnCapNhat.Enabled = false;
-            this.btnCapNhat.Location = new System.Drawing.Point(440, 186);
+            this.btnCapNhat.Location = new System.Drawing.Point(440, 115);
             this.btnCapNhat.Name = "btnCapNhat";
             this.btnCapNhat.Size = new System.Drawing.Size(75, 23);
             this.btnCapNhat.TabIndex = 49;
@@ -781,6 +783,14 @@
             this.lblSoNgayCon.TabIndex = 32;
             this.lblSoNgayCon.Text = "Số Ngày Còn";
             // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(107, 16);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(453, 20);
+            this.textBox2.TabIndex = 1;
+            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
+            // 
             // CheckinKhachVaoUC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -804,6 +814,7 @@
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCheckIns)).EndInit();
             this.ResumeLayout(false);
 
@@ -878,5 +889,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
         private System.Windows.Forms.Label lblSoNgayCon;
+        private System.Windows.Forms.TextBox textBox2;
     }
 }

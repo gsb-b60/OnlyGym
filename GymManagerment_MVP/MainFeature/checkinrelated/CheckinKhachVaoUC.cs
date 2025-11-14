@@ -49,7 +49,7 @@ namespace GymManagerment_MVP
             CheckInBL cibl = new CheckInBL();
             list = cibl.GetDailyCheckin();
             dgvCheckIns.DataSource = list.OrderByDescending(c => c.ThoiGianCheckIn).ToList();
-            
+
         }
         private void pictureBox1_Click(object sender, EventArgs e)
         {
@@ -81,7 +81,7 @@ namespace GymManagerment_MVP
             hv = null;
             HocVienBL hvbl = new HocVienBL();
             hv = hvbl.GetByCode(code);
-            pnCheckin.Visible=true;
+            pnCheckin.Visible = true;
             HienThiHocVien(hv);
 
         }
@@ -200,6 +200,17 @@ namespace GymManagerment_MVP
             {
                 re = re.Where((cv) => cv.HopLe == true).ToList();
             }
+            if (textBox2.Text != "")
+            {
+                var keyword = textBox2.Text.Trim();
+                if (!string.IsNullOrEmpty(keyword))
+                {
+                    re = re.Where(cv =>
+       (cv.TenHocVien ?? "").IndexOf(keyword, StringComparison.OrdinalIgnoreCase) >= 0 ||
+       (cv.GhiChu ?? "").IndexOf(keyword, StringComparison.OrdinalIgnoreCase) >= 0
+   ).ToList();
+                }
+            }
 
             dgvCheckIns.DataSource = re.OrderByDescending(c => c.ThoiGianCheckIn).ToList();
         }
@@ -271,7 +282,7 @@ namespace GymManagerment_MVP
 
         private void btndisappear_Click(object sender, EventArgs e)
         {
-            pnCheckin.Visible= false;
+            pnCheckin.Visible = false;
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -281,7 +292,7 @@ namespace GymManagerment_MVP
 
         private void dgvCheckIns_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            
+
         }
 
         private void dgvCheckIns_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -293,8 +304,8 @@ namespace GymManagerment_MVP
                 {
                     pnCheckin.Visible = true;
                     cbAllow.Checked = cv.HopLe;
-                    lblLyDo.Text =cv.HopLe? "Hop Le":"Het Han Goi";
-                    lblCheckintimes.ForeColor = cv.HopLe ? Color.Black:Color.Red;
+                    lblLyDo.Text = cv.HopLe ? "Hop Le" : "Het Han Goi";
+                    lblCheckintimes.ForeColor = cv.HopLe ? Color.Black : Color.Red;
                     lblLyDo.ForeColor = cv.HopLe ? Color.Black : Color.Red;
 
                     lblName.Text = cv.HocVien.Ten;
@@ -306,7 +317,7 @@ namespace GymManagerment_MVP
 
                     lblCheckintimes.Text = cv.LanCheckIn.ToString();
                     btnCapNhat.Tag = cv.ID;
-                    btnCapNhat.Enabled=true;
+                    btnCapNhat.Enabled = true;
                     rtbNote.Text = cv.GhiChu;
                 }
             }
@@ -314,7 +325,7 @@ namespace GymManagerment_MVP
 
         private void btnCapNhat_Click(object sender, EventArgs e)
         {
-            if(btnCapNhat.Tag!=null)
+            if (btnCapNhat.Tag != null)
             {
                 CheckInBL cibl = new CheckInBL();
                 int id = Convert.ToInt32(btnCapNhat.Tag);
@@ -334,7 +345,7 @@ namespace GymManagerment_MVP
                 PTSession pTSession = dgvSession.SelectedRows[0].DataBoundItem as PTSession;
                 if (pTSession != null)
                 {
-                    int id =(int)pTSession.ID;
+                    int id = (int)pTSession.ID;
                     SessionBL sessionBL = new SessionBL();
                     sessionBL.manualUpdateState(id, state);
                     LoadSession();
@@ -356,6 +367,11 @@ namespace GymManagerment_MVP
         private void bắtĐầuToolStripMenuItem_Click(object sender, EventArgs e)
         {
             UpdateSession(2);
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+            ApplyFilter();
         }
     }
 }

@@ -34,7 +34,7 @@ namespace GymManagerment_MVP
             InitializeComponent();
             this.user= user;
             this.MinimumSize = new Size(1280, 800);
-            loadUserControl(new MuaHang());
+            loadUserControl(new CheckinKhachVaoUC());
             // Test Form
             lblAccName.Text = user.TenTK;
             lblChucVu.Text = user.TrangThai.ToString();
