@@ -44,6 +44,9 @@ namespace Business
         {
             sessDa.SetStateSesssion();
         }
-       
+        public void manualUpdateState(int id, int state)
+        {
+            sessDa.UpdateStateSess(id, state);
+        }
     }
 }

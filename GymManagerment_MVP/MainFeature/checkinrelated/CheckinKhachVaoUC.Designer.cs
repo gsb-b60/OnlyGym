@@ -346,31 +346,35 @@
             this.pTTrễToolStripMenuItem,
             this.kháchTrễToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(127, 92);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 114);
             // 
             // bắtĐầuToolStripMenuItem
             // 
             this.bắtĐầuToolStripMenuItem.Name = "bắtĐầuToolStripMenuItem";
-            this.bắtĐầuToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
+            this.bắtĐầuToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.bắtĐầuToolStripMenuItem.Text = "Bắt Đầu";
+            this.bắtĐầuToolStripMenuItem.Click += new System.EventHandler(this.bắtĐầuToolStripMenuItem_Click);
             // 
             // hủyToolStripMenuItem
             // 
             this.hủyToolStripMenuItem.Name = "hủyToolStripMenuItem";
-            this.hủyToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
+            this.hủyToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.hủyToolStripMenuItem.Text = "Hủy";
+            this.hủyToolStripMenuItem.Click += new System.EventHandler(this.hủyToolStripMenuItem_Click);
             // 
             // pTTrễToolStripMenuItem
             // 
             this.pTTrễToolStripMenuItem.Name = "pTTrễToolStripMenuItem";
-            this.pTTrễToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
+            this.pTTrễToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.pTTrễToolStripMenuItem.Text = "PT Trễ";
+            this.pTTrễToolStripMenuItem.Click += new System.EventHandler(this.pTTrễToolStripMenuItem_Click);
             // 
             // kháchTrễToolStripMenuItem
             // 
             this.kháchTrễToolStripMenuItem.Name = "kháchTrễToolStripMenuItem";
-            this.kháchTrễToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
+            this.kháchTrễToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.kháchTrễToolStripMenuItem.Text = "Khách Trễ";
+            this.kháchTrễToolStripMenuItem.Click += new System.EventHandler(this.kháchTrễToolStripMenuItem_Click);
             // 
             // pnCheckin
             // 

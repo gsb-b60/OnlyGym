@@ -218,29 +218,32 @@ namespace GymManagerment_MVP
         {
             PTSession sess = dgvSession.Rows[e.RowIndex].DataBoundItem as PTSession;
             DataGridViewRow row = dgvSession.Rows[e.RowIndex];
+            if (sess == null) return;
+
+            Color color = Color.White; // default
+
             var now = DateTime.Now;
             var tgkt = sess.TGBatDau?.AddHours(1.5);
             var untilStart = sess.TGBatDau - now;
-            if (sess != null)
-            {
-                if (sess.TGBatDau <= now && now <= tgkt)
-                {
-                    row.DefaultCellStyle.BackColor = Color.Green;
-                }
-                if (untilStart?.TotalMinutes > 0 && untilStart?.TotalMinutes <= 30)
-                {
-                    row.DefaultCellStyle.BackColor = Color.Gold;
-                    return;
-                }
 
-                // 3. Đã kết thúc → XÁM
-                if (tgkt < now)
-                {
-                    row.DefaultCellStyle.BackColor = Color.LightGray;
-                    return;
-                }
+            // 1️⃣ Ưu tiên trạng thái đặc biệt
+            switch (sess.TrangThai)
+            {
+                case (TrangThaiBuoi)2: color = Color.Green; break;
+                case (TrangThaiBuoi)3: color = Color.LightGray; break; // đã kết thúc
+                case (TrangThaiBuoi)4: color = Color.OrangeRed; break;  // client not showing
+                case (TrangThaiBuoi)5: color = Color.Gray; break;       // cancelled
+                case (TrangThaiBuoi)6: color = Color.Purple; break;     // pt fault
+                default:
+                    // 2️⃣ Buổi đang diễn ra
+                    if (sess.TGBatDau <= now && now <= tgkt) color = Color.Green;
+
+                    // 3️⃣ Sắp bắt đầu trong 30 phút
+                    else if (untilStart?.TotalMinutes > 0 && untilStart?.TotalMinutes <= 30) color = Color.Gold;
+                    break;
             }
 
+            row.DefaultCellStyle.BackColor = color;
         }
 
         private void radioButton2_CheckedChanged(object sender, EventArgs e)
@@ -318,6 +321,41 @@ namespace GymManagerment_MVP
                 cibl.UpdateNote(rtbNote.Text, id);
                 LoadCheckIn();
             }
+        }
+
+        private void pTTrễToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            UpdateSession(6);
+        }
+        public void UpdateSession(int state)
+        {
+            if (dgvSession.SelectedRows.Count > 0)
+            {
+                PTSession pTSession = dgvSession.SelectedRows[0].DataBoundItem as PTSession;
+                if (pTSession != null)
+                {
+                    int id =(int)pTSession.ID;
+                    SessionBL sessionBL = new SessionBL();
+                    sessionBL.manualUpdateState(id, state);
+                    LoadSession();
+                    Applylist();
+                }
+            }
+        }
+
+        private void kháchTrễToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            UpdateSession(4);
+        }
+
+        private void hủyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            UpdateSession(5);
+        }
+
+        private void bắtĐầuToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            UpdateSession(2);
         }
     }
 }

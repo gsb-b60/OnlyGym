@@ -12,6 +12,20 @@ namespace Business
 {
     public class SessionPTDA
     {
+        public void UpdateStateSess(int id ,int state)
+        {
+            using (SqlConnection con=new SqlConnection(Ultilities.ConnectionString))
+            {
+                string query = "\r\nupdate buoiTapPT\r\nset trangThai=@s\r\nwhere pub=@i";
+                using (SqlCommand cmd =new SqlCommand(query,con))
+                {
+                    con.Open();
+                    cmd.Parameters.Add("@s", SqlDbType.Int).Value = state;
+                    cmd.Parameters.Add("@i",SqlDbType.Int).Value=id;
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
         public List<PTSession> GetByHD(int HopDongID)
         {
             List<PTSession> list = new List<PTSession>();
