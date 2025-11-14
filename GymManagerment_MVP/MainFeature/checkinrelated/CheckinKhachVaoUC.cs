@@ -1,6 +1,7 @@
 ﻿using Business;
 using DataAccess.Object;
 using GymManagerment_MVP.Business;
+using GymManagerment_MVP.MainFeature.HoaDonRelated.PT;
 using GymManagerment_MVP.MainFeature.Main;
 using System;
 using System.Collections.Generic;
@@ -12,6 +13,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.AxHost;
 
 namespace GymManagerment_MVP
 {
@@ -398,6 +400,55 @@ namespace GymManagerment_MVP
         {
             textBox1.Text = "";
             Applylist();
+        }
+
+        private void contextMenuStrip1_Opening(object sender, CancelEventArgs e)
+        {
+
+        }
+
+        private void thongTinPTToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (dgvSession.SelectedRows.Count > 0)
+            {
+                PTSession pTSession = dgvSession.SelectedRows[0].DataBoundItem as PTSession;
+                if (pTSession != null)
+                {
+                    Mainfrm main = Application.OpenForms.OfType<Mainfrm>().FirstOrDefault();
+                    if (main != null)
+                    {
+                        PTRepositoryBL ptbl = new PTRepositoryBL();
+                        PT pt = ptbl.GetPTByID(pTSession.hopDong.IDPT);
+                        main.loadUserControl(new ThongTinPT(pt));
+                    }
+                    else
+                    {
+                        MessageBox.Show("Không tìm thấy form chính (Mainfrm).", "Lỗi");
+                    }
+                }
+            }
+        }
+
+        private void thongTinKHToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (dgvSession.SelectedRows.Count > 0)
+            {
+                PTSession pTSession = dgvSession.SelectedRows[0].DataBoundItem as PTSession;
+                if (pTSession != null)
+                {
+                    Mainfrm main = Application.OpenForms.OfType<Mainfrm>().FirstOrDefault();
+                    if (main != null)
+                    {
+                        HocVienBL hvbl = new HocVienBL();
+                        HocVien hv = hvbl.GetByID(pTSession.hopDong.IDHocVien);
+                        main.OpenHocVienUC(hv.code);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Không tìm thấy form chính (Mainfrm).", "Lỗi");
+                    }
+                }
+            }
         }
     }
 }

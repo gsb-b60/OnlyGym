@@ -97,6 +97,8 @@
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblSoNgayCon = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
+            this.thongTinPTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.thongTinKHToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupThongTin.SuspendLayout();
             this.panel2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -331,9 +333,12 @@
             this.bắtĐầuToolStripMenuItem,
             this.hủyToolStripMenuItem,
             this.pTTrễToolStripMenuItem,
-            this.kháchTrễToolStripMenuItem});
+            this.kháchTrễToolStripMenuItem,
+            this.thongTinPTToolStripMenuItem,
+            this.thongTinKHToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(127, 92);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 158);
+            this.contextMenuStrip1.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip1_Opening);
             // 
             // bắtĐầuToolStripMenuItem
             // 
@@ -777,6 +782,20 @@
             this.textBox2.TabIndex = 1;
             this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
+            // thongTinPTToolStripMenuItem
+            // 
+            this.thongTinPTToolStripMenuItem.Name = "thongTinPTToolStripMenuItem";
+            this.thongTinPTToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.thongTinPTToolStripMenuItem.Text = "Thong Tin PT";
+            this.thongTinPTToolStripMenuItem.Click += new System.EventHandler(this.thongTinPTToolStripMenuItem_Click);
+            // 
+            // thongTinKHToolStripMenuItem
+            // 
+            this.thongTinKHToolStripMenuItem.Name = "thongTinKHToolStripMenuItem";
+            this.thongTinKHToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.thongTinKHToolStripMenuItem.Text = "Thong Tin KH";
+            this.thongTinKHToolStripMenuItem.Click += new System.EventHandler(this.thongTinKHToolStripMenuItem_Click);
+            // 
             // CheckinKhachVaoUC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -875,5 +894,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
         private System.Windows.Forms.Label lblSoNgayCon;
         private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.ToolStripMenuItem thongTinPTToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem thongTinKHToolStripMenuItem;
     }
 }
