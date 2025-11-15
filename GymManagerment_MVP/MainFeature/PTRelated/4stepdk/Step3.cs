@@ -83,6 +83,8 @@ namespace GymManagerment_MVP.MainFeature.HoaDonRelated.PT._4stepdk
                     lbChuyenMon.Items.Add(sp);
                 }
                 pnInfor.Visible = true;
+                Business.PT ptlv = dgvDSPT.Rows[e.RowIndex].DataBoundItem as Business.PT;
+                lblSex.Text = ptlv.gioiTinh.ToString();
             }
             
         }

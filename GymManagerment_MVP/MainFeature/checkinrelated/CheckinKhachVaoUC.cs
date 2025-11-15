@@ -40,13 +40,14 @@ namespace GymManagerment_MVP
         {
             LoadCheckIn();
             LoadSession();
+            radioButton2.Checked = true;
         }
         private void LoadSession()
         {
             SessionBL sbl = new SessionBL();
             sessList = sbl.GetDaily();
             dgvSession.DataSource = sessList.OrderBy(c => c.TGBatDau).ToList();
-            radioButton2.Checked = true;
+            
         }
         private void LoadCheckIn()
         {
@@ -357,6 +358,8 @@ namespace GymManagerment_MVP
                     btnCapNhat.Tag = cv.ID;
                     btnCapNhat.Enabled = true;
                     rtbNote.Text = cv.GhiChu;
+
+                    hv = cv.HocVien;
                 }
             }
         }

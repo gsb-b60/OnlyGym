@@ -73,11 +73,11 @@
             this.cbCheckIn = new System.Windows.Forms.CheckBox();
             this.cbBooked = new System.Windows.Forms.CheckBox();
             this.gbLastCheck = new System.Windows.Forms.GroupBox();
-            this.dtpDenCheckin = new System.Windows.Forms.DateTimePicker();
+            this.dtpDen = new System.Windows.Forms.DateTimePicker();
             this.btnLoc = new System.Windows.Forms.Button();
             this.lblDen = new System.Windows.Forms.Label();
             this.lblTu = new System.Windows.Forms.Label();
-            this.dtpTuCheckin = new System.Windows.Forms.DateTimePicker();
+            this.dtpTu = new System.Windows.Forms.DateTimePicker();
             this.lblTrangThai = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lable1 = new System.Windows.Forms.Label();
@@ -556,11 +556,11 @@
             // 
             // gbLastCheck
             // 
-            this.gbLastCheck.Controls.Add(this.dtpDenCheckin);
+            this.gbLastCheck.Controls.Add(this.dtpDen);
             this.gbLastCheck.Controls.Add(this.btnLoc);
             this.gbLastCheck.Controls.Add(this.lblDen);
             this.gbLastCheck.Controls.Add(this.lblTu);
-            this.gbLastCheck.Controls.Add(this.dtpTuCheckin);
+            this.gbLastCheck.Controls.Add(this.dtpTu);
             this.gbLastCheck.Location = new System.Drawing.Point(11, 371);
             this.gbLastCheck.Name = "gbLastCheck";
             this.gbLastCheck.Size = new System.Drawing.Size(131, 131);
@@ -568,14 +568,14 @@
             this.gbLastCheck.TabStop = false;
             this.gbLastCheck.Text = "Chọn Buổi Tập Từ";
             // 
-            // dtpDenCheckin
+            // dtpDen
             // 
-            this.dtpDenCheckin.CustomFormat = "dd/MM/yyyy";
-            this.dtpDenCheckin.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpDenCheckin.Location = new System.Drawing.Point(6, 90);
-            this.dtpDenCheckin.Name = "dtpDenCheckin";
-            this.dtpDenCheckin.Size = new System.Drawing.Size(105, 20);
-            this.dtpDenCheckin.TabIndex = 24;
+            this.dtpDen.CustomFormat = "dd/MM/yyyy";
+            this.dtpDen.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpDen.Location = new System.Drawing.Point(6, 90);
+            this.dtpDen.Name = "dtpDen";
+            this.dtpDen.Size = new System.Drawing.Size(105, 20);
+            this.dtpDen.TabIndex = 24;
             // 
             // btnLoc
             // 
@@ -604,14 +604,15 @@
             this.lblTu.TabIndex = 22;
             this.lblTu.Text = "Từ";
             // 
-            // dtpTuCheckin
+            // dtpTu
             // 
-            this.dtpTuCheckin.CustomFormat = "dd/MM/yyyy";
-            this.dtpTuCheckin.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpTuCheckin.Location = new System.Drawing.Point(6, 51);
-            this.dtpTuCheckin.Name = "dtpTuCheckin";
-            this.dtpTuCheckin.Size = new System.Drawing.Size(105, 20);
-            this.dtpTuCheckin.TabIndex = 21;
+            this.dtpTu.CustomFormat = "dd/MM/yyyy";
+            this.dtpTu.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpTu.Location = new System.Drawing.Point(6, 51);
+            this.dtpTu.Name = "dtpTu";
+            this.dtpTu.Size = new System.Drawing.Size(105, 20);
+            this.dtpTu.TabIndex = 21;
+            this.dtpTu.Value = new System.DateTime(2023, 1, 1, 0, 0, 0, 0);
             // 
             // lblTrangThai
             // 
@@ -989,11 +990,11 @@
         private System.Windows.Forms.CheckBox cbCheckIn;
         private System.Windows.Forms.CheckBox cbBooked;
         private System.Windows.Forms.GroupBox gbLastCheck;
-        private System.Windows.Forms.DateTimePicker dtpDenCheckin;
+        private System.Windows.Forms.DateTimePicker dtpDen;
         private System.Windows.Forms.Button btnLoc;
         private System.Windows.Forms.Label lblDen;
         private System.Windows.Forms.Label lblTu;
-        private System.Windows.Forms.DateTimePicker dtpTuCheckin;
+        private System.Windows.Forms.DateTimePicker dtpTu;
         private System.Windows.Forms.Label lblTrangThai;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label label26;

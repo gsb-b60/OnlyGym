@@ -74,6 +74,7 @@ namespace GymManagerment_MVP
             hd.IDHocVien = 1;
             if (obj.Count > 0)
             {
+                hd.IDHocVien = hv.id;
                 hdbl.SetUpHopDong(hd, obj);
                 var result = MessageBox.Show(
     " Booking finished successfully!\nDo you want to export it to a CSV file?",
@@ -98,43 +99,60 @@ namespace GymManagerment_MVP
             {
                 MessageBox.Show("nothing here");
             }
-            
 
+
+        }
+        private string CleanFileName(string input)
+        {
+            foreach (char c in Path.GetInvalidFileNameChars())
+            {
+                input = input.Replace(c, '_');
+            }
+            return input;
         }
         public void WriteCsv(List<PTSession> list)
         {
-            using (StreamWriter sw = new StreamWriter("khachhangx.csv", false, Encoding.UTF8))
+            string safeName = CleanFileName(
+    $"khachhang-{hv.Ten}-{hd.TenGoi}-{hd.TenPT}-{hd.NgayTao:yyyyMMdd}.csv"
+);
+            using (StreamWriter sw = new StreamWriter(safeName, false, Encoding.UTF8))
             {
-                // Header
-                sw.WriteLine("ID;IDHopDong;TGBatDau;TGKetThuc;TrangThai;ThoiGianTao;ThoiGianHuy;LyDoHuy;TenHocVien;TenGoi;TenPT");
+                sw.WriteLine("GYM TRAINING PACKAGE INFORMATION");
+                sw.WriteLine($"Customer Name;{hv.Ten}");
+                sw.WriteLine($"PT Name;{hd.TenPT}");
+                sw.WriteLine($"Package Name;{hd.TenGoi}");
+                sw.WriteLine($"Total Sessions;{hd.TongBuoi}");
+                sw.WriteLine($"Created Date;{hd.NgayTao:yyyy-MM-dd}");
+                sw.WriteLine("");
+
+                // ===========================
+                // HƯỚNG DẪN SỬ DỤNG
+                // ===========================
+                sw.WriteLine("GUIDELINES");
+                sw.WriteLine("1;Please present this training log when checking in with your PT.");
+                sw.WriteLine("2;Each session is marked as COMPLETED / MISSED / CANCELLED.");
+                sw.WriteLine("3;If you need to reschedule, please notify your PT at least 12 hours in advance.");
+                sw.WriteLine("4;For support, contact the front desk or your PT directly.");
+                sw.WriteLine("");
+
+                // ===========================
+                // LỊCH SỬ BUỔI TẬP
+                // ===========================
+                sw.WriteLine("SESSION RECORD");
+                sw.WriteLine("Start Time;Status");
 
                 foreach (var item in list)
                 {
-                    // Helper để escape CSV
-                    string Escape(string value)
-                    {
-                        if (string.IsNullOrEmpty(value)) return "";
-                        if (value.Contains(",") || value.Contains("\""))
-                            return "\"" + value.Replace("\"", "\"\"") + "\"";
-                        return value;
-                    }
-
                     string line = string.Join(";",
-                        item.ID?.ToString() ?? "",
-                        item.IDHopDong?.ToString() ?? "",
                         item.TGBatDau?.ToString("yyyy-MM-dd HH:mm") ?? "",
-                        item.TGKetThuc?.ToString("yyyy-MM-dd HH:mm") ?? "",
-                        Escape(item.TrangThai.ToString()),
-                        item.ThoiGianTao?.ToString("yyyy-MM-dd HH:mm") ?? "",
-                        item.ThoiGianHuy?.ToString("yyyy-MM-dd HH:mm") ?? "",
-                        Escape(item.LyDoHuy),
-                        Escape(item.TenHocVien),
-                        Escape(item.TenGoi),
-                        Escape(item.TenPT)
+                        item.TrangThai.ToString()
                     );
 
                     sw.WriteLine(line);
                 }
+
+                sw.WriteLine("");
+                sw.WriteLine("NOTE;Thank you for training with us. Stay consistent and keep pushing!");
             }
         }
 
@@ -223,25 +241,30 @@ namespace GymManagerment_MVP
         private void btnThanhToan_Click(object sender, EventArgs e)
         {
             List<GoiTap> gois = new List<GoiTap>();
-            //List<GoiPT> goipt = new List<GoiPT>();  
+            List<GoiPT> goipt = new List<GoiPT>();  
             foreach (DataGridViewRow row in dgvBill.Rows)
             {
                 if (row.Tag is GoiTap goiTap)
                     gois.Add(goiTap);
                 else if (row.Tag is GoiPT goiPT)
                 {
-
+                    goipt.Add(goiPT);
                 }
                 //bill.GoiPTs.Add(goiPT);
             }
-            GoiTapHocVien gthv = new GoiTapHocVien
+            if(gois.Count>0)
             {
-                HocVien = hv,
-                GoiTap = gois[0],
-                TrangThai = GoiTapState.active,
-            };
-            GoiTapBL goi = new GoiTapBL();
-            goi.addGoiTapHocVien(gthv);
+                GoiTapHocVien gthv = new GoiTapHocVien
+                {
+                    HocVien = hv,
+                    GoiTap = gois[0],
+                    TrangThai = GoiTapState.active,
+                };
+                GoiTapBL goi = new GoiTapBL();
+                goi.addGoiTapHocVien(gthv);
+            }
+            
+            
             DisplayBill();
         }
         private void DisplayBill()

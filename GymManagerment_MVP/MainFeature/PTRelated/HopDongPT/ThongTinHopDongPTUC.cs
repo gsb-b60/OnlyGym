@@ -210,6 +210,8 @@ namespace GymManagerment_MVP.MainFeature.HoaDonRelated.PT.HopDongPT
             cbDone.Checked = false;
             cbNoShow.Checked = false;
             cbPTfault.Checked = false;
+            dtpTu.Value = DateTime.Parse("01/01/2023");
+            dtpDen.Value = DateTime.Now;
             ApplyFilter();
         }
 
