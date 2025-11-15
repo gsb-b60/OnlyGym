@@ -64,6 +64,7 @@ namespace GymManagerment_MVP.MainFeature.HoaDonRelated.PT.HopDongPT
             hdBuoicon.Text = hd.ConBuoi.ToString();
             hdTrangThai.Text = hd.trangThai.ToString();
             hdNgayTao.Text = hd.NgayTao.ToString();
+            pnInfo.Visible = false;
         }
         private void splitContainer1_Panel2_Paint(object sender, PaintEventArgs e)
         {
@@ -144,6 +145,7 @@ namespace GymManagerment_MVP.MainFeature.HoaDonRelated.PT.HopDongPT
                 lblThoiGianHuy.Text = sess.ThoiGianHuy.ToString();
                 rtbGhiChu.Text = sess.LyDoHuy;
                 btnCapNhat.Tag = sess.ID;
+                pnInfo.Visible = true;
             }
         }
         public void ApplyFilter()
@@ -260,6 +262,7 @@ namespace GymManagerment_MVP.MainFeature.HoaDonRelated.PT.HopDongPT
                     HopDongBL hdbl = new HopDongBL();
                     hdbl.CancelContract(hd.ID??-1);
                     setupHopDongInfor();
+                    pnInfo.Visible=true;
                 }
             }
         }
@@ -272,7 +275,13 @@ namespace GymManagerment_MVP.MainFeature.HoaDonRelated.PT.HopDongPT
                 SessionBL sbl = new SessionBL();
                 sbl.UpdateLydo(rtbGhiChu.Text, id);
                 setupHopDongInfor();
+                pnInfo.Visible = true;
             }
+        }
+
+        private void btnDisapp_Click(object sender, EventArgs e)
+        {
+            pnInfo.Visible = false;
         }
     }
 }

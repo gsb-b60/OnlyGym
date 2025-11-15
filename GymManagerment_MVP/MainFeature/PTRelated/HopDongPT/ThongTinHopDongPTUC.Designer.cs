@@ -33,12 +33,24 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.button4 = new System.Windows.Forms.Button();
             this.dgvDSBuoiTap = new System.Windows.Forms.DataGridView();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HopDong = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cNgay = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cTGBD = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cTGKT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cTrangThai = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cHuy = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ThoiGianHuy = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.doneToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.noShowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cancelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lỗiPTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.pnInfo = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.btnCapNhat = new System.Windows.Forms.Button();
             this.lblThoiGianHuy = new System.Windows.Forms.Label();
@@ -98,23 +110,12 @@
             this.label18 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.HopDong = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cNgay = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cTGBD = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cTGKT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cTrangThai = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cHuy = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ThoiGianHuy = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnDisapp = new System.Windows.Forms.Button();
             this.pnlDanhSach.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDSBuoiTap)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
-            this.panel2.SuspendLayout();
+            this.pnInfo.SuspendLayout();
             this.panel4.SuspendLayout();
             this.pnlLoc.SuspendLayout();
             this.gbLastCheck.SuspendLayout();
@@ -127,7 +128,7 @@
             // 
             this.pnlDanhSach.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlDanhSach.Controls.Add(this.panel3);
-            this.pnlDanhSach.Controls.Add(this.panel2);
+            this.pnlDanhSach.Controls.Add(this.pnInfo);
             this.pnlDanhSach.Controls.Add(this.pnlLoc);
             this.pnlDanhSach.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.pnlDanhSach.Location = new System.Drawing.Point(0, 113);
@@ -185,6 +186,89 @@
             this.dgvDSBuoiTap.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDSBuoiTap_CellContentClick);
             this.dgvDSBuoiTap.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvDSBuoiTap_CellFormatting);
             // 
+            // ID
+            // 
+            this.ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.ID.DataPropertyName = "ID";
+            this.ID.HeaderText = "ID";
+            this.ID.Name = "ID";
+            this.ID.Width = 43;
+            // 
+            // HopDong
+            // 
+            this.HopDong.DataPropertyName = "HopDong";
+            this.HopDong.HeaderText = "HopDong";
+            this.HopDong.Name = "HopDong";
+            this.HopDong.Visible = false;
+            // 
+            // cNgay
+            // 
+            this.cNgay.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.cNgay.DataPropertyName = "IDHopDong";
+            this.cNgay.HeaderText = "IDHopdong";
+            this.cNgay.Name = "cNgay";
+            this.cNgay.Visible = false;
+            // 
+            // cTGBD
+            // 
+            this.cTGBD.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.cTGBD.DataPropertyName = "TGBatDau";
+            this.cTGBD.HeaderText = "TG Bắt Đầu";
+            this.cTGBD.Name = "cTGBD";
+            // 
+            // cTGKT
+            // 
+            this.cTGKT.DataPropertyName = "TGKetThuc";
+            this.cTGKT.HeaderText = "Thời Gian KT";
+            this.cTGKT.Name = "cTGKT";
+            this.cTGKT.Visible = false;
+            // 
+            // cTrangThai
+            // 
+            this.cTrangThai.DataPropertyName = "TrangThai";
+            this.cTrangThai.HeaderText = "Trạng Thái";
+            this.cTrangThai.Name = "cTrangThai";
+            // 
+            // cHuy
+            // 
+            this.cHuy.DataPropertyName = "ThoiGianTao";
+            this.cHuy.HeaderText = "ThoiGianTao";
+            this.cHuy.Name = "cHuy";
+            // 
+            // ThoiGianHuy
+            // 
+            this.ThoiGianHuy.DataPropertyName = "ThoiGianHuy";
+            this.ThoiGianHuy.HeaderText = "ThoiGianHuy";
+            this.ThoiGianHuy.Name = "ThoiGianHuy";
+            // 
+            // Column1
+            // 
+            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column1.DataPropertyName = "LyDoHuy";
+            this.Column1.HeaderText = "LyDoHuy";
+            this.Column1.Name = "Column1";
+            // 
+            // Column2
+            // 
+            this.Column2.DataPropertyName = "TenHocVien";
+            this.Column2.HeaderText = "TenHocVien";
+            this.Column2.Name = "Column2";
+            this.Column2.Visible = false;
+            // 
+            // Column3
+            // 
+            this.Column3.DataPropertyName = "TenGoi";
+            this.Column3.HeaderText = "TenGoi";
+            this.Column3.Name = "Column3";
+            this.Column3.Visible = false;
+            // 
+            // Column4
+            // 
+            this.Column4.DataPropertyName = "TenPT";
+            this.Column4.HeaderText = "TenPT";
+            this.Column4.Name = "Column4";
+            this.Column4.Visible = false;
+            // 
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -219,22 +303,23 @@
             this.lỗiPTToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
             this.lỗiPTToolStripMenuItem.Text = "Lỗi PT";
             // 
-            // panel2
+            // pnInfo
             // 
-            this.panel2.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel2.Controls.Add(this.panel4);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel2.Location = new System.Drawing.Point(983, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Padding = new System.Windows.Forms.Padding(19);
-            this.panel2.Size = new System.Drawing.Size(279, 588);
-            this.panel2.TabIndex = 29;
+            this.pnInfo.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.pnInfo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnInfo.Controls.Add(this.btnDisapp);
+            this.pnInfo.Controls.Add(this.panel4);
+            this.pnInfo.Dock = System.Windows.Forms.DockStyle.Right;
+            this.pnInfo.Location = new System.Drawing.Point(983, 0);
+            this.pnInfo.Name = "pnInfo";
+            this.pnInfo.Padding = new System.Windows.Forms.Padding(19);
+            this.pnInfo.Size = new System.Drawing.Size(279, 588);
+            this.pnInfo.TabIndex = 29;
             // 
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.Azure;
-            this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel4.Controls.Add(this.btnCapNhat);
             this.panel4.Controls.Add(this.lblThoiGianHuy);
             this.panel4.Controls.Add(this.label9);
@@ -247,16 +332,16 @@
             this.panel4.Controls.Add(this.rtbGhiChu);
             this.panel4.Controls.Add(this.label24);
             this.panel4.Controls.Add(this.label23);
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel4.Location = new System.Drawing.Point(19, 19);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel4.Location = new System.Drawing.Point(19, 50);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(239, 548);
+            this.panel4.Size = new System.Drawing.Size(239, 517);
             this.panel4.TabIndex = 2;
             this.panel4.Paint += new System.Windows.Forms.PaintEventHandler(this.panel4_Paint);
             // 
             // btnCapNhat
             // 
-            this.btnCapNhat.Location = new System.Drawing.Point(144, 514);
+            this.btnCapNhat.Location = new System.Drawing.Point(144, 466);
             this.btnCapNhat.Name = "btnCapNhat";
             this.btnCapNhat.Size = new System.Drawing.Size(75, 23);
             this.btnCapNhat.TabIndex = 55;
@@ -349,7 +434,7 @@
             // 
             this.rtbGhiChu.Location = new System.Drawing.Point(10, 254);
             this.rtbGhiChu.Name = "rtbGhiChu";
-            this.rtbGhiChu.Size = new System.Drawing.Size(209, 254);
+            this.rtbGhiChu.Size = new System.Drawing.Size(209, 206);
             this.rtbGhiChu.TabIndex = 60;
             this.rtbGhiChu.Text = "";
             // 
@@ -851,89 +936,16 @@
             this.label22.TabIndex = 68;
             this.label22.Text = "Trạng Thái";
             // 
-            // ID
+            // btnDisapp
             // 
-            this.ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.ID.DataPropertyName = "ID";
-            this.ID.HeaderText = "ID";
-            this.ID.Name = "ID";
-            this.ID.Width = 43;
-            // 
-            // HopDong
-            // 
-            this.HopDong.DataPropertyName = "HopDong";
-            this.HopDong.HeaderText = "HopDong";
-            this.HopDong.Name = "HopDong";
-            this.HopDong.Visible = false;
-            // 
-            // cNgay
-            // 
-            this.cNgay.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.cNgay.DataPropertyName = "IDHopDong";
-            this.cNgay.HeaderText = "IDHopdong";
-            this.cNgay.Name = "cNgay";
-            this.cNgay.Visible = false;
-            this.cNgay.Width = 87;
-            // 
-            // cTGBD
-            // 
-            this.cTGBD.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.cTGBD.DataPropertyName = "TGBatDau";
-            this.cTGBD.HeaderText = "TG Bắt Đầu";
-            this.cTGBD.Name = "cTGBD";
-            // 
-            // cTGKT
-            // 
-            this.cTGKT.DataPropertyName = "TGKetThuc";
-            this.cTGKT.HeaderText = "Thời Gian KT";
-            this.cTGKT.Name = "cTGKT";
-            this.cTGKT.Visible = false;
-            // 
-            // cTrangThai
-            // 
-            this.cTrangThai.DataPropertyName = "TrangThai";
-            this.cTrangThai.HeaderText = "Trạng Thái";
-            this.cTrangThai.Name = "cTrangThai";
-            // 
-            // cHuy
-            // 
-            this.cHuy.DataPropertyName = "ThoiGianTao";
-            this.cHuy.HeaderText = "ThoiGianTao";
-            this.cHuy.Name = "cHuy";
-            // 
-            // ThoiGianHuy
-            // 
-            this.ThoiGianHuy.DataPropertyName = "ThoiGianHuy";
-            this.ThoiGianHuy.HeaderText = "ThoiGianHuy";
-            this.ThoiGianHuy.Name = "ThoiGianHuy";
-            // 
-            // Column1
-            // 
-            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column1.DataPropertyName = "LyDoHuy";
-            this.Column1.HeaderText = "LyDoHuy";
-            this.Column1.Name = "Column1";
-            // 
-            // Column2
-            // 
-            this.Column2.DataPropertyName = "TenHocVien";
-            this.Column2.HeaderText = "TenHocVien";
-            this.Column2.Name = "Column2";
-            this.Column2.Visible = false;
-            // 
-            // Column3
-            // 
-            this.Column3.DataPropertyName = "TenGoi";
-            this.Column3.HeaderText = "TenGoi";
-            this.Column3.Name = "Column3";
-            this.Column3.Visible = false;
-            // 
-            // Column4
-            // 
-            this.Column4.DataPropertyName = "TenPT";
-            this.Column4.HeaderText = "TenPT";
-            this.Column4.Name = "Column4";
-            this.Column4.Visible = false;
+            this.btnDisapp.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnDisapp.Location = new System.Drawing.Point(218, 19);
+            this.btnDisapp.Name = "btnDisapp";
+            this.btnDisapp.Size = new System.Drawing.Size(40, 31);
+            this.btnDisapp.TabIndex = 3;
+            this.btnDisapp.Text = "---";
+            this.btnDisapp.UseVisualStyleBackColor = true;
+            this.btnDisapp.Click += new System.EventHandler(this.btnDisapp_Click);
             // 
             // ThongTinHopDongPTUC
             // 
@@ -949,7 +961,7 @@
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDSBuoiTap)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
+            this.pnInfo.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.pnlLoc.ResumeLayout(false);
@@ -971,7 +983,7 @@
         private System.Windows.Forms.Panel pnlDanhSach;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.DataGridView dgvDSBuoiTap;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel pnInfo;
         private System.Windows.Forms.Panel pnlLoc;
         private System.Windows.Forms.Button btnXoa;
         private System.Windows.Forms.CheckBox cbCheckIn;
@@ -1049,5 +1061,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.Button btnDisapp;
     }
 }
