@@ -12,6 +12,21 @@ namespace Business
 {
     public class SessionPTDA
     {
+        public void UpdateLyDo(int id, string lydo)
+        {
+            using (SqlConnection con = new SqlConnection(Ultilities.ConnectionString))
+            {
+                string query = "update buoiTapPT\r\nset buoiTapPT.lyDoHuy=@l\r\nwhere pub=@i";
+                using (SqlCommand cmd = new SqlCommand(query, con))
+                {
+                    con.Open();
+                    cmd.Parameters.Add("@l", SqlDbType.NVarChar).Value = lydo;
+                    cmd.Parameters.Add("@i", SqlDbType.Int).Value = id;
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
+        
         public void UpdateStateSess(int id ,int state)
         {
             using (SqlConnection con=new SqlConnection(Ultilities.ConnectionString))

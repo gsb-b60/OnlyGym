@@ -12,6 +12,11 @@ namespace Business
     {
         public SessionPTDA sessDa=new SessionPTDA();
         public HopDongRepoDA hdda = new HopDongRepoDA();
+
+        public void UpdateLydo(string lydo,int id)
+        {
+            sessDa.UpdateLyDo(id, lydo);
+        }
         public List<PTSession> GetByIDPT(int id)
         {
             return sessDa.GetByPTID(id);

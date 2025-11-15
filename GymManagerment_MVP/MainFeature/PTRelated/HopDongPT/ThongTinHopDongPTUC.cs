@@ -142,6 +142,8 @@ namespace GymManagerment_MVP.MainFeature.HoaDonRelated.PT.HopDongPT
                 cbState.SelectedIndex = (int)sess.TrangThai;
                 lblThoiGianTao.Text = sess.ThoiGianTao.ToString();
                 lblThoiGianHuy.Text = sess.ThoiGianHuy.ToString();
+                rtbGhiChu.Text = sess.LyDoHuy;
+                btnCapNhat.Tag = sess.ID;
             }
         }
         public void ApplyFilter()
@@ -262,21 +264,15 @@ namespace GymManagerment_MVP.MainFeature.HoaDonRelated.PT.HopDongPT
             }
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void btnCapNhat_Click(object sender, EventArgs e)
         {
-            var result = MessageBox.Show(
-                "Bạn chắc chắn muốn hủy hợp đồng này?\n\n⚠️ Hành động này không thể hoàn tác.",
-                "Xác nhận hủy hợp đồng",
-                MessageBoxButtons.YesNo,
-                MessageBoxIcon.Warning,
-                MessageBoxDefaultButton.Button2
-            );
-
-            if (result == DialogResult.Yes)
+            if(btnCapNhat.Tag!=null)
             {
-                // TODO: cancel hopdong here
+                int id = (int)btnCapNhat.Tag;
+                SessionBL sbl = new SessionBL();
+                sbl.UpdateLydo(rtbGhiChu.Text, id);
+                setupHopDongInfor();
             }
-
         }
     }
 }
