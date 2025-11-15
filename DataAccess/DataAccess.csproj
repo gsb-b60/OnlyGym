@@ -124,6 +124,7 @@
     <Compile Include="Repo\HopDongRepoDA.cs" />
     <Compile Include="Repo\PTRepositoryDA.cs" />
     <Compile Include="Repo\SessionPTDA.cs" />
+    <Compile Include="Repo\UserPackageDA.cs" />
     <Compile Include="Ultilities\Ultilities.cs" />
   </ItemGroup>
   <ItemGroup>

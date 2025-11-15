@@ -287,6 +287,12 @@
     <Compile Include="MainFeature\ThanhToanRelated\DangKyGoiTap.Designer.cs">
       <DependentUpon>DangKyGoiTap.cs</DependentUpon>
     </Compile>
+    <Compile Include="MainFeature\ThongKeRelated\ThongKePTUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MainFeature\ThongKeRelated\ThongKePTUC.Designer.cs">
+      <DependentUpon>ThongKePTUC.cs</DependentUpon>
+    </Compile>
     <Compile Include="Storage\DangKyPT.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -496,6 +502,9 @@
     <EmbeddedResource Include="MainFeature\ThanhToanRelated\DangKyGoiTap.resx">
       <DependentUpon>DangKyGoiTap.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MainFeature\ThongKeRelated\ThongKePTUC.resx">
+      <DependentUpon>ThongKePTUC.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Storage\DangKyPT.resx">
       <DependentUpon>DangKyPT.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -564,7 +573,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="MainFeature\HoaDonRelated\SanPham\" />
-    <Folder Include="MainFeature\ThongKeRelated\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Media\HVPicture\NoShow.jpg" />

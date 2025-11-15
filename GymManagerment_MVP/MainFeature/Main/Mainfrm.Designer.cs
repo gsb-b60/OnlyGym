@@ -50,6 +50,7 @@
             this.btnCheckin = new System.Windows.Forms.Button();
             this.btnQuanLyNhanVien = new System.Windows.Forms.Button();
             this.pnlContent = new System.Windows.Forms.Panel();
+            this.btnThongKe = new System.Windows.Forms.Button();
             this.pnlHome.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.pnlMenu.SuspendLayout();
@@ -165,6 +166,7 @@
             // pnlMenu
             // 
             this.pnlMenu.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.pnlMenu.Controls.Add(this.btnThongKe);
             this.pnlMenu.Controls.Add(this.btnTaiKhoan);
             this.pnlMenu.Controls.Add(this.button3);
             this.pnlMenu.Controls.Add(this.button2);
@@ -278,6 +280,17 @@
             this.pnlContent.TabIndex = 2;
             this.pnlContent.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlContent_Paint);
             // 
+            // btnThongKe
+            // 
+            this.btnThongKe.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnThongKe.Location = new System.Drawing.Point(922, 0);
+            this.btnThongKe.Name = "btnThongKe";
+            this.btnThongKe.Size = new System.Drawing.Size(116, 31);
+            this.btnThongKe.TabIndex = 15;
+            this.btnThongKe.Text = "Thống Kê";
+            this.btnThongKe.UseVisualStyleBackColor = true;
+            this.btnThongKe.Click += new System.EventHandler(this.btnThongKe_Click);
+            // 
             // Mainfrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -322,5 +335,6 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button btnTaiKhoan;
         private System.Windows.Forms.Button btnLogOut;
+        private System.Windows.Forms.Button btnThongKe;
     }
 }

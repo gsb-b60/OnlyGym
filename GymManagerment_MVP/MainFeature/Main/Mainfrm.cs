@@ -4,6 +4,7 @@ using GymManagerment_MVP.MainFeature.HoaDonRelated.PT;
 using GymManagerment_MVP.MainFeature.HoaDonRelated.PT._4stepdk;
 using GymManagerment_MVP.MainFeature.HoaDonRelated.PT.HopDongPT;
 using GymManagerment_MVP.MainFeature.Main;
+using GymManagerment_MVP.MainFeature.ThongKeRelated;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -219,5 +220,9 @@ namespace GymManagerment_MVP
             
         }
 
+        private void btnThongKe_Click(object sender, EventArgs e)
+        {
+            loadUserControl(new ThongKePTUC());
+        }
     }
 }
