@@ -1,4 +1,5 @@
-﻿using GymManagerment_MVP.Business;
+﻿using Business;
+using GymManagerment_MVP.Business;
 using GymManagerment_MVP.MainFeature.HocVienRelated;
 using System;
 using System.Collections.Generic;
@@ -138,23 +139,25 @@ namespace GymManagerment_MVP
                 }
             }
             btnSua.Enabled = true;
+            HocVienBL hvbl = new HocVienBL();
+            HocVien hv = hvbl.GetByCode(code);
+            SetUpPanel(hv);
         }
-
-        private void ThongTinHocVien_Load(object sender, EventArgs e)
+        private void SetUpPanel(HocVien hv)
         {
             ThongTinGoiTapUC goitap = new ThongTinGoiTapUC();
-            goitap.Dock= DockStyle.Fill;
+            goitap.Dock = DockStyle.Fill;
             tabGoi.Controls.Add(goitap);
             goitap.BringToFront();
 
 
-            ThongTinCheckInUC thongTinCheckInUC = new ThongTinCheckInUC();
+            ThongTinCheckInUC thongTinCheckInUC = new ThongTinCheckInUC(hv);
             thongTinCheckInUC.Dock = DockStyle.Fill;
             tabCheckIn.Controls.Add(thongTinCheckInUC);
             thongTinCheckInUC.BringToFront();
 
 
-            ThongTinGoiTapPTUC thongTinGoiTapPTUC=new ThongTinGoiTapPTUC();
+            ThongTinGoiTapPTUC thongTinGoiTapPTUC = new ThongTinGoiTapPTUC(hv);
             thongTinGoiTapPTUC.Dock = DockStyle.Fill;
             tabLichSuPT.Controls.Add(thongTinGoiTapPTUC);
             thongTinGoiTapPTUC.BringToFront();
@@ -166,6 +169,10 @@ namespace GymManagerment_MVP
             btnSua.Enabled = false;
             LoadGoiTap();
             LoadTag();
+        }
+        private void ThongTinHocVien_Load(object sender, EventArgs e)
+        {
+            
         }
     
         public void Update_HVien()

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Mainfrm));
             this.pnlHome = new System.Windows.Forms.Panel();
             this.btnLogOut = new System.Windows.Forms.Button();
             this.lblChucVu = new System.Windows.Forms.Label();
@@ -41,16 +42,13 @@
             this.hướngDẫnSửDụngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.thôngTinChuyênMônToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pnlMenu = new System.Windows.Forms.Panel();
-            this.btnTaiKhoan = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnThongKe = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.btnDSPT = new System.Windows.Forms.Button();
             this.btnDanhSachKH = new System.Windows.Forms.Button();
             this.btnCheckin = new System.Windows.Forms.Button();
             this.btnQuanLyNhanVien = new System.Windows.Forms.Button();
             this.pnlContent = new System.Windows.Forms.Panel();
-            this.btnThongKe = new System.Windows.Forms.Button();
             this.pnlHome.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.pnlMenu.SuspendLayout();
@@ -58,7 +56,7 @@
             // 
             // pnlHome
             // 
-            this.pnlHome.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.pnlHome.BackColor = System.Drawing.Color.Teal;
             this.pnlHome.Controls.Add(this.btnLogOut);
             this.pnlHome.Controls.Add(this.lblChucVu);
             this.pnlHome.Controls.Add(this.lblAccName);
@@ -71,35 +69,44 @@
             // 
             // btnLogOut
             // 
+            this.btnLogOut.BackColor = System.Drawing.Color.Teal;
+            this.btnLogOut.FlatAppearance.BorderColor = System.Drawing.Color.Teal;
+            this.btnLogOut.FlatAppearance.BorderSize = 5;
+            this.btnLogOut.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnLogOut.Location = new System.Drawing.Point(1044, 3);
             this.btnLogOut.Name = "btnLogOut";
             this.btnLogOut.Size = new System.Drawing.Size(75, 21);
             this.btnLogOut.TabIndex = 8;
             this.btnLogOut.Text = "log out";
-            this.btnLogOut.UseVisualStyleBackColor = true;
+            this.btnLogOut.UseVisualStyleBackColor = false;
             this.btnLogOut.Click += new System.EventHandler(this.btnLogOut_Click);
             // 
             // lblChucVu
             // 
             this.lblChucVu.AutoSize = true;
+            this.lblChucVu.BackColor = System.Drawing.Color.Teal;
             this.lblChucVu.Location = new System.Drawing.Point(978, 9);
             this.lblChucVu.Name = "lblChucVu";
             this.lblChucVu.Size = new System.Drawing.Size(60, 13);
             this.lblChucVu.TabIndex = 7;
             this.lblChucVu.Text = "Chu Phong";
+            this.lblChucVu.Click += new System.EventHandler(this.lblChucVu_Click);
             // 
             // lblAccName
             // 
             this.lblAccName.AutoSize = true;
+            this.lblAccName.BackColor = System.Drawing.Color.Teal;
             this.lblAccName.Location = new System.Drawing.Point(878, 9);
             this.lblAccName.Name = "lblAccName";
             this.lblAccName.Size = new System.Drawing.Size(94, 13);
             this.lblAccName.TabIndex = 6;
             this.lblAccName.Text = "Nguyen Dinh Hieu";
+            this.lblAccName.Click += new System.EventHandler(this.lblAccName_Click);
             // 
             // menuStrip1
             // 
-            this.menuStrip1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.menuStrip1.BackColor = System.Drawing.Color.Teal;
+            this.menuStrip1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.thôngTinGóiTậpToolStripMenuItem,
@@ -116,6 +123,7 @@
             // 
             // thôngTinGóiTậpToolStripMenuItem
             // 
+            this.thôngTinGóiTậpToolStripMenuItem.BackColor = System.Drawing.Color.Teal;
             this.thôngTinGóiTậpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.thôngTinGóiTậpToolStripMenuItem1,
             this.thôngTinGóiPTToolStripMenuItem,
@@ -123,6 +131,7 @@
             this.thôngTinGóiTậpToolStripMenuItem.Name = "thôngTinGóiTậpToolStripMenuItem";
             this.thôngTinGóiTậpToolStripMenuItem.Size = new System.Drawing.Size(74, 22);
             this.thôngTinGóiTậpToolStripMenuItem.Text = "Thông Tin";
+            this.thôngTinGóiTậpToolStripMenuItem.Click += new System.EventHandler(this.thôngTinGóiTậpToolStripMenuItem_Click);
             // 
             // thôngTinGóiTậpToolStripMenuItem1
             // 
@@ -144,6 +153,7 @@
             // 
             // thôngTinChuyểnKhoảnToolStripMenuItem
             // 
+            this.thôngTinChuyểnKhoảnToolStripMenuItem.BackColor = System.Drawing.Color.Teal;
             this.thôngTinChuyểnKhoảnToolStripMenuItem.Name = "thôngTinChuyểnKhoảnToolStripMenuItem";
             this.thôngTinChuyểnKhoảnToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
             this.thôngTinChuyểnKhoảnToolStripMenuItem.Text = "Thông Tin Chuyển Khoản";
@@ -151,6 +161,7 @@
             // 
             // hướngDẫnSửDụngToolStripMenuItem
             // 
+            this.hướngDẫnSửDụngToolStripMenuItem.BackColor = System.Drawing.Color.Teal;
             this.hướngDẫnSửDụngToolStripMenuItem.Name = "hướngDẫnSửDụngToolStripMenuItem";
             this.hướngDẫnSửDụngToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
             this.hướngDẫnSửDụngToolStripMenuItem.Text = "Hướng Dẫn Sử Dụng";
@@ -158,6 +169,7 @@
             // 
             // thôngTinChuyênMônToolStripMenuItem
             // 
+            this.thôngTinChuyênMônToolStripMenuItem.BackColor = System.Drawing.Color.Teal;
             this.thôngTinChuyênMônToolStripMenuItem.Name = "thôngTinChuyênMônToolStripMenuItem";
             this.thôngTinChuyênMônToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.thôngTinChuyênMônToolStripMenuItem.Text = "Thông Tin Chuyên Môn";
@@ -165,11 +177,8 @@
             // 
             // pnlMenu
             // 
-            this.pnlMenu.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.pnlMenu.BackColor = System.Drawing.Color.Teal;
             this.pnlMenu.Controls.Add(this.btnThongKe);
-            this.pnlMenu.Controls.Add(this.btnTaiKhoan);
-            this.pnlMenu.Controls.Add(this.button3);
-            this.pnlMenu.Controls.Add(this.button2);
             this.pnlMenu.Controls.Add(this.button1);
             this.pnlMenu.Controls.Add(this.btnDSPT);
             this.pnlMenu.Controls.Add(this.btnDanhSachKH);
@@ -182,93 +191,124 @@
             this.pnlMenu.TabIndex = 1;
             this.pnlMenu.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlMenu_Paint);
             // 
-            // btnTaiKhoan
+            // btnThongKe
             // 
-            this.btnTaiKhoan.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnTaiKhoan.Location = new System.Drawing.Point(783, 0);
-            this.btnTaiKhoan.Name = "btnTaiKhoan";
-            this.btnTaiKhoan.Size = new System.Drawing.Size(139, 31);
-            this.btnTaiKhoan.TabIndex = 14;
-            this.btnTaiKhoan.Text = "Tai Khoan";
-            this.btnTaiKhoan.UseVisualStyleBackColor = true;
-            this.btnTaiKhoan.Visible = false;
-            this.btnTaiKhoan.Click += new System.EventHandler(this.btnTaiKhoan_Click);
-            // 
-            // button3
-            // 
-            this.button3.Dock = System.Windows.Forms.DockStyle.Left;
-            this.button3.Location = new System.Drawing.Point(699, 0);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(84, 31);
-            this.button3.TabIndex = 13;
-            this.button3.Text = "Hoa Don";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // button2
-            // 
-            this.button2.Dock = System.Windows.Forms.DockStyle.Left;
-            this.button2.Location = new System.Drawing.Point(603, 0);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(96, 31);
-            this.button2.TabIndex = 12;
-            this.button2.Text = "Chi Tiết ";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click_1);
+            this.btnThongKe.BackColor = System.Drawing.Color.Teal;
+            this.btnThongKe.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnThongKe.FlatAppearance.BorderColor = System.Drawing.Color.Teal;
+            this.btnThongKe.FlatAppearance.CheckedBackColor = System.Drawing.Color.White;
+            this.btnThongKe.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkCyan;
+            this.btnThongKe.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkCyan;
+            this.btnThongKe.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnThongKe.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnThongKe.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnThongKe.Location = new System.Drawing.Point(675, 0);
+            this.btnThongKe.Margin = new System.Windows.Forms.Padding(8);
+            this.btnThongKe.Name = "btnThongKe";
+            this.btnThongKe.Size = new System.Drawing.Size(135, 31);
+            this.btnThongKe.TabIndex = 15;
+            this.btnThongKe.Text = "Thống Kê";
+            this.btnThongKe.UseVisualStyleBackColor = false;
+            this.btnThongKe.Click += new System.EventHandler(this.btnThongKe_Click);
             // 
             // button1
             // 
+            this.button1.BackColor = System.Drawing.Color.Teal;
             this.button1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.button1.Location = new System.Drawing.Point(464, 0);
+            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.Teal;
+            this.button1.FlatAppearance.CheckedBackColor = System.Drawing.Color.White;
+            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkCyan;
+            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkCyan;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button1.Location = new System.Drawing.Point(540, 0);
+            this.button1.Margin = new System.Windows.Forms.Padding(8);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(139, 31);
+            this.button1.Size = new System.Drawing.Size(135, 31);
             this.button1.TabIndex = 11;
-            this.button1.Text = "Danh Sach Hợp Đồng";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Text = "Contracts";
+            this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click_2);
             // 
             // btnDSPT
             // 
+            this.btnDSPT.BackColor = System.Drawing.Color.Teal;
             this.btnDSPT.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnDSPT.Location = new System.Drawing.Point(325, 0);
+            this.btnDSPT.FlatAppearance.BorderColor = System.Drawing.Color.Teal;
+            this.btnDSPT.FlatAppearance.CheckedBackColor = System.Drawing.Color.White;
+            this.btnDSPT.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkCyan;
+            this.btnDSPT.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkCyan;
+            this.btnDSPT.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDSPT.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDSPT.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnDSPT.Location = new System.Drawing.Point(405, 0);
+            this.btnDSPT.Margin = new System.Windows.Forms.Padding(8);
             this.btnDSPT.Name = "btnDSPT";
-            this.btnDSPT.Size = new System.Drawing.Size(139, 31);
+            this.btnDSPT.Size = new System.Drawing.Size(135, 31);
             this.btnDSPT.TabIndex = 9;
-            this.btnDSPT.Text = "Danh Sách PT";
-            this.btnDSPT.UseVisualStyleBackColor = true;
+            this.btnDSPT.Text = "PT";
+            this.btnDSPT.UseVisualStyleBackColor = false;
             this.btnDSPT.Click += new System.EventHandler(this.btnDSPT_Click);
             // 
             // btnDanhSachKH
             // 
+            this.btnDanhSachKH.BackColor = System.Drawing.Color.Teal;
             this.btnDanhSachKH.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnDanhSachKH.Location = new System.Drawing.Point(186, 0);
+            this.btnDanhSachKH.FlatAppearance.BorderColor = System.Drawing.Color.Teal;
+            this.btnDanhSachKH.FlatAppearance.CheckedBackColor = System.Drawing.Color.White;
+            this.btnDanhSachKH.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkCyan;
+            this.btnDanhSachKH.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkCyan;
+            this.btnDanhSachKH.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDanhSachKH.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDanhSachKH.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnDanhSachKH.Location = new System.Drawing.Point(270, 0);
+            this.btnDanhSachKH.Margin = new System.Windows.Forms.Padding(8);
             this.btnDanhSachKH.Name = "btnDanhSachKH";
-            this.btnDanhSachKH.Size = new System.Drawing.Size(139, 31);
+            this.btnDanhSachKH.Size = new System.Drawing.Size(135, 31);
             this.btnDanhSachKH.TabIndex = 8;
-            this.btnDanhSachKH.Text = "Danh Sach Khac Hang";
-            this.btnDanhSachKH.UseVisualStyleBackColor = true;
+            this.btnDanhSachKH.Text = "List Customer";
+            this.btnDanhSachKH.UseVisualStyleBackColor = false;
             this.btnDanhSachKH.Click += new System.EventHandler(this.button2_Click);
             // 
             // btnCheckin
             // 
+            this.btnCheckin.BackColor = System.Drawing.Color.Teal;
             this.btnCheckin.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnCheckin.Location = new System.Drawing.Point(88, 0);
+            this.btnCheckin.FlatAppearance.BorderColor = System.Drawing.Color.Teal;
+            this.btnCheckin.FlatAppearance.CheckedBackColor = System.Drawing.Color.White;
+            this.btnCheckin.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkCyan;
+            this.btnCheckin.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkCyan;
+            this.btnCheckin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCheckin.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCheckin.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnCheckin.Location = new System.Drawing.Point(135, 0);
+            this.btnCheckin.Margin = new System.Windows.Forms.Padding(8);
             this.btnCheckin.Name = "btnCheckin";
-            this.btnCheckin.Size = new System.Drawing.Size(98, 31);
+            this.btnCheckin.Size = new System.Drawing.Size(135, 31);
             this.btnCheckin.TabIndex = 5;
             this.btnCheckin.Text = "Check In";
-            this.btnCheckin.UseVisualStyleBackColor = true;
+            this.btnCheckin.UseVisualStyleBackColor = false;
             this.btnCheckin.Click += new System.EventHandler(this.btnCheckin_Click);
             // 
             // btnQuanLyNhanVien
             // 
+            this.btnQuanLyNhanVien.BackColor = System.Drawing.Color.Teal;
             this.btnQuanLyNhanVien.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnQuanLyNhanVien.FlatAppearance.BorderColor = System.Drawing.Color.Teal;
+            this.btnQuanLyNhanVien.FlatAppearance.CheckedBackColor = System.Drawing.Color.White;
+            this.btnQuanLyNhanVien.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkCyan;
+            this.btnQuanLyNhanVien.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkCyan;
+            this.btnQuanLyNhanVien.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnQuanLyNhanVien.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnQuanLyNhanVien.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnQuanLyNhanVien.Location = new System.Drawing.Point(0, 0);
+            this.btnQuanLyNhanVien.Margin = new System.Windows.Forms.Padding(8);
             this.btnQuanLyNhanVien.Name = "btnQuanLyNhanVien";
-            this.btnQuanLyNhanVien.Size = new System.Drawing.Size(88, 31);
+            this.btnQuanLyNhanVien.Size = new System.Drawing.Size(135, 31);
             this.btnQuanLyNhanVien.TabIndex = 3;
-            this.btnQuanLyNhanVien.Text = "Mua Gói";
-            this.btnQuanLyNhanVien.UseVisualStyleBackColor = true;
+            this.btnQuanLyNhanVien.Text = "Shop";
+            this.btnQuanLyNhanVien.UseVisualStyleBackColor = false;
             this.btnQuanLyNhanVien.Click += new System.EventHandler(this.btnQuanLyNhanVien_Click);
             // 
             // pnlContent
@@ -280,17 +320,6 @@
             this.pnlContent.TabIndex = 2;
             this.pnlContent.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlContent_Paint);
             // 
-            // btnThongKe
-            // 
-            this.btnThongKe.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnThongKe.Location = new System.Drawing.Point(922, 0);
-            this.btnThongKe.Name = "btnThongKe";
-            this.btnThongKe.Size = new System.Drawing.Size(116, 31);
-            this.btnThongKe.TabIndex = 15;
-            this.btnThongKe.Text = "Thống Kê";
-            this.btnThongKe.UseVisualStyleBackColor = true;
-            this.btnThongKe.Click += new System.EventHandler(this.btnThongKe_Click);
-            // 
             // Mainfrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -299,8 +328,9 @@
             this.Controls.Add(this.pnlContent);
             this.Controls.Add(this.pnlMenu);
             this.Controls.Add(this.pnlHome);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Mainfrm";
-            this.Text = "Mainfrm";
+            this.Text = "Only Gym";
             this.Load += new System.EventHandler(this.Mainfrm_Load);
             this.pnlHome.ResumeLayout(false);
             this.pnlHome.PerformLayout();
@@ -330,10 +360,7 @@
         private System.Windows.Forms.ToolStripMenuItem hướngDẫnSửDụngToolStripMenuItem;
         private System.Windows.Forms.Button btnDSPT;
         private System.Windows.Forms.ToolStripMenuItem thôngTinChuyênMônToolStripMenuItem;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button btnTaiKhoan;
         private System.Windows.Forms.Button btnLogOut;
         private System.Windows.Forms.Button btnThongKe;
     }

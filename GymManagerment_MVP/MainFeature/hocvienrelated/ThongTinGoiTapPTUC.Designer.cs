@@ -29,12 +29,9 @@
         private void InitializeComponent()
         {
             this.gbThongTinPT = new System.Windows.Forms.GroupBox();
-            this.lvThongTinPT = new System.Windows.Forms.ListView();
-            this.chTenPT = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.chTenGoiTap = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.chNgayDangKy = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.chTrangThaiHD = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.chNotes = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.btnXoa = new System.Windows.Forms.Button();
             this.chEND = new System.Windows.Forms.CheckBox();
             this.cbH = new System.Windows.Forms.CheckBox();
             this.lblTrangThai = new System.Windows.Forms.Label();
@@ -44,16 +41,26 @@
             this.label1 = new System.Windows.Forms.Label();
             this.lblTu = new System.Windows.Forms.Label();
             this.dtpTuCheckin = new System.Windows.Forms.DateTimePicker();
-            this.chGiaTien = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.btnXoa = new System.Windows.Forms.Button();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.dgvDanhSachHopDong = new System.Windows.Forms.DataGridView();
+            this.chgCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TenHocVien = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TenPT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TongBuoi = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ConBuoi = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.trangThai = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cNgayTao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TenGoi = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IDPT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ID_PT_Package = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IDhocvien = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gbThongTinPT.SuspendLayout();
             this.gbLastCheck.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDanhSachHopDong)).BeginInit();
             this.SuspendLayout();
             // 
             // gbThongTinPT
             // 
+            this.gbThongTinPT.Controls.Add(this.dgvDanhSachHopDong);
             this.gbThongTinPT.Controls.Add(this.checkBox2);
             this.gbThongTinPT.Controls.Add(this.checkBox1);
             this.gbThongTinPT.Controls.Add(this.btnXoa);
@@ -61,7 +68,6 @@
             this.gbThongTinPT.Controls.Add(this.cbH);
             this.gbThongTinPT.Controls.Add(this.lblTrangThai);
             this.gbThongTinPT.Controls.Add(this.gbLastCheck);
-            this.gbThongTinPT.Controls.Add(this.lvThongTinPT);
             this.gbThongTinPT.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gbThongTinPT.Location = new System.Drawing.Point(0, 0);
             this.gbThongTinPT.Name = "gbThongTinPT";
@@ -70,49 +76,34 @@
             this.gbThongTinPT.TabStop = false;
             this.gbThongTinPT.Text = "Thông tin đăng ký PT";
             // 
-            // lvThongTinPT
+            // checkBox2
             // 
-            this.lvThongTinPT.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.chTenPT,
-            this.chTenGoiTap,
-            this.chNgayDangKy,
-            this.chTrangThaiHD,
-            this.chNotes,
-            this.chGiaTien});
-            this.lvThongTinPT.Dock = System.Windows.Forms.DockStyle.Right;
-            this.lvThongTinPT.GridLines = true;
-            this.lvThongTinPT.HideSelection = false;
-            this.lvThongTinPT.Location = new System.Drawing.Point(152, 16);
-            this.lvThongTinPT.Name = "lvThongTinPT";
-            this.lvThongTinPT.Size = new System.Drawing.Size(982, 305);
-            this.lvThongTinPT.TabIndex = 0;
-            this.lvThongTinPT.UseCompatibleStateImageBehavior = false;
-            this.lvThongTinPT.View = System.Windows.Forms.View.Details;
+            this.checkBox2.AutoSize = true;
+            this.checkBox2.Location = new System.Drawing.Point(9, 118);
+            this.checkBox2.Name = "checkBox2";
+            this.checkBox2.Size = new System.Drawing.Size(45, 17);
+            this.checkBox2.TabIndex = 51;
+            this.checkBox2.Text = "Hủy";
+            this.checkBox2.UseVisualStyleBackColor = true;
             // 
-            // chTenPT
+            // checkBox1
             // 
-            this.chTenPT.Text = "Tên PT";
-            this.chTenPT.Width = 145;
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(9, 95);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(52, 17);
+            this.checkBox1.TabIndex = 50;
+            this.checkBox1.Text = "Dừng";
+            this.checkBox1.UseVisualStyleBackColor = true;
             // 
-            // chTenGoiTap
+            // btnXoa
             // 
-            this.chTenGoiTap.Text = "Tên Gói Tập";
-            this.chTenGoiTap.Width = 141;
-            // 
-            // chNgayDangKy
-            // 
-            this.chNgayDangKy.Text = "Ngày Đăng Ký";
-            this.chNgayDangKy.Width = 190;
-            // 
-            // chTrangThaiHD
-            // 
-            this.chTrangThaiHD.Text = "Trạng Thái Hợp Đồng";
-            this.chTrangThaiHD.Width = 156;
-            // 
-            // chNotes
-            // 
-            this.chNotes.Text = "Notes";
-            this.chNotes.Width = 202;
+            this.btnXoa.Location = new System.Drawing.Point(15, 292);
+            this.btnXoa.Name = "btnXoa";
+            this.btnXoa.Size = new System.Drawing.Size(131, 23);
+            this.btnXoa.TabIndex = 49;
+            this.btnXoa.Text = "Xóa tất cả";
+            this.btnXoa.UseVisualStyleBackColor = true;
             // 
             // chEND
             // 
@@ -202,51 +193,118 @@
             this.dtpTuCheckin.Size = new System.Drawing.Size(105, 20);
             this.dtpTuCheckin.TabIndex = 21;
             // 
-            // chGiaTien
+            // dgvDanhSachHopDong
             // 
-            this.chGiaTien.Text = "Giá Tiền";
-            this.chGiaTien.Width = 80;
+            this.dgvDanhSachHopDong.AllowUserToOrderColumns = true;
+            this.dgvDanhSachHopDong.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDanhSachHopDong.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.chgCode,
+            this.TenHocVien,
+            this.TenPT,
+            this.TongBuoi,
+            this.ConBuoi,
+            this.trangThai,
+            this.cNgayTao,
+            this.TenGoi,
+            this.IDPT,
+            this.ID_PT_Package,
+            this.IDhocvien});
+            this.dgvDanhSachHopDong.Dock = System.Windows.Forms.DockStyle.Right;
+            this.dgvDanhSachHopDong.Location = new System.Drawing.Point(152, 16);
+            this.dgvDanhSachHopDong.Name = "dgvDanhSachHopDong";
+            this.dgvDanhSachHopDong.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvDanhSachHopDong.Size = new System.Drawing.Size(982, 305);
+            this.dgvDanhSachHopDong.TabIndex = 52;
             // 
-            // btnXoa
+            // chgCode
             // 
-            this.btnXoa.Location = new System.Drawing.Point(15, 292);
-            this.btnXoa.Name = "btnXoa";
-            this.btnXoa.Size = new System.Drawing.Size(131, 23);
-            this.btnXoa.TabIndex = 49;
-            this.btnXoa.Text = "Xóa tất cả";
-            this.btnXoa.UseVisualStyleBackColor = true;
+            this.chgCode.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.chgCode.DataPropertyName = "ID";
+            this.chgCode.HeaderText = "ID";
+            this.chgCode.Name = "chgCode";
+            this.chgCode.Width = 43;
             // 
-            // checkBox1
+            // TenHocVien
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(9, 95);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(52, 17);
-            this.checkBox1.TabIndex = 50;
-            this.checkBox1.Text = "Dừng";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.TenHocVien.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.TenHocVien.DataPropertyName = "TenHocVien";
+            this.TenHocVien.HeaderText = "Tên Học Viên";
+            this.TenHocVien.Name = "TenHocVien";
             // 
-            // checkBox2
+            // TenPT
             // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(9, 118);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(45, 17);
-            this.checkBox2.TabIndex = 51;
-            this.checkBox2.Text = "Hủy";
-            this.checkBox2.UseVisualStyleBackColor = true;
+            this.TenPT.DataPropertyName = "TenPT";
+            this.TenPT.HeaderText = "Tên PT";
+            this.TenPT.Name = "TenPT";
             // 
-            // ThongTinGoiTapUC
+            // TongBuoi
+            // 
+            this.TongBuoi.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.TongBuoi.DataPropertyName = "TongBuoi";
+            this.TongBuoi.HeaderText = "Tổng Buổi";
+            this.TongBuoi.Name = "TongBuoi";
+            this.TongBuoi.Width = 75;
+            // 
+            // ConBuoi
+            // 
+            this.ConBuoi.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.ConBuoi.DataPropertyName = "ConBuoi";
+            this.ConBuoi.HeaderText = "Buoi Con";
+            this.ConBuoi.Name = "ConBuoi";
+            this.ConBuoi.Width = 70;
+            // 
+            // trangThai
+            // 
+            this.trangThai.DataPropertyName = "trangThai";
+            this.trangThai.HeaderText = "Trạng Thái";
+            this.trangThai.Name = "trangThai";
+            // 
+            // cNgayTao
+            // 
+            this.cNgayTao.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.cNgayTao.DataPropertyName = "NgayTao";
+            this.cNgayTao.HeaderText = "Ngày Tạo";
+            this.cNgayTao.Name = "cNgayTao";
+            // 
+            // TenGoi
+            // 
+            this.TenGoi.DataPropertyName = "TenGoi";
+            this.TenGoi.HeaderText = "Ten Goi";
+            this.TenGoi.Name = "TenGoi";
+            // 
+            // IDPT
+            // 
+            this.IDPT.DataPropertyName = "IDPT";
+            this.IDPT.HeaderText = "ID PT";
+            this.IDPT.Name = "IDPT";
+            this.IDPT.Visible = false;
+            // 
+            // ID_PT_Package
+            // 
+            this.ID_PT_Package.DataPropertyName = "ID_PT_Package";
+            this.ID_PT_Package.HeaderText = "ID_PT_Package";
+            this.ID_PT_Package.Name = "ID_PT_Package";
+            this.ID_PT_Package.Visible = false;
+            // 
+            // IDhocvien
+            // 
+            this.IDhocvien.DataPropertyName = "IDHocVien";
+            this.IDhocvien.HeaderText = "ID hoc vien";
+            this.IDhocvien.Name = "IDhocvien";
+            this.IDhocvien.Visible = false;
+            // 
+            // ThongTinGoiTapPTUC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.gbThongTinPT);
-            this.Name = "ThongTinGoiTapUC";
+            this.Name = "ThongTinGoiTapPTUC";
             this.Size = new System.Drawing.Size(1137, 324);
             this.gbThongTinPT.ResumeLayout(false);
             this.gbThongTinPT.PerformLayout();
             this.gbLastCheck.ResumeLayout(false);
             this.gbLastCheck.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDanhSachHopDong)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -254,12 +312,6 @@
         #endregion
 
         private System.Windows.Forms.GroupBox gbThongTinPT;
-        private System.Windows.Forms.ListView lvThongTinPT;
-        private System.Windows.Forms.ColumnHeader chTenPT;
-        private System.Windows.Forms.ColumnHeader chTenGoiTap;
-        private System.Windows.Forms.ColumnHeader chNgayDangKy;
-        private System.Windows.Forms.ColumnHeader chTrangThaiHD;
-        private System.Windows.Forms.ColumnHeader chNotes;
         private System.Windows.Forms.CheckBox chEND;
         private System.Windows.Forms.CheckBox cbH;
         private System.Windows.Forms.Label lblTrangThai;
@@ -269,9 +321,20 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblTu;
         private System.Windows.Forms.DateTimePicker dtpTuCheckin;
-        private System.Windows.Forms.ColumnHeader chGiaTien;
         private System.Windows.Forms.CheckBox checkBox2;
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.Button btnXoa;
+        private System.Windows.Forms.DataGridView dgvDanhSachHopDong;
+        private System.Windows.Forms.DataGridViewTextBoxColumn chgCode;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TenHocVien;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TenPT;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TongBuoi;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ConBuoi;
+        private System.Windows.Forms.DataGridViewTextBoxColumn trangThai;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cNgayTao;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TenGoi;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IDPT;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ID_PT_Package;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IDhocvien;
     }
 }

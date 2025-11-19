@@ -28,17 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem(new string[] {
-            "27/08/2025-06:10",
-            "Accept",
-            ""}, -1);
             this.gbLichSuTap = new System.Windows.Forms.GroupBox();
-            this.lvLichSuTap = new System.Windows.Forms.ListView();
-            this.chThoigian = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.chKQ = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.chGhiChú = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.chLyDo = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.chLanCheckIn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btnXoa = new System.Windows.Forms.Button();
             this.gbLastCheck = new System.Windows.Forms.GroupBox();
             this.dtpDenCheckin = new System.Windows.Forms.DateTimePicker();
@@ -49,13 +39,27 @@
             this.chEND = new System.Windows.Forms.CheckBox();
             this.cbH = new System.Windows.Forms.CheckBox();
             this.lblTrangThai = new System.Windows.Forms.Label();
+            this.dgvSession = new System.Windows.Forms.DataGridView();
+            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gbLichSuTap.SuspendLayout();
             this.gbLastCheck.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSession)).BeginInit();
             this.SuspendLayout();
             // 
             // gbLichSuTap
             // 
-            this.gbLichSuTap.Controls.Add(this.lvLichSuTap);
+            this.gbLichSuTap.Controls.Add(this.dgvSession);
             this.gbLichSuTap.Dock = System.Windows.Forms.DockStyle.Right;
             this.gbLichSuTap.Location = new System.Drawing.Point(170, 0);
             this.gbLichSuTap.Name = "gbLichSuTap";
@@ -63,52 +67,6 @@
             this.gbLichSuTap.TabIndex = 36;
             this.gbLichSuTap.TabStop = false;
             this.gbLichSuTap.Text = "Lich Su Tap";
-            // 
-            // lvLichSuTap
-            // 
-            this.lvLichSuTap.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.chThoigian,
-            this.chKQ,
-            this.chGhiChú,
-            this.chLyDo,
-            this.chLanCheckIn});
-            this.lvLichSuTap.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lvLichSuTap.GridLines = true;
-            this.lvLichSuTap.HideSelection = false;
-            this.lvLichSuTap.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem2});
-            this.lvLichSuTap.Location = new System.Drawing.Point(3, 16);
-            this.lvLichSuTap.Margin = new System.Windows.Forms.Padding(0);
-            this.lvLichSuTap.Name = "lvLichSuTap";
-            this.lvLichSuTap.Size = new System.Drawing.Size(961, 305);
-            this.lvLichSuTap.TabIndex = 0;
-            this.lvLichSuTap.UseCompatibleStateImageBehavior = false;
-            this.lvLichSuTap.View = System.Windows.Forms.View.Details;
-            // 
-            // chThoigian
-            // 
-            this.chThoigian.Text = "Thời gian";
-            this.chThoigian.Width = 117;
-            // 
-            // chKQ
-            // 
-            this.chKQ.Text = "Kết Quả";
-            this.chKQ.Width = 66;
-            // 
-            // chGhiChú
-            // 
-            this.chGhiChú.Text = "Ghi Chú";
-            this.chGhiChú.Width = 285;
-            // 
-            // chLyDo
-            // 
-            this.chLyDo.Text = "Lý Do";
-            this.chLyDo.Width = 142;
-            // 
-            // chLanCheckIn
-            // 
-            this.chLanCheckIn.Text = "Lan CheckIn";
-            this.chLanCheckIn.Width = 232;
             // 
             // btnXoa
             // 
@@ -207,6 +165,116 @@
             this.lblTrangThai.TabIndex = 37;
             this.lblTrangThai.Text = "Kết Quả";
             // 
+            // dgvSession
+            // 
+            this.dgvSession.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvSession.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column9,
+            this.Column19,
+            this.Column17,
+            this.Column20,
+            this.Column18,
+            this.Column10,
+            this.Column11,
+            this.Column12,
+            this.Column13,
+            this.Column14,
+            this.Column15,
+            this.Column16});
+            this.dgvSession.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvSession.Location = new System.Drawing.Point(3, 16);
+            this.dgvSession.Name = "dgvSession";
+            this.dgvSession.RowHeadersWidth = 62;
+            this.dgvSession.Size = new System.Drawing.Size(961, 305);
+            this.dgvSession.TabIndex = 1;
+            // 
+            // Column9
+            // 
+            this.Column9.DataPropertyName = "ID";
+            this.Column9.HeaderText = "ID";
+            this.Column9.Name = "Column9";
+            this.Column9.Visible = false;
+            // 
+            // Column19
+            // 
+            this.Column19.DataPropertyName = "hopDong";
+            this.Column19.HeaderText = "hopDong";
+            this.Column19.Name = "Column19";
+            this.Column19.Visible = false;
+            // 
+            // Column17
+            // 
+            this.Column17.DataPropertyName = "TenHocVien";
+            this.Column17.HeaderText = "TenHocVien";
+            this.Column17.Name = "Column17";
+            // 
+            // Column20
+            // 
+            this.Column20.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.Column20.DataPropertyName = "TenPT";
+            this.Column20.HeaderText = "TenPT";
+            this.Column20.Name = "Column20";
+            this.Column20.Width = 65;
+            // 
+            // Column18
+            // 
+            this.Column18.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.Column18.DataPropertyName = "TenGoi";
+            this.Column18.HeaderText = "TenGoi";
+            this.Column18.Name = "Column18";
+            this.Column18.Visible = false;
+            // 
+            // Column10
+            // 
+            this.Column10.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.Column10.DataPropertyName = "IDHopDong";
+            this.Column10.HeaderText = "IDHopDong";
+            this.Column10.Name = "Column10";
+            this.Column10.Width = 89;
+            // 
+            // Column11
+            // 
+            this.Column11.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column11.DataPropertyName = "TGBatDau";
+            this.Column11.HeaderText = "TGBatDau";
+            this.Column11.Name = "Column11";
+            // 
+            // Column12
+            // 
+            this.Column12.DataPropertyName = "TGKetThuc";
+            this.Column12.HeaderText = "TGKetThuc";
+            this.Column12.Name = "Column12";
+            this.Column12.Visible = false;
+            // 
+            // Column13
+            // 
+            this.Column13.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.Column13.DataPropertyName = "TrangThai";
+            this.Column13.HeaderText = "TrangThai";
+            this.Column13.Name = "Column13";
+            this.Column13.Width = 81;
+            // 
+            // Column14
+            // 
+            this.Column14.DataPropertyName = "ThoiGianTao";
+            this.Column14.HeaderText = "ThoiGianTao";
+            this.Column14.Name = "Column14";
+            this.Column14.Visible = false;
+            // 
+            // Column15
+            // 
+            this.Column15.DataPropertyName = "ThoiGianHuy";
+            this.Column15.HeaderText = "ThoiGianHuy";
+            this.Column15.Name = "Column15";
+            this.Column15.Visible = false;
+            // 
+            // Column16
+            // 
+            this.Column16.DataPropertyName = "LyDoHuy";
+            this.Column16.HeaderText = "LyDoHuy";
+            this.Column16.Name = "Column16";
+            this.Column16.Visible = false;
+            // 
             // ThongTinCheckInUC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -223,6 +291,7 @@
             this.gbLichSuTap.ResumeLayout(false);
             this.gbLastCheck.ResumeLayout(false);
             this.gbLastCheck.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSession)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -231,12 +300,6 @@
         #endregion
 
         private System.Windows.Forms.GroupBox gbLichSuTap;
-        private System.Windows.Forms.ListView lvLichSuTap;
-        private System.Windows.Forms.ColumnHeader chThoigian;
-        private System.Windows.Forms.ColumnHeader chKQ;
-        private System.Windows.Forms.ColumnHeader chGhiChú;
-        private System.Windows.Forms.ColumnHeader chLyDo;
-        private System.Windows.Forms.ColumnHeader chLanCheckIn;
         private System.Windows.Forms.Button btnXoa;
         private System.Windows.Forms.GroupBox gbLastCheck;
         private System.Windows.Forms.DateTimePicker dtpDenCheckin;
@@ -247,5 +310,18 @@
         private System.Windows.Forms.CheckBox chEND;
         private System.Windows.Forms.CheckBox cbH;
         private System.Windows.Forms.Label lblTrangThai;
+        private System.Windows.Forms.DataGridView dgvSession;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column19;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column17;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column20;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column18;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column12;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column13;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column14;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column15;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column16;
     }
 }

@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Business;
+using DataAccess.Object;
+using GymManagerment_MVP.Business;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,5 +19,14 @@ namespace GymManagerment_MVP.MainFeature.HocVienRelated
         {
             InitializeComponent();
         }
+        public ThongTinGoiTapPTUC(HocVien hv)
+        {
+            InitializeComponent();
+            HopDongBL hdbl = new HopDongBL();
+            List<HopDong> list = hdbl.GetAll();
+            list = list.Where(l => l.IDHocVien == hv.id).ToList();
+            dgvDanhSachHopDong.DataSource = list;
+        }
+
     }
 }

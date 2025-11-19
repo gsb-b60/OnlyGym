@@ -39,10 +39,7 @@ namespace GymManagerment_MVP
             // Test Form
             lblAccName.Text = user.TenTK;
             lblChucVu.Text = user.TrangThai.ToString();
-            if(user.TrangThai==TrangThaiTK.Admin)
-            {
-                btnTaiKhoan.Visible = true;
-            }
+            
             //FrmCheckIn frm = new FrmCheckIn();
             ////frm.Show();
 
@@ -223,6 +220,21 @@ namespace GymManagerment_MVP
         private void btnThongKe_Click(object sender, EventArgs e)
         {
             loadUserControl(new ThongKePTUC());
+        }
+
+        private void thôngTinGóiTậpToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblAccName_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblChucVu_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
