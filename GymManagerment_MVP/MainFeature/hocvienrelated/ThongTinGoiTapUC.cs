@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Business;
+using GymManagerment_MVP.Business;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +17,12 @@ namespace GymManagerment_MVP.MainFeature.HocVienRelated
         public ThongTinGoiTapUC()
         {
             InitializeComponent();
+        }
+        public ThongTinGoiTapUC(HocVien hv)
+        {
+            InitializeComponent();
+            GoiHVBL goibl=new GoiHVBL();
+            dataGridView1.DataSource= goibl.getByIDHocVien(hv.id);
         }
     }
 }

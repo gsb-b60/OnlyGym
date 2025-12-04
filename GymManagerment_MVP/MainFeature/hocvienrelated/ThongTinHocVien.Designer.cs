@@ -70,6 +70,7 @@
             this.tabHóaĐơn = new System.Windows.Forms.TabPage();
             this.tabGoi = new System.Windows.Forms.TabPage();
             this.tabLichSuPT = new System.Windows.Forms.TabPage();
+            this.btnBuy = new System.Windows.Forms.Button();
             this.pnThongTin.SuspendLayout();
             this.gbSex.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbAvartar)).BeginInit();
@@ -80,6 +81,7 @@
             // pnThongTin
             // 
             this.pnThongTin.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnThongTin.Controls.Add(this.btnBuy);
             this.pnThongTin.Controls.Add(this.btnRestore);
             this.pnThongTin.Controls.Add(this.btnXoa);
             this.pnThongTin.Controls.Add(this.dtpXoa);
@@ -401,7 +403,7 @@
             this.pbAvartar.Image = ((System.Drawing.Image)(resources.GetObject("pbAvartar.Image")));
             this.pbAvartar.Location = new System.Drawing.Point(12, 16);
             this.pbAvartar.Name = "pbAvartar";
-            this.pbAvartar.Padding = new System.Windows.Forms.Padding(10, 10, 10, 10);
+            this.pbAvartar.Padding = new System.Windows.Forms.Padding(10);
             this.pbAvartar.Size = new System.Drawing.Size(166, 214);
             this.pbAvartar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbAvartar.TabIndex = 18;
@@ -441,7 +443,7 @@
             // 
             this.tabCheckIn.Location = new System.Drawing.Point(4, 34);
             this.tabCheckIn.Name = "tabCheckIn";
-            this.tabCheckIn.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabCheckIn.Padding = new System.Windows.Forms.Padding(3);
             this.tabCheckIn.Size = new System.Drawing.Size(1137, 324);
             this.tabCheckIn.TabIndex = 0;
             this.tabCheckIn.Text = "Lịch Sử Tập";
@@ -451,8 +453,8 @@
             // 
             this.tabHóaĐơn.Location = new System.Drawing.Point(4, 34);
             this.tabHóaĐơn.Name = "tabHóaĐơn";
-            this.tabHóaĐơn.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
-            this.tabHóaĐơn.Size = new System.Drawing.Size(1137, 325);
+            this.tabHóaĐơn.Padding = new System.Windows.Forms.Padding(3);
+            this.tabHóaĐơn.Size = new System.Drawing.Size(1137, 324);
             this.tabHóaĐơn.TabIndex = 1;
             this.tabHóaĐơn.Text = "Thông Tin Hóa Đơn";
             this.tabHóaĐơn.UseVisualStyleBackColor = true;
@@ -461,8 +463,8 @@
             // 
             this.tabGoi.Location = new System.Drawing.Point(4, 34);
             this.tabGoi.Name = "tabGoi";
-            this.tabGoi.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
-            this.tabGoi.Size = new System.Drawing.Size(1137, 325);
+            this.tabGoi.Padding = new System.Windows.Forms.Padding(3);
+            this.tabGoi.Size = new System.Drawing.Size(1137, 324);
             this.tabGoi.TabIndex = 2;
             this.tabGoi.Text = "Lịch Sử Gói";
             this.tabGoi.UseVisualStyleBackColor = true;
@@ -471,11 +473,21 @@
             // 
             this.tabLichSuPT.Location = new System.Drawing.Point(4, 34);
             this.tabLichSuPT.Name = "tabLichSuPT";
-            this.tabLichSuPT.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
-            this.tabLichSuPT.Size = new System.Drawing.Size(1137, 325);
+            this.tabLichSuPT.Padding = new System.Windows.Forms.Padding(3);
+            this.tabLichSuPT.Size = new System.Drawing.Size(1137, 324);
             this.tabLichSuPT.TabIndex = 3;
             this.tabLichSuPT.Text = "Thông Tin PT";
             this.tabLichSuPT.UseVisualStyleBackColor = true;
+            // 
+            // btnBuy
+            // 
+            this.btnBuy.Location = new System.Drawing.Point(662, 207);
+            this.btnBuy.Name = "btnBuy";
+            this.btnBuy.Size = new System.Drawing.Size(75, 23);
+            this.btnBuy.TabIndex = 52;
+            this.btnBuy.Text = "Mua Hang";
+            this.btnBuy.UseVisualStyleBackColor = true;
+            this.btnBuy.Click += new System.EventHandler(this.btnBuy_Click);
             // 
             // ThongTinHocVien
             // 
@@ -539,5 +551,6 @@
         public System.Windows.Forms.TabControl tbThongTin;
         private System.Windows.Forms.TabPage tabGoi;
         private System.Windows.Forms.TabPage tabLichSuPT;
+        private System.Windows.Forms.Button btnBuy;
     }
 }

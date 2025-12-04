@@ -11,7 +11,7 @@ namespace Business
     public class GoiHVBL
     {
         GoiHVDA goihvda = new GoiHVDA();
-        List<GoiHV> getByIDHocVien(int id)
+        public List<GoiHV> getByIDHocVien(int id)
         {
             return goihvda.getGoiByIDHV(id);
         }

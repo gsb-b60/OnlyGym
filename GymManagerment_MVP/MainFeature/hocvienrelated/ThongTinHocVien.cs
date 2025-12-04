@@ -141,11 +141,12 @@ namespace GymManagerment_MVP
             btnSua.Enabled = true;
             HocVienBL hvbl = new HocVienBL();
             HocVien hv = hvbl.GetByCode(code);
+            btnBuy.Tag = hv.code;
             SetUpPanel(hv);
         }
         private void SetUpPanel(HocVien hv)
         {
-            ThongTinGoiTapUC goitap = new ThongTinGoiTapUC();
+            ThongTinGoiTapUC goitap = new ThongTinGoiTapUC(hv);
             goitap.Dock = DockStyle.Fill;
             tabGoi.Controls.Add(goitap);
             goitap.BringToFront();
@@ -230,6 +231,22 @@ namespace GymManagerment_MVP
         {
             reset();
             btnSua.Enabled = false;
+        }
+
+        private void btnBuy_Click(object sender, EventArgs e)
+        {
+            if (btnBuy.Tag != null)
+            {
+                Mainfrm main = Application.OpenForms.OfType<Mainfrm>().FirstOrDefault();
+                if (main != null)
+                {
+                    main.OpenMuaHang(btnBuy.Tag.ToString());
+                }
+                else
+                {
+                    MessageBox.Show("Không tìm thấy form chính (Mainfrm).", "Lỗi");
+                }
+            }
         }
     }
 }
