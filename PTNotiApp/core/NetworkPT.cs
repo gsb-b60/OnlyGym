@@ -29,7 +29,6 @@ namespace PTNotiApp.core
                 _writer=new StreamWriter(stream) { AutoFlush=true};
                 _reader=new StreamReader(stream);
 
-
             }catch(Exception e)
             {
                 Debug.WriteLine(e);
